@@ -9,6 +9,7 @@
 "label_payments" = "All payments";
 "label_transactions" = "All transactions";
 "label_newpayment" = "New payment";
+"label_selectpricetype" = "Select currency";
 
 "btn_add" = "Add";
 "btn_cancel" = "Cancel";

@@ -15,6 +15,7 @@
 		5AA35D7F2864B7F200866E5D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA35D7E2864B7F200866E5D /* CoreDataManager.swift */; };
 		5AD40EDF2864F4FB00E6E26F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40EDE2864F4FB00E6E26F /* String.swift */; };
 		5AD40EE22864F5B600E6E26F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD40EE42864F5B600E6E26F /* Localizable.strings */; };
+		5AD40EF12864FEA200E6E26F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40EF02864FEA200E6E26F /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5AD40EDE2864F4FB00E6E26F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5AD40EE32864F5B600E6E26F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AD40EEC2864F65400E6E26F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5AD40EF02864FEA200E6E26F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +62,14 @@
 		5AA35D6A2864B31D00866E5D /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				5AD40EEF2864FBCF00E6E26F /* Managers */,
+				5AD40EEE2864FBCB00E6E26F /* UI */,
 				5AA35D802864F33600866E5D /* Extensions */,
 				5AA35D6B2864B31D00866E5D /* MoneyTrackerApp.swift */,
 				5AA35D6D2864B31D00866E5D /* ContentView.swift */,
 				5AA35D6F2864B31E00866E5D /* Assets.xcassets */,
 				5AA35D792864B5D700866E5D /* main.xcdatamodeld */,
 				5AA35D7C2864B7AF00866E5D /* PersistenceController.swift */,
-				5AA35D7E2864B7F200866E5D /* CoreDataManager.swift */,
 				5AD40EE42864F5B600E6E26F /* Localizable.strings */,
 			);
 			path = MoneyTracker;
@@ -78,6 +81,22 @@
 				5AD40EDE2864F4FB00E6E26F /* String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5AD40EEE2864FBCB00E6E26F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5AD40EEF2864FBCF00E6E26F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5AA35D7E2864B7F200866E5D /* CoreDataManager.swift */,
+				5AD40EF02864FEA200E6E26F /* StorageManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +173,7 @@
 				5AD40EDF2864F4FB00E6E26F /* String.swift in Sources */,
 				5AA35D6E2864B31D00866E5D /* ContentView.swift in Sources */,
 				5AA35D7B2864B5D700866E5D /* main.xcdatamodeld in Sources */,
+				5AD40EF12864FEA200E6E26F /* StorageManager.swift in Sources */,
 				5AA35D6C2864B31D00866E5D /* MoneyTrackerApp.swift in Sources */,
 				5AA35D7F2864B7F200866E5D /* CoreDataManager.swift in Sources */,
 				5AA35D7D2864B7AF00866E5D /* PersistenceController.swift in Sources */,

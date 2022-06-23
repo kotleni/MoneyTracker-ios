@@ -14,10 +14,11 @@ struct ContentView: View {
     @State private var priceText: String = ""
     @State private var aboutText: String = ""
     @State private var spendingBool: Bool = false
+    @State private var priceType: String = "UAH"
     
     var body: some View {
         NavigationView {
-            MainView(payments: $payments)
+            MainView(payments: $payments, priceType: $priceType)
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
                         Button {
@@ -33,6 +34,9 @@ struct ContentView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("label_payments".localized)
+        }
+        .onAppear {
+            priceType = StorageManager.shared.getPriceType()
         }
         .alert("warn_fields", isPresented: $isAlertShow) {
                 Button("OK") {
@@ -77,6 +81,10 @@ struct ContentView: View {
 
 struct MainView: View {
     @Binding var payments: [Payment]
+    @Binding var priceType: String
+    @State private var isSheetShow: Bool = false
+    @State private var selection: String = ""
+    private let types = ["UAH", "USD", "RUB"]
     
     var body: some View {
         VStack {
@@ -84,8 +92,14 @@ struct MainView: View {
                 Text(String(format: "%.2f", mathPaymentsPrice()))
                     .font(.system(size: 50).bold())
                     .padding(4)
-                Text("UAH")
-                    .lineLimit(3)
+                Button {
+                    selection = priceType
+                    isSheetShow = true
+                } label: {
+                    Text(priceType)
+                        .lineLimit(3)
+                }
+
             }
             .padding(32)
             .frame(height: 140)
@@ -97,7 +111,7 @@ struct MainView: View {
                             Text(payment.about!)
                                 .font(.system(size: 16).bold())
                             Spacer()
-                            Text("\(String(format: "%.2f", payment.price)) UAH")
+                            Text("\(String(format: "%.2f", payment.price)) \(priceType)")
                                 .font(.system(size: 16))
                         }
                         .listStyle(.grouped)
@@ -113,6 +127,38 @@ struct MainView: View {
                 
             }
         }
+        .sheet(isPresented: $isSheetShow, content: {
+            NavigationView {
+                VStack {
+                    Picker("", selection: $selection) {
+                        ForEach(types, id: \.self) { type in
+                            Text(type)
+                        }
+                    }
+                    .pickerStyle(WheelPickerStyle())
+                }
+                .navigationBarTitle("label_selectpricetype".localized, displayMode: .inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            isSheetShow = false
+                        } label: {
+                            Text("btn_cancel".localized)
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            priceType = selection
+                            StorageManager.shared.setPriceType(type: priceType)
+                            isSheetShow = false
+                        } label: {
+                            Text("btn_next".localized)
+                        }
+                    }
+                }
+            }
+        })
         .onAppear {
             payments = CoreDataManager.shared.getPayments()
         }

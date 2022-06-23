@@ -9,6 +9,7 @@
 "label_payments" = "Все платежи";
 "label_transactions" = "Все транзакции";
 "label_newpayment" = "Новый платеж";
+"label_selectpricetype" = "Выберите валюту";
 
 "btn_add" = "Добавить";
 "btn_cancel" = "Отмена";
