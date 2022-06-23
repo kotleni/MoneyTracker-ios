@@ -84,7 +84,7 @@ struct MainView: View {
     @Binding var priceType: String
     @State private var isSheetShow: Bool = false
     @State private var selection: String = ""
-    private let types = ["UAH", "USD", "RUB"]
+    private let types = ["UAH", "USD", "RUB", "EUR", "JPY", "GBP", "CHF", "CAD", "AUD", "NZD", "ZAR", "PLN"].sorted()
     
     var body: some View {
         VStack {
