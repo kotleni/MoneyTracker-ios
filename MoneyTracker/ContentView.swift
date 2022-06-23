@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isSheetShow: Bool = false
+    @State private var isAlertShow: Bool = false
     @State private var payments: [Payment] = []
     @State private var priceText: String = ""
     @State private var aboutText: String = ""
@@ -17,10 +18,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             MainView(payments: $payments)
-                .tag(0)
-                .tabItem {
-                    Label("Платежи", systemImage: "house")
-                }
                 .toolbar {
                     ToolbarItem(placement: .bottomBar) {
                         Button {
@@ -28,39 +25,48 @@ struct ContentView: View {
                         } label: {
                             HStack {
                                 Image(systemName: "plus.circle.fill")
-                                Text("Добавить")
+                                Text("btn_add".localized)
                             }
                         }
                         Spacer()
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Все платежи")
+                .navigationTitle("label_payments".localized)
         }
+        .alert("warn_fields", isPresented: $isAlertShow) {
+                Button("OK") {
+                    isAlertShow = false
+                }
+            }
         .sheet(isPresented: $isSheetShow) {
             NavigationView {
                 AddView(priceText: $priceText, aboutText: $aboutText, spendingBool: $spendingBool)
-                    .navigationBarTitle("Новый платеж", displayMode: .inline)
+                    .navigationBarTitle("label_newpayment".localized, displayMode: .inline)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button {
                                 isSheetShow = false
                             } label: {
-                                Text("Отмена")
+                                Text("btn_cancel".localized)
                             }
                         }
                         
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
-                                CoreDataManager.shared.addPayment(price: Float(spendingBool ? "-\(priceText)" : priceText)!, about: aboutText)
-                                payments = CoreDataManager.shared.getPayments()
-                                isSheetShow = false
-                                
-                                priceText = ""
-                                aboutText = ""
-                                spendingBool = false
+                                if !priceText.isEmpty && !aboutText.isEmpty {
+                                    guard let fl = Float(spendingBool ? "-\(priceText)" : priceText) else { return }
+                                    
+                                    CoreDataManager.shared.addPayment(price: fl, about: aboutText)
+                                    payments = CoreDataManager.shared.getPayments()
+                                    isSheetShow = false
+                                    
+                                    priceText = ""
+                                    aboutText = ""
+                                    spendingBool = false
+                                }
                             } label: {
-                                Text("Далее")
+                                Text("btn_next".localized)
                             }
                         }
                     }
@@ -96,8 +102,12 @@ struct MainView: View {
                         }
                         .listStyle(.grouped)
                     }
+                    .onDelete { indexSet in
+                        CoreDataManager.shared.removePayment(index: indexSet.first!)
+                        payments = CoreDataManager.shared.getPayments()
+                    }
                 } header: {
-                    Text("Все транзакции")
+                    Text("label_transactions".localized)
                         .font(.system(size: 18).bold())
                 }
                 
@@ -127,27 +137,27 @@ struct AddView: View {
             Form {
                 Section {
                     HStack {
-                        Text("Цена")
+                        Text("field_price".localized)
                         Spacer()
-                        TextField("Обязательно", text: $priceText)
+                        TextField("hint_necessarily".localized, text: $priceText)
                             .keyboardType(.numberPad)
                             .multilineTextAlignment(.trailing)
                             .frame(width: UIScreen.main.bounds.width / 3)
                     }
                     HStack {
-                        Text("Описание")
+                        Text("field_about".localized)
                         Spacer()
-                        TextField("Обязательно", text: $aboutText)
+                        TextField("hint_necessarily".localized, text: $aboutText)
                             .multilineTextAlignment(.trailing)
                             .frame(width: UIScreen.main.bounds.width / 3)
                     }
                     
                     HStack {
-                        Text("Оплата")
+                        Text("field_expenses".localized)
                         Toggle("", isOn: $spendingBool)
                     }
                 } footer: {
-                    Text("После создания платежа, он добавится в историю и счетчик средств обновится.")
+                    Text("hint_payment".localized)
                 }
             }
         }

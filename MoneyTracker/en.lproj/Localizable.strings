@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  MoneyTracker
+
+  Created by Victor Varenik on 23.06.2022.
+  
+*/
+
+"label_payments" = "All payments";
+"label_transactions" = "All transactions";
+"label_newpayment" = "New payment";
+
+"btn_add" = "Add";
+"btn_cancel" = "Cancel";
+"btn_next" = "Next";
+
+"hint_necessarily" = "Necessarily";
+"hint_payment" = "After creating a payment, it will be added to the history and the funds counter will be updated.";
+
+"field_price" = "Price";
+"field_about" = "About";
+"field_expenses" = "Expenses";
+

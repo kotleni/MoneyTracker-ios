@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  MoneyTracker
+
+  Created by Victor Varenik on 23.06.2022.
+  
+*/
+
+"label_payments" = "Все платежи";
+"label_transactions" = "Все транзакции";
+"label_newpayment" = "Новый платеж";
+
+"btn_add" = "Добавить";
+"btn_cancel" = "Отмена";
+"btn_next" = "Далее";
+
+"hint_necessarily" = "Обязятально";
+"hint_payment" = "После создания платежа он будет добавлен в историю и счетчик средств будет обновлен.";
+
+"field_price" = "Цена";
+"field_about" = "Описание";
+"field_expenses" = "Расход";

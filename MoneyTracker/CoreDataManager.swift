@@ -23,6 +23,7 @@ struct CoreDataManager {
     
     func removePayment(index: Int) {
         viewContext.delete(getPayments()[index])
+        try! viewContext.save()
     }
     
     func getPayments() -> [Payment] {
