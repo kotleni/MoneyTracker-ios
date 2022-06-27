@@ -7,33 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AA35D6C2864B31D00866E5D /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA35D6B2864B31D00866E5D /* MoneyTrackerApp.swift */; };
-		5AA35D6E2864B31D00866E5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA35D6D2864B31D00866E5D /* ContentView.swift */; };
-		5AA35D702864B31E00866E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AA35D6F2864B31E00866E5D /* Assets.xcassets */; };
-		5AA35D7B2864B5D700866E5D /* main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5AA35D792864B5D700866E5D /* main.xcdatamodeld */; };
-		5AA35D7D2864B7AF00866E5D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA35D7C2864B7AF00866E5D /* PersistenceController.swift */; };
-		5AA35D7F2864B7F200866E5D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA35D7E2864B7F200866E5D /* CoreDataManager.swift */; };
-		5AD40EDF2864F4FB00E6E26F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40EDE2864F4FB00E6E26F /* String.swift */; };
-		5AD40EE22864F5B600E6E26F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD40EE42864F5B600E6E26F /* Localizable.strings */; };
-		5AD40EF12864FEA200E6E26F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40EF02864FEA200E6E26F /* StorageManager.swift */; };
+		B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */; };
+		B4D501262869A87A0065EB4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501252869A87A0065EB4D /* ContentView.swift */; };
+		B4D501282869A87C0065EB4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D501272869A87C0065EB4D /* Assets.xcassets */; };
+		B4D5012B2869A87C0065EB4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D5012A2869A87C0065EB4D /* Preview Assets.xcassets */; };
+		B4D501322869A9ED0065EB4D /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501312869A9ED0065EB4D /* String+Ext.swift */; };
+		B4D501352869AA510065EB4D /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501342869AA510065EB4D /* StorageManager.swift */; };
+		B4D501372869AA6C0065EB4D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501362869AA6C0065EB4D /* CoreDataManager.swift */; };
+		B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501382869AA860065EB4D /* PersistenceController.swift */; };
+		B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */; };
+		B4D501462869ABCE0065EB4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4D501482869ABCE0065EB4D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5AA35D682864B31D00866E5D /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AA35D6B2864B31D00866E5D /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
-		5AA35D6D2864B31D00866E5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		5AA35D6F2864B31E00866E5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5AA35D7A2864B5D700866E5D /* main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = main.xcdatamodel; sourceTree = "<group>"; };
-		5AA35D7C2864B7AF00866E5D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		5AA35D7E2864B7F200866E5D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		5AD40EDE2864F4FB00E6E26F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		5AD40EE32864F5B600E6E26F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5AD40EEC2864F65400E6E26F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5AD40EF02864FEA200E6E26F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		B4D501202869A87A0065EB4D /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
+		B4D501252869A87A0065EB4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B4D501272869A87C0065EB4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4D5012A2869A87C0065EB4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B4D501312869A9ED0065EB4D /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		B4D501342869AA510065EB4D /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		B4D501362869AA6C0065EB4D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B4D501382869AA860065EB4D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		B4D5013C2869AAB10065EB4D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B4D501472869ABCE0065EB4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B4D501492869ABD20065EB4D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5AA35D652864B31D00866E5D /* Frameworks */ = {
+		B4D5011D2869A87A0065EB4D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,72 +45,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5AA35D5F2864B31D00866E5D = {
+		B4D501172869A87A0065EB4D = {
 			isa = PBXGroup;
 			children = (
-				5AA35D6A2864B31D00866E5D /* MoneyTracker */,
-				5AA35D692864B31D00866E5D /* Products */,
+				B4D501222869A87A0065EB4D /* MoneyTracker */,
+				B4D501212869A87A0065EB4D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5AA35D692864B31D00866E5D /* Products */ = {
+		B4D501212869A87A0065EB4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AA35D682864B31D00866E5D /* MoneyTracker.app */,
+				B4D501202869A87A0065EB4D /* MoneyTracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5AA35D6A2864B31D00866E5D /* MoneyTracker */ = {
+		B4D501222869A87A0065EB4D /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
-				5AD40EEF2864FBCF00E6E26F /* Managers */,
-				5AD40EEE2864FBCB00E6E26F /* UI */,
-				5AA35D802864F33600866E5D /* Extensions */,
-				5AA35D6B2864B31D00866E5D /* MoneyTrackerApp.swift */,
-				5AA35D6D2864B31D00866E5D /* ContentView.swift */,
-				5AA35D6F2864B31E00866E5D /* Assets.xcassets */,
-				5AA35D792864B5D700866E5D /* main.xcdatamodeld */,
-				5AA35D7C2864B7AF00866E5D /* PersistenceController.swift */,
-				5AD40EE42864F5B600E6E26F /* Localizable.strings */,
+				B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */,
+				B4D501252869A87A0065EB4D /* ContentView.swift */,
+				B4D501482869ABCE0065EB4D /* Localizable.strings */,
+				B4D5013A2869AA900065EB4D /* Services */,
+				B4D501332869AA1B0065EB4D /* Extension */,
+				B4D501272869A87C0065EB4D /* Assets.xcassets */,
+				B4D501292869A87C0065EB4D /* Preview Content */,
 			);
 			path = MoneyTracker;
 			sourceTree = "<group>";
 		};
-		5AA35D802864F33600866E5D /* Extensions */ = {
+		B4D501292869A87C0065EB4D /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				5AD40EDE2864F4FB00E6E26F /* String.swift */,
+				B4D5012A2869A87C0065EB4D /* Preview Assets.xcassets */,
 			);
-			path = Extensions;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		5AD40EEE2864FBCB00E6E26F /* UI */ = {
+		B4D501332869AA1B0065EB4D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B4D501312869A9ED0065EB4D /* String+Ext.swift */,
 			);
-			path = UI;
+			path = Extension;
 			sourceTree = "<group>";
 		};
-		5AD40EEF2864FBCF00E6E26F /* Managers */ = {
+		B4D5013A2869AA900065EB4D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5AA35D7E2864B7F200866E5D /* CoreDataManager.swift */,
-				5AD40EF02864FEA200E6E26F /* StorageManager.swift */,
+				B4D501362869AA6C0065EB4D /* CoreDataManager.swift */,
+				B4D501382869AA860065EB4D /* PersistenceController.swift */,
+				B4D501342869AA510065EB4D /* StorageManager.swift */,
+				B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */,
 			);
-			path = Managers;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5AA35D672864B31D00866E5D /* MoneyTracker */ = {
+		B4D5011F2869A87A0065EB4D /* MoneyTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AA35D762864B31E00866E5D /* Build configuration list for PBXNativeTarget "MoneyTracker" */;
+			buildConfigurationList = B4D5012E2869A87C0065EB4D /* Build configuration list for PBXNativeTarget "MoneyTracker" */;
 			buildPhases = (
-				5AA35D642864B31D00866E5D /* Sources */,
-				5AA35D652864B31D00866E5D /* Frameworks */,
-				5AA35D662864B31D00866E5D /* Resources */,
+				B4D5011C2869A87A0065EB4D /* Sources */,
+				B4D5011D2869A87A0065EB4D /* Frameworks */,
+				B4D5011E2869A87A0065EB4D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -116,78 +119,78 @@
 			);
 			name = MoneyTracker;
 			productName = MoneyTracker;
-			productReference = 5AA35D682864B31D00866E5D /* MoneyTracker.app */;
+			productReference = B4D501202869A87A0065EB4D /* MoneyTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5AA35D602864B31D00866E5D /* Project object */ = {
+		B4D501182869A87A0065EB4D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					5AA35D672864B31D00866E5D = {
+					B4D5011F2869A87A0065EB4D = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 5AA35D632864B31D00866E5D /* Build configuration list for PBXProject "MoneyTracker" */;
+			buildConfigurationList = B4D5011B2869A87A0065EB4D /* Build configuration list for PBXProject "MoneyTracker" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				ru,
 			);
-			mainGroup = 5AA35D5F2864B31D00866E5D;
-			productRefGroup = 5AA35D692864B31D00866E5D /* Products */;
+			mainGroup = B4D501172869A87A0065EB4D;
+			productRefGroup = B4D501212869A87A0065EB4D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5AA35D672864B31D00866E5D /* MoneyTracker */,
+				B4D5011F2869A87A0065EB4D /* MoneyTracker */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5AA35D662864B31D00866E5D /* Resources */ = {
+		B4D5011E2869A87A0065EB4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AA35D702864B31E00866E5D /* Assets.xcassets in Resources */,
-				5AD40EE22864F5B600E6E26F /* Localizable.strings in Resources */,
+				B4D5012B2869A87C0065EB4D /* Preview Assets.xcassets in Resources */,
+				B4D501462869ABCE0065EB4D /* Localizable.strings in Resources */,
+				B4D501282869A87C0065EB4D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5AA35D642864B31D00866E5D /* Sources */ = {
+		B4D5011C2869A87A0065EB4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD40EDF2864F4FB00E6E26F /* String.swift in Sources */,
-				5AA35D6E2864B31D00866E5D /* ContentView.swift in Sources */,
-				5AA35D7B2864B5D700866E5D /* main.xcdatamodeld in Sources */,
-				5AD40EF12864FEA200E6E26F /* StorageManager.swift in Sources */,
-				5AA35D6C2864B31D00866E5D /* MoneyTrackerApp.swift in Sources */,
-				5AA35D7F2864B7F200866E5D /* CoreDataManager.swift in Sources */,
-				5AA35D7D2864B7AF00866E5D /* PersistenceController.swift in Sources */,
+				B4D501322869A9ED0065EB4D /* String+Ext.swift in Sources */,
+				B4D501262869A87A0065EB4D /* ContentView.swift in Sources */,
+				B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */,
+				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
+				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
+				B4D501372869AA6C0065EB4D /* CoreDataManager.swift in Sources */,
+				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5AD40EE42864F5B600E6E26F /* Localizable.strings */ = {
+		B4D501482869ABCE0065EB4D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5AD40EE32864F5B600E6E26F /* en */,
-				5AD40EEC2864F65400E6E26F /* ru */,
+				B4D501472869ABCE0065EB4D /* en */,
+				B4D501492869ABD20065EB4D /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -195,11 +198,10 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5AA35D742864B31E00866E5D /* Debug */ = {
+		B4D5012C2869A87C0065EB4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -246,7 +248,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -256,11 +258,10 @@
 			};
 			name = Debug;
 		};
-		5AA35D752864B31E00866E5D /* Release */ = {
+		B4D5012D2869A87C0065EB4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -301,7 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -311,30 +312,29 @@
 			};
 			name = Release;
 		};
-		5AA35D772864B31E00866E5D /* Debug */ = {
+		B4D5012F2869A87C0065EB4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/\"";
-				DEVELOPMENT_TEAM = 534C989ZLQ;
+				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 9M7NZR7YP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Money Tracker";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kotleni.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -342,30 +342,29 @@
 			};
 			name = Debug;
 		};
-		5AA35D782864B31E00866E5D /* Release */ = {
+		B4D501302869A87C0065EB4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/\"";
-				DEVELOPMENT_TEAM = 534C989ZLQ;
+				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 9M7NZR7YP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Money Tracker";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kotleni.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -376,20 +375,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5AA35D632864B31D00866E5D /* Build configuration list for PBXProject "MoneyTracker" */ = {
+		B4D5011B2869A87A0065EB4D /* Build configuration list for PBXProject "MoneyTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5AA35D742864B31E00866E5D /* Debug */,
-				5AA35D752864B31E00866E5D /* Release */,
+				B4D5012C2869A87C0065EB4D /* Debug */,
+				B4D5012D2869A87C0065EB4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AA35D762864B31E00866E5D /* Build configuration list for PBXNativeTarget "MoneyTracker" */ = {
+		B4D5012E2869A87C0065EB4D /* Build configuration list for PBXNativeTarget "MoneyTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5AA35D772864B31E00866E5D /* Debug */,
-				5AA35D782864B31E00866E5D /* Release */,
+				B4D5012F2869A87C0065EB4D /* Debug */,
+				B4D501302869A87C0065EB4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -397,17 +396,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5AA35D792864B5D700866E5D /* main.xcdatamodeld */ = {
+		B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5AA35D7A2864B5D700866E5D /* main.xcdatamodel */,
+				B4D5013C2869AAB10065EB4D /* Model.xcdatamodel */,
 			);
-			currentVersion = 5AA35D7A2864B5D700866E5D /* main.xcdatamodel */;
-			path = main.xcdatamodeld;
+			currentVersion = B4D5013C2869AAB10065EB4D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 5AA35D602864B31D00866E5D /* Project object */;
+	rootObject = B4D501182869A87A0065EB4D /* Project object */;
 }
