@@ -38,11 +38,6 @@ struct ContentView: View {
         .onAppear {
             priceType = StorageManager.shared.getPriceType()
         }
-        .alert("warn_fields", isPresented: $isAlertShow) {
-                Button("OK") {
-                    isAlertShow = false
-                }
-            }
         .sheet(isPresented: $isSheetShow) {
             NavigationView {
                 AddView(priceText: $priceText, aboutText: $aboutText, spendingBool: $spendingBool)
@@ -183,6 +178,7 @@ struct AddView: View {
             Form {
                 Section {
                     HStack {
+                        Image(systemName: "")
                         Text("field_price".localized)
                         Spacer()
                         TextField("hint_necessarily".localized, text: $priceText)
