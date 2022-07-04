@@ -17,6 +17,7 @@
 
 "hint_necessarily" = "Necessarily";
 "hint_payment" = "After creating a payment, it will be added to the history and the funds counter will be updated.";
+"hint_empty" = "You don't have any payments.";
 
 "field_price" = "Price";
 "field_about" = "About";

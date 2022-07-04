@@ -79,7 +79,7 @@ struct MainView: View {
     @Binding var priceType: String
     @State private var isSheetShow: Bool = false
     @State private var selection: String = ""
-    private let types = ["UAH", "USD", "RUB", "EUR", "JPY", "GBP", "CHF", "CAD", "AUD", "NZD", "ZAR", "PLN"].sorted()
+    private let types = ["UAH", "USD", "RUB", "EUR", "JPY", "GBP", "CHF", "CAD", "AUD", "NZD", "ZAR", "PLN", "CZK", "CNY", "FRF", "JOD", "KYD", "AFN"].sorted()
     
     var body: some View {
         VStack {
@@ -100,7 +100,7 @@ struct MainView: View {
             .frame(height: 140)
 
             List {
-                Section {
+                if payments.count > 0 {
                     ForEach(payments, id: \.self) { payment in
                         HStack(spacing: 0) {
                             Text(payment.about!)
@@ -109,15 +109,13 @@ struct MainView: View {
                             Text("\(String(format: "%.2f", payment.price)) \(priceType)")
                                 .font(.system(size: 16))
                         }
-                        .listStyle(.grouped)
                     }
                     .onDelete { indexSet in
                         CoreDataManager.shared.removePayment(index: indexSet.first!)
                         payments = CoreDataManager.shared.getPayments()
                     }
-                } header: {
-                    Text("label_transactions".localized)
-                        .font(.system(size: 18).bold())
+                } else { // is empty
+                    Text("hint_empty".localized)
                 }
                 
             }
