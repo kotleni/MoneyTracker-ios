@@ -77,8 +77,6 @@ struct ContentView: View {
 struct MainView: View {
     @Binding var payments: [Payment]
     @Binding var priceType: String
-    @State private var isSheetShow: Bool = false
-    @State private var selection: String = ""
     private let types = ["UAH", "USD", "RUB", "EUR", "JPY", "GBP", "CHF", "CAD", "AUD", "NZD", "ZAR", "PLN", "CZK", "CNY", "FRF", "JOD", "KYD", "AFN"].sorted()
     
     var body: some View {
@@ -87,14 +85,16 @@ struct MainView: View {
                 Text(String(format: "%.2f", mathPaymentsPrice()))
                     .font(.system(size: 50).bold())
                     .padding(4)
-                Button {
-                    selection = priceType
-                    isSheetShow = true
-                } label: {
-                    Text(priceType)
-                        .lineLimit(3)
+                
+                Picker("Currency", selection: $priceType) {
+                    ForEach(types, id: \.self) { type in
+                        Text(type)
+                    }
                 }
-
+                .pickerStyle(MenuPickerStyle())
+                .onChange(of: priceType, perform: { value in
+                    StorageManager.shared.setPriceType(type: priceType)
+                })
             }
             .padding(32)
             .frame(height: 140)
@@ -120,38 +120,40 @@ struct MainView: View {
                 
             }
         }
-        .sheet(isPresented: $isSheetShow, content: {
-            NavigationView {
-                VStack {
-                    Picker("", selection: $selection) {
-                        ForEach(types, id: \.self) { type in
-                            Text(type)
-                        }
-                    }
-                    .pickerStyle(WheelPickerStyle())
-                }
-                .navigationBarTitle("label_selectpricetype".localized, displayMode: .inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            isSheetShow = false
-                        } label: {
-                            Text("btn_cancel".localized)
-                        }
-                    }
-                    
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            priceType = selection
-                            StorageManager.shared.setPriceType(type: priceType)
-                            isSheetShow = false
-                        } label: {
-                            Text("btn_next".localized)
-                        }
-                    }
-                }
-            }
-        })
+        // ----
+//        .sheet(isPresented: $isSheetShow, content: {
+//            NavigationView {
+//                VStack {
+//                    Picker("Currency", selection: $selection) {
+//                        ForEach(types, id: \.self) { type in
+//                            Text(type)
+//                        }
+//                    }
+//                    .pickerStyle(MenuPickerStyle())
+//                }
+//                .navigationBarTitle("label_selectpricetype".localized, displayMode: .inline)
+//                .toolbar {
+//                    ToolbarItem(placement: .navigationBarLeading) {
+//                        Button {
+//                            isSheetShow = false
+//                        } label: {
+//                            Text("btn_cancel".localized)
+//                        }
+//                    }
+//
+//                    ToolbarItem(placement: .navigationBarTrailing) {
+//                        Button {
+//                            priceType = selection
+//                            StorageManager.shared.setPriceType(type: priceType)
+//                            isSheetShow = false
+//                        } label: {
+//                            Text("btn_next".localized)
+//                        }
+//                    }
+//                }
+//            }
+//        })
+        // ------
         .onAppear {
             payments = CoreDataManager.shared.getPayments()
         }
