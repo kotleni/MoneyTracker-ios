@@ -120,40 +120,6 @@ struct MainView: View {
                 
             }
         }
-        // ----
-//        .sheet(isPresented: $isSheetShow, content: {
-//            NavigationView {
-//                VStack {
-//                    Picker("Currency", selection: $selection) {
-//                        ForEach(types, id: \.self) { type in
-//                            Text(type)
-//                        }
-//                    }
-//                    .pickerStyle(MenuPickerStyle())
-//                }
-//                .navigationBarTitle("label_selectpricetype".localized, displayMode: .inline)
-//                .toolbar {
-//                    ToolbarItem(placement: .navigationBarLeading) {
-//                        Button {
-//                            isSheetShow = false
-//                        } label: {
-//                            Text("btn_cancel".localized)
-//                        }
-//                    }
-//
-//                    ToolbarItem(placement: .navigationBarTrailing) {
-//                        Button {
-//                            priceType = selection
-//                            StorageManager.shared.setPriceType(type: priceType)
-//                            isSheetShow = false
-//                        } label: {
-//                            Text("btn_next".localized)
-//                        }
-//                    }
-//                }
-//            }
-//        })
-        // ------
         .onAppear {
             payments = CoreDataManager.shared.getPayments()
         }
