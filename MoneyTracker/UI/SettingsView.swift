@@ -53,8 +53,8 @@ struct SettingsView: View {
                                     NotificationsManager.shared.start(
                                         title: "notif_title".localized,
                                         body: "notif_body".localized,
-                                        hour: 22,
-                                        minute: 46
+                                        hour: 19,
+                                        minute: 00
                                     )
                                 }
                             }
