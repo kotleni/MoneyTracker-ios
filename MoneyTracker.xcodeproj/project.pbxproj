@@ -63,6 +63,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A0952B2287E0852006CCE2D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B4D501362869AA6C0065EB4D /* CoreDataManager.swift */,
+				B4D501342869AA510065EB4D /* StorageManager.swift */,
+				5A36EE0D287DB76400812484 /* HapticManager.swift */,
+				5A0952AF287E0423006CCE2D /* NotificationsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		5A557F0A287D9B1800F7B68F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +113,12 @@
 		B4D501222869A87A0065EB4D /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				5A0952B2287E0852006CCE2D /* Managers */,
 				5A557F0A287D9B1800F7B68F /* Entities */,
 				5AD41C27287D4EA100A464B2 /* UI */,
 				B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */,
 				B4D501482869ABCE0065EB4D /* Localizable.strings */,
-				B4D5013A2869AA900065EB4D /* Services */,
+				B4D5013A2869AA900065EB4D /* Database */,
 				B4D501332869AA1B0065EB4D /* Extension */,
 				B4D501272869A87C0065EB4D /* Assets.xcassets */,
 				B4D501292869A87C0065EB4D /* Preview Content */,
@@ -132,17 +144,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		B4D5013A2869AA900065EB4D /* Services */ = {
+		B4D5013A2869AA900065EB4D /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				B4D501362869AA6C0065EB4D /* CoreDataManager.swift */,
 				B4D501382869AA860065EB4D /* PersistenceController.swift */,
-				B4D501342869AA510065EB4D /* StorageManager.swift */,
 				B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */,
-				5A36EE0D287DB76400812484 /* HapticManager.swift */,
-				5A0952AF287E0423006CCE2D /* NotificationsManager.swift */,
 			);
-			path = Services;
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
