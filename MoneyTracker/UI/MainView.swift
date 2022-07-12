@@ -8,28 +8,41 @@
 import SwiftUI
 
 struct MainView: View {
-    @Binding var payments: [Payment]
-    @Binding var priceType: String
+    @State private var payments: [Payment] = []
+    
+    @State private var priceType: String = "UAH"
+    @State private var totalBalance: Float = 0
+    
+    @State private var isShowSheet: Bool = false
+    @State private var isShowAlert: Bool = false
     
     var body: some View {
         VStack {
             VStack {
-                Text(String(format: "%.2f", mathPaymentsPrice()))
-                    .font(.system(size: 50).bold())
-                    .padding(4)
-                
-                Picker("Currency", selection: $priceType) {
-                    ForEach(currencyList, id: \.self) { type in
-                        Text(type)
-                    }
+                HStack {
+                    Text("\(String(format: "%.2f", totalBalance)) \(priceType)")
                 }
-                .pickerStyle(MenuPickerStyle())
-                .onChange(of: priceType, perform: { value in
-                    StorageManager.shared.setPriceType(type: priceType)
-                })
+                HStack {
+                    Text("Баланс")
+                        .foregroundColor(Color.gray)
+                }
             }
-            .padding(32)
-            .frame(height: 140)
+            .padding()
+            HStack {
+                Spacer()
+                Button {
+                    isShowSheet = true
+                } label: {
+                    Label("btn_add".localized, systemImage: "plus.circle.fill")
+                }
+                Spacer()
+                Button {
+                    isShowAlert = true
+                } label: {
+                    Label("Удалить все".localized, systemImage: "xmark.circle.fill")
+                }
+                Spacer()
+            }
 
             List {
                 if payments.count > 0 {
@@ -51,9 +64,10 @@ struct MainView: View {
                 
             }
         }
-        .onAppear {
-            payments = CoreDataManager.shared.getPayments()
-        }
+        .sheet(isPresented: $isShowSheet, content: {
+            AddPaymentView(isSheetShow: $isShowSheet, payments: $payments)
+        })
+        .onAppear { onStart() }
     }
     
     private func mathPaymentsPrice() -> Float {
@@ -62,6 +76,14 @@ struct MainView: View {
             value += payment.price
         }
         return value
+    }
+    
+    private func onStart() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            payments = CoreDataManager.shared.getPayments()
+            priceType = StorageManager.shared.getPriceType()
+            totalBalance = mathPaymentsPrice()
+        }
     }
 }
 
