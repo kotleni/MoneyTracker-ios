@@ -8,14 +8,18 @@
 import Foundation
 
 class StorageManager {
+    class Keys {
+        static let priceType = "price_type"
+    }
+    
     static let shared = StorageManager()
     
     func setPriceType(type: String) {
-        UserDefaults.standard.set(type, forKey: "price_type")
+        UserDefaults.standard.set(type, forKey: Keys.priceType)
     }
     
     func getPriceType() -> String {
-        guard let priceType = UserDefaults.standard.string(forKey: "price_type") else { return "USD" }
+        guard let priceType = UserDefaults.standard.string(forKey: Keys.priceType) else { return "USD" }
         return priceType
     }
 }
