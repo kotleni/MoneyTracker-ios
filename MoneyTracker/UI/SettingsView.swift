@@ -10,11 +10,13 @@ import SwiftUI
 fileprivate var eggsCounter: Int = 0
 
 struct SettingsView: View {
-    @State private var priceType: String = "Undefined"
+    @State private var priceType: String = ""
     @State private var showEggs: Bool = false
     
     var body: some View {
         Form {
+            
+            
             Section {
                 HStack {
                     Text("Валюта: ")
@@ -45,19 +47,19 @@ struct SettingsView: View {
             }
             
             Section {
-                Text("Разработчик: Victor Varenik")
+                Text("Разработчик: \(developerString)")
                     .onTapGesture {
                         trackEggs()
                     }
-                Text("Версия: 2.0")
+                Text("Версия: \(versionString)")
                 Button {
-                    guard let url = URL(string: "https://apps.apple.com/ua/app/moneytracker/id1631794003") else { return }
+                    guard let url = URL(string: appstoreUrl) else { return }
                     UIApplication.shared.open(url)
                 } label: {
                     Text("Приложение в AppStore")
                 }
                 Button {
-                    guard let url = URL(string: "https://github.com/kotleni/MoneyTracker-ios/") else { return }
+                    guard let url = URL(string: githubUrl) else { return }
                     UIApplication.shared.open(url)
                 } label: {
                     Text("Приложение на Github")
@@ -66,15 +68,33 @@ struct SettingsView: View {
                 Text("О приложении")
             }
 
-        }
-        .alert(isPresented: $showEggs) {
-            Alert(title: Text("Welcome to funny-eggs alert!"), message: nil, dismissButton: .none)
+            if showEggs {
+                Section {
+                    Button {
+                        StorageManager.shared.setPriceType(type: "")
+                    } label: {
+                        Text("Reset currency")
+                    }
+                    
+                    Button {
+                        for _ in 0...10 {
+                            CoreDataManager.shared.addPayment(price: 256, about: "Added from dev menu")
+                        }
+                    } label: {
+                        Text("Add 10 payments")
+                    }
+
+                } header: {
+                    Text("Developer Menu")
+                }
+
+            }
         }
     }
     
     func trackEggs() {
         eggsCounter += 1
-        if eggsCounter > 9 {
+        if eggsCounter == 9 {
             showEggs = true
         }
     }
