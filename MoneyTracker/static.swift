@@ -450,5 +450,9 @@ let currencyList = [
     
     // crypto
     "BTC",
-    "USDT"
+    "USDT",
+    "XMR",
+    "ETH",
+    "SOL",
+    "BCH"
     ]
