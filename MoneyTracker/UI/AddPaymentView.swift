@@ -65,6 +65,7 @@ struct AddPaymentView: View {
                                 
                                 DispatchQueue.main.async {
                                     selectHandler()
+                                    HapticManager.shared.success()
                                 }
                             }
                             
@@ -73,6 +74,8 @@ struct AddPaymentView: View {
                             priceText = ""
                             aboutText = ""
                             spendingBool = false
+                        } else {
+                            HapticManager.shared.error()
                         }
                     } label: {
                         Text("btn_next".localized)

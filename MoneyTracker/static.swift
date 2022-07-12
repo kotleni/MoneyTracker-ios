@@ -445,5 +445,5 @@ let currencyList = [
     "ZWR",
     "XFO",
     "XRE",
-    "XFU",
+    "XFU"
     ]

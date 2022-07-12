@@ -12,11 +12,10 @@ fileprivate var eggsCounter: Int = 0
 struct SettingsView: View {
     @State private var priceType: String = ""
     @State private var showEggs: Bool = false
+    @State private var showSuperEggs: Bool = false
     
     var body: some View {
         Form {
-            
-            
             Section {
                 HStack {
                     Text("Валюта: ")
@@ -84,6 +83,9 @@ struct SettingsView: View {
                         Text("Add 10 payments")
                     }
 
+                    if showSuperEggs {
+                        Text("Україна переможе! 🇺🇦")
+                    }
                 } header: {
                     Text("Developer Menu")
                 }
@@ -96,6 +98,11 @@ struct SettingsView: View {
         eggsCounter += 1
         if eggsCounter == 9 {
             showEggs = true
+            HapticManager.shared.success()
+        }
+        if eggsCounter == 21 {
+            showSuperEggs = true
+            HapticManager.shared.success()
         }
     }
 }
