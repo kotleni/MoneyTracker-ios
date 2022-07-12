@@ -17,15 +17,15 @@ struct ContentView: View {
                     .tag(0)
                     .navigationBarHidden(true)
                     .tabItem {
-                        Label("Платежи", systemImage: "tray.full")
+                        Label("label_payments".localized, systemImage: "tray.full")
                     }
                 SettingsView()
                     .tag(1)
                     .tabItem {
-                        Label("Настройки", systemImage: "gear")
+                        Label("label_settings".localized, systemImage: "gear")
                     }
             }
-            .navigationTitle(selection == 1 ? "Настройки" : "--")
+            .navigationTitle(selection == 1 ? "label_settings".localized : "")
         }
         .onAppear {
             UITabBar.appearance().backgroundColor = UIColor.white

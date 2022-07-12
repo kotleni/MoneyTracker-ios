@@ -18,8 +18,9 @@ struct SettingsView: View {
         Form {
             Section {
                 HStack {
-                    Text("Валюта: ")
-                    Picker("Currency", selection: $priceType) {
+                    Text("label_currency".localized)
+                        .padding(.trailing, 2)
+                    Picker("label_currency".localized, selection: $priceType) {
                         ForEach(currencyList, id: \.self) { type in
                             Text(type)
                         }
@@ -38,33 +39,33 @@ struct SettingsView: View {
                     CoreDataManager.shared.removeAll()
                     exit(0)
                 } label: {
-                    Text("Сбросить платежи")
+                    Text("btn_resetpayments".localized)
                         .foregroundColor(.red)
                 }
             } header: {
-                Text("Конфигурация")
+                Text("label_ordinary".localized)
             }
             
             Section {
-                Text("Разработчик: \(developerString)")
+                Text("label_developer".localized + "\(developerString)")
                     .onTapGesture {
                         trackEggs()
                     }
-                Text("Версия: \(versionString)")
+                Text("label_version".localized + "\(versionString)")
                 Button {
                     guard let url = URL(string: appstoreUrl) else { return }
                     UIApplication.shared.open(url)
                 } label: {
-                    Text("Приложение в AppStore")
+                    Text("btn_appinappstore".localized)
                 }
                 Button {
                     guard let url = URL(string: githubUrl) else { return }
                     UIApplication.shared.open(url)
                 } label: {
-                    Text("Приложение на Github")
+                    Text("btn_appingithub".localized)
                 }
             } header: {
-                Text("О приложении")
+                Text("label_aboutapp".localized)
             }
 
             if showEggs {

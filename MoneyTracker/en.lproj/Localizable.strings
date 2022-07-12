@@ -6,14 +6,29 @@
   
 */
 
-"label_payments" = "All payments";
-"label_transactions" = "All transactions";
+"label_payments" = "Payments";
+"label_settings" = "Settings";
 "label_newpayment" = "New payment";
 "label_selectpricetype" = "Select currency";
+"label_balance" = "Balance";
+"label_filter" = "Filter";
+"label_currency" = "Currency";
+"label_ordinary" = "Ordinary";
+"label_developer" = "Developer: ";
+"label_version" = "Version: ";
+"label_aboutapp" = "About app";
 
 "btn_add" = "Add";
 "btn_cancel" = "Cancel";
 "btn_next" = "Next";
+"btn_resetpayments" = "Reset payments";
+"btn_appinappstore" = "App in AppStore";
+"btn_appingithub" = "App in GitHub";
+
+// filters
+"filter_all" = " All";
+"filter_minus" = " Only expenses";
+"filter_plus" = " Only income";
 
 "hint_necessarily" = "Necessarily";
 "hint_payment" = "After creating a payment, it will be added to the history and the funds counter will be updated.";

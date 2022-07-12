@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     @State private var payments: [Payment] = []
     
-    @State private var priceType: String = "UAH"
+    @State private var priceType: String = "USD"
     @State private var totalBalance: Float = 0
     
     @State private var isShowSheet: Bool = false
@@ -24,7 +24,7 @@ struct MainView: View {
                     Text("\(String(format: "%.2f", totalBalance)) \(priceType)")
                 }
                 HStack {
-                    Text("Баланс")
+                    Text("label_balance".localized)
                         .foregroundColor(Color.gray)
                 }
             }
@@ -38,14 +38,14 @@ struct MainView: View {
                 }
                 Spacer()
                 Picker(selection: $selectedFilter) {
-                    Label(" Показывать все", systemImage: "tag")
+                    Label("filter_all".localized, systemImage: "tag")
                         .tag(Filter.all)
-                    Label(" Только расходы", systemImage: "tag")
+                    Label("filter_minus".localized, systemImage: "tag")
                         .tag(Filter.minus)
-                    Label(" Только доходы", systemImage: "tag")
+                    Label("filter_plus".localized, systemImage: "tag")
                         .tag(Filter.plus)
                 } label: {
-                    Text("Фильтер")
+                    Text("label_filter".localized)
                 }
 
                 Spacer()

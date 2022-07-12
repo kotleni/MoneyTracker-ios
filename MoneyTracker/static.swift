@@ -8,11 +8,12 @@
 import Foundation
 
 let developerString = "Victor Varenik"
-let versionString = "2.0 beta 3"
+let versionString = "2.1"
 let appstoreUrl = "https://apps.apple.com/ua/app/moneytracker/id1631794003"
 let githubUrl = "https://github.com/kotleni/MoneyTracker-ios/"
 
 let currencyList = [
+    // default
     "AFN",
     "EUR",
     "ALL",
@@ -445,5 +446,9 @@ let currencyList = [
     "ZWR",
     "XFO",
     "XRE",
-    "XFU"
+    "XFU",
+    
+    // crypto
+    "BTC",
+    "USDT"
     ]

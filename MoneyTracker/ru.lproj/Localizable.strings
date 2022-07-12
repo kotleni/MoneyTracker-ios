@@ -6,19 +6,35 @@
   
 */
 
-"label_payments" = "Все платежи";
-"label_transactions" = "Все транзакции";
+"label_payments" = "Платежи";
+"label_settings" = "Настройки";
 "label_newpayment" = "Новый платеж";
 "label_selectpricetype" = "Выберите валюту";
+"label_balance" = "Баланс";
+"label_filter" = "Фильтер";
+"label_currency" = "Валюта";
+"label_ordinary" = "Основные";
+"label_developer" = "Разработчик: ";
+"label_version" = "Версия: ";
+"label_aboutapp" = "О приложении";
 
 "btn_add" = "Добавить";
-"btn_cancel" = "Отмена";
+"btn_cancel" = "Отменить";
 "btn_next" = "Далее";
+"btn_resetpayments" = "Сбросить платежи";
+"btn_appinappstore" = "Приложение в AppStore";
+"btn_appingithub" = "Приложение в GitHub";
 
-"hint_necessarily" = "Обязятально";
+// filters
+"filter_all" = " Все";
+"filter_minus" = " Только затраты";
+"filter_plus" = " Только доход";
+
+"hint_necessarily" = "Обязательно";
 "hint_payment" = "После создания платежа он будет добавлен в историю и счетчик средств будет обновлен.";
-"hint_empty" = "У вас нет никаких платежей.";
+"hint_empty" = "У вас нет платежей.";
 
 "field_price" = "Цена";
 "field_about" = "Описание";
-"field_expenses" = "Расход";
+"field_expenses" = "Затраты";
+
