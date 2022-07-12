@@ -14,7 +14,8 @@ struct MainView: View {
     @State private var totalBalance: Float = 0
     
     @State private var isShowSheet: Bool = false
-    @State private var isShowAlert: Bool = false
+    
+    @State private var selectedFilter: Filter = Filter.all
     
     var body: some View {
         VStack {
@@ -36,38 +37,27 @@ struct MainView: View {
                     Label("btn_add".localized, systemImage: "plus.circle.fill")
                 }
                 Spacer()
-                Button {
-                    isShowAlert = true
+                Picker(selection: $selectedFilter) {
+                    Label(" Показывать все", systemImage: "tag")
+                        .tag(Filter.all)
+                    Label(" Только расходы", systemImage: "tag")
+                        .tag(Filter.minus)
+                    Label(" Только доходы", systemImage: "tag")
+                        .tag(Filter.plus)
                 } label: {
-                    Label("Удалить все".localized, systemImage: "xmark.circle.fill")
+                    Text("Фильтер")
                 }
+
                 Spacer()
             }
-
-            List {
-                if payments.count > 0 {
-                    ForEach(payments, id: \.self) { payment in
-                        HStack(spacing: 0) {
-                            Text(payment.about!)
-                            Spacer()
-                            Text("\(String(format: "%.2f", payment.price)) \(priceType)")
-                                .foregroundColor(payment.price < 0 ? Color.init(.sRGB, red: 245/255, green: 97/255, blue: 76/255, opacity: 1.0) : Color.init(.sRGB, red: 81/255, green: 187/255, blue: 116/255, opacity: 1.0))
-                        }
-                    }
-                    .onDelete { indexSet in
-                        CoreDataManager.shared.removePayment(index: indexSet.first!)
-                        payments = CoreDataManager.shared.getPayments()
-                    }
-                } else { // is empty
-                    Text("hint_empty".localized)
-                }
-                
-            }
+            PaymentsView(payments: $payments, selectedFilter: $selectedFilter, priceType: $priceType)
         }
         .sheet(isPresented: $isShowSheet, content: {
-            AddPaymentView(isSheetShow: $isShowSheet, payments: $payments)
+            AddPaymentView(isSheetShow: $isShowSheet, payments: $payments, selectHandler: {
+                loadAll()
+            })
         })
-        .onAppear { onStart() }
+        .onAppear { loadAll() }
     }
     
     private func mathPaymentsPrice() -> Float {
@@ -78,7 +68,7 @@ struct MainView: View {
         return value
     }
     
-    private func onStart() {
+    private func loadAll() {
         DispatchQueue.global(qos: .userInitiated).async {
             payments = CoreDataManager.shared.getPayments()
             priceType = StorageManager.shared.getPriceType()

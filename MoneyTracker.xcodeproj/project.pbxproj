@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
 		5A557F09287D87BD00F7B68F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F08287D87BD00F7B68F /* SettingsView.swift */; };
+		5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F0B287D9B2800F7B68F /* Filter.swift */; };
 		5AD41C26287D4A0500A464B2 /* static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C25287D4A0500A464B2 /* static.swift */; };
 		5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */; };
 		5AD41C2B287D4ECE00A464B2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C2A287D4ECE00A464B2 /* MainView.swift */; };
@@ -24,7 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A36EE09287D9E8E00812484 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
 		5A557F08287D87BD00F7B68F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5A557F0B287D9B2800F7B68F /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		5AD41C25287D4A0500A464B2 /* static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = static.swift; sourceTree = "<group>"; };
 		5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentView.swift; sourceTree = "<group>"; };
 		5AD41C2A287D4ECE00A464B2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A557F0A287D9B1800F7B68F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				5A557F0B287D9B2800F7B68F /* Filter.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		5AD41C27287D4EA100A464B2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +72,7 @@
 				5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */,
 				5AD41C2A287D4ECE00A464B2 /* MainView.swift */,
 				5A557F08287D87BD00F7B68F /* SettingsView.swift */,
+				5A36EE09287D9E8E00812484 /* PaymentsView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -83,6 +96,7 @@
 		B4D501222869A87A0065EB4D /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				5A557F0A287D9B1800F7B68F /* Entities */,
 				5AD41C27287D4EA100A464B2 /* UI */,
 				B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */,
 				B4D501482869ABCE0065EB4D /* Localizable.strings */,
@@ -194,11 +208,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4D501322869A9ED0065EB4D /* String+Ext.swift in Sources */,
+				5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */,
 				B4D501262869A87A0065EB4D /* ContentView.swift in Sources */,
 				5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */,
 				5AD41C2B287D4ECE00A464B2 /* MainView.swift in Sources */,
 				B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */,
 				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
+				5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */,
 				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* CoreDataManager.swift in Sources */,
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,

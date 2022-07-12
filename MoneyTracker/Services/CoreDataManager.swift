@@ -32,4 +32,10 @@ struct CoreDataManager {
         let array =  try! viewContext.fetch(request) as! Array<Payment>
         return array.reversed()
     }
+    
+    func removeAll() {
+        getPayments().forEach { payment in
+            removePayment(index: 0)
+        }
+    }
 }
