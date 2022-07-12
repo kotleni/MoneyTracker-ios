@@ -85,4 +85,3 @@ struct AddPaymentView: View {
         }
     }
 }
-

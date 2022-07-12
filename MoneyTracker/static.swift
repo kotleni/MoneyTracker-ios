@@ -455,4 +455,4 @@ let currencyList = [
     "ETH",
     "SOL",
     "BCH"
-    ]
+]
