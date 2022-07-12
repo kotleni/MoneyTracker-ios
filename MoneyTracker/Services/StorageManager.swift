@@ -10,6 +10,7 @@ import Foundation
 class StorageManager {
     class Keys {
         static let priceType = "price_type"
+        static let notifEnable = "notifEnable"
     }
     
     static let shared = StorageManager()
@@ -21,5 +22,14 @@ class StorageManager {
     func getPriceType() -> String {
         guard let priceType = UserDefaults.standard.string(forKey: Keys.priceType) else { return "USD" }
         return priceType
+    }
+    
+    func setNotifEnable(isEnable: Bool) {
+        UserDefaults.standard.set(isEnable, forKey: Keys.notifEnable)
+    }
+    
+    func isNotifEnable() -> Bool {
+        let isEnable = UserDefaults.standard.bool(forKey: Keys.notifEnable)
+        return isEnable
     }
 }

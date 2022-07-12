@@ -12,6 +12,7 @@ fileprivate var eggsCounter: Int = 0
 
 struct SettingsView: View {
     @State private var priceType: String = ""
+    @State private var isNotifOn: Bool = false
     
     // eggs vars
     @State private var showEggs: Bool = false
@@ -37,6 +38,30 @@ struct SettingsView: View {
                         StorageManager.shared.setPriceType(type: priceType)
                     })
                 }
+                
+                // notifications toggle
+                Toggle("label_notifications".localized, isOn: $isNotifOn)
+                    .onChange(of: isNotifOn) { value in
+                        // update notif pref
+                        StorageManager.shared.setNotifEnable(isEnable: isNotifOn)
+                        
+                        if isNotifOn {
+                            let center  = UNUserNotificationCenter.current()
+
+                            center.requestAuthorization(options: [.alert, .badge]) { (granted, error) in
+                                if error == nil {
+                                    NotificationsManager.shared.start(
+                                        title: "notif_title".localized,
+                                        body: "notif_body".localized,
+                                        hour: 22,
+                                        minute: 46
+                                    )
+                                }
+                            }
+                        } else {
+                            NotificationsManager.shared.stop()
+                        }
+                    }
                 
                 // reset paymetns btn
                 Button {
@@ -109,6 +134,12 @@ struct SettingsView: View {
 
             }
         }
+        .onAppear { loadAll() }
+    }
+    
+    // load all values
+    func loadAll() {
+        isNotifOn = StorageManager.shared.isNotifEnable()
     }
     
     // track current state of eggs

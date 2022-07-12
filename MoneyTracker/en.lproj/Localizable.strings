@@ -17,6 +17,7 @@
 "label_developer" = "Developer: ";
 "label_version" = "Version: ";
 "label_aboutapp" = "About app";
+"label_notifications" = "Notifications";
 
 "btn_add" = "Add";
 "btn_cancel" = "Cancel";
@@ -37,3 +38,6 @@
 "field_price" = "Price";
 "field_about" = "About";
 "field_expenses" = "Expenses";
+
+"notif_title" = "Reminder";
+"notif_body" = "Time to update the payment list";

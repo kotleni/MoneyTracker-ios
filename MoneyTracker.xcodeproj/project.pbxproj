@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
 		5A36EE0C287DAC9900812484 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE0B287DAC9900812484 /* Bundle.swift */; };
 		5A36EE0E287DB76400812484 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE0D287DB76400812484 /* HapticManager.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A36EE09287D9E8E00812484 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
 		5A36EE0B287DAC9900812484 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		5A36EE0D287DB76400812484 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				B4D501342869AA510065EB4D /* StorageManager.swift */,
 				B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */,
 				5A36EE0D287DB76400812484 /* HapticManager.swift */,
+				5A0952AF287E0423006CCE2D /* NotificationsManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */,
 				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
 				5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */,
+				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
 				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* CoreDataManager.swift in Sources */,
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,

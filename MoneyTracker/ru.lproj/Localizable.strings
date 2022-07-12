@@ -17,6 +17,7 @@
 "label_developer" = "Разработчик: ";
 "label_version" = "Версия: ";
 "label_aboutapp" = "О приложении";
+"label_notifications" = "Уведомления";
 
 "btn_add" = "Добавить";
 "btn_cancel" = "Отменить";
@@ -37,4 +38,7 @@
 "field_price" = "Цена";
 "field_about" = "Описание";
 "field_expenses" = "Затраты";
+
+"notif_title" = "Напоминание";
+"notif_body" = "Пора обновить список платежей";
 
