@@ -27,6 +27,7 @@ struct ContentView: View {
             }
             .navigationTitle(selection == 1 ? "label_settings".localized : "")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             UITabBar.appearance().backgroundColor = UIColor.white
         }
