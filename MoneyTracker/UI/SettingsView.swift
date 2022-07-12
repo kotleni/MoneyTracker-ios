@@ -7,16 +7,20 @@
 
 import SwiftUI
 
+// eggs counter
 fileprivate var eggsCounter: Int = 0
 
 struct SettingsView: View {
     @State private var priceType: String = ""
+    
+    // eggs vars
     @State private var showEggs: Bool = false
     @State private var showSuperEggs: Bool = false
     
     var body: some View {
         Form {
             Section {
+                // currency picker
                 HStack {
                     Text("label_currency".localized)
                         .padding(.trailing, 2)
@@ -33,8 +37,8 @@ struct SettingsView: View {
                         StorageManager.shared.setPriceType(type: priceType)
                     })
                 }
-
                 
+                // reset paymetns btn
                 Button {
                     CoreDataManager.shared.removeAll()
                     exit(0)
@@ -47,17 +51,24 @@ struct SettingsView: View {
             }
             
             Section {
+                // developer text
                 Text("label_developer".localized + "\(developerString)")
                     .onTapGesture {
                         trackEggs()
                     }
+                
+                // version text
                 Text("label_version".localized + "\(versionString)")
+                
+                // appstore btn
                 Button {
                     guard let url = URL(string: appstoreUrl) else { return }
                     UIApplication.shared.open(url)
                 } label: {
                     Text("btn_appinappstore".localized)
                 }
+                
+                // github btn
                 Button {
                     guard let url = URL(string: githubUrl) else { return }
                     UIApplication.shared.open(url)
@@ -68,14 +79,17 @@ struct SettingsView: View {
                 Text("label_aboutapp".localized)
             }
 
+            // if eggs activate
             if showEggs {
                 Section {
+                    // reset currency btn
                     Button {
-                        StorageManager.shared.setPriceType(type: "")
+                        StorageManager.shared.setPriceType(type: "USD")
                     } label: {
                         Text("Reset currency")
                     }
                     
+                    // add 10 paymebts btn
                     Button {
                         for _ in 0...10 {
                             CoreDataManager.shared.addPayment(price: 256, about: "Added from dev menu")
@@ -84,7 +98,9 @@ struct SettingsView: View {
                         Text("Add 10 payments")
                     }
 
+                    // if super eggs activate
                     if showSuperEggs {
+                        // ukraine ping text
                         Text("Україна переможе! 🇺🇦")
                     }
                 } header: {
@@ -95,6 +111,7 @@ struct SettingsView: View {
         }
     }
     
+    // track current state of eggs
     func trackEggs() {
         eggsCounter += 1
         if eggsCounter == 9 {
