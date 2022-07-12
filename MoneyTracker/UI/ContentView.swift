@@ -29,7 +29,7 @@ struct ContentView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            UITabBar.appearance().backgroundColor = UIColor.white
+            UITabBar.appearance().backgroundColor = UIColor(named: "TabViewColor")
         }
     }
 }
