@@ -26,12 +26,12 @@ struct SettingsView: View {
                 HStack {
                     VStack {
                         HStack {
-                            Text("Нравится приложение?")
+                            Text("label_likeapp".localized)
                                 .font(.system(size: 17))
                             Spacer()
                         }
                         HStack {
-                            Text("Купи подписку в приложении")
+                            Text("label_buysub".localized)
                                 .opacity(0.7)
                                 .font(.system(size: 16))
                             Spacer()

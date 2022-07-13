@@ -19,6 +19,8 @@
 "label_aboutapp" = "О приложении";
 "label_notifications" = "Уведомления";
 "label_popular" = "Популярные";
+"label_likeapp" = "Нравится приложение?";
+"label_buysub" = "Купи подписку в приложении";
 
 "btn_add" = "Добавить";
 "btn_cancel" = "Отменить";

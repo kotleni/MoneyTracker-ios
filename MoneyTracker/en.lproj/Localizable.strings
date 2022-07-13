@@ -27,6 +27,8 @@
 "btn_appinappstore" = "App in AppStore";
 "btn_appingithub" = "App in GitHub";
 "btn_selectcurrency" = "Select currency";
+"label_likeapp" = "You like this app?";
+"label_buysub" = "Buy subscribe";
 
 // filters
 "filter_all" = " All";
