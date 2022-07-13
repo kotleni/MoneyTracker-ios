@@ -43,6 +43,9 @@ struct PaymentsView: View {
 
 struct PaymentsPreviews: PreviewProvider {
     static var previews: some View {
-        PaymentsView(payments: .constant([]), selectedFilter: .constant(Filter.all), priceType: .constant("USD"))
+        Group {
+            PaymentsView(payments: .constant([]), selectedFilter: .constant(Filter.all), priceType: .constant("USD"))
+            PaymentsView(payments: .constant(PreviewCoreDataManager.shared.getPayments()), selectedFilter: .constant(Filter.all), priceType: .constant("USD"))
+        }
     }
 }
