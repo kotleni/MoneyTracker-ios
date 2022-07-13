@@ -74,9 +74,3 @@ struct MainView: View {
         }
     }
 }
-
-struct MainPreviews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}

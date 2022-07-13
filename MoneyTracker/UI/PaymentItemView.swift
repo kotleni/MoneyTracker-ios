@@ -20,9 +20,3 @@ struct PaymentItemView: View {
         }
     }
 }
-
-//struct PaymentItemViewPreviews: PreviewProvider {
-//    static var previews: some View {
-//        PaymentItemView()
-//    }
-//}

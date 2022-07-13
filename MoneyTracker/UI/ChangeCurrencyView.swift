@@ -103,8 +103,3 @@ struct ChangeCurrencyView: View {
     }
 }
 
-struct ChangeCurrencyViewPreviews: PreviewProvider {
-    static var previews: some View {
-        ChangeCurrencyView(isShowing: .constant(true))
-    }
-}

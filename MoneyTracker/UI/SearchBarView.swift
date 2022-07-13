@@ -43,9 +43,3 @@ struct SearchBarView: View {
     }
 }
 
-
-struct SearchBarPreviews: PreviewProvider {
-    static var previews: some View {
-        SearchBarView(text: .constant(""), hint: "Enter currency name")
-    }
-}
