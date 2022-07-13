@@ -74,7 +74,7 @@ struct SettingsView: View {
                     }
                 
                 // version text
-                Text("label_version".localized + "\(versionString)")
+                Text("label_version".localized + "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "error")")
                 
                 // appstore btn
                 Button {
