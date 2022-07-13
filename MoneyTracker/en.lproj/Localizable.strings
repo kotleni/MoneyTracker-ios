@@ -18,6 +18,7 @@
 "label_version" = "Version: ";
 "label_aboutapp" = "About app";
 "label_notifications" = "Notifications";
+"label_popular" = "Popular";
 
 "btn_add" = "Add";
 "btn_cancel" = "Cancel";
@@ -25,6 +26,7 @@
 "btn_resetpayments" = "Reset payments";
 "btn_appinappstore" = "App in AppStore";
 "btn_appingithub" = "App in GitHub";
+"btn_selectcurrency" = "Select currency";
 
 // filters
 "filter_all" = " All";
@@ -35,6 +37,7 @@
 "hint_payment" = "After creating a payment, it will be added to the history and the funds counter will be updated.";
 "hint_empty" = "You don't have any payments.";
 "hint_emptyfooter" = "Add new via add button";
+"hint_search" = "Search";
 
 "field_price" = "Price";
 "field_about" = "About";

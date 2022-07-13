@@ -13,6 +13,7 @@ fileprivate var eggsCounter: Int = 0
 struct SettingsView: View {
     @State private var priceType: String = ""
     @State private var isNotifOn: Bool = false
+    @State private var isShowSheet: Bool = false
     
     // eggs vars
     @State private var showEggs: Bool = false
@@ -21,24 +22,6 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section {
-                // currency picker
-                HStack {
-                    Text("label_currency".localized)
-                        .padding(.trailing, 2)
-                    Picker("label_currency".localized, selection: $priceType) {
-                        ForEach(currencyList, id: \.self) { type in
-                            Text(type)
-                        }
-                    }
-                    .onAppear {
-                        priceType = StorageManager.shared.getPriceType()
-                    }
-                    .pickerStyle(MenuPickerStyle())
-                    .onChange(of: priceType, perform: { value in
-                        StorageManager.shared.setPriceType(type: priceType)
-                    })
-                }
-                
                 // notifications toggle
                 Toggle("label_notifications".localized, isOn: $isNotifOn)
                     .onChange(of: isNotifOn) { value in
@@ -62,6 +45,14 @@ struct SettingsView: View {
                             NotificationsManager.shared.stop()
                         }
                     }
+                
+                // currency change btn
+                Button {
+                    isShowSheet = true
+                } label: {
+                    Text("btn_selectcurrency".localized)
+                        .padding(.trailing, 2)
+                }
                 
                 // reset paymetns btn
                 Button {
@@ -107,26 +98,13 @@ struct SettingsView: View {
             // if eggs activate
             if showEggs {
                 Section {
-                    // reset currency btn
-                    Button {
-                        StorageManager.shared.setPriceType(type: "USD")
-                    } label: {
-                        Text("Reset currency")
-                    }
-                    
                     // add 10 paymebts btn
                     Button {
                         for _ in 0...10 {
-                            CoreDataManager.shared.addPayment(price: 256, about: "Added from dev menu")
+                            CoreDataManager.shared.addPayment(price: 256, about: "Test")
                         }
                     } label: {
                         Text("Add 10 payments")
-                    }
-
-                    // if super eggs activate
-                    if showSuperEggs {
-                        // ukraine ping text
-                        Text("Україна переможе! 🇺🇦")
                     }
                 } header: {
                     Text("Developer Menu")
@@ -135,6 +113,9 @@ struct SettingsView: View {
             }
         }
         .onAppear { loadAll() }
+        .sheet(isPresented: $isShowSheet) {
+            ChangeCurrencyView(isShowing: $isShowSheet)
+        }
     }
     
     // load all values

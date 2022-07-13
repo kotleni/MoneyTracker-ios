@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A00F44A287EBD9200A4820A /* currencies_gen.py in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F449287EBD9100A4820A /* currencies_gen.py */; };
+		5A00F44C287EBE4E00A4820A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44B287EBE4E00A4820A /* Currency.swift */; };
+		5A00F44E287EBF2700A4820A /* currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44D287EBF2700A4820A /* currencies.swift */; };
+		5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44F287EC72400A4820A /* SearchBarView.swift */; };
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A0952B4287E959C006CCE2D /* ChangeCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */; };
 		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
@@ -31,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A00F449287EBD9100A4820A /* currencies_gen.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = currencies_gen.py; sourceTree = "<group>"; };
+		5A00F44B287EBE4E00A4820A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		5A00F44D287EBF2700A4820A /* currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencies.swift; sourceTree = "<group>"; };
+		5A00F44F287EC72400A4820A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyView.swift; sourceTree = "<group>"; };
 		5A36EE09287D9E8E00812484 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
@@ -83,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				5A557F0B287D9B2800F7B68F /* Filter.swift */,
+				5A00F44B287EBE4E00A4820A /* Currency.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -96,6 +105,7 @@
 				5A557F08287D87BD00F7B68F /* SettingsView.swift */,
 				5A36EE09287D9E8E00812484 /* PaymentsView.swift */,
 				5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */,
+				5A00F44F287EC72400A4820A /* SearchBarView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -103,6 +113,7 @@
 		B4D501172869A87A0065EB4D = {
 			isa = PBXGroup;
 			children = (
+				5A00F449287EBD9100A4820A /* currencies_gen.py */,
 				B4D501222869A87A0065EB4D /* MoneyTracker */,
 				B4D501212869A87A0065EB4D /* Products */,
 			);
@@ -129,6 +140,7 @@
 				B4D501272869A87C0065EB4D /* Assets.xcassets */,
 				B4D501292869A87C0065EB4D /* Preview Content */,
 				5AD41C25287D4A0500A464B2 /* static.swift */,
+				5A00F44D287EBF2700A4820A /* currencies.swift */,
 			);
 			path = MoneyTracker;
 			sourceTree = "<group>";
@@ -217,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A00F44A287EBD9200A4820A /* currencies_gen.py in Resources */,
 				B4D5012B2869A87C0065EB4D /* Preview Assets.xcassets in Resources */,
 				B4D501462869ABCE0065EB4D /* Localizable.strings in Resources */,
 				B4D501282869A87C0065EB4D /* Assets.xcassets in Resources */,
@@ -240,9 +253,12 @@
 				5AD41C2B287D4ECE00A464B2 /* MainView.swift in Sources */,
 				B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */,
 				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
+				5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */,
+				5A00F44C287EBE4E00A4820A /* Currency.swift in Sources */,
 				5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */,
 				5A4A6091287E98D1009678AA /* PreviewCoreDataManager.swift in Sources */,
 				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
+				5A00F44E287EBF2700A4820A /* currencies.swift in Sources */,
 				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* CoreDataManager.swift in Sources */,
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,

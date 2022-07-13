@@ -18,6 +18,7 @@
 "label_version" = "Версия: ";
 "label_aboutapp" = "О приложении";
 "label_notifications" = "Уведомления";
+"label_popular" = "Популярные";
 
 "btn_add" = "Добавить";
 "btn_cancel" = "Отменить";
@@ -25,6 +26,7 @@
 "btn_resetpayments" = "Сбросить платежи";
 "btn_appinappstore" = "Приложение в AppStore";
 "btn_appingithub" = "Приложение в GitHub";
+"btn_selectcurrency" = "Выбрать валюту";
 
 // filters
 "filter_all" = " Все";
@@ -35,6 +37,7 @@
 "hint_payment" = "После создания платежа он будет добавлен в историю и счетчик средств будет обновлен.";
 "hint_empty" = "У вас нет платежей.";
 "hint_emptyfooter" = "Добавьте новый при помощи кнопки выше";
+"hint_search" = "Поиск";
 
 "field_price" = "Цена";
 "field_about" = "Описание";
