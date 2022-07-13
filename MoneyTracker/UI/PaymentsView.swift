@@ -33,7 +33,7 @@ struct PaymentsView: View {
                 Section {
                     Text("hint_empty".localized)
                 } footer: {
-                    Text("Добавьте новый при помощи кнопки выше.")
+                    Text("hint_emptyfooter".localized)
                 }
             }
             
