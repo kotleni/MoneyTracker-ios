@@ -12,6 +12,7 @@
 		5A00F44E287EBF2700A4820A /* currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44D287EBF2700A4820A /* currencies.swift */; };
 		5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44F287EC72400A4820A /* SearchBarView.swift */; };
 		5A00F45A287EDA0100A4820A /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */; };
+		5A00F46A287F251800A4820A /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 5A00F469287F251800A4820A /* SwiftUICharts */; };
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A0952B4287E959C006CCE2D /* ChangeCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */; };
 		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
@@ -92,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A00F46A287F251800A4820A /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +242,9 @@
 			dependencies = (
 			);
 			name = MoneyTracker;
+			packageProductDependencies = (
+				5A00F469287F251800A4820A /* SwiftUICharts */,
+			);
 			productName = MoneyTracker;
 			productReference = B4D501202869A87A0065EB4D /* MoneyTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -272,6 +277,10 @@
 				ru,
 			);
 			mainGroup = B4D501172869A87A0065EB4D;
+			packageReferences = (
+				5A00F465287F22C300A4820A /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
+				5A00F468287F251800A4820A /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+			);
 			productRefGroup = B4D501212869A87A0065EB4D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -613,6 +622,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A00F465287F22C300A4820A /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ilamanov/SwiftPieChart";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		5A00F468287F251800A4820A /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A00F469287F251800A4820A /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A00F468287F251800A4820A /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */ = {

@@ -19,11 +19,9 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                HStack {
+            HStack {
+                VStack {
                     Text("\(String(format: "%.2f", totalBalance)) \(priceType)")
-                }
-                HStack {
                     Text("label_balance".localized)
                         .foregroundColor(Color.gray)
                 }
