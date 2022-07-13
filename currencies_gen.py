@@ -2,7 +2,7 @@ import os
 import copy
 
 header = """//
-//  currencies.swift
+//  Currencies.swift
 //  MoneyTracker
 //
 //  Created by Victor Varenik on 13.07.2022.
@@ -11,6 +11,7 @@ header = """//
 
 import Foundation
 
+class Currencies {
 """
 
 file_url = "https://raw.githubusercontent.com/datasets/currency-codes/master/data/codes-all.csv"
@@ -69,13 +70,13 @@ for line in lines:
 currencies = sorted(currencies, key=lambda x: x['full_name'], reverse=False)
 
 # generating all
-outfile.write("let currenciesAll = [\n")
+outfile.write("\tstatic let currenciesAll = [\n")
 for currency in currencies:
     if not is_exist(writed_currencies, currency["full_name"]):
         if len(currency["little_name"]) > 0:
             if currency["full_name"][0] != ' ' and currency["full_name"][0] != '"' and not currency["full_name"] in black_list:
                 writed_currencies.append(currency)
-                outfile.write("\tCurrency(fullName: \"{}\", littleName: \"{}\"),\n".format(currency["full_name"], currency["little_name"]))
+                outfile.write("\t\tCurrency(fullName: \"{}\", littleName: \"{}\"),\n".format(currency["full_name"], currency["little_name"]))
             else:
                 print("Bad currency skiped: {}".format(currency["full_name"]))
         else:
@@ -83,17 +84,17 @@ for currency in currencies:
     else:
         print("Dublicate skiped: {}".format(currency))
 
-outfile.write("]\n\n")
+outfile.write("\t]\n\n")
 
 # generating popular
-outfile.write("let currenciesPopular = [\n")
+outfile.write("\tstatic let currenciesPopular = [\n")
 index = 0
 for currency in writed_currencies:
     if currency["little_name"] in popular_names and not is_exist(writed_currencies_popular, currency['little_name'], False):
         writed_currencies_popular.append(currency)
-        outfile.write("\tcurrenciesAll[{}],\n".format(index))
+        outfile.write("\t\tcurrenciesAll[{}],\n".format(index))
     index += 1
-outfile.write("]\n")
+outfile.write("\t]\n\n}\n")
 
 # end
 outfile.close()

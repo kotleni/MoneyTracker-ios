@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A00F44A287EBD9200A4820A /* currencies_gen.py in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F449287EBD9100A4820A /* currencies_gen.py */; };
 		5A00F44C287EBE4E00A4820A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44B287EBE4E00A4820A /* Currency.swift */; };
-		5A00F44E287EBF2700A4820A /* currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44D287EBF2700A4820A /* currencies.swift */; };
+		5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44D287EBF2700A4820A /* Currencies.swift */; };
 		5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44F287EC72400A4820A /* SearchBarView.swift */; };
 		5A00F45A287EDA0100A4820A /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */; };
 		5A00F46C287F313700A4820A /* PaymentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F46B287F313700A4820A /* PaymentItemView.swift */; };
@@ -50,7 +50,7 @@
 /* Begin PBXFileReference section */
 		5A00F449287EBD9100A4820A /* currencies_gen.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = currencies_gen.py; sourceTree = "<group>"; };
 		5A00F44B287EBE4E00A4820A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		5A00F44D287EBF2700A4820A /* currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencies.swift; sourceTree = "<group>"; };
+		5A00F44D287EBF2700A4820A /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		5A00F44F287EC72400A4820A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		5A00F457287EDA0100A4820A /* MoneyTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerTests.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 				B4D501272869A87C0065EB4D /* Assets.xcassets */,
 				B4D501292869A87C0065EB4D /* Preview Content */,
 				5AD41C25287D4A0500A464B2 /* static.swift */,
-				5A00F44D287EBF2700A4820A /* currencies.swift */,
+				5A00F44D287EBF2700A4820A /* Currencies.swift */,
 				B42D29A3287EE10900F324CE /* Launch Screen.storyboard */,
 			);
 			path = MoneyTracker;
@@ -342,7 +342,7 @@
 				5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */,
 				5A4A6091287E98D1009678AA /* PreviewCoreDataManager.swift in Sources */,
 				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
-				5A00F44E287EBF2700A4820A /* currencies.swift in Sources */,
+				5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */,
 				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* CoreDataManager.swift in Sources */,
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,

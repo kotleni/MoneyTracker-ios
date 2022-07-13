@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChangeCurrencyView: View {
     @State private var filterText: String = ""
-    @State private var selectedCurrencyId: UUID = currenciesPopular.first!.id
+    @State private var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id
     
     @Binding var isShowing: Bool
     
@@ -21,7 +21,7 @@ struct ChangeCurrencyView: View {
                 List {
                     // popular
                     Section {
-                        ForEach(currenciesPopular, id: \.self) { curr in
+                        ForEach(Currencies.currenciesPopular, id: \.self) { curr in
                             if curr.fullName.lowercased().contains(filterText.lowercased()) || curr.littleName.lowercased().contains(filterText.lowercased()) || filterText.isEmpty {
                                 HStack {
                                     Text(curr.fullName)
@@ -45,7 +45,7 @@ struct ChangeCurrencyView: View {
 
                     // all
                     Section {
-                        ForEach(currenciesAll, id: \.self) { curr in
+                        ForEach(Currencies.currenciesAll, id: \.self) { curr in
                             if curr.fullName.lowercased().contains(filterText.lowercased()) || curr.littleName.lowercased().contains(filterText.lowercased()) || filterText.isEmpty {
                                 HStack {
                                     Text(curr.fullName)
@@ -84,7 +84,7 @@ struct ChangeCurrencyView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         DispatchQueue.global().async {
-                            let currency = Currency.findById(array: currenciesAll, id: selectedCurrencyId)!
+                            let currency = Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId)!
                             StorageManager.shared.setPriceType(type: currency.littleName)
                             isShowing = false
                         }
@@ -96,9 +96,10 @@ struct ChangeCurrencyView: View {
         }
     }
     
+    /// load current currency from storage
     private func loadStorage() {
         let priceType = StorageManager.shared.getPriceType()
-        let currency = Currency.findByCode(array: currenciesAll, code: priceType)
+        let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType)
         selectedCurrencyId = currency!.id
     }
 }

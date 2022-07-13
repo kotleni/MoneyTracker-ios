@@ -22,14 +22,18 @@ struct SearchBarView: View {
                 .cornerRadius(8)
                 .padding(.horizontal, 10)
                 .transition(.move(edge: .trailing))
-                .animation(.default)
+                //.animation(.default)
                 .onTapGesture {
-                    self.isEditing = true
+                    withAnimation {
+                        self.isEditing = true
+                    }
                 }
  
             if isEditing {
                 Button(action: {
-                    self.isEditing = false
+                    withAnimation {
+                        self.isEditing = false
+                    }
                     self.text = ""
  
                 }) {
@@ -37,7 +41,7 @@ struct SearchBarView: View {
                 }
                 .padding(.trailing, 18)
                 .transition(.move(edge: .trailing))
-                .animation(.default)
+                //.animation(.default)
             }
         }
     }
