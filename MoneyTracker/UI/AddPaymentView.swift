@@ -85,3 +85,9 @@ struct AddPaymentView: View {
         }
     }
 }
+
+struct AddPaymentPreviews: PreviewProvider {
+    static var previews: some View {
+        AddPaymentView(isSheetShow: .constant(true), payments: .constant([])) { }
+    }
+}

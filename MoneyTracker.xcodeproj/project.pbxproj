@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
+		5A0952B4287E959C006CCE2D /* ChangeCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */; };
 		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
 		5A36EE0C287DAC9900812484 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE0B287DAC9900812484 /* Bundle.swift */; };
 		5A36EE0E287DB76400812484 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE0D287DB76400812484 /* HapticManager.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyView.swift; sourceTree = "<group>"; };
 		5A36EE09287D9E8E00812484 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
 		5A36EE0B287DAC9900812484 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		5A36EE0D287DB76400812484 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				5AD41C2A287D4ECE00A464B2 /* MainView.swift */,
 				5A557F08287D87BD00F7B68F /* SettingsView.swift */,
 				5A36EE09287D9E8E00812484 /* PaymentsView.swift */,
+				5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				5A36EE0E287DB76400812484 /* HapticManager.swift in Sources */,
 				5A36EE0C287DAC9900812484 /* Bundle.swift in Sources */,
 				5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */,
+				5A0952B4287E959C006CCE2D /* ChangeCurrencyView.swift in Sources */,
 				B4D501262869A87A0065EB4D /* ContentView.swift in Sources */,
 				5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */,
 				5AD41C2B287D4ECE00A464B2 /* MainView.swift in Sources */,
