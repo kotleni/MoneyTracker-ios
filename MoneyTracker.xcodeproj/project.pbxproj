@@ -12,7 +12,6 @@
 		5A00F44E287EBF2700A4820A /* currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44D287EBF2700A4820A /* currencies.swift */; };
 		5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44F287EC72400A4820A /* SearchBarView.swift */; };
 		5A00F45A287EDA0100A4820A /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */; };
-		5A00F464287EDE5C00A4820A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A00F463287EDE5C00A4820A /* LaunchScreen.storyboard */; };
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A0952B4287E959C006CCE2D /* ChangeCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */; };
 		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
@@ -24,6 +23,7 @@
 		5AD41C26287D4A0500A464B2 /* static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C25287D4A0500A464B2 /* static.swift */; };
 		5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */; };
 		5AD41C2B287D4ECE00A464B2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C2A287D4ECE00A464B2 /* MainView.swift */; };
+		B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B42D29A3287EE10900F324CE /* Launch Screen.storyboard */; };
 		B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */; };
 		B4D501262869A87A0065EB4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501252869A87A0065EB4D /* ContentView.swift */; };
 		B4D501282869A87C0065EB4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D501272869A87C0065EB4D /* Assets.xcassets */; };
@@ -54,7 +54,6 @@
 		5A00F457287EDA0100A4820A /* MoneyTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerTests.swift; sourceTree = "<group>"; };
 		5A00F462287EDE0800A4820A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		5A00F463287EDE5C00A4820A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyView.swift; sourceTree = "<group>"; };
 		5A36EE09287D9E8E00812484 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		5AD41C25287D4A0500A464B2 /* static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = static.swift; sourceTree = "<group>"; };
 		5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentView.swift; sourceTree = "<group>"; };
 		5AD41C2A287D4ECE00A464B2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B42D29A3287EE10900F324CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B4D501202869A87A0065EB4D /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
 		B4D501252869A87A0065EB4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,7 +144,6 @@
 		B4D501172869A87A0065EB4D = {
 			isa = PBXGroup;
 			children = (
-				5A00F463287EDE5C00A4820A /* LaunchScreen.storyboard */,
 				5A00F449287EBD9100A4820A /* currencies_gen.py */,
 				B4D501222869A87A0065EB4D /* MoneyTracker */,
 				5A00F458287EDA0100A4820A /* MoneyTrackerTests */,
@@ -176,6 +175,7 @@
 				B4D501292869A87C0065EB4D /* Preview Content */,
 				5AD41C25287D4A0500A464B2 /* static.swift */,
 				5A00F44D287EBF2700A4820A /* currencies.swift */,
+				B42D29A3287EE10900F324CE /* Launch Screen.storyboard */,
 			);
 			path = MoneyTracker;
 			sourceTree = "<group>";
@@ -294,11 +294,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */,
 				5A00F44A287EBD9200A4820A /* currencies_gen.py in Resources */,
 				B4D5012B2869A87C0065EB4D /* Preview Assets.xcassets in Resources */,
 				B4D501462869ABCE0065EB4D /* Localizable.strings in Resources */,
 				B4D501282869A87C0065EB4D /* Assets.xcassets in Resources */,
-				5A00F464287EDE5C00A4820A /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,9 +529,7 @@
 				INFOPLIST_FILE = MoneyTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft";
@@ -565,9 +563,7 @@
 				INFOPLIST_FILE = MoneyTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft";
