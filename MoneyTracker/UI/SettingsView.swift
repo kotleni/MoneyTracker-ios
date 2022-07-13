@@ -107,9 +107,17 @@ struct SettingsView: View {
                         Text("Add 10 payments")
                     }
                 } header: {
-                    Text("Developer Menu")
+                    Text("Debug Menu")
                 }
-
+                
+                Section {
+                    Text(String(describing: Bundle.main.infoDictionary))
+                    Text("Path: " + String(describing: Bundle.main.bundlePath))
+                    Text("Localizations: " + String(describing: Bundle.main.localizations))
+                } header: {
+                    Text("Bundle Info")
+                }
+                
             }
         }
         .onAppear { loadAll() }
