@@ -7,12 +7,14 @@
 
 import Foundation
 
+/// Currency
 struct Currency: Identifiable, Hashable {
     let fullName: String
     let littleName: String
     
     let id = UUID()
     
+    /// Find currency by code (unsafe)
     static func findByCode(array: Array<Currency>, code: String) -> Currency? {
         for curr in array {
             if curr.littleName == code {
@@ -23,6 +25,7 @@ struct Currency: Identifiable, Hashable {
         return nil
     }
     
+    /// Find currency by id (unsafe)
     static func findById(array: Array<Currency>, id: UUID) -> Currency? {
         for curr in array {
             if curr.id == id {

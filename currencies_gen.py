@@ -11,7 +11,8 @@ header = """//
 
 import Foundation
 
-class Currencies {
+/// Static currencies data class
+final class Currencies {
 """
 
 file_url = "https://raw.githubusercontent.com/datasets/currency-codes/master/data/codes-all.csv"

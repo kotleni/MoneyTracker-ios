@@ -16,12 +16,10 @@
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A0952B4287E959C006CCE2D /* ChangeCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */; };
 		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
-		5A36EE0C287DAC9900812484 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE0B287DAC9900812484 /* Bundle.swift */; };
 		5A36EE0E287DB76400812484 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE0D287DB76400812484 /* HapticManager.swift */; };
-		5A4A6091287E98D1009678AA /* PreviewCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A6090287E98D1009678AA /* PreviewCoreDataManager.swift */; };
 		5A557F09287D87BD00F7B68F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F08287D87BD00F7B68F /* SettingsView.swift */; };
 		5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F0B287D9B2800F7B68F /* Filter.swift */; };
-		5AD41C26287D4A0500A464B2 /* static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C25287D4A0500A464B2 /* static.swift */; };
+		5AD41C26287D4A0500A464B2 /* Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C25287D4A0500A464B2 /* Static.swift */; };
 		5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */; };
 		5AD41C2B287D4ECE00A464B2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C2A287D4ECE00A464B2 /* MainView.swift */; };
 		B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B42D29A3287EE10900F324CE /* Launch Screen.storyboard */; };
@@ -59,12 +57,10 @@
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyView.swift; sourceTree = "<group>"; };
 		5A36EE09287D9E8E00812484 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
-		5A36EE0B287DAC9900812484 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		5A36EE0D287DB76400812484 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
-		5A4A6090287E98D1009678AA /* PreviewCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCoreDataManager.swift; sourceTree = "<group>"; };
 		5A557F08287D87BD00F7B68F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5A557F0B287D9B2800F7B68F /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
-		5AD41C25287D4A0500A464B2 /* static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = static.swift; sourceTree = "<group>"; };
+		5AD41C25287D4A0500A464B2 /* Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
 		5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentView.swift; sourceTree = "<group>"; };
 		5AD41C2A287D4ECE00A464B2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B42D29A3287EE10900F324CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -115,7 +111,6 @@
 				B4D501342869AA510065EB4D /* StorageManager.swift */,
 				5A36EE0D287DB76400812484 /* HapticManager.swift */,
 				5A0952AF287E0423006CCE2D /* NotificationsManager.swift */,
-				5A4A6090287E98D1009678AA /* PreviewCoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -176,7 +171,7 @@
 				B4D501332869AA1B0065EB4D /* Extension */,
 				B4D501272869A87C0065EB4D /* Assets.xcassets */,
 				B4D501292869A87C0065EB4D /* Preview Content */,
-				5AD41C25287D4A0500A464B2 /* static.swift */,
+				5AD41C25287D4A0500A464B2 /* Static.swift */,
 				5A00F44D287EBF2700A4820A /* Currencies.swift */,
 				B42D29A3287EE10900F324CE /* Launch Screen.storyboard */,
 			);
@@ -195,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				B4D501312869A9ED0065EB4D /* String+Ext.swift */,
-				5A36EE0B287DAC9900812484 /* Bundle.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -329,7 +323,6 @@
 				5A00F46C287F313700A4820A /* PaymentItemView.swift in Sources */,
 				B4D501322869A9ED0065EB4D /* String+Ext.swift in Sources */,
 				5A36EE0E287DB76400812484 /* HapticManager.swift in Sources */,
-				5A36EE0C287DAC9900812484 /* Bundle.swift in Sources */,
 				5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */,
 				5A0952B4287E959C006CCE2D /* ChangeCurrencyView.swift in Sources */,
 				B4D501262869A87A0065EB4D /* ContentView.swift in Sources */,
@@ -340,13 +333,12 @@
 				5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */,
 				5A00F44C287EBE4E00A4820A /* Currency.swift in Sources */,
 				5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */,
-				5A4A6091287E98D1009678AA /* PreviewCoreDataManager.swift in Sources */,
 				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
 				5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */,
 				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* CoreDataManager.swift in Sources */,
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,
-				5AD41C26287D4A0500A464B2 /* static.swift in Sources */,
+				5AD41C26287D4A0500A464B2 /* Static.swift in Sources */,
 				5A557F09287D87BD00F7B68F /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

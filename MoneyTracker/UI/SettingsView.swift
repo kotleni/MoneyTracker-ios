@@ -89,7 +89,7 @@ struct SettingsView: View {
             
             Section {
                 // developer text
-                Text("label_developer".localized + "\(developerString)")
+                Text("label_developer".localized + "\(Static.developerString)")
                     .onTapGesture {
                         trackEggs()
                     }
@@ -99,7 +99,7 @@ struct SettingsView: View {
                 
                 // appstore btn
                 Button {
-                    guard let url = URL(string: appstoreUrl) else { return }
+                    guard let url = URL(string: Static.appstoreUrl) else { return }
                     UIApplication.shared.open(url)
                 } label: {
                     Text("btn_appinappstore".localized)
@@ -107,7 +107,7 @@ struct SettingsView: View {
                 
                 // github btn
                 Button {
-                    guard let url = URL(string: githubUrl) else { return }
+                    guard let url = URL(string: Static.githubUrl) else { return }
                     UIApplication.shared.open(url)
                 } label: {
                     Text("btn_appingithub".localized)

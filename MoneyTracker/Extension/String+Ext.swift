@@ -8,6 +8,7 @@
 import Foundation
 
 extension String {
+    /// Get localized string
     public var localized: String {
         NSLocalizedString(self, bundle: Bundle(for: BundleClass.self), comment: "")
     }

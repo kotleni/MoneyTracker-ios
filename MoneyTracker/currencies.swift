@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Currencies {
+/// Static currencies data class
+final class Currencies {
 	static let currenciesAll = [
 		Currency(fullName: "ADB Unit of Account", littleName: "XUA"),
 		Currency(fullName: "Afghani", littleName: "AFN"),

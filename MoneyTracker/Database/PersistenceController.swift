@@ -7,28 +7,29 @@
 
 import CoreData
 
+/// Database controller
 struct PersistenceController {
     static let shared = PersistenceController()
 
     let container: NSPersistentContainer
     
-    static var preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
-        let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Payment(context: viewContext)
-            newItem.price = -10
-            newItem.about = "Tips"
-            newItem.date = Date()
-        }
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-        return result
-    }()
+//    static var preview: PersistenceController = {
+//        let result = PersistenceController(inMemory: true)
+//        let viewContext = result.container.viewContext
+//        for _ in 0..<10 {
+//            let newItem = Payment(context: viewContext)
+//            newItem.price = -10
+//            newItem.about = "Tips"
+//            newItem.date = Date()
+//        }
+//        do {
+//            try viewContext.save()
+//        } catch {
+//            let nsError = error as NSError
+//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//        }
+//        return result
+//    }()
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Model")

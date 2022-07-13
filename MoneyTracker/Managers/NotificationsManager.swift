@@ -7,10 +7,11 @@
 
 import SwiftUI
 
+/// Notifications manager
 class NotificationsManager {
     static let shared = NotificationsManager()
     
-    /// start new notifications task
+    /// Start new notifications task
     func start(title: String, body: String, hour: Int, minute: Int) {
         let content = UNMutableNotificationContent()
         content.title = title
@@ -39,7 +40,7 @@ class NotificationsManager {
         }
     }
     
-    /// stop all notifications task
+    /// Stop all notifications task
     func stop() {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllPendingNotificationRequests()
