@@ -21,6 +21,37 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
+            NavigationLink(destination: Text("Not impl")) {
+                HStack {
+                    ZStack {
+                        Circle()
+                            .fill(Color.red)
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .scaledToFill()
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                    .frame(width: 50, alignment: .leading)
+                    
+                    VStack {
+                        HStack {
+                            Text("Premium")
+                                .font(.system(size: 17))
+                            Spacer()
+                        }
+                        HStack {
+                            Text("Try all the possibles")
+                                .opacity(0.7)
+                                .font(.system(size: 16))
+                            Spacer()
+                        }
+                    }
+                    .padding(.leading, 8)
+                }.padding(.top, 8)
+                    .padding(.bottom, 8)
+            }
+            
             Section {
                 // notifications toggle
                 Toggle("label_notifications".localized, isOn: $isNotifOn)
