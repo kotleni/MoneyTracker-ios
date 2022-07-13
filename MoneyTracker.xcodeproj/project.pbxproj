@@ -11,6 +11,7 @@
 		5A00F44C287EBE4E00A4820A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44B287EBE4E00A4820A /* Currency.swift */; };
 		5A00F44E287EBF2700A4820A /* currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44D287EBF2700A4820A /* currencies.swift */; };
 		5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44F287EC72400A4820A /* SearchBarView.swift */; };
+		5A00F45A287EDA0100A4820A /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */; };
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A0952B4287E959C006CCE2D /* ChangeCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */; };
 		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
@@ -34,11 +35,23 @@
 		B4D501462869ABCE0065EB4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4D501482869ABCE0065EB4D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5A00F45B287EDA0100A4820A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4D501182869A87A0065EB4D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4D5011F2869A87A0065EB4D;
+			remoteInfo = MoneyTracker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5A00F449287EBD9100A4820A /* currencies_gen.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = currencies_gen.py; sourceTree = "<group>"; };
 		5A00F44B287EBE4E00A4820A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		5A00F44D287EBF2700A4820A /* currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencies.swift; sourceTree = "<group>"; };
 		5A00F44F287EC72400A4820A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		5A00F457287EDA0100A4820A /* MoneyTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerTests.swift; sourceTree = "<group>"; };
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyView.swift; sourceTree = "<group>"; };
 		5A36EE09287D9E8E00812484 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
@@ -65,6 +78,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5A00F454287EDA0100A4820A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4D5011D2869A87A0065EB4D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A00F458287EDA0100A4820A /* MoneyTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */,
+			);
+			path = MoneyTrackerTests;
+			sourceTree = "<group>";
+		};
 		5A0952B2287E0852006CCE2D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +143,7 @@
 			children = (
 				5A00F449287EBD9100A4820A /* currencies_gen.py */,
 				B4D501222869A87A0065EB4D /* MoneyTracker */,
+				5A00F458287EDA0100A4820A /* MoneyTrackerTests */,
 				B4D501212869A87A0065EB4D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				B4D501202869A87A0065EB4D /* MoneyTracker.app */,
+				5A00F457287EDA0100A4820A /* MoneyTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,6 +204,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5A00F456287EDA0100A4820A /* MoneyTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A00F45F287EDA0100A4820A /* Build configuration list for PBXNativeTarget "MoneyTrackerTests" */;
+			buildPhases = (
+				5A00F453287EDA0100A4820A /* Sources */,
+				5A00F454287EDA0100A4820A /* Frameworks */,
+				5A00F455287EDA0100A4820A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A00F45C287EDA0100A4820A /* PBXTargetDependency */,
+			);
+			name = MoneyTrackerTests;
+			productName = MoneyTrackerTests;
+			productReference = 5A00F457287EDA0100A4820A /* MoneyTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B4D5011F2869A87A0065EB4D /* MoneyTracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4D5012E2869A87C0065EB4D /* Build configuration list for PBXNativeTarget "MoneyTracker" */;
@@ -201,6 +249,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					5A00F456287EDA0100A4820A = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = B4D5011F2869A87A0065EB4D;
+					};
 					B4D5011F2869A87A0065EB4D = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -220,11 +272,19 @@
 			projectRoot = "";
 			targets = (
 				B4D5011F2869A87A0065EB4D /* MoneyTracker */,
+				5A00F456287EDA0100A4820A /* MoneyTrackerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5A00F455287EDA0100A4820A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4D5011E2869A87A0065EB4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,6 +299,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5A00F453287EDA0100A4820A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A00F45A287EDA0100A4820A /* MoneyTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4D5011C2869A87A0065EB4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +337,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5A00F45C287EDA0100A4820A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4D5011F2869A87A0065EB4D /* MoneyTracker */;
+			targetProxy = 5A00F45B287EDA0100A4820A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		B4D501482869ABCE0065EB4D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -282,6 +358,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5A00F45D287EDA0100A4820A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 534C989ZLQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyTracker.app/MoneyTracker";
+			};
+			name = Debug;
+		};
+		5A00F45E287EDA0100A4820A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 534C989ZLQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyTracker.app/MoneyTracker";
+			};
+			name = Release;
+		};
 		B4D5012C2869A87C0065EB4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,6 +577,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5A00F45F287EDA0100A4820A /* Build configuration list for PBXNativeTarget "MoneyTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A00F45D287EDA0100A4820A /* Debug */,
+				5A00F45E287EDA0100A4820A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B4D5011B2869A87A0065EB4D /* Build configuration list for PBXProject "MoneyTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
