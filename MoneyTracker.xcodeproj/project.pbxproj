@@ -13,6 +13,7 @@
 		5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44F287EC72400A4820A /* SearchBarView.swift */; };
 		5A00F45A287EDA0100A4820A /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */; };
 		5A00F46C287F313700A4820A /* PaymentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F46B287F313700A4820A /* PaymentItemView.swift */; };
+		5A00F4712880124100A4820A /* PremiumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F4702880124100A4820A /* PremiumManager.swift */; };
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A0952B4287E959C006CCE2D /* ChangeCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */; };
 		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
@@ -54,6 +55,8 @@
 		5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerTests.swift; sourceTree = "<group>"; };
 		5A00F462287EDE0800A4820A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5A00F46B287F313700A4820A /* PaymentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentItemView.swift; sourceTree = "<group>"; };
+		5A00F46F287F4CF000A4820A /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		5A00F4702880124100A4820A /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCurrencyView.swift; sourceTree = "<group>"; };
 		5A36EE09287D9E8E00812484 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 				B4D501342869AA510065EB4D /* StorageManager.swift */,
 				5A36EE0D287DB76400812484 /* HapticManager.swift */,
 				5A0952AF287E0423006CCE2D /* NotificationsManager.swift */,
+				5A00F4702880124100A4820A /* PremiumManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -174,6 +178,7 @@
 				5AD41C25287D4A0500A464B2 /* Static.swift */,
 				5A00F44D287EBF2700A4820A /* Currencies.swift */,
 				B42D29A3287EE10900F324CE /* Launch Screen.storyboard */,
+				5A00F46F287F4CF000A4820A /* Configuration.storekit */,
 			);
 			path = MoneyTracker;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
 				5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */,
 				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
+				5A00F4712880124100A4820A /* PremiumManager.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* CoreDataManager.swift in Sources */,
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,
 				5AD41C26287D4A0500A464B2 /* Static.swift in Sources */,

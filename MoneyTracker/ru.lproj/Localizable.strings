@@ -19,8 +19,11 @@
 "label_aboutapp" = "О приложении";
 "label_notifications" = "Уведомления";
 "label_popular" = "Популярные";
-"label_likeapp" = "Нравится приложение?";
-"label_buysub" = "Купи подписку в приложении";
+"label_subscribe" = "Подписка";
+"label_premiumsubscribe" = "Премиум подписка";
+"label_premiumaboutleft" = "Всего ";
+"label_premiumaboutright" = " в месяц";
+"label_premiumactive" = "Подписка оформлена 🎉";
 
 "btn_add" = "Добавить";
 "btn_cancel" = "Отменить";

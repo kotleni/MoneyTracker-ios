@@ -27,8 +27,11 @@
 "btn_appinappstore" = "App in AppStore";
 "btn_appingithub" = "App in GitHub";
 "btn_selectcurrency" = "Select currency";
-"label_likeapp" = "You like this app?";
-"label_buysub" = "Buy subscribe";
+"label_subscribe" = "Subscribe";
+"label_premiumsubscribe" = "Premium subscribe";
+"label_premiumaboutleft" = "Just ";
+"label_premiumaboutright" = " in month";
+"label_premiumactive" = "Subscribed 🎉";
 
 // filters
 "filter_all" = " All";

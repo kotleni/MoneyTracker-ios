@@ -19,27 +19,48 @@ struct SettingsView: View {
     @State private var showEggs: Bool = false
     @State private var showSuperEggs: Bool = false
     
+    @State private var isPremium: Bool = false
+    @State private var premiumPrice: String = ""
+    
     var body: some View {
         Form {
             
-            NavigationLink(destination: Text("Not impl")) {
-                HStack {
-                    VStack {
-                        HStack {
-                            Text("label_likeapp".localized)
-                                .font(.system(size: 17))
-                            Spacer()
+            Section {
+                if isPremium {
+                    Text("label_premiumactive".localized)
+                } else if premiumPrice.isEmpty {
+                    ProgressView()
+                } else {
+                    Button(action: {
+                        Task.init {
+                            let _ = await PremiumManager.shared.trySubscribe()
+                            isPremium = await PremiumManager.shared.isPremiumExist()
                         }
-                        HStack {
-                            Text("label_buysub".localized)
-                                .opacity(0.7)
-                                .font(.system(size: 16))
-                            Spacer()
+                    }, label: {
+                        VStack {
+                            HStack {
+                                Text("label_premiumsubscribe".localized)
+                                    .font(.system(size: 17))
+                                Spacer()
+                            }
+                            HStack {
+                                Text("label_premiumaboutleft".localized + premiumPrice + "label_premiumaboutright".localized)
+                                    .opacity(0.7)
+                                    .font(.system(size: 16))
+                                Spacer()
+                            }
                         }
-                    }
-                    //.padding(.leading, 16)
-                }.padding(.top, 8)
-                    .padding(.bottom, 8)
+                    })
+                }
+                
+            } header: {
+                Text("label_subscribe".localized)
+            }
+            .onAppear {
+                Task.init {
+                    isPremium = await PremiumManager.shared.isPremiumExist()
+                    premiumPrice = await PremiumManager.shared.getPremiumPrice()
+                }
             }
             
             Section {
