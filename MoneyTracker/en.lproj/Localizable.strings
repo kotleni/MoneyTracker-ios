@@ -34,9 +34,9 @@
 "label_premiumactive" = "Subscribed 🎉";
 
 // filters
-"filter_all" = " All";
-"filter_minus" = " Only expenses";
-"filter_plus" = " Only income";
+"filter_all" = "📚 All";
+// "filter_minus" = " Only expenses";
+"filter_plus" = "💰 Only income";
 
 "hint_necessarily" = "Necessarily";
 "hint_payment" = "After creating a payment, it will be added to the history and the funds counter will be updated.";
@@ -50,3 +50,10 @@
 
 "notif_title" = "Reminder";
 "notif_body" = "Time to update the payment list";
+
+// tags
+"tag_food" = "🍗 Food";
+"tag_clothes" = "👚 Clothes";
+"tag_entertainment" = "🎭 Entertainment";
+"tag_technique" = "💻 Technique";
+"tag_other" = "📦 Other";

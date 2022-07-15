@@ -21,6 +21,7 @@ struct SettingsView: View {
     
     @State private var isPremium: Bool = false
     @State private var premiumPrice: String = ""
+    @State private var isShowPremiumWarn: Bool = false
     
     var body: some View {
         Form {
@@ -60,6 +61,11 @@ struct SettingsView: View {
                 Task.init {
                     isPremium = await PremiumManager.shared.isPremiumExist()
                     premiumPrice = await PremiumManager.shared.getPremiumPrice()
+                    
+                    if !isPremium && isNotifOn {
+                        StorageManager.shared.setNotifEnable(isEnable: false)
+                        isNotifOn = false
+                    }
                 }
             }
             
@@ -67,6 +73,14 @@ struct SettingsView: View {
                 // notifications toggle
                 Toggle("label_notifications".localized, isOn: $isNotifOn)
                     .onChange(of: isNotifOn) { value in
+                        if(!isPremium) {
+                            isShowPremiumWarn = true
+                            DispatchQueue.global().async {
+                                sleep(1)
+                                isNotifOn = false
+                            }
+                            return
+                        }
                         // update notif pref
                         StorageManager.shared.setNotifEnable(isEnable: isNotifOn)
                         
@@ -75,6 +89,7 @@ struct SettingsView: View {
 
                             center.requestAuthorization(options: [.alert, .badge]) { (granted, error) in
                                 if error == nil {
+                                    NotificationsManager.shared.stop()
                                     NotificationsManager.shared.start(
                                         title: "notif_title".localized,
                                         body: "notif_body".localized,
@@ -148,23 +163,20 @@ struct SettingsView: View {
                     } label: {
                         Text("Add 10 payments")
                     }
+
                 } header: {
                     Text("Debug Menu")
                 }
-                
-                Section {
-                    Text(String(describing: Bundle.main.infoDictionary))
-                    Text("Path: " + String(describing: Bundle.main.bundlePath))
-                    Text("Localizations: " + String(describing: Bundle.main.localizations))
-                } header: {
-                    Text("Bundle Info")
-                }
-                
             }
         }
         .onAppear { loadAll() }
         .sheet(isPresented: $isShowSheet) {
             ChangeCurrencyView(isShowing: $isShowSheet)
+        }
+        .alert("Это премиум функция.", isPresented: $isShowPremiumWarn) {
+            Button("OK") {
+                isShowPremiumWarn = false
+            }
         }
     }
     
@@ -186,3 +198,5 @@ struct SettingsView: View {
         }
     }
 }
+
+

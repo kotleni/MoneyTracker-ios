@@ -15,7 +15,7 @@ struct MainView: View {
     
     @State private var isShowSheet: Bool = false
     
-    @State private var selectedFilter: Filter = Filter.all
+    @State private var selectedFilter: String = Filter.all.rawValue
     
     var body: some View {
         VStack {
@@ -36,12 +36,14 @@ struct MainView: View {
                 }
                 Spacer()
                 Picker(selection: $selectedFilter) {
-                    Label("filter_all".localized, systemImage: "tag")
-                        .tag(Filter.all)
-                    Label("filter_minus".localized, systemImage: "tag")
-                        .tag(Filter.minus)
-                    Label("filter_plus".localized, systemImage: "tag")
-                        .tag(Filter.plus)
+                    Text("filter_all".localized)
+                        .tag(Filter.all.rawValue)
+                    Text("filter_plus".localized)
+                        .tag(Filter.plus.rawValue)
+                    ForEach(Tag.allCases, id: \.self) { tag in
+                        Text(tag.rawValue.localized)
+                            .tag(tag.rawValue)
+                    }
                 } label: {
                     Text("label_filter".localized)
                 }

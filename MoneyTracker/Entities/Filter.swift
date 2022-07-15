@@ -9,6 +9,8 @@ import Foundation
 
 /// Filter for payments list
 enum Filter: String, CaseIterable, Identifiable {
-    case all, minus, plus
+    case all = "filter_all"
+    case plus = "filter_plus"
+    
     var id: Self { self }
 }

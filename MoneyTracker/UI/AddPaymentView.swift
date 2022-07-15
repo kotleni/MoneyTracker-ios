@@ -11,6 +11,7 @@ struct AddPaymentView: View {
     @State private var priceText: String = ""
     @State private var aboutText: String = ""
     @State private var spendingBool: Bool = false
+    @State private var selectedTag: Tag = Tag.other
     
     @Binding var isSheetShow: Bool
     @Binding var payments: [Payment]
@@ -35,10 +36,23 @@ struct AddPaymentView: View {
                             .multilineTextAlignment(.trailing)
                             .frame(width: UIScreen.main.bounds.width / 3)
                     }
-                    
                     HStack {
                         Text("field_expenses".localized)
                         Toggle("", isOn: $spendingBool)
+                    }
+                    if spendingBool {
+                        HStack {
+                            Text("Тэг".localized)
+                            Spacer()
+                            Picker("", selection: $selectedTag) {
+                                ForEach(Tag.allCases, id: \.self) { tag in
+                                    Text(tag.rawValue.localized)
+                                }
+                            }
+                            .pickerStyle(.menu)
+                        }
+                        .animation(.default)
+                        .transition(.slide)
                     }
                 } footer: {
                     Text("hint_payment".localized)
@@ -59,9 +73,10 @@ struct AddPaymentView: View {
                         if !priceText.isEmpty && !aboutText.isEmpty {
                             guard let fl = Float(spendingBool ? "-\(priceText)" : priceText) else { return }
                             let about = aboutText
+                            let tag = selectedTag
                             
                             DispatchQueue.global(qos: .userInitiated).async {
-                                CoreDataManager.shared.addPayment(price: fl, about: about)
+                                CoreDataManager.shared.addPayment(price: fl, about: about, tag: tag)
                                 
                                 DispatchQueue.main.async {
                                     selectHandler()
@@ -73,6 +88,7 @@ struct AddPaymentView: View {
                             
                             priceText = ""
                             aboutText = ""
+                            selectedTag = Tag.other
                             spendingBool = false
                         } else {
                             HapticManager.shared.error()

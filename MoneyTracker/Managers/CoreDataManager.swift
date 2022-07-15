@@ -14,11 +14,12 @@ struct CoreDataManager {
     private var viewContext = PersistenceController.shared.container.viewContext
     
     /// Add new payment
-    func addPayment(price: Float, about: String) {
+    func addPayment(price: Float, about: String, tag: Tag = Tag.other) {
         let payment = Payment(context: viewContext)
         payment.price = Float(price)
         payment.about = about
         payment.date = Date()
+        payment.tag = tag.rawValue
     
         try! viewContext.save()
     }

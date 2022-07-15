@@ -9,14 +9,14 @@ import SwiftUI
 
 struct PaymentsView: View {
     @Binding var payments: [Payment]
-    @Binding var selectedFilter: Filter
+    @Binding var selectedFilter: String
     @Binding var priceType: String
 
     var body: some View {
         List {
             if payments.count > 0 {
                 ForEach(payments, id: \.self) { payment in
-                    if selectedFilter == Filter.all || (selectedFilter == Filter.minus && payment.price < 0) || (selectedFilter == Filter.plus && payment.price >= 0) {
+                    if isFilterOk(payment: payment) {
                         PaymentItemView(payment: payment, priceType: priceType)
                     }
                 }
@@ -33,5 +33,28 @@ struct PaymentsView: View {
             }
             
         }
+    }
+    
+    private func isFilterOk(payment: Payment) -> Bool {
+        let paymentTag = (payment.tag == nil) ? Tag.other.rawValue : payment.tag!
+        
+        // is all
+        if (selectedFilter == "filter_all") {
+            return true
+        }
+        
+        // is plus
+        if (selectedFilter == "filter_plus") && payment.price > 0 {
+            return true
+        }
+        
+        // check tags
+        for tag in Tag.allCases {
+            if selectedFilter == paymentTag {
+                return true
+            }
+        }
+        
+        return false
     }
 }
