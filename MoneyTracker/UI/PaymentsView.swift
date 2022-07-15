@@ -44,8 +44,12 @@ struct PaymentsView: View {
         }
         
         // is plus
-        if (selectedFilter == "filter_plus") && payment.price > 0 {
-            return true
+//        if (selectedFilter == "filter_plus") && payment.price > 0 {
+//            return true
+//        }
+        
+        if payment.price < 0 {
+            return false
         }
         
         // check tags

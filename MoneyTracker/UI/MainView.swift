@@ -38,8 +38,8 @@ struct MainView: View {
                 Picker(selection: $selectedFilter) {
                     Text("filter_all".localized)
                         .tag(Filter.all.rawValue)
-                    Text("filter_plus".localized)
-                        .tag(Filter.plus.rawValue)
+//                    Text("filter_plus".localized)
+//                        .tag(Filter.plus.rawValue)
                     ForEach(Tag.allCases, id: \.self) { tag in
                         Text(tag.rawValue.localized)
                             .tag(tag.rawValue)

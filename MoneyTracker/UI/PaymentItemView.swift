@@ -18,13 +18,11 @@ struct PaymentItemView: View {
                     Text(payment.about!)
                     Spacer()
                 }
-                if payment.price < 0 {
-                    HStack {
-                        Text((payment.tag == nil) ? Tag.other.rawValue.localized : payment.tag!.localized)
-                            .opacity(0.8)
-                            .font(.system(size: 14))
-                        Spacer()
-                    }
+                HStack {
+                    Text((payment.price < 0) ? "🔻" : (payment.tag == nil) ? Tag.other.rawValue.localized : payment.tag!.localized)
+                        .opacity(0.8)
+                        .font(.system(size: 14))
+                    Spacer()
                 }
             }
             Spacer()
