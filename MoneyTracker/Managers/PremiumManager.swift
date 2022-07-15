@@ -25,10 +25,10 @@ class PremiumManager {
         let state = try! await products[0].currentEntitlement
         
         switch state {
-        case .verified(let transaction):
+        case .verified(let _):
             print(".verifed")
             return true
-        case .unverified(let transaction, let error):
+        case .unverified(let _, let _):
             print(".unverified")
             return true
         default:

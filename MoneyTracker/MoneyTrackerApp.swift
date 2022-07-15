@@ -12,6 +12,11 @@ struct MoneyTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear { onAttach() }
         }
+    }
+    
+    private func onAttach() {
+        
     }
 }
