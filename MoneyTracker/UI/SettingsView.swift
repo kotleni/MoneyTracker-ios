@@ -17,7 +17,6 @@ struct SettingsView: View {
     
     // eggs vars
     @State private var showEggs: Bool = false
-    @State private var showSuperEggs: Bool = false
     
     @State private var isPremium: Bool = false
     @State private var premiumPrice: String = ""
@@ -157,11 +156,18 @@ struct SettingsView: View {
                 Section {
                     // add 10 paymebts btn
                     Button {
-                        for _ in 0...10 {
-                            CoreDataManager.shared.addPayment(price: 256, about: "Test")
+                        for _ in 0...5 {
+                            CoreDataManager.shared.addPayment(price: 7, about: "Pizza", tag: .food)
                         }
                     } label: {
-                        Text("Add 10 payments")
+                        Text("Add 5 payments")
+                    }
+                    
+                    // show premium warn
+                    Button {
+                        isShowPremiumWarn = true
+                    } label: {
+                        Text("Show premium warn")
                     }
 
                 } header: {
@@ -190,10 +196,6 @@ struct SettingsView: View {
         eggsCounter += 1
         if eggsCounter == 9 {
             showEggs = true
-            HapticManager.shared.success()
-        }
-        if eggsCounter == 21 {
-            showSuperEggs = true
             HapticManager.shared.success()
         }
     }

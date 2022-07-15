@@ -25,7 +25,7 @@ struct AddPaymentView: View {
                         Text("field_price".localized)
                         Spacer()
                         TextField("hint_necessarily".localized, text: $priceText)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                             .multilineTextAlignment(.trailing)
                             .frame(width: UIScreen.main.bounds.width / 3)
                     }
@@ -71,7 +71,8 @@ struct AddPaymentView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         if !priceText.isEmpty && !aboutText.isEmpty {
-                            guard let fl = Float(spendingBool ? "-\(priceText)" : priceText) else { return }
+                            let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
+                            guard let fl = Float(spendingBool ? "-\(priceStr)" : priceStr) else { return }
                             let about = aboutText
                             let tag = selectedTag
                             
