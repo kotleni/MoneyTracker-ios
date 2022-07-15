@@ -57,3 +57,5 @@
 "tag_entertainment" = "🎭 Entertainment";
 "tag_technique" = "💻 Technique";
 "tag_other" = "📦 Other";
+
+"premium_warn" = "It's a premium function";

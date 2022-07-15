@@ -173,7 +173,7 @@ struct SettingsView: View {
         .sheet(isPresented: $isShowSheet) {
             ChangeCurrencyView(isShowing: $isShowSheet)
         }
-        .alert("Это премиум функция.", isPresented: $isShowPremiumWarn) {
+        .alert("premium_warn".localized, isPresented: $isShowPremiumWarn) {
             Button("OK") {
                 isShowPremiumWarn = false
             }
