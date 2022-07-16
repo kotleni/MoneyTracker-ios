@@ -23,6 +23,7 @@ class MathematicalExpression {
         }
     }
     
+    /// Calculate expression
     func makeResult() -> Float {
         var sum: Float = 0.0
         for numb in numbers {
