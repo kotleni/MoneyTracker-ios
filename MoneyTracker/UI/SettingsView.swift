@@ -131,18 +131,15 @@ struct SettingsView: View {
                 Text("label_aboutapp".localized)
             }
 
-            // if eggs activate
+            // if developer mode activate
             if viewModel.isDeveloperOn {
                 Section {
-                    // fixme: crash
-                    // add 10 paymebts btn
-//                    Button {
-//                        for _ in 0...5 {
-//                            viewModel.addPayment(price: 7, about: "Pizza", tag: .food)
-//                        }
-//                    } label: {
-//                        Text("Add 5 payments")
-//                    }
+                    // quick add payment btn
+                    Button {
+                        viewModel.addPayment(price: Float(Int.random(in: -999...999)), about: "Undefined", tag: .other)
+                    } label: {
+                        Text("Quick add payment")
+                    }
                     
                     // show premium warn
                     Button {
@@ -151,12 +148,31 @@ struct SettingsView: View {
                         Text("Show premium warn")
                     }
 
+                    // toggle main loading stage
+                    Button {
+                        viewModel.isLoading.toggle()
+                    } label: {
+                        Text("Toggle main loading stage")
+                    }
+
+                    // toggle premium stage
+                    Button {
+                        viewModel.isPremium.toggle()
+                    } label: {
+                        Text("Toggle premium stage")
+                    }
+                    
+                    // force local clear payments
+                    Button {
+                        viewModel.payments = []
+                    } label: {
+                        Text("Force clear local payments")
+                    }
                 } header: {
                     Text("Debug Menu")
                 }
             }
         }
-        // .onAppear { viewModel.loadAll() }
         .alert("premium_warn".localized, isPresented: $isShowPremiumWarn) {
             Button("OK") {
                 isShowPremiumWarn = false
