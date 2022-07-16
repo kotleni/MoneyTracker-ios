@@ -25,6 +25,7 @@
 		5AD41C2B287D4ECE00A464B2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C2A287D4ECE00A464B2 /* MainView.swift */; };
 		5AFA66D22881F27500088D53 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA66D12881F27500088D53 /* Tag.swift */; };
 		5AFA66D52882B02700088D53 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA66D42882B02700088D53 /* MainViewModel.swift */; };
+		5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA66D62882C07100088D53 /* MathematicalExpression.swift */; };
 		B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B42D29A3287EE10900F324CE /* Launch Screen.storyboard */; };
 		B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */; };
 		B4D501262869A87A0065EB4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501252869A87A0065EB4D /* ContentView.swift */; };
@@ -70,6 +71,7 @@
 		5AD41C2A287D4ECE00A464B2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5AFA66D12881F27500088D53 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5AFA66D42882B02700088D53 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		5AFA66D62882C07100088D53 /* MathematicalExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalExpression.swift; sourceTree = "<group>"; };
 		B42D29A3287EE10900F324CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B4D501202869A87A0065EB4D /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				5A00F44D287EBF2700A4820A /* Currencies.swift */,
 				B42D29A3287EE10900F324CE /* Launch Screen.storyboard */,
 				5A00F46F287F4CF000A4820A /* Configuration.storekit */,
+				5AFA66D62882C07100088D53 /* MathematicalExpression.swift */,
 			);
 			path = MoneyTracker;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A00F46C287F313700A4820A /* PaymentItemView.swift in Sources */,
+				5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */,
 				B4D501322869A9ED0065EB4D /* String+Ext.swift in Sources */,
 				5A36EE0E287DB76400812484 /* HapticManager.swift in Sources */,
 				5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */,

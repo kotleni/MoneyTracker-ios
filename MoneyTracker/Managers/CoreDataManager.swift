@@ -14,7 +14,7 @@ struct CoreDataManager {
     private var viewContext = PersistenceController.shared.container.viewContext
     
     /// Add new payment
-    func addPayment(price: Float, about: String, tag: Tag = Tag.other) {
+    func addPayment(price: Float, about: String, tag: Tag = Tag.other) -> Payment {
         let payment = Payment(context: viewContext)
         payment.price = Float(price)
         payment.about = about
@@ -22,6 +22,7 @@ struct CoreDataManager {
         payment.tag = tag.rawValue
     
         try! viewContext.save()
+        return payment
     }
     
     /// Remove payment by in index

@@ -76,12 +76,13 @@ struct AddPaymentView: View {
                             if !priceText.isEmpty && !aboutText.isEmpty {
                                 // fixme: stupid code
                                 let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
-                                guard let fl = Float(spendingBool ? "-\(priceStr)" : priceStr) else { return }
+                                let sum = MathematicalExpression(line: priceStr).makeResult()
+                                guard let fl = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
                                 let about = aboutText
                                 let tag = selectedTag
                                 
                                 viewModel.addPayment(price: fl, about: about, tag: tag)
-                                viewModel.loadAll()
+                                //viewModel.loadAll()
                                 HapticManager.shared.success()
                                 
                                 isSheetShow = false

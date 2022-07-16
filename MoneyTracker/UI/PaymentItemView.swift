@@ -15,7 +15,7 @@ struct PaymentItemView: View {
         HStack(spacing: 0) {
             VStack {
                 HStack {
-                    Text(payment.about!)
+                    Text((payment.about == nil) ? "..." : payment.about!)
                     Spacer()
                 }
                 HStack {

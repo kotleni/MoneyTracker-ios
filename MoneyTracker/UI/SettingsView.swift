@@ -134,14 +134,15 @@ struct SettingsView: View {
             // if eggs activate
             if viewModel.isDeveloperOn {
                 Section {
+                    // fixme: crash
                     // add 10 paymebts btn
-                    Button {
-                        for _ in 0...5 {
-                            viewModel.addPayment(price: 7, about: "Pizza", tag: .food)
-                        }
-                    } label: {
-                        Text("Add 5 payments")
-                    }
+//                    Button {
+//                        for _ in 0...5 {
+//                            viewModel.addPayment(price: 7, about: "Pizza", tag: .food)
+//                        }
+//                    } label: {
+//                        Text("Add 5 payments")
+//                    }
                     
                     // show premium warn
                     Button {

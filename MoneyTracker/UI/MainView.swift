@@ -19,6 +19,9 @@ struct MainView: View {
                 HStack {
                     VStack {
                         Text("\(String(format: "%.2f", viewModel.totalBalance)) \(viewModel.priceType)")
+                            .onTapGesture {
+                                print(viewModel.totalBalance)
+                            }
                         Text("label_balance".localized)
                             .foregroundColor(Color.gray)
                     }
@@ -49,7 +52,7 @@ struct MainView: View {
                 PaymentsView(viewModel: viewModel)
             }
         }
-        .onAppear { viewModel.loadAll() }
+        // .onAppear { viewModel.loadAll() }
         .sheet(isPresented: $isShowSheet, content: {
             AddPaymentView(viewModel: viewModel, isSheetShow: $isShowSheet)
         })

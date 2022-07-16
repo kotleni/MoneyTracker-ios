@@ -8,7 +8,7 @@
 import SwiftUI
 
 class MainViewModel: ObservableObject {
-    @Published var isLoading: Bool = false
+    @Published var isLoading: Bool = true
     @Published var payments: [Payment] = []
     @Published var priceType: String = "USD"
     @Published var totalBalance: Float = 0
@@ -18,29 +18,24 @@ class MainViewModel: ObservableObject {
     @Published var isPremium: Bool = false
     @Published var premiumPrice: String = ""
     
-    /// Load all data in background
-    func loadAll() {
-        self.isLoading = false
+    /// Load all data in bg
+    func loadAllData() {
+        loadPremiumState()
         DispatchQueue.global().async {
             let _payments = CoreDataManager.shared.getPayments()
             let _priceType = StorageManager.shared.getPriceType()
-            
-            // update data
             DispatchQueue.main.async {
+                self.isLoading = false
+                
                 self.payments = _payments
                 self.priceType = _priceType
-                DispatchQueue.global().async {
-                    let _totalBalance = self.mathPaymentsPrice()
-                    DispatchQueue.main.async {
-                        self.totalBalance = _totalBalance
-                    }
-                }
-                
-                self.isLoading = false
+                self.calculatePayments()
             }
         }
-        
-        // load premium state
+    }
+    
+    /// Load premium state in bg
+    func loadPremiumState() {
         Task.init {
             let isPremium = await PremiumManager.shared.isPremiumExist()
             let premiumPrice = await PremiumManager.shared.getPremiumPrice()
@@ -57,19 +52,42 @@ class MainViewModel: ObservableObject {
         }
     }
     
+    /// Calcucate payments in bg
+    func calculatePayments() {
+        DispatchQueue.global().async {
+            var value: Float = 0.0
+            self.payments.forEach { payment in
+                value += payment.price
+            }
+            DispatchQueue.main.async {
+                self.totalBalance = value
+            }
+        }
+    }
+    
     /// Delete payment by index
     func deletePayment(index: Int) {
         DispatchQueue.global().async {
             CoreDataManager.shared.removePayment(index: index)
-            self.payments = CoreDataManager.shared.getPayments()
+            DispatchQueue.main.async {
+                self.payments.remove(at: index)
+            }
         }
     }
     
     /// Add new payment
     func addPayment(price: Float, about: String, tag: Tag = Tag.other) {
         DispatchQueue.global().async {
-            CoreDataManager.shared.addPayment(price: price, about: about, tag: tag)
+            let payment = CoreDataManager.shared.addPayment(price: price, about: about, tag: tag)
+            DispatchQueue.main.async {
+                self.payments.insert(payment, at: 0)
+            }
         }
+    }
+    
+    /// Remove all payments
+    func removeAllPayments() {
+        CoreDataManager.shared.removeAll()
     }
     
     /// Try purshace premium
@@ -85,24 +103,13 @@ class MainViewModel: ObservableObject {
         StorageManager.shared.setNotifEnable(isEnable: state)
     }
     
-    /// Remove all payments
-    func removeAllPayments() {
-        CoreDataManager.shared.removeAll()
-    }
-    
     /// Update currency
     func setCurrency(currency: Currency) {
         DispatchQueue.global().async {
+            DispatchQueue.main.async {
+                self.priceType = currency.littleName
+            }
             StorageManager.shared.setPriceType(type: currency.littleName)
         }
-    }
-    
-    /// Calculate all payments price
-    private func mathPaymentsPrice() -> Float {
-        var value: Float = 0.0
-        payments.forEach { payment in
-            value += payment.price
-        }
-        return value
     }
 }
