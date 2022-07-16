@@ -15,21 +15,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="launch_bg" translatesAutoresizingMaskIntoConstraints="NO" id="EwW-ZM-tgy">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_bg" translatesAutoresizingMaskIntoConstraints="NO" id="EwW-ZM-tgy">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_logo" translatesAutoresizingMaskIntoConstraints="NO" id="sSU-a5-5SJ">
-                                <rect key="frame" x="132" y="386" width="150" height="125"/>
+                                <rect key="frame" x="122" y="388" width="170" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="DE7-3V-Je2"/>
+                                    <constraint firstAttribute="width" constant="170" id="mFZ-cB-tXv"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <constraints>
+                            <constraint firstItem="sSU-a5-5SJ" firstAttribute="centerX" secondItem="EwW-ZM-tgy" secondAttribute="centerX" id="3tp-7S-lFT"/>
+                            <constraint firstItem="EwW-ZM-tgy" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="AyW-mx-MeF"/>
                             <constraint firstItem="EwW-ZM-tgy" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="QbA-Ot-aPI"/>
-                            <constraint firstItem="sSU-a5-5SJ" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="342" id="Vjm-wI-hWF"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="sSU-a5-5SJ" secondAttribute="trailing" constant="132" id="fWi-ey-eka"/>
-                            <constraint firstItem="sSU-a5-5SJ" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="132" id="lth-eH-LDI"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="sSU-a5-5SJ" secondAttribute="bottom" constant="351" id="tLn-hd-I76"/>
+                            <constraint firstItem="sSU-a5-5SJ" firstAttribute="centerY" secondItem="EwW-ZM-tgy" secondAttribute="centerY" id="vlu-t3-S2G"/>
                             <constraint firstItem="EwW-ZM-tgy" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="xdP-Tm-Egd"/>
+                            <constraint firstItem="EwW-ZM-tgy" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ynJ-JH-afm"/>
                         </constraints>
                     </view>
                 </viewController>
