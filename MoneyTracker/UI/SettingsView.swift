@@ -13,7 +13,6 @@ fileprivate var eggsCounter: Int = 0
 struct SettingsView: View {
     @State private var priceType: String = ""
     @State private var isNotifOn: Bool = false
-    @State private var isShowSheet: Bool = false
     
     // eggs vars
     @State private var showEggs: Bool = false
@@ -103,12 +102,20 @@ struct SettingsView: View {
                     }
                 
                 // currency change btn
-                Button {
-                    isShowSheet = true
+//                Button {
+//                    isShowSheet = true
+//                } label: {
+//                    Text("btn_selectcurrency".localized)
+//                        .padding(.trailing, 2)
+//                }
+                
+                NavigationLink {
+                    ChangeCurrencyView()
                 } label: {
                     Text("btn_selectcurrency".localized)
                         .padding(.trailing, 2)
                 }
+
                 
                 // reset paymetns btn
                 Button {
@@ -176,9 +183,6 @@ struct SettingsView: View {
             }
         }
         .onAppear { loadAll() }
-        .sheet(isPresented: $isShowSheet) {
-            ChangeCurrencyView(isShowing: $isShowSheet)
-        }
         .alert("premium_warn".localized, isPresented: $isShowPremiumWarn) {
             Button("OK") {
                 isShowPremiumWarn = false
