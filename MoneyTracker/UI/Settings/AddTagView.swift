@@ -19,7 +19,7 @@ struct AddTagView: View {
         VStack {
             Form {
                 HStack {
-                    Text("label_tag".localized)
+                    Text("label_emoji".localized)
                     Spacer()
                     EmojiTextField(text: $emojiText, placeholder: "hint_necessarily".localized)
                         .frame(width: UIScreen.main.bounds.width / 3)

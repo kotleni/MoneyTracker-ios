@@ -19,7 +19,7 @@ struct PaymentItemView: View {
                     Spacer()
                 }
                 HStack {
-                    Text((payment.price > 0) ? "🟢" : (payment.tag == nil) ? Tag.getDefault().name! : Tag.getByName(name: payment.tag!)!.getString())
+                    Text((payment.price > 0) ? "🟢" : (payment.tag == nil) ? Tag.getDefault().name! : (Tag.getByName(name: payment.tag!) == nil) ? "" : Tag.getByName(name: payment.tag!)!.getString())
                         .opacity(0.8)
                         .font(.system(size: 14))
                     Spacer()

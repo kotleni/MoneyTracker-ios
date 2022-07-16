@@ -18,7 +18,9 @@ struct TagsEditorView: View {
                     Text(tag.emoji! + " " + tag.name!)
                 }
                 .onDelete { indexSet in
-                    viewModel.removeTag(index: indexSet.first!)
+                    if viewModel.tags[indexSet.first!].name! != "tag_any".localized {
+                        viewModel.removeTag(index: indexSet.first!)
+                    }
                 }
             }
             
