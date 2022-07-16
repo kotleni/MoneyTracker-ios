@@ -44,5 +44,6 @@ class NotificationsManager {
     func stop() {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllPendingNotificationRequests()
+        notificationCenter.removeAllDeliveredNotifications()
     }
 }
