@@ -14,12 +14,22 @@ struct CoreDataManager {
     private var viewContext = PersistenceController.shared.container.viewContext
     
     /// Add new payment
-    func addPayment(price: Float, about: String, tag: Tag = Tag.other) -> Payment {
+    func addPayment(price: Float, about: String, tag: Tag = Tag.other, copies: Int = 0) -> Payment {
         let payment = Payment(context: viewContext)
         payment.price = Float(price)
         payment.about = about
         payment.date = Date()
         payment.tag = tag.rawValue
+        
+        if copies > 0 {
+            for index in 0...copies-1 {
+                let payment = Payment(context: viewContext)
+                payment.price = Float(price)
+                payment.about = "\(index) of \(about)"
+                payment.date = Date()
+                payment.tag = tag.rawValue
+            }
+        }
     
         try! viewContext.save()
         return payment

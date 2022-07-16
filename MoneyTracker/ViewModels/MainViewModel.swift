@@ -24,6 +24,8 @@ class MainViewModel: ObservableObject {
         DispatchQueue.global().async {
             let _payments = CoreDataManager.shared.getPayments()
             let _priceType = StorageManager.shared.getPriceType()
+            
+            print("Payments loaded: \(_payments.count)")
             DispatchQueue.main.async {
                 self.isLoading = false
                 
@@ -71,6 +73,7 @@ class MainViewModel: ObservableObject {
             CoreDataManager.shared.removePayment(index: index)
             DispatchQueue.main.async {
                 self.payments.remove(at: index)
+                self.calculatePayments()
             }
         }
     }
@@ -81,6 +84,7 @@ class MainViewModel: ObservableObject {
             let payment = CoreDataManager.shared.addPayment(price: price, about: about, tag: tag)
             DispatchQueue.main.async {
                 self.payments.insert(payment, at: 0)
+                self.calculatePayments()
             }
         }
     }

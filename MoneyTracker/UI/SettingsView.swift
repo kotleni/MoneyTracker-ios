@@ -141,6 +141,13 @@ struct SettingsView: View {
                         Text("Quick add payment")
                     }
                     
+                    // quick add 1000 payments btn
+                    Button {
+                        CoreDataManager.shared.addPayment(price: Float(Int.random(in: -999...999)), about: "Undefined", tag: .other, copies: 999)
+                    } label: {
+                        Text("Quick add 1000 payments")
+                    }
+                    
                     // show premium warn
                     Button {
                         isShowPremiumWarn = true
