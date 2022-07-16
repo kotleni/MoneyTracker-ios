@@ -13,9 +13,8 @@ struct AddPaymentView: View {
     @State private var spendingBool: Bool = true
     @State private var selectedTag: Tag = Tag.other
     
+    @ObservedObject var viewModel: MainViewModel
     @Binding var isSheetShow: Bool
-    @Binding var payments: [Payment]
-    var selectHandler: () -> Void
     
     var body: some View {
         NavigationView {
@@ -77,19 +76,15 @@ struct AddPaymentView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             if !priceText.isEmpty && !aboutText.isEmpty {
+                                // fixme: stupid code
                                 let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
                                 guard let fl = Float(spendingBool ? "-\(priceStr)" : priceStr) else { return }
                                 let about = aboutText
                                 let tag = selectedTag
                                 
-                                DispatchQueue.global(qos: .userInitiated).async {
-                                    CoreDataManager.shared.addPayment(price: fl, about: about, tag: tag)
-                                    
-                                    DispatchQueue.main.async {
-                                        selectHandler()
-                                        HapticManager.shared.success()
-                                    }
-                                }
+                                viewModel.addPayment(price: fl, about: about, tag: tag)
+                                viewModel.loadAll()
+                                HapticManager.shared.success()
                                 
                                 isSheetShow = false
                                 

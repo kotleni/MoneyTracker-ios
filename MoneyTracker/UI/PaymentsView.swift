@@ -8,21 +8,18 @@
 import SwiftUI
 
 struct PaymentsView: View {
-    @Binding var payments: [Payment]
-    @Binding var selectedFilter: String
-    @Binding var priceType: String
+    @ObservedObject var viewModel: MainViewModel
 
     var body: some View {
         List {
-            if payments.count > 0 {
-                ForEach(payments, id: \.self) { payment in
+            if viewModel.payments.count > 0 {
+                ForEach(viewModel.payments, id: \.self) { payment in
                     if isFilterOk(payment: payment) {
-                        PaymentItemView(payment: payment, priceType: priceType)
+                        PaymentItemView(payment: payment, viewModel: viewModel)
                     }
                 }
                 .onDelete { indexSet in
-                    CoreDataManager.shared.removePayment(index: indexSet.first!)
-                    payments = CoreDataManager.shared.getPayments()
+                    viewModel.deletePayment(index: indexSet.first!)
                 }
             } else { // is empty
                 Section {
@@ -35,28 +32,22 @@ struct PaymentsView: View {
         }
     }
     
+    /// Check filter for payment
     private func isFilterOk(payment: Payment) -> Bool {
         let paymentTag = (payment.tag == nil) ? Tag.other.rawValue : payment.tag!
         
         // is all
-        if (selectedFilter == "filter_all") {
+        if (viewModel.selectedFilter == "filter_all") {
             return true
         }
-        
-        // is plus
-//        if (selectedFilter == "filter_plus") && payment.price > 0 {
-//            return true
-//        }
         
         if payment.price < 0 {
             return false
         }
         
         // check tags
-        for tag in Tag.allCases {
-            if selectedFilter == paymentTag {
-                return true
-            }
+        if viewModel.selectedFilter == paymentTag {
+            return true
         }
         
         return false

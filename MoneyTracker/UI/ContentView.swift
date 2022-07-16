@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var viewModel: MainViewModel = MainViewModel()
     @State var selection: Int = 0
     
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
-                MainView()
+                MainView(viewModel: viewModel)
                     .tag(0)
                     .navigationBarHidden(true)
                     .tabItem {
                         Label("label_payments".localized, systemImage: "tray.full")
                     }
-                SettingsView()
+                SettingsView(viewModel: viewModel)
                     .tag(1)
                     .tabItem {
                         Label("label_settings".localized, systemImage: "gear")

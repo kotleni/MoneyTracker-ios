@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ChangeCurrencyView: View {
+    @ObservedObject var viewModel: MainViewModel
+    
     @State private var filterText: String = ""
     @State private var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id
     
@@ -76,7 +78,7 @@ struct ChangeCurrencyView: View {
     private func updateCurrency() {
         DispatchQueue.global().async {
             let currency = Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId)!
-            StorageManager.shared.setPriceType(type: currency.littleName)
+            viewModel.setCurrency(currency: currency)
         }
     }
     

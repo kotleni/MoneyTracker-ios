@@ -1,0 +1,108 @@
+//
+//  MainViewModel.swift
+//  MoneyTracker
+//
+//  Created by Victor Varenik on 16.07.2022.
+//
+
+import SwiftUI
+
+class MainViewModel: ObservableObject {
+    @Published var isLoading: Bool = false
+    @Published var payments: [Payment] = []
+    @Published var priceType: String = "USD"
+    @Published var totalBalance: Float = 0
+    @Published var selectedFilter: String = Filter.all.rawValue
+    @Published var isNotifOn: Bool = false
+    @Published var isDeveloperOn: Bool = false
+    @Published var isPremium: Bool = false
+    @Published var premiumPrice: String = ""
+    
+    /// Load all data in background
+    func loadAll() {
+        self.isLoading = false
+        DispatchQueue.global().async {
+            let _payments = CoreDataManager.shared.getPayments()
+            let _priceType = StorageManager.shared.getPriceType()
+            
+            // update data
+            DispatchQueue.main.async {
+                self.payments = _payments
+                self.priceType = _priceType
+                DispatchQueue.global().async {
+                    let _totalBalance = self.mathPaymentsPrice()
+                    DispatchQueue.main.async {
+                        self.totalBalance = _totalBalance
+                    }
+                }
+                
+                self.isLoading = false
+            }
+        }
+        
+        // load premium state
+        Task.init {
+            let isPremium = await PremiumManager.shared.isPremiumExist()
+            let premiumPrice = await PremiumManager.shared.getPremiumPrice()
+            
+            DispatchQueue.main.async {
+                self.isPremium = isPremium
+                self.premiumPrice = premiumPrice
+            }
+            
+            if !isPremium && isNotifOn {
+                StorageManager.shared.setNotifEnable(isEnable: false)
+                isNotifOn = false
+            }
+        }
+    }
+    
+    /// Delete payment by index
+    func deletePayment(index: Int) {
+        DispatchQueue.global().async {
+            CoreDataManager.shared.removePayment(index: index)
+            self.payments = CoreDataManager.shared.getPayments()
+        }
+    }
+    
+    /// Add new payment
+    func addPayment(price: Float, about: String, tag: Tag = Tag.other) {
+        DispatchQueue.global().async {
+            CoreDataManager.shared.addPayment(price: price, about: about, tag: tag)
+        }
+    }
+    
+    /// Try purshace premium
+    func purshacePremium() {
+        Task.init {
+            let _ = await PremiumManager.shared.trySubscribe()
+            isPremium = await PremiumManager.shared.isPremiumExist()
+        }
+    }
+    
+    /// Update notifications state
+    func setNotifications(state: Bool) {
+        StorageManager.shared.setNotifEnable(isEnable: state)
+    }
+    
+    /// Remove all payments
+    func removeAllPayments() {
+        CoreDataManager.shared.removeAll()
+    }
+    
+    /// Update currency
+    func setCurrency(currency: Currency) {
+        DispatchQueue.global().async {
+            StorageManager.shared.setPriceType(type: currency.littleName)
+        }
+    }
+    
+    /// Calculate all payments price
+    private func mathPaymentsPrice() -> Float {
+        var value: Float = 0.0
+        payments.forEach { payment in
+            value += payment.price
+        }
+        return value
+    }
+}

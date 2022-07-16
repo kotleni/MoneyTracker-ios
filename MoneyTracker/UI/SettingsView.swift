@@ -11,30 +11,19 @@ import SwiftUI
 fileprivate var eggsCounter: Int = 0
 
 struct SettingsView: View {
-    @State private var priceType: String = ""
-    @State private var isNotifOn: Bool = false
-    
-    // eggs vars
-    @State private var showEggs: Bool = false
-    
-    @State private var isPremium: Bool = false
-    @State private var premiumPrice: String = ""
+    @ObservedObject var viewModel: MainViewModel
     @State private var isShowPremiumWarn: Bool = false
     
     var body: some View {
         Form {
-            
             Section {
-                if isPremium {
+                if viewModel.isPremium {
                     Text("label_premiumactive".localized)
-                } else if premiumPrice.isEmpty {
+                } else if viewModel.premiumPrice.isEmpty {
                     ProgressView()
                 } else {
                     Button(action: {
-                        Task.init {
-                            let _ = await PremiumManager.shared.trySubscribe()
-                            isPremium = await PremiumManager.shared.isPremiumExist()
-                        }
+                        viewModel.purshacePremium()
                     }, label: {
                         VStack {
                             HStack {
@@ -43,7 +32,7 @@ struct SettingsView: View {
                                 Spacer()
                             }
                             HStack {
-                                Text("label_premiumaboutleft".localized + premiumPrice + "label_premiumaboutright".localized)
+                                Text("label_premiumaboutleft".localized + viewModel.premiumPrice + "label_premiumaboutright".localized)
                                     .opacity(0.7)
                                     .font(.system(size: 16))
                                 Spacer()
@@ -55,34 +44,26 @@ struct SettingsView: View {
             } header: {
                 Text("label_subscribe".localized)
             }
-            .onAppear {
-                Task.init {
-                    isPremium = await PremiumManager.shared.isPremiumExist()
-                    premiumPrice = await PremiumManager.shared.getPremiumPrice()
-                    
-                    if !isPremium && isNotifOn {
-                        StorageManager.shared.setNotifEnable(isEnable: false)
-                        isNotifOn = false
-                    }
-                }
-            }
+//            .onAppear {
+//                viewModel.loadAll()
+//            }
             
             Section {
                 // notifications toggle
-                Toggle("label_notifications".localized, isOn: $isNotifOn)
-                    .onChange(of: isNotifOn) { value in
-                        if(!isPremium) {
+                Toggle("label_notifications".localized, isOn: $viewModel.isNotifOn)
+                    .onChange(of: viewModel.isNotifOn) { value in
+                        if(!viewModel.isPremium) {
                             isShowPremiumWarn = true
                             DispatchQueue.global().async {
                                 sleep(1)
-                                isNotifOn = false
+                                viewModel.isNotifOn = false
                             }
                             return
                         }
-                        // update notif pref
-                        StorageManager.shared.setNotifEnable(isEnable: isNotifOn)
                         
-                        if isNotifOn {
+                        viewModel.setNotifications(state: viewModel.isNotifOn)
+                        
+                        if viewModel.isNotifOn {
                             let center  = UNUserNotificationCenter.current()
 
                             center.requestAuthorization(options: [.alert, .badge]) { (granted, error) in
@@ -101,16 +82,8 @@ struct SettingsView: View {
                         }
                     }
                 
-                // currency change btn
-//                Button {
-//                    isShowSheet = true
-//                } label: {
-//                    Text("btn_selectcurrency".localized)
-//                        .padding(.trailing, 2)
-//                }
-                
                 NavigationLink {
-                    ChangeCurrencyView()
+                    ChangeCurrencyView(viewModel: viewModel)
                 } label: {
                     Text("btn_selectcurrency".localized)
                         .padding(.trailing, 2)
@@ -119,7 +92,7 @@ struct SettingsView: View {
                 
                 // reset paymetns btn
                 Button {
-                    CoreDataManager.shared.removeAll()
+                    viewModel.removeAllPayments()
                     exit(0)
                 } label: {
                     Text("btn_resetpayments".localized)
@@ -159,12 +132,12 @@ struct SettingsView: View {
             }
 
             // if eggs activate
-            if showEggs {
+            if viewModel.isDeveloperOn {
                 Section {
                     // add 10 paymebts btn
                     Button {
                         for _ in 0...5 {
-                            CoreDataManager.shared.addPayment(price: 7, about: "Pizza", tag: .food)
+                            viewModel.addPayment(price: 7, about: "Pizza", tag: .food)
                         }
                     } label: {
                         Text("Add 5 payments")
@@ -182,7 +155,7 @@ struct SettingsView: View {
                 }
             }
         }
-        .onAppear { loadAll() }
+        // .onAppear { viewModel.loadAll() }
         .alert("premium_warn".localized, isPresented: $isShowPremiumWarn) {
             Button("OK") {
                 isShowPremiumWarn = false
@@ -190,16 +163,11 @@ struct SettingsView: View {
         }
     }
     
-    // load all values
-    func loadAll() {
-        isNotifOn = StorageManager.shared.isNotifEnable()
-    }
-    
     // track current state of eggs
     func trackEggs() {
         eggsCounter += 1
         if eggsCounter == 9 {
-            showEggs = true
+            viewModel.isDeveloperOn = true
             HapticManager.shared.success()
         }
     }

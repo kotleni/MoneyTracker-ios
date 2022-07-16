@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PaymentItemView: View {
     var payment: Payment
-    var priceType: String
+    @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
         HStack(spacing: 0) {
@@ -26,7 +26,7 @@ struct PaymentItemView: View {
                 }
             }
             Spacer()
-            Text("\(String(format: "%.2f", payment.price)) \(priceType)")
+            Text("\(String(format: "%.2f", payment.price)) \(viewModel.priceType)")
                 .foregroundColor(payment.price < 0 ? Color.init(.sRGB, red: 245/255, green: 97/255, blue: 76/255, opacity: 1.0) : Color.init(.sRGB, red: 81/255, green: 187/255, blue: 116/255, opacity: 1.0))
         }
     }
