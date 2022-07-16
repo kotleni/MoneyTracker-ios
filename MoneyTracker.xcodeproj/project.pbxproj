@@ -20,6 +20,7 @@
 		5A36EE0E287DB76400812484 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE0D287DB76400812484 /* HapticManager.swift */; };
 		5A557F09287D87BD00F7B68F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F08287D87BD00F7B68F /* SettingsView.swift */; };
 		5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F0B287D9B2800F7B68F /* Filter.swift */; };
+		5A7C998A288306EB00F95214 /* DevMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C9989288306EB00F95214 /* DevMenuView.swift */; };
 		5AD41C26287D4A0500A464B2 /* Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C25287D4A0500A464B2 /* Static.swift */; };
 		5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */; };
 		5AD41C2B287D4ECE00A464B2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C2A287D4ECE00A464B2 /* MainView.swift */; };
@@ -66,6 +67,7 @@
 		5A36EE0D287DB76400812484 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		5A557F08287D87BD00F7B68F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5A557F0B287D9B2800F7B68F /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		5A7C9989288306EB00F95214 /* DevMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevMenuView.swift; sourceTree = "<group>"; };
 		5AD41C25287D4A0500A464B2 /* Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
 		5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentView.swift; sourceTree = "<group>"; };
 		5AD41C2A287D4ECE00A464B2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -138,14 +140,10 @@
 		5AD41C27287D4EA100A464B2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5AD41C2A287D4ECE00A464B2 /* MainView.swift */,
+				5AFA66D92883067200088D53 /* Main */,
+				5AFA66D82883065C00088D53 /* Settings */,
 				B4D501252869A87A0065EB4D /* ContentView.swift */,
-				5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */,
-				5A557F08287D87BD00F7B68F /* SettingsView.swift */,
-				5A36EE09287D9E8E00812484 /* PaymentsView.swift */,
-				5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */,
 				5A00F44F287EC72400A4820A /* SearchBarView.swift */,
-				5A00F46B287F313700A4820A /* PaymentItemView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -156,6 +154,27 @@
 				5AFA66D42882B02700088D53 /* MainViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5AFA66D82883065C00088D53 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5A557F08287D87BD00F7B68F /* SettingsView.swift */,
+				5A0952B3287E959C006CCE2D /* ChangeCurrencyView.swift */,
+				5A7C9989288306EB00F95214 /* DevMenuView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5AFA66D92883067200088D53 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5AD41C2A287D4ECE00A464B2 /* MainView.swift */,
+				5AD41C28287D4EAE00A464B2 /* AddPaymentView.swift */,
+				5A36EE09287D9E8E00812484 /* PaymentsView.swift */,
+				5A00F46B287F313700A4820A /* PaymentItemView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		B4D501172869A87A0065EB4D = {
@@ -360,6 +379,7 @@
 				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
 				5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */,
 				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
+				5A7C998A288306EB00F95214 /* DevMenuView.swift in Sources */,
 				5A00F4712880124100A4820A /* PremiumManager.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* CoreDataManager.swift in Sources */,
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,

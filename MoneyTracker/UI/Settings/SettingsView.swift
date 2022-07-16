@@ -44,9 +44,6 @@ struct SettingsView: View {
             } header: {
                 Text("label_subscribe".localized)
             }
-//            .onAppear {
-//                viewModel.loadAll()
-//            }
             
             Section {
                 // notifications toggle
@@ -98,6 +95,16 @@ struct SettingsView: View {
                     Text("btn_resetpayments".localized)
                         .foregroundColor(.red)
                 }
+                
+                // if developer mode activate
+                if viewModel.isDeveloperOn {
+                    NavigationLink {
+                        DevMenuView(viewModel: viewModel)
+                    } label: {
+                        Text("Developer Menu")
+                    }
+
+                }
             } header: {
                 Text("label_ordinary".localized)
             }
@@ -130,55 +137,6 @@ struct SettingsView: View {
             } header: {
                 Text("label_aboutapp".localized)
             }
-
-            // if developer mode activate
-            if viewModel.isDeveloperOn {
-                Section {
-                    // quick add payment btn
-                    Button {
-                        viewModel.addPayment(price: Float(Int.random(in: -999...999)), about: "Undefined", tag: .other)
-                    } label: {
-                        Text("Quick add payment")
-                    }
-                    
-                    // quick add 1000 payments btn
-                    Button {
-                        CoreDataManager.shared.addPayment(price: Float(Int.random(in: -999...999)), about: "Undefined", tag: .other, copies: 999)
-                    } label: {
-                        Text("Quick add 1000 payments")
-                    }
-                    
-                    // show premium warn
-                    Button {
-                        isShowPremiumWarn = true
-                    } label: {
-                        Text("Show premium warn")
-                    }
-
-                    // toggle main loading stage
-                    Button {
-                        viewModel.isLoading.toggle()
-                    } label: {
-                        Text("Toggle main loading stage")
-                    }
-
-                    // toggle premium stage
-                    Button {
-                        viewModel.isPremium.toggle()
-                    } label: {
-                        Text("Toggle premium stage")
-                    }
-                    
-                    // force local clear payments
-                    Button {
-                        viewModel.payments = []
-                    } label: {
-                        Text("Force clear local payments")
-                    }
-                } header: {
-                    Text("Debug Menu")
-                }
-            }
         }
         .alert("premium_warn".localized, isPresented: $isShowPremiumWarn) {
             Button("OK") {
@@ -190,7 +148,7 @@ struct SettingsView: View {
     // track current state of eggs
     func trackEggs() {
         eggsCounter += 1
-        if eggsCounter == 9 {
+        if eggsCounter == 4 {
             viewModel.isDeveloperOn = true
             HapticManager.shared.success()
         }
