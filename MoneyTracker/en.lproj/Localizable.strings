@@ -46,7 +46,7 @@
 
 "field_price" = "Price";
 "field_about" = "About";
-"field_expenses" = "Expenses";
+// "field_expenses" = "Expenses";
 
 "notif_title" = "Reminder";
 "notif_body" = "Time to update the payment list";
@@ -59,3 +59,6 @@
 "tag_other" = "📦 Other";
 
 "premium_warn" = "It's a premium function";
+
+"segment_expenses" = "Expenses";
+"segment_income" = "Income";
