@@ -41,6 +41,12 @@ struct CoreDataManager {
         try! viewContext.save()
     }
     
+    /// Remove payment by in payment
+    func removePayment(payment: Payment) {
+        viewContext.delete(payment)
+        try! viewContext.save()
+    }
+    
     /// Get all payments
     func getPayments() -> [Payment] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Payment")
