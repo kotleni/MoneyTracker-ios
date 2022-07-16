@@ -146,7 +146,7 @@ struct SettingsView: View {
     }
     
     // track current state of eggs
-    func trackEggs() {
+    private func trackEggs() {
         eggsCounter += 1
         if eggsCounter == 4 {
             viewModel.isDeveloperOn = true
