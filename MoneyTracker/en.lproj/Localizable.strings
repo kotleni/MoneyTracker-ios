@@ -19,6 +19,14 @@
 "label_aboutapp" = "About app";
 "label_notifications" = "Notifications";
 "label_popular" = "Popular";
+"label_subscribe" = "Subscribe";
+"label_premiumsubscribe" = "Premium subscribe";
+"label_premiumaboutleft" = "Just ";
+"label_premiumaboutright" = " in month";
+"label_premiumactive" = "Subscribed 🎉";
+"label_tagseditor" = "Tags editor";
+"label_emoji" = "Emoji";
+"label_name" = "Name";
 
 "btn_add" = "Add";
 "btn_cancel" = "Cancel";
@@ -27,11 +35,9 @@
 "btn_appinappstore" = "App in AppStore";
 "btn_appingithub" = "App in GitHub";
 "btn_selectcurrency" = "Select currency";
-"label_subscribe" = "Subscribe";
-"label_premiumsubscribe" = "Premium subscribe";
-"label_premiumaboutleft" = "Just ";
-"label_premiumaboutright" = " in month";
-"label_premiumactive" = "Subscribed 🎉";
+"btn_edittags" = "Edit tags";
+"btn_addtag" = "Add tag";
+"btn_create" = "Create";
 
 // filters
 "filter_all" = "📚 All";
@@ -51,14 +57,15 @@
 "notif_title" = "Reminder";
 "notif_body" = "Time to update the payment list";
 
-// tags
-"tag_food" = "🍗 Food";
-"tag_clothes" = "👚 Clothes";
-"tag_entertainment" = "🎭 Entertainment";
-"tag_technique" = "💻 Technique";
-"tag_other" = "📦 Other";
+// default tags
+"tag_any" = "Any";
+"tag_food" = "Food";
+"tag_clothes" = "Clothes";
+"tag_entertainment" = "Entertainment";
+"tag_technique" = "Technique";
 
 "premium_warn" = "It's a premium function";
 
 "segment_expenses" = "Expenses";
 "segment_income" = "Income";
+ 

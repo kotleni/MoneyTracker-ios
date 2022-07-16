@@ -1,0 +1,34 @@
+//
+//  TagsEditorView.swift
+//  MoneyTracker
+//
+//  Created by Victor Varenik on 16.07.2022.
+//
+
+import SwiftUI
+
+struct TagsEditorView: View {
+    @ObservedObject var viewModel: MainViewModel
+    @State private var isSheetShow: Bool = false
+    
+    var body: some View {
+        List {
+            Section {
+                ForEach(Tag.getAll(), id: \.self) { tag in
+                    Text(tag.emoji! + " " + tag.name!)
+                }
+                .onDelete { indexSet in
+                    viewModel.removeTag(index: indexSet.first!)
+                }
+            }
+            
+            NavigationLink(isActive: $isSheetShow) {
+                AddTagView(viewModel: viewModel, isSheetShow: $isSheetShow)
+            } label: {
+                Label("btn_addtag".localized, systemImage: "plus")
+            }
+        }
+        .navigationTitle("label_tagseditor".localized)
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}

@@ -22,13 +22,14 @@ struct ContentView: View {
                     }
                 SettingsView(viewModel: viewModel)
                     .tag(1)
-                    .navigationBarHidden(false)
+                    .navigationBarHidden(true)
+                    //.navigationBarHidden(false)
                     .tabItem {
                         Label("label_settings".localized, systemImage: "gear")
                     }
             }
             //.navigationBarTitleDisplayMode(.inline)
-            //.navigationTitle(selection == 1 ? "label_settings".localized : "Payments")
+            .navigationTitle(selection == 1 ? "label_settings".localized : "Payments")
         }
         .onAppear {
             viewModel.loadAllData()

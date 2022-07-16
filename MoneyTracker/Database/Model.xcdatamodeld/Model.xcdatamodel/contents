@@ -6,7 +6,12 @@
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="tag" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
+        <attribute name="emoji" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Payment" positionX="-36" positionY="9" width="128" height="89"/>
+        <element name="Tag" positionX="-36" positionY="36" width="128" height="59"/>
     </elements>
 </model>

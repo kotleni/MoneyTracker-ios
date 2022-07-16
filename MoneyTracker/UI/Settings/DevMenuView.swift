@@ -15,14 +15,14 @@ struct DevMenuView: View {
         Form {
             // quick add payment btn
             Button {
-                viewModel.addPayment(price: Float(Int.random(in: -999...999)), about: "Undefined", tag: .other)
+                // viewModel.addPayment(price: Float(Int.random(in: -999...999)), about: "Undefined", tag: .other)
             } label: {
                 Text("Quick add payment")
             }
             
             // quick add 1000 payments btn
             Button {
-                let _ = CoreDataManager.shared.addPayment(price: Float(Int.random(in: -999...999)), about: "Undefined", tag: .other, copies: 999)
+//                let _ = PaymentsManager.shared.addPayment(price: Float(Int.random(in: -999...999)), about: "Undefined", tag: .other, copies: 999)
             } label: {
                 Text("Quick add 1000 payments")
             }

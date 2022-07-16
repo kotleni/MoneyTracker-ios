@@ -11,7 +11,7 @@ struct AddPaymentView: View {
     @State private var priceText: String = ""
     @State private var aboutText: String = ""
     @State private var spendingBool: Bool = true
-    @State private var selectedTag: Tag = Tag.other
+    @State private var selectedTag: Tag = Tag.getDefault()
     
     @ObservedObject var viewModel: MainViewModel
     @Binding var isSheetShow: Bool
@@ -50,8 +50,8 @@ struct AddPaymentView: View {
                                 Text("Тэг".localized)
                                 Spacer()
                                 Picker("", selection: $selectedTag) {
-                                    ForEach(Tag.allCases, id: \.self) { tag in
-                                        Text(tag.rawValue.localized)
+                                    ForEach(Tag.getAll(), id: \.self) { tag in
+                                        Text(tag.emoji! + " " + tag.name!)
                                     }
                                 }
                                 .pickerStyle(.menu)
@@ -89,7 +89,7 @@ struct AddPaymentView: View {
                                 
                                 priceText = ""
                                 aboutText = ""
-                                selectedTag = Tag.other
+                                selectedTag = Tag.getDefault()
                                 spendingBool = false
                             } else {
                                 HapticManager.shared.error()

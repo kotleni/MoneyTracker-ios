@@ -7,19 +7,19 @@
 
 import CoreData
 
-/// Manager for CoreData
-struct CoreDataManager {
-    static let shared = CoreDataManager()
+/// Manager for paymenets
+struct PaymentsManager {
+    static let shared = PaymentsManager()
     
     private var viewContext = PersistenceController.shared.container.viewContext
     
     /// Add new payment
-    func addPayment(price: Float, about: String, tag: Tag = Tag.other, copies: Int = 0) -> Payment {
+    func addPayment(price: Float, about: String, tag: Tag = Tag.getDefault(), copies: Int = 0) -> Payment {
         let payment = Payment(context: viewContext)
         payment.price = Float(price)
         payment.about = about
         payment.date = Date()
-        payment.tag = tag.rawValue
+        payment.tag = tag.name
         
         if copies > 0 {
             for index in 0...copies-1 {
@@ -27,7 +27,7 @@ struct CoreDataManager {
                 payment.price = Float(price)
                 payment.about = "\(index) of \(about)"
                 payment.date = Date()
-                payment.tag = tag.rawValue
+                payment.tag = tag.name
             }
         }
     

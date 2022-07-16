@@ -34,19 +34,14 @@ struct PaymentsView: View {
     
     /// Check filter for payment
     private func isFilterOk(payment: Payment) -> Bool {
-        let paymentTag = (payment.tag == nil) ? Tag.other.rawValue : payment.tag!
-        
         // is all
-        if (viewModel.selectedFilter == "filter_all") {
+        if viewModel.selectedFilter == "filter_all" {
             return true
         }
         
-        if payment.price < 0 {
-            return false
-        }
-        
-        // check tags
-        if viewModel.selectedFilter == paymentTag {
+        // is selected tag
+        let paymentTag = (payment.tag == nil) ? Tag.getDefault().name! : payment.tag!
+        if viewModel.selectedFilter == paymentTag && payment.price < 0 {
             return true
         }
         

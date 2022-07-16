@@ -17,12 +17,15 @@ class MainViewModel: ObservableObject {
     @Published var isDeveloperOn: Bool = false
     @Published var isPremium: Bool = false
     @Published var premiumPrice: String = ""
+    @Published var tags: [Tag] = []
     
     /// Load all data in bg
     func loadAllData() {
+        loadTags()
+        
         loadPremiumState()
         DispatchQueue.global().async {
-            let _payments = CoreDataManager.shared.getPayments()
+            let _payments = PaymentsManager.shared.getPayments()
             let _priceType = StorageManager.shared.getPriceType()
             
             print("Payments loaded: \(_payments.count)")
@@ -32,6 +35,26 @@ class MainViewModel: ObservableObject {
                 self.payments = _payments
                 self.priceType = _priceType
                 self.calculatePayments()
+            }
+        }
+    }
+    
+    /// Load tags
+    func loadTags() {
+        DispatchQueue.global().async {
+            let _tags = TagsManager.shared.getTags()
+            DispatchQueue.main.async {
+                self.tags = _tags
+                
+                // first setup for tags
+                // is tags not exist
+                if self.tags.isEmpty {
+                    self.addTag(name: "tag_food".localized, emoji: "🍗")
+                    self.addTag(name: "tag_clothes".localized, emoji: "👚")
+                    self.addTag(name: "tag_entertainment".localized, emoji: "🎭")
+                    self.addTag(name: "tag_technique".localized, emoji: "💻")
+                    self.addTag(name: "tag_any".localized, emoji: "📦")
+                }
             }
         }
     }
@@ -70,7 +93,7 @@ class MainViewModel: ObservableObject {
     /// Delete payment by index
     func deletePayment(index: Int) {
         DispatchQueue.global().async {
-            CoreDataManager.shared.removePayment(index: index)
+            PaymentsManager.shared.removePayment(index: index)
             DispatchQueue.main.async {
                 self.payments.remove(at: index)
                 self.calculatePayments()
@@ -79,9 +102,9 @@ class MainViewModel: ObservableObject {
     }
     
     /// Add new payment
-    func addPayment(price: Float, about: String, tag: Tag = Tag.other) {
+    func addPayment(price: Float, about: String, tag: Tag = Tag.getDefault()) {
         DispatchQueue.global().async {
-            let payment = CoreDataManager.shared.addPayment(price: price, about: about, tag: tag)
+            let payment = PaymentsManager.shared.addPayment(price: price, about: about, tag: tag)
             DispatchQueue.main.async {
                 self.payments.insert(payment, at: 0)
                 self.calculatePayments()
@@ -91,7 +114,7 @@ class MainViewModel: ObservableObject {
     
     /// Remove all payments
     func removeAllPayments() {
-        CoreDataManager.shared.removeAll()
+        PaymentsManager.shared.removeAll()
     }
     
     /// Try purshace premium
@@ -115,5 +138,17 @@ class MainViewModel: ObservableObject {
             }
             StorageManager.shared.setPriceType(type: currency.littleName)
         }
+    }
+    
+    /// Add new tag
+    func addTag(name: String, emoji: String) {
+        let tag = TagsManager.shared.addTag(name: name, emoji: emoji)
+        tags.append(tag)
+    }
+    
+    /// Remove tag by index
+    func removeTag(index: Int) {
+        TagsManager.shared.removeTag(tag: tags[index])
+        tags.remove(at: index)
     }
 }

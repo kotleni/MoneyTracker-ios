@@ -24,6 +24,9 @@
 "label_premiumaboutleft" = "Всего ";
 "label_premiumaboutright" = " в месяц";
 "label_premiumactive" = "Подписка оформлена 🎉";
+"label_tagseditor" = "Редактор тегов";
+"label_emoji" = "Эмоджи";
+"label_name" = "Имя";
 
 "btn_add" = "Добавить";
 "btn_cancel" = "Отменить";
@@ -32,6 +35,9 @@
 "btn_appinappstore" = "Приложение в AppStore";
 "btn_appingithub" = "Приложение в GitHub";
 "btn_selectcurrency" = "Выбрать валюту";
+"btn_edittags" = "Изменить теги";
+"btn_addtag" = "Добавить тег";
+"btn_create" = "Создать";
 
 // filters
 "filter_all" = "📚 Все";
@@ -52,11 +58,11 @@
 "notif_body" = "Пора обновить список платежей";
 
 // tags
-"tag_food" = "🍗 Еда";
-"tag_clothes" = "👚 Одежда";
-"tag_entertainment" = "🎭 Развлечения";
-"tag_technique" = "💻 Техника";
-"tag_other" = "📦 Прочее";
+"tag_any" = "Не уточнено";
+"tag_food" = "Еда";
+"tag_clothes" = "Одежда";
+"tag_entertainment" = "Развлечения";
+"tag_technique" = "Техника";
 
 "premium_warn" = "Это премиум функция";
 

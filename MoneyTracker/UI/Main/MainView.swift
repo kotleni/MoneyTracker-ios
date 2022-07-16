@@ -39,9 +39,9 @@ struct MainView: View {
                     Picker(selection: $viewModel.selectedFilter) {
                         Text("filter_all".localized)
                             .tag(Filter.all.rawValue)
-                        ForEach(Tag.allCases, id: \.self) { tag in
-                            Text(tag.rawValue.localized)
-                                .tag(tag.rawValue)
+                        ForEach(Tag.getAll(), id: \.self) { tag in
+                            Text(tag.emoji! + " " + tag.name!)
+                                .tag(tag.name!)
                         }
                     } label: {
                         Text("label_filter".localized)
@@ -52,7 +52,6 @@ struct MainView: View {
                 PaymentsView(viewModel: viewModel)
             }
         }
-        // .onAppear { viewModel.loadAll() }
         .sheet(isPresented: $isShowSheet, content: {
             AddPaymentView(viewModel: viewModel, isSheetShow: $isShowSheet)
         })

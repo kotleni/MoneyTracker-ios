@@ -85,6 +85,13 @@ struct SettingsView: View {
                     Text("btn_selectcurrency".localized)
                         .padding(.trailing, 2)
                 }
+                
+                NavigationLink {
+                    TagsEditorView(viewModel: viewModel)
+                } label: {
+                    Text("btn_edittags".localized)
+                        .padding(.trailing, 2)
+                }
 
                 
                 // reset paymetns btn
