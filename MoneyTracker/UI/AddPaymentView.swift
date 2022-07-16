@@ -56,8 +56,6 @@ struct AddPaymentView: View {
                                 }
                                 .pickerStyle(.menu)
                             }
-                            .animation(.default)
-                            .transition(.slide)
                         }
                     } footer: {
                         Text("hint_payment".localized)
