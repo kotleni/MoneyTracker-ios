@@ -69,3 +69,5 @@
 "segment_expenses" = "Expenses";
 "segment_income" = "Income";
  
+"toast_tagremove" = "You cannot remove this tag";
+"toast_invalid" = "Validate input";

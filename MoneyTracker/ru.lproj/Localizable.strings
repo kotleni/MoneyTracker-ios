@@ -68,3 +68,6 @@
 
 "segment_expenses" = "Расход";
 "segment_income" = "Доход";
+
+"toast_tagremove" = "Вы не можете удалить этот тег";
+"toast_invalid" = "Проверьте введенные данные";

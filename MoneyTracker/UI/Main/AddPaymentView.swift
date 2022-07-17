@@ -15,6 +15,7 @@ struct AddPaymentView: View {
     
     @ObservedObject var viewModel: MainViewModel
     @Binding var isSheetShow: Bool
+    @State private var isError: Bool = false
     
     var body: some View {
         NavigationView {
@@ -92,6 +93,7 @@ struct AddPaymentView: View {
                                 selectedTag = Tag.getDefault()
                                 spendingBool = false
                             } else {
+                                isError = true
                                 HapticManager.shared.error()
                             }
                         } label: {
@@ -101,5 +103,6 @@ struct AddPaymentView: View {
                 }
             }
         }
+        .toast(message: "toast_invalid".localized, isShowing: $isError, config: .init())
     }
 }

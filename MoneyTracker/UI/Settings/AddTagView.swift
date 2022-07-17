@@ -14,6 +14,7 @@ struct AddTagView: View {
     
     @State private var emojiText: String = ""
     @State private var nameText: String = ""
+    @State private var isError: Bool = false
     
     var body: some View {
         VStack {
@@ -42,11 +43,15 @@ struct AddTagView: View {
                         NameValidator.validateTag(tagName: nameText) {
                         viewModel.addTag(name: nameText, emoji: emojiText)
                         isSheetShow = false
+                    } else {
+                        isError = true
+                        HapticManager.shared.error()
                     }
                 } label: {
                     Text("btn_create".localized)
                 }
             }
         }
+        .toast(message: "toast_invalid".localized, isShowing: $isError, config: .init())
     }
 }

@@ -22,6 +22,7 @@ struct TagsEditorView: View {
                     if viewModel.tags[indexSet.first!].name! != "tag_any".localized {
                         viewModel.removeTag(index: indexSet.first!)
                     } else {
+                        HapticManager.shared.error()
                         isTagError = true
                     }
                 }
@@ -35,6 +36,6 @@ struct TagsEditorView: View {
         }
         .navigationTitle("label_tagseditor".localized)
         .navigationBarTitleDisplayMode(.inline)
-        .toast(message: "Вы не можете удалить этот тег", isShowing: $isTagError, config: .init())
+        .toast(message: "toast_tagremove".localized, isShowing: $isTagError, config: .init())
     }
 }
