@@ -27,7 +27,5 @@ struct RootNavigationController<RootView: View>: UIViewControllerRepresentable {
         return nav
     }
 
-    func updateUIViewController(_ pageViewController: UINavigationController, context: Context) {
-        
-    }
+    func updateUIViewController(_ pageViewController: UINavigationController, context: Context) { }
 }

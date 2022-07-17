@@ -13,116 +13,121 @@ struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
     
     @State private var isShowSheet: Bool = false
-    
+
     var body: some View {
         ZStack {
             Color("MainBackground")
                 .ignoresSafeArea()
             
-            VStack {
-                HStack {
+            VStack(spacing: 0) {
+                // info card
+                VStack {
+                    HStack {
+                        HStack {
+                            VStack {
+                                HStack {
+                                    Text("\(String(format: "%.2f", viewModel.totalIncome)) \(viewModel.priceType)")
+                                        .bold()
+                                        .font(SwiftUI.Font.system(size: 19))
+                                    Spacer()
+                                }
+                                HStack {
+                                    Text("Доход")
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                }
+                            }
+                            Spacer()
+                            VStack {
+                                HStack {
+                                    Text("\(String(format: "%.2f", viewModel.totalOutcome).replacingOccurrences(of: "-", with: "")) \(viewModel.priceType)")
+                                        .bold()
+                                        .font(SwiftUI.Font.system(size: 19))
+                                    Spacer()
+                                }
+                                HStack {
+                                    Text("Затраты")
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 16).fill(Color("CardBackground")))
+                }
+                .padding(.leading, 16)
+                .padding(.trailing, 16)
+                
+                // payments and settings btns
+                VStack {
+                    HStack {
+                        HStack {
+                            Spacer()
+                            Button {
+                                router.pushTo(view: CheckoutView.builder.makeView(PaymentsView(viewModel: viewModel), withNavigationTitle: "Payments"))
+                            } label: {
+                                Label("Платежи", systemImage: "wallet.pass")
+                                    .font(.system(size: 16).bold())
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 16).fill(Color("CardBackground")))
+                        
+                        HStack {
+                            Spacer()
+                            Button {
+                                router.pushTo(view: CheckoutView.builder.makeView(SettingsView(viewModel: viewModel), withNavigationTitle: "Settings"))
+                            } label: {
+                                Label("Настройки", systemImage: "gear")
+                                    .font(.system(size: 16).bold())
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 16).fill(Color("CardBackground")))
+                        
+                    }
                     Spacer()
                 }
+                .padding()
+                
+                // bottombar divider
+                Divider()
+                    .frame(height: 1)
+                
+                // bottombar
                 HStack {
-                    HStack {
-                        Spacer()
-                        Button {
-                            router.pushTo(view: CheckoutView.builder.makeView(PaymentsView(viewModel: viewModel), withNavigationTitle: "Payments"))
-                        } label: {
-                            Label("Платежи", systemImage: "wallet.pass")
-                                .font(.system(size: 16).bold())
+                    VStack {
+                        HStack {
+                            Text("\(String(format: "%.2f", viewModel.totalBalance)) \(viewModel.priceType)")
+                                .bold()
+                                .font(SwiftUI.Font.system(size: 19))
+                            Spacer()
                         }
-                        Spacer()
-                    }
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 16).fill(Color.white))
-                    
-                    HStack {
-                        Spacer()
-                        Button {
-                            router.pushTo(view: CheckoutView.builder.makeView(SettingsView(viewModel: viewModel), withNavigationTitle: "Settings"))
-                        } label: {
-                            Label("Настройки", systemImage: "gear")
-                                .font(.system(size: 16).bold())
+                        HStack {
+                            Text("Баланс")
+                                .foregroundColor(.gray)
+                            Spacer()
                         }
-                        Spacer()
                     }
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 16).fill(Color.white))
-                    
-                }
-                Spacer()
-            }
-            .padding()
-        }
-        .toolbar {
-            ToolbarItem(placement: .bottomBar) {
-                HStack {
-                    Text("\(String(format: "%.2f", viewModel.totalBalance)) \(viewModel.priceType)")
-                        .bold()
-                        .font(SwiftUI.Font.system(size: 19))
                     Spacer()
                     Button {
                         isShowSheet = true
                     } label: {
                         Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .frame(width: 28, height: 28)
                     }
                 }
-
+                .padding()
+                .background(Color("CardBackground"))
             }
         }
         .sheet(isPresented: $isShowSheet, content: {
             AddPaymentView(viewModel: viewModel, isSheetShow: $isShowSheet)
         })
-            
-//            HStack {
-//                VStack {
-//                    Text("\(String(format: "%.2f", viewModel.totalBalance)) \(viewModel.priceType)")
-//                        .bold()
-//                        .font(SwiftUI.Font.system(size: 19))
-//                    Text("label_balance".localized)
-//                        .foregroundColor(Color.gray)
-//                }
-//                Spacer()
-//            }
-//            .padding()
-            
-//            HStack {
-//                Spacer()
-//                Button {
-//                    isShowSheet = true
-//                } label: {
-//                    Label("btn_add".localized, systemImage: "plus.circle.fill")
-//                }
-//                Spacer()
-//                Picker(selection: $viewModel.selectedFilter) {
-//                    Text("filter_all".localized)
-//                        .tag(Filter.all.rawValue)
-//                    ForEach(Tag.getAll(), id: \.self) { tag in
-//                        Text(tag.emoji! + " " + tag.name!)
-//                            .tag(tag.name!)
-//                    }
-//                } label: {
-//                    Text("label_filter".localized)
-//                }
-//
-//                Spacer()
-//            }
-//            PaymentsView(viewModel: viewModel)
-//        }
-//        .navigationBarTitle("Финансы")
-//        .sheet(isPresented: $isShowSheet, content: {
-//            AddPaymentView(viewModel: viewModel, isSheetShow: $isShowSheet)
-//        })
-//        .toolbar {
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                Button(action: {
-//                    router.pushTo(view: CheckoutView.builder.makeView(SettingsView(viewModel: viewModel), withNavigationTitle: "Settings"))
-//                }, label: {
-//                    Image(systemName: "gear")
-//                })
-//            }
-//        }
         
     }
 }

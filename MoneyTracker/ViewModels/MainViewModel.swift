@@ -11,6 +11,8 @@ class MainViewModel: ObservableObject {
     @Published var isLoading: Bool = true
     @Published var payments: [Payment] = []
     @Published var priceType: String = "USD"
+    @Published var totalIncome: Float = 0
+    @Published var totalOutcome: Float = 0
     @Published var totalBalance: Float = 0
     @Published var selectedFilter: String = Filter.all.rawValue
     @Published var isNotifOn: Bool = false
@@ -80,12 +82,20 @@ class MainViewModel: ObservableObject {
     /// Calcucate payments in bg
     func calculatePayments() {
         DispatchQueue.global().async {
-            var value: Float = 0.0
+            var _income: Float = 0
+            var _outcome: Float = 0
             self.payments.forEach { payment in
-                value += payment.price
+                if payment.price > 0 {
+                    _income += payment.price
+                } else if payment.price < 0 {
+                    _outcome += payment.price
+                }
             }
+            
             DispatchQueue.main.async {
-                self.totalBalance = value
+                self.totalBalance = _income + _outcome
+                self.totalIncome = _income
+                self.totalOutcome = _outcome
             }
         }
     }
