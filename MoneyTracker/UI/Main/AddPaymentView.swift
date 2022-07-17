@@ -74,7 +74,7 @@ struct AddPaymentView: View {
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            if PriceValidator.validate(str: aboutText) &&
+                            if PriceValidator.validate(str: priceText) &&
                                 !aboutText.isEmpty {
                                 // fixme: stupid code
                                 let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
