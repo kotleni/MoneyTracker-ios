@@ -153,4 +153,12 @@ class MainViewModel: ObservableObject {
         TagsManager.shared.removeTag(tag: tags[index])
         tags.remove(at: index)
     }
+    
+    /// Remove all tags and set default
+    func resetTags() {
+        tags.forEach { _ in
+            removeTag(index: 0)
+        }
+        loadTags()
+    }
 }

@@ -28,6 +28,7 @@
 "label_emoji" = "Emoji";
 "label_name" = "Name";
 "label_deletepayments" = "Delete all payments?";
+"label_resettags" = "Reset all tags?";
 
 "btn_add" = "Add";
 "btn_cancel" = "Cancel";
@@ -41,6 +42,7 @@
 "btn_create" = "Create";
 "btn_yes" = "Yes";
 "btn_no" = "No";
+"btn_reset" = "Reset";
 
 // filters
 "filter_all" = "📚 All";
@@ -76,3 +78,4 @@
 "toast_tagremove" = "You cannot remove this tag";
 "toast_invalid" = "Validate input";
 "toast_paymentsdeleted" = "All payments has ben deleted";
+"toast_tagreset" = "All tags has ben reset";

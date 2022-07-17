@@ -11,6 +11,8 @@ struct TagsEditorView: View {
     @ObservedObject var viewModel: MainViewModel
     @State private var isSheetShow: Bool = false
     @State private var isTagError: Bool = false
+    @State private var isShowResetAlert: Bool = false
+    @State private var isShowResetToast: Bool = false
     
     var body: some View {
         List {
@@ -34,8 +36,27 @@ struct TagsEditorView: View {
                 Label("btn_addtag".localized, systemImage: "plus")
             }
         }
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("btn_reset".localized) {
+                    isShowResetAlert = true
+                }
+            }
+        })
         .navigationTitle("label_tagseditor".localized)
         .navigationBarTitleDisplayMode(.inline)
         .toast(message: "toast_tagremove".localized, isShowing: $isTagError, config: .init())
+        .toast(message: "toast_tagreset".localized, isShowing: $isShowResetToast, config: .init())
+        .alert("label_resettags".localized, isPresented: $isShowResetAlert) {
+            Button("btn_yes".localized) {
+                isShowResetToast = true
+                isShowResetAlert = false
+                viewModel.resetTags()
+            }
+            
+            Button("btn_no".localized) {
+                isShowResetAlert = false
+            }
+        }
     }
 }
