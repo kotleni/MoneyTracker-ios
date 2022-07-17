@@ -11,7 +11,7 @@ extension Date {
     func getDateString() -> String {
         let date = Date()
         let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        df.dateFormat = "dd.MM.yyyy"
         return df.string(from: date)
     }
 }

@@ -13,8 +13,7 @@ struct PaymentItemView: View {
     
     var body: some View {
         DisclosureGroup {
-            Text("\(payment.date!.getDateString())")
-                .opacity(0.8)
+            Label("\(payment.date!.getDateString())", systemImage: "calendar")
         } label: {
             HStack(spacing: 0) {
                 VStack {
