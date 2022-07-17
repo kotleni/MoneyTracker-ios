@@ -63,6 +63,7 @@
 "tag_clothes" = "Одежда";
 "tag_entertainment" = "Развлечения";
 "tag_technique" = "Техника";
+"tag_undefined" = "Неизвестный тег";
 
 "premium_warn" = "Это премиум функция";
 

@@ -63,6 +63,7 @@
 "tag_clothes" = "Clothes";
 "tag_entertainment" = "Entertainment";
 "tag_technique" = "Technique";
+"tag_undefined" = "Unknown tag";
 
 "premium_warn" = "It's a premium function";
 
