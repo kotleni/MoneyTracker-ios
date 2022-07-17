@@ -74,7 +74,8 @@ struct AddPaymentView: View {
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            if !priceText.isEmpty && !aboutText.isEmpty {
+                            if PriceValidator.validate(str: aboutText) &&
+                                !aboutText.isEmpty {
                                 // fixme: stupid code
                                 let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
                                 let sum = MathematicalExpression(line: priceStr).makeResult()
