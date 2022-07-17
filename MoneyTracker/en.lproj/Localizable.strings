@@ -27,17 +27,20 @@
 "label_tagseditor" = "Tags editor";
 "label_emoji" = "Emoji";
 "label_name" = "Name";
+"label_deletepayments" = "Delete all payments?";
 
 "btn_add" = "Add";
 "btn_cancel" = "Cancel";
 "btn_next" = "Next";
-"btn_resetpayments" = "Reset payments";
+"btn_resetpayments" = "Delete all payments";
 "btn_appinappstore" = "App in AppStore";
 "btn_appingithub" = "App in GitHub";
 "btn_selectcurrency" = "Select currency";
 "btn_edittags" = "Edit tags";
 "btn_addtag" = "Add tag";
 "btn_create" = "Create";
+"btn_yes" = "Yes";
+"btn_no" = "No";
 
 // filters
 "filter_all" = "📚 All";
@@ -72,3 +75,4 @@
  
 "toast_tagremove" = "You cannot remove this tag";
 "toast_invalid" = "Validate input";
+"toast_paymentsdeleted" = "All payments has ben deleted";

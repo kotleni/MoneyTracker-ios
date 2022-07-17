@@ -13,6 +13,8 @@ fileprivate var eggsCounter: Int = 0
 struct SettingsView: View {
     @ObservedObject var viewModel: MainViewModel
     @State private var isShowPremiumWarn: Bool = false
+    @State private var isShowResetPaymentsAlert: Bool = false
+    @State private var isShowResetPaymentsToast: Bool = false
     
     var body: some View {
         Form {
@@ -96,8 +98,7 @@ struct SettingsView: View {
                 
                 // reset paymetns btn
                 Button {
-                    viewModel.removeAllPayments()
-                    exit(0)
+                    isShowResetPaymentsAlert = true
                 } label: {
                     Text("btn_resetpayments".localized)
                         .foregroundColor(.red)
@@ -145,9 +146,16 @@ struct SettingsView: View {
                 Text("label_aboutapp".localized)
             }
         }
-        .alert("premium_warn".localized, isPresented: $isShowPremiumWarn) {
-            Button("OK") {
-                isShowPremiumWarn = false
+        .toast(message: "toast_paymentsdeleted".localized, isShowing: $isShowResetPaymentsToast, config: .init())
+        .toast(message: "premium_warn".localized, isShowing: $isShowPremiumWarn, config: .init())
+        .alert("label_deletepayments".localized, isPresented: $isShowResetPaymentsAlert) {
+            Button("btn_yes".localized) {
+                viewModel.removeAllPayments()
+                isShowResetPaymentsAlert = false
+                isShowResetPaymentsToast = true
+            }
+            Button("btn_no".localized) {
+                isShowResetPaymentsAlert = false
             }
         }
     }

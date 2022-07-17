@@ -114,6 +114,8 @@ class MainViewModel: ObservableObject {
     
     /// Remove all payments
     func removeAllPayments() {
+        payments = []
+        totalBalance = 0
         PaymentsManager.shared.removeAll()
     }
     
