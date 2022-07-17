@@ -14,4 +14,11 @@ extension Date {
         df.dateFormat = "dd.MM.yyyy"
         return df.string(from: date)
     }
+    
+    func getTimeString() -> String {
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "hh:MM"
+        return df.string(from: date)
+    }
 }

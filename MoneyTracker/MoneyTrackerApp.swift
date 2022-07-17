@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct MoneyTrackerApp: App {
+    let nav = NavigationControllers()
+    let router = CheckoutViewsRouter()
+    let viewModel = MainViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootNavigationController(nav: nav.checkoutNavigationController, rootView: MainView(viewModel: viewModel), navigationBarTitle: "MoneyTracker")
+                            .environmentObject(router)
+                            .onAppear {
+                                router.nav = nav.checkoutNavigationController
+                                viewModel.loadAllData()
+                            }
         }
     }
 }
+
+extension UINavigationController: ObservableObject {}

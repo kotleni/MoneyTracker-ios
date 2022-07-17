@@ -12,27 +12,32 @@ struct PaymentItemView: View {
     @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
-        DisclosureGroup {
-            Label("\(payment.date!.getDateString())", systemImage: "calendar")
-        } label: {
-            HStack(spacing: 0) {
-                VStack {
-                    HStack {
-                        Text((payment.about == nil) ? "..." : payment.about!)
-                        Spacer()
-                    }
-                    HStack {
-                        Text((payment.price > 0) ? "🟢" : (payment.tag == nil) ? Tag.getDefault().name! : (Tag.getByName(name: payment.tag!) == nil) ? "❓ \("tag_undefined".localized)" : Tag.getByName(name: payment.tag!)!.getString())
-                            .opacity(0.8)
-                            .font(.system(size: 14))
-                        Spacer()
-                    }
+        HStack {
+            Text(Tag.getByName(name: payment.tag!)!.emoji!)
+                .font(.system(size: 28))
+            VStack {
+                HStack {
+                    Text("\(String(format: "%.2f", payment.price)) \(viewModel.priceType)")
+                        .bold()
+                        .font(.system(size: 16))
+                    Spacer()
                 }
+                HStack {
+                    Text((payment.about == nil) ? "..." : payment.about!)
+                        .font(.system(size: 14))
+                        .opacity(0.5)
+                    Spacer()
+                }
+            }
+            .padding(.leading, 8)
+            Spacer()
+            VStack {
+                Text("\(payment.date!.getTimeString())")
+                    .font(.system(size: 14))
+                    .opacity(0.5)
                 Spacer()
-                Text("\(String(format: "%.2f", payment.price)) \(viewModel.priceType)")
-                    .foregroundColor(payment.price < 0 ? Color.init(.sRGB, red: 245/255, green: 97/255, blue: 76/255, opacity: 1.0) : Color.init(.sRGB, red: 81/255, green: 187/255, blue: 116/255, opacity: 1.0))
             }
         }
-
+        .padding(8)
     }
 }
