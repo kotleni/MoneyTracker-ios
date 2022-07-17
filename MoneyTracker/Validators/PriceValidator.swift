@@ -10,7 +10,8 @@ import Foundation
 /// Price string validator
 class PriceValidator: Validator {
     static func validate(str: String) -> Bool {
-        if !str.isEmpty {
+        let price = Float(str)
+        if !str.isEmpty && price != nil {
             return true
         }
         

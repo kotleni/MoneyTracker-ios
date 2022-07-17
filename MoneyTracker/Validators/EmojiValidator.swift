@@ -10,7 +10,7 @@ import Foundation
 /// Emoji validator
 class EmojiValidator: Validator {
     static func validate(str: String) -> Bool {
-        if !str.isEmpty && str.count == 1 {
+        if !str.isEmpty && str.count == 1 && str.isSingleEmoji {
             return true
         }
         
