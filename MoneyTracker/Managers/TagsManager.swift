@@ -18,6 +18,7 @@ struct TagsManager {
         let tag = Tag(context: viewContext)
         tag.name = name
         tag.emoji = emoji
+        tag.date = Date()
         
         try! viewContext.save()
         return tag
@@ -38,7 +39,7 @@ struct TagsManager {
     /// Get all tags
     func getTags() -> [Tag] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Tag.name, ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Tag.date, ascending: true)]
         let array =  try! viewContext.fetch(request) as! Array<Tag>
         return array
     }
