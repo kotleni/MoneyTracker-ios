@@ -21,7 +21,7 @@
 		5A19B985288335FB00C27056 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B984288335FB00C27056 /* Tag.swift */; };
 		5A19B98728833DAC00C27056 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98628833DAC00C27056 /* AddTagView.swift */; };
 		5A19B98B2883418500C27056 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98A2883418500C27056 /* EmojiTextField.swift */; };
-		5A19B98D288343D300C27056 /* Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98C288343D300C27056 /* Sheet.swift */; };
+		5A19B98D288343D300C27056 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98C288343D300C27056 /* Toast.swift */; };
 		5A19B9902883458800C27056 /* EmojiValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98F2883458700C27056 /* EmojiValidator.swift */; };
 		5A19B9922883460D00C27056 /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B9912883460D00C27056 /* NameValidator.swift */; };
 		5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE09287D9E8E00812484 /* PaymentsView.swift */; };
@@ -75,7 +75,7 @@
 		5A19B984288335FB00C27056 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5A19B98628833DAC00C27056 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
 		5A19B98A2883418500C27056 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
-		5A19B98C288343D300C27056 /* Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheet.swift; sourceTree = "<group>"; };
+		5A19B98C288343D300C27056 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		5A19B98F2883458700C27056 /* EmojiValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiValidator.swift; sourceTree = "<group>"; };
 		5A19B9912883460D00C27056 /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
 		5A36EE09287D9E8E00812484 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 			children = (
 				B4D501312869A9ED0065EB4D /* String+Ext.swift */,
 				5A19B984288335FB00C27056 /* Tag.swift */,
-				5A19B98C288343D300C27056 /* Sheet.swift */,
+				5A19B98C288343D300C27056 /* Toast.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -342,8 +342,6 @@
 			);
 			mainGroup = B4D501172869A87A0065EB4D;
 			packageReferences = (
-				5A00F465287F22C300A4820A /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
-				5A00F468287F251800A4820A /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = B4D501212869A87A0065EB4D /* Products */;
 			projectDirPath = "";
@@ -405,7 +403,7 @@
 				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
 				5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */,
 				5A00F44C287EBE4E00A4820A /* Currency.swift in Sources */,
-				5A19B98D288343D300C27056 /* Sheet.swift in Sources */,
+				5A19B98D288343D300C27056 /* Toast.swift in Sources */,
 				5A19B9902883458800C27056 /* EmojiValidator.swift in Sources */,
 				5A36EE0A287D9E8E00812484 /* PaymentsView.swift in Sources */,
 				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
@@ -699,25 +697,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5A00F465287F22C300A4820A /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ilamanov/SwiftPieChart";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		5A00F468287F251800A4820A /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/willdale/SwiftUICharts";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */ = {

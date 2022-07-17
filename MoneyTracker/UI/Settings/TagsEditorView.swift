@@ -10,6 +10,7 @@ import SwiftUI
 struct TagsEditorView: View {
     @ObservedObject var viewModel: MainViewModel
     @State private var isSheetShow: Bool = false
+    @State private var isTagError: Bool = false
     
     var body: some View {
         List {
@@ -20,6 +21,8 @@ struct TagsEditorView: View {
                 .onDelete { indexSet in
                     if viewModel.tags[indexSet.first!].name! != "tag_any".localized {
                         viewModel.removeTag(index: indexSet.first!)
+                    } else {
+                        isTagError = true
                     }
                 }
             }
@@ -32,5 +35,6 @@ struct TagsEditorView: View {
         }
         .navigationTitle("label_tagseditor".localized)
         .navigationBarTitleDisplayMode(.inline)
+        .toast(message: "Вы не можете удалить этот тег", isShowing: $isTagError, config: .init())
     }
 }
