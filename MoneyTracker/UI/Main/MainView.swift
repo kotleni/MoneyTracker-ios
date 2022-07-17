@@ -20,47 +20,47 @@ struct MainView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                // info card
-                VStack {
-                    HStack {
+                ScrollView {
+                    // info card
+                    VStack {
                         HStack {
-                            VStack {
-                                HStack {
-                                    Text("\(String(format: "%.2f", viewModel.totalIncome)) \(viewModel.priceType)")
-                                        .bold()
-                                        .font(SwiftUI.Font.system(size: 19))
-                                    Spacer()
+                            HStack {
+                                VStack {
+                                    HStack {
+                                        Text("\(String(format: "%.2f", viewModel.totalIncome)) \(viewModel.priceType)")
+                                            .bold()
+                                            .font(SwiftUI.Font.system(size: 19))
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        Text("Доход")
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                    }
                                 }
-                                HStack {
-                                    Text("Доход")
-                                        .foregroundColor(.gray)
-                                    Spacer()
-                                }
-                            }
-                            Spacer()
-                            VStack {
-                                HStack {
-                                    Text("\(String(format: "%.2f", viewModel.totalOutcome).replacingOccurrences(of: "-", with: "")) \(viewModel.priceType)")
-                                        .bold()
-                                        .font(SwiftUI.Font.system(size: 19))
-                                    Spacer()
-                                }
-                                HStack {
-                                    Text("Затраты")
-                                        .foregroundColor(.gray)
-                                    Spacer()
+                                Spacer()
+                                VStack {
+                                    HStack {
+                                        Text("\(String(format: "%.2f", viewModel.totalOutcome).replacingOccurrences(of: "-", with: "")) \(viewModel.priceType)")
+                                            .bold()
+                                            .font(SwiftUI.Font.system(size: 19))
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        Text("Затраты")
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                    }
                                 }
                             }
                         }
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 16).fill(Color("CardBackground")))
                     }
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 16).fill(Color("CardBackground")))
-                }
-                .padding(.leading, 16)
-                .padding(.trailing, 16)
-                
-                // payments and settings btns
-                VStack {
+                    .padding(.leading, 16)
+                    .padding(.trailing, 16)
+                    
+                    // payments and settings btns
                     HStack {
                         HStack {
                             Spacer()
@@ -89,9 +89,10 @@ struct MainView: View {
                         .background(RoundedRectangle(cornerRadius: 16).fill(Color("CardBackground")))
                         
                     }
-                    Spacer()
+                    .padding()
                 }
-                .padding()
+                
+                Spacer()
                 
                 // bottombar divider
                 Divider()

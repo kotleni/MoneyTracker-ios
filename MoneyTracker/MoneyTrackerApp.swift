@@ -21,6 +21,7 @@ struct MoneyTrackerApp: App {
                                 router.nav = nav.checkoutNavigationController
                                 viewModel.loadAllData()
                             }
+                            .ignoresSafeArea()
         }
     }
 }

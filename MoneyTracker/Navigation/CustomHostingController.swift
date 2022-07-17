@@ -10,6 +10,7 @@ import SwiftUI
 class CustomHostingController<Content>: UIHostingController<AnyView> where Content: View {
 
     public init(rootView: Content, navigationBarTitle: String, navigationBarHidden: Bool) {
+        UINavigationBar.appearance().isTranslucent = false
         super.init(rootView: AnyView(rootView.navigationBarHidden(navigationBarHidden)))
         self.title = navigationBarTitle
     }

@@ -13,7 +13,7 @@ struct PaymentItemView: View {
     
     var body: some View {
         HStack {
-            Text(Tag.getByName(name: payment.tag!)!.emoji!)
+            Text((Tag.getByName(name: payment.tag!) == nil) ? "" : Tag.getByName(name: payment.tag!)!.emoji!)
                 .font(.system(size: 28))
             VStack {
                 HStack {

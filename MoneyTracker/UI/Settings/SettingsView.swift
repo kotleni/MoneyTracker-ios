@@ -190,7 +190,7 @@ struct SettingsView: View {
                         isShowResetPaymentsAlert = true
                     } label: {
                         Text("btn_resetpayments".localized)
-                            .foregroundColor(.red)
+                            //.foregroundColor(.red)
                     }
                     .padding(.leading, 4)
                 }
