@@ -39,8 +39,8 @@ struct AddTagView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    if EmojiValidator.validate(emoji: emojiText) &&
-                        TagNameValidator.swift.validateTag(tagName: nameText) {
+                    if EmojiValidator.validate(str: emojiText) &&
+                        TagNameValidator.validate(str: nameText) {
                         viewModel.addTag(name: nameText, emoji: emojiText)
                         isSheetShow = false
                     } else {
