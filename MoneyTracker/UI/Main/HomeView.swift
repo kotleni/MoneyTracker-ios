@@ -32,6 +32,16 @@ struct HomeView: View {
                         totalIncome: viewModel.totalIncome,
                         totalOutcome: viewModel.totalOutcome,
                         priceType: viewModel.priceType)
+                    
+//                    HStack {
+//                        Spacer()
+//                        PizzaChart(radius: 60, items: [
+//                            ChartItem(name: "Income", value: 11, color: .blue),
+//                            ChartItem(name: "Expenses", value: 22, color: .red),
+//                        ])
+//                        .frame(width: 200, height: 200)
+//                        Spacer()
+//                    }
                 } header: {
                     Text("label_statistic".localized)
                 }
@@ -49,6 +59,8 @@ struct HomeView: View {
                     } else { // is empty
                         Text("label_nopayments".localized)
                     }
+                    
+                    
                 } header: {
                     Text("label_payments".localized)
                 }

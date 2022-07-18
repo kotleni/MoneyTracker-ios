@@ -24,6 +24,7 @@
 		5A19B98D288343D300C27056 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98C288343D300C27056 /* Toast.swift */; };
 		5A19B9902883458800C27056 /* EmojiValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98F2883458700C27056 /* EmojiValidator.swift */; };
 		5A19B9922883460D00C27056 /* TagNameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B9912883460D00C27056 /* TagNameValidator.swift */; };
+		5A35061D2885DFD800AD5EC6 /* PizzaChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35061C2885DFD800AD5EC6 /* PizzaChart.swift */; };
 		5A36EE0E287DB76400812484 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36EE0D287DB76400812484 /* HapticManager.swift */; };
 		5A3A6564288570DA0097B179 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = 5A3A6563288570DA0097B179 /* Stinsen */; };
 		5A3A6566288571120097B179 /* TabsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A6565288571120097B179 /* TabsCoordinator.swift */; };
@@ -101,6 +102,7 @@
 		5A19B98C288343D300C27056 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		5A19B98F2883458700C27056 /* EmojiValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiValidator.swift; sourceTree = "<group>"; };
 		5A19B9912883460D00C27056 /* TagNameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNameValidator.swift; sourceTree = "<group>"; };
+		5A35061C2885DFD800AD5EC6 /* PizzaChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaChart.swift; sourceTree = "<group>"; };
 		5A36EE0D287DB76400812484 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		5A3A6565288571120097B179 /* TabsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCoordinator.swift; sourceTree = "<group>"; };
 		5A3A6567288571600097B179 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				5AFA66D82883065C00088D53 /* Settings */,
 				5A00F44F287EC72400A4820A /* SearchBarView.swift */,
 				5A19B98A2883418500C27056 /* EmojiTextField.swift */,
+				5A35061C2885DFD800AD5EC6 /* PizzaChart.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				5A19B98D288343D300C27056 /* Toast.swift in Sources */,
 				5A19B9902883458800C27056 /* EmojiValidator.swift in Sources */,
 				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
+				5A35061D2885DFD800AD5EC6 /* PizzaChart.swift in Sources */,
 				5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */,
 				5A19B98B2883418500C27056 /* EmojiTextField.swift in Sources */,
 				5A19B9922883460D00C27056 /* TagNameValidator.swift in Sources */,
