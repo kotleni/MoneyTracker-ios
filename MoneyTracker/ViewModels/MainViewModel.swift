@@ -18,6 +18,7 @@ class MainViewModel: ObservableObject {
     @Published var isNotifOn: Bool = false
     @Published var isDeveloperOn: Bool = false
     @Published var isPremium: Bool = false
+    @Published var isShopAvailable: Bool = false
     @Published var premiumPrice: String = ""
     @Published var tags: [Tag] = []
     
@@ -66,15 +67,20 @@ class MainViewModel: ObservableObject {
         Task.init {
             let isPremium = await PremiumManager.shared.isPremiumExist()
             let premiumPrice = await PremiumManager.shared.getPremiumPrice()
-            
+            let isAvailable = await PremiumManager.shared.isAvailable()
             DispatchQueue.main.async {
-                self.isPremium = isPremium
-                self.premiumPrice = premiumPrice
+                self.isShopAvailable = isAvailable
             }
-            
-            if !isPremium && isNotifOn {
-                StorageManager.shared.setNotifEnable(isEnable: false)
-                isNotifOn = false
+            if isAvailable {
+                DispatchQueue.main.async {
+                    self.isPremium = isPremium
+                    self.premiumPrice = premiumPrice
+                }
+                
+                if !isPremium && isNotifOn {
+                    StorageManager.shared.setNotifEnable(isEnable: false)
+                    isNotifOn = false
+                }
             }
         }
     }

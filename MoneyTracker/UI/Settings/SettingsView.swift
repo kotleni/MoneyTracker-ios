@@ -16,12 +16,14 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            Section {
-                PremiumBannerView(isPremium: $viewModel.isPremium, premiumPrice: $viewModel.premiumPrice) {
-                    viewModel.purshacePremium()
+            if viewModel.isShopAvailable {
+                Section {
+                    PremiumBannerView(isPremium: $viewModel.isPremium, premiumPrice: $viewModel.premiumPrice) {
+                        viewModel.purshacePremium()
+                    }
+                } header: {
+                    Text("label_subscribe".localized)
                 }
-            } header: {
-                Text("label_subscribe".localized)
             }
             
             Section {

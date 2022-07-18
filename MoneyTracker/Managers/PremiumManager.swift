@@ -12,6 +12,12 @@ import StoreKit
 class PremiumManager {
     static let shared = PremiumManager()
     
+    /// Check is shop available
+    func isAvailable() async -> Bool {
+        let products = try! await Product.products(for: ["moneytracker.preimium1"])
+        return !(products.isEmpty)
+    }
+    
     /// Try subscribe to premium
     func trySubscribe() async -> Product.PurchaseResult {
         let products = try! await Product.products(for: ["moneytracker.preimium1"])
@@ -22,6 +28,11 @@ class PremiumManager {
     /// Check is premium subscribed
     func isPremiumExist() async -> Bool {
         let products = try! await Product.products(for: ["moneytracker.preimium1"])
+        
+        if products.isEmpty {
+            return false
+        }
+        
         let state = try! await products[0].currentEntitlement
         
         switch state {
@@ -39,6 +50,9 @@ class PremiumManager {
     /// Get premium price
     func getPremiumPrice() async -> String {
         let products = try! await Product.products(for: ["moneytracker.preimium1"])
+        if products.isEmpty {
+            return ""
+        }
         return products.first!.displayPrice
     }
 }
