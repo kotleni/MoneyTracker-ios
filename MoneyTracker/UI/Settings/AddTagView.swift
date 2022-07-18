@@ -27,7 +27,7 @@ struct AddTagView: View {
                 }
                 
                 HStack {
-                    Text("label_name".localized)
+                    Text("label_tagname".localized)
                     Spacer()
                     TextField("hint_necessarily".localized, text: $nameText)
                         .multilineTextAlignment(.trailing)
@@ -35,7 +35,7 @@ struct AddTagView: View {
                 }
             }
         }
-        .navigationBarTitle("btn_addtag".localized, displayMode: .inline)
+        .navigationBarTitle("title_addtag".localized, displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -52,6 +52,6 @@ struct AddTagView: View {
                 }
             }
         }
-        .toast(message: "toast_invalid".localized, isShowing: $isError, config: .init())
+        .toast(message: "toast_invalidtagdata".localized, isShowing: $isError, config: .init())
     }
 }

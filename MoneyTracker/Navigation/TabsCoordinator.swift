@@ -34,14 +34,14 @@ final class TabsCoordinator: TabCoordinatable {
     @ViewBuilder func makeHomeTab(isActive: Bool) -> some View {
         VStack {
             Image(systemName: "house")
-            Text("Финансы")
+            Text("title_home".localized)
         }
     }
     
     @ViewBuilder func makeSettingsTab(isActive: Bool) -> some View {
         VStack {
             Image(systemName: "gear")
-            Text("Настройки")
+            Text("title_settings".localized)
         }
     }
 }

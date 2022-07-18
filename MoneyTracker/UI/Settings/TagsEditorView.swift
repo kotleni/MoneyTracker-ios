@@ -43,7 +43,7 @@ struct TagsEditorView: View {
                 }
             }
         })
-        .navigationTitle("label_tagseditor".localized)
+        .navigationTitle("title_tagseditor".localized)
         .navigationBarTitleDisplayMode(.inline)
         .toast(message: "toast_tagremove".localized, isShowing: $isTagError, config: .init())
         .toast(message: "toast_tagreset".localized, isShowing: $isShowResetToast, config: .init())

@@ -14,20 +14,20 @@ struct DeveloperView: View {
     var body: some View {
         Form {
             Button {
-                viewModel.addPayment(price: Float(Int.random(in: -999...999)), about: "Undefined", tag: Tag.getDefault())
+                viewModel.addPayment(price: Float(Int.random(in: -999...999)), about: ":)", tag: Tag.getDefault())
             } label: {
-                Text("Добавить платеж")
+                Text("btn_devaddpay".localized)
             }
             
             Button {
                 viewModel.loadAllData()
             } label: {
-                Text("Обновить данные")
+                Text("btn_devupdatedata".localized)
             }
             
-            Toggle("Премиум подписка", isOn: $viewModel.isPremium)
+            Toggle("btn_devpremium".localized, isOn: $viewModel.isPremium)
         }
-        .navigationTitle("Меню разработчика")
+        .navigationTitle("title_devmenu".localized)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -23,7 +23,7 @@ struct HomeBalance2View: View {
                         Spacer()
                     }
                     HStack {
-                        Text("Доход")
+                        Text("label_expenses".localized)
                             .foregroundColor(.gray)
                         Spacer()
                     }
@@ -37,7 +37,7 @@ struct HomeBalance2View: View {
                         Spacer()
                     }
                     HStack {
-                        Text("Расходы")
+                        Text("label_income".localized)
                             .foregroundColor(.gray)
                         Spacer()
                     }

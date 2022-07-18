@@ -22,7 +22,7 @@ struct HomeBalanceView: View {
                     Spacer()
                 }
                 HStack {
-                    Text("Баланс")
+                    Text("label_balance".localized)
                         .foregroundColor(.gray)
                     Spacer()
                 }

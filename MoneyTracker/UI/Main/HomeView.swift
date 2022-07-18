@@ -33,7 +33,7 @@ struct HomeView: View {
                         totalOutcome: viewModel.totalOutcome,
                         priceType: viewModel.priceType)
                 } header: {
-                    Text("Статистика")
+                    Text("label_statistic".localized)
                 }
                 
                 Section {
@@ -47,15 +47,15 @@ struct HomeView: View {
                             viewModel.deletePayment(index: indexSet.first!)
                         }
                     } else { // is empty
-                        Text("Вы еще не добавили никаких платежей.".localized)
+                        Text("label_nopayments".localized)
                     }
                 } header: {
-                    Text("Все платежи")
+                    Text("label_payments".localized)
                 }
             }
             
         }
-        .navigationTitle("Финансы")
+        .navigationTitle("title_home".localized)
         .sheet(isPresented: $isShowSheet, content: {
             AddPaymentView(viewModel: viewModel, isSheetShow: $isShowSheet)
         })

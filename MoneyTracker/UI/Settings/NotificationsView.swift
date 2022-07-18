@@ -36,8 +36,8 @@ struct NotificationsView: View {
                                                 minute: 00
                                             )
                                         } else {
-                                            toastText = "Уведомления для этого приложения заблокированы"
-                                            isShowToast = true
+//                                            toastText = "Уведомления для этого приложения заблокированы"
+//                                            isShowToast = true
                                             viewModel.setNotifications(state: false)
                                             DispatchQueue.global().async {
                                                 sleep(1)
@@ -50,14 +50,14 @@ struct NotificationsView: View {
                                 }
                             }
                     } footer: {
-                        Text("Вечером вам будут приходить напомнинания")
+                        Text("label_notiffooter".localized)
                     }
 
                 }
             }
         }
         .toast(message: toastText, isShowing: $isShowToast, config: .init())
-        .navigationTitle("Уведомления")
+        .navigationTitle("title_notifications".localized)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

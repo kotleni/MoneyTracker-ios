@@ -29,7 +29,7 @@ struct ResetPaymentsView: View {
                             }
                         }
                     } footer: {
-                        Text("Все платежи удаляться безвозвратно")
+                        Text("label_warnresepay".localized)
                     }
 
                 }

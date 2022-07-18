@@ -65,14 +65,14 @@ struct CurrencyEditorView: View {
                         }
                     }
                 } header: {
-                    Text("Все")
+                    Text("label_allcurrencies".localized)
                 }
             }
             
             Spacer()
         }
         .onAppear { loadStorage() }
-        .navigationBarTitle("label_selectpricetype".localized, displayMode: .inline)
+        .navigationBarTitle("title_selcurrency".localized, displayMode: .inline)
     }
     
     private func updateCurrency() {

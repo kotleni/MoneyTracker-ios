@@ -40,7 +40,7 @@ struct AddPaymentView: View {
                                 .frame(width: UIScreen.main.bounds.width / 3)
                         }
                         HStack {
-                            Text("field_about".localized)
+                            Text("field_desc".localized)
                             Spacer()
                             TextField("hint_necessarily".localized, text: $aboutText)
                                 .multilineTextAlignment(.trailing)
@@ -48,7 +48,7 @@ struct AddPaymentView: View {
                         }
                         if spendingBool {
                             HStack {
-                                Text("Тэг".localized)
+                                Text("label_tag".localized)
                                 Spacer()
                                 Picker("", selection: $selectedTag) {
                                     ForEach(Tag.getAll(), id: \.self) { tag in
@@ -62,7 +62,7 @@ struct AddPaymentView: View {
                         Text("hint_payment".localized)
                     }
                 }
-                .navigationBarTitle("label_newpayment".localized, displayMode: .inline)
+                .navigationBarTitle("title_newpayment".localized, displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
@@ -104,6 +104,6 @@ struct AddPaymentView: View {
                 }
             }
         }
-        .toast(message: "toast_invalid".localized, isShowing: $isError, config: .init())
+        .toast(message: "toast_invalidpaydata".localized, isShowing: $isError, config: .init())
     }
 }

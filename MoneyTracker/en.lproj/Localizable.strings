@@ -6,76 +6,76 @@
   
 */
 
-"label_payments" = "Payments";
-"label_settings" = "Settings";
-"label_newpayment" = "New payment";
-"label_selectpricetype" = "Select currency";
+/* HOME */
+"title_home" = "Finances";
+"label_statistic" = "Statistics";
+"label_payments" = "Платежи";
+"label_nopayments" = "You don't have any payments.";
 "label_balance" = "Balance";
-"label_filter" = "Filter";
-"label_currency" = "Currency";
-"label_ordinary" = "Ordinary";
+"label_income" = "Income";
+"label_expenses" = "Exprenses";
+
+/* SETTINGS */
+"title_settings" = "Settings";
+"label_subscribe" = "Subscribe";
+"btn_notifchange" = "Notifications";
+"btn_currencychange" = "Select currency";
+"btn_edittags" = "Edit tags";
+"btn_notifchange" = "Notifications";
+"btn_devmenu" = "Developer menu";
+"btn_aboutapp" = "About app";
+"btn_resetpay" = "Reset payments";
+"title_selcurrency" = "Select currency";
+"label_popular" = "Popular";
+"label_allcurrencies" = "All";
+"title_devmenu" = "Developer menu";
+"btn_devaddpay" = "Add payment";
+"btn_devupdatedata" = "Reload data";
+"btn_devpremium" = "Premium subscribe";
+"btn_addtag" = "Add tag";
+"title_tagseditor" = "Edit tags";
+"toast_tagremove" = "You don't can remove this tag";
+"toast_tagreset" = "All tags has ben reset";
+"label_resettags" = "You want reset tags?";
+"toast_invalidtagdata" = "Invalidate feilds";
+"title_addtag" = "New tag";
+"label_emoji" = "Emoji";
+"label_tagname" = "Name";
+"btn_resetpayments" = "Reset payments";
+"label_deletepayments" = "You want remove all payments?";
+"toast_paymentsdeleted" = "All payments has ben deleted.";
+"label_warnresepay" = "You don't can return it";
 "label_developer" = "Developer: ";
 "label_version" = "Version: ";
-"label_aboutapp" = "About app";
-"label_notifications" = "Notifications";
-"label_popular" = "Popular";
-"label_subscribe" = "Subscribe";
-"label_premiumsubscribe" = "Premium subscribe";
-"label_premiumaboutleft" = "Just ";
-"label_premiumaboutright" = " in month";
-"label_premiumactive" = "Subscribed 🎉";
-"label_tagseditor" = "Tags editor";
-"label_emoji" = "Emoji";
-"label_name" = "Name";
-"label_deletepayments" = "Delete all payments?";
-"label_resettags" = "Reset all tags?";
-
-"btn_add" = "Add";
-"btn_cancel" = "Cancel";
-"btn_next" = "Next";
-"btn_resetpayments" = "Delete all payments";
 "btn_appinappstore" = "App in AppStore";
 "btn_appingithub" = "App in GitHub";
-"btn_selectcurrency" = "Select currency";
-"btn_edittags" = "Edit tags";
-"btn_addtag" = "Add tag";
+"title_aboutapp" = "About app";
+"label_notifications" = "Notifications";
+"label_notiffooter" = "In the evening you will have reminders";
+"title_notifications" = "Notifications";
+"label_premiumactive" = "🎉 Premium active";
+"label_premiumsubscribe" = "Premium subsribe";
+"label_premiumaboutleft" = "Just ";
+"label_premiumaboutright" = " in month";
+
+/* ADD PAYMENT */
+"title_newpayment" = "New payment";
+"segment_expenses" = "Expenses";
+"segment_income" = "Income";
+"field_price" = "Price";
+"field_desc" = "Description";
+"hint_necessarily" = "Required";
+"label_tag" = "Тег";
+"hint_payment" = "After creating payment, it will be added to the history and the funds counter will be updated";
+"toast_invalidpaydata" = "Invalidate payment data";
+
+/* UNIVERSAL */
+"btn_cancel" = "Cancel";
+"btn_continue" = "Continue";
 "btn_create" = "Create";
 "btn_yes" = "Yes";
 "btn_no" = "No";
-"btn_reset" = "Reset";
-
-// filters
-"filter_all" = "📚 All";
-// "filter_minus" = " Only expenses";
-"filter_plus" = "💰 Only income";
-
-"hint_necessarily" = "Necessarily";
-"hint_payment" = "After creating a payment, it will be added to the history and the funds counter will be updated.";
-"hint_empty" = "You don't have any payments.";
-"hint_emptyfooter" = "Add new via add button";
+"btn_next" = "Next";
+"btn_premiumwarn" = "It's a premium function";
 "hint_search" = "Search";
-
-"field_price" = "Price";
-"field_about" = "About";
-// "field_expenses" = "Expenses";
-
-"notif_title" = "Reminder";
-"notif_body" = "Time to update the payment list";
-
-// default tags
-"tag_any" = "Any";
-"tag_food" = "Food";
-"tag_clothes" = "Clothes";
-"tag_entertainment" = "Entertainment";
-"tag_technique" = "Technique";
-"tag_undefined" = "Unknown tag";
-
-"premium_warn" = "It's a premium function";
-
-"segment_expenses" = "Expenses";
-"segment_income" = "Income";
- 
-"toast_tagremove" = "You cannot remove this tag";
-"toast_invalid" = "Validate input";
-"toast_paymentsdeleted" = "All payments has ben deleted";
-"toast_tagreset" = "All tags has ben reset";
+"btn_reset" = "Reset";

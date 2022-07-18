@@ -40,13 +40,13 @@ struct AboutAppView: View {
                 Text("btn_appingithub".localized)
             }
         }
-        .navigationTitle("О приложении")
+        .navigationTitle("title_aboutapp".localized)
     }
     
     // track current state of eggs
     private func trackEggs() {
         eggsCounter += 1
-        if eggsCounter == 4 {
+        if eggsCounter == 2 {
             viewModel.isDeveloperOn = true
             HapticManager.shared.success()
         }

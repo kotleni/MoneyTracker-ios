@@ -28,44 +28,44 @@ struct SettingsView: View {
             
             Section {
                 // notif
-                SettingsItemView(title: "Уведомления", imageName: "bell.fill", imageColor: .blue) {
+                SettingsItemView(title: "btn_notifchange".localized, imageName: "bell.fill", imageColor: .blue) {
                     if(viewModel.isPremium) {
                         router.route(to: \.notifications)
                     } else {
-                        self.toastText = "Это премиум функция"
+                        self.toastText = "btn_premiumwarn".localized
                         self.isShowToast = true
                     }
                 }
                 
                 // currency
-                SettingsItemView(title: "Выбор валюты", imageName: "dollarsign.circle.fill", imageColor: .green) {
+                SettingsItemView(title: "btn_currencychange".localized, imageName: "dollarsign.circle.fill", imageColor: .green) {
                     router.route(to: \.currencyEditor)
                 }
                 
                 // tags
-                SettingsItemView(title: "Изменение тегов", imageName: "tag.fill", imageColor: .red) {
+                SettingsItemView(title: "btn_edittags".localized, imageName: "tag.fill", imageColor: .red) {
                     router.route(to: \.tagsEditor)
                 }
                 
                 // developer
                 if viewModel.isDeveloperOn {
-                    SettingsItemView(title: "Меню разработчика", imageName: "hammer.fill", imageColor: .blue) {
+                    SettingsItemView(title: "btn_devmenu".localized, imageName: "hammer.fill", imageColor: .blue) {
                         router.route(to: \.developer)
                     }
                 }
                 
                 // about
-                SettingsItemView(title: "О приложении", imageName: "info.circle.fill", imageColor: .indigo) {
+                SettingsItemView(title: "btn_aboutapp".localized, imageName: "info.circle.fill", imageColor: .indigo) {
                     router.route(to: \.aboutApp)
                 }
                 
                 // reset payments
-                SettingsItemView(title: "Cброс платежей", imageName: "trash.fill", imageColor: .orange) {
+                SettingsItemView(title: "btn_resetpay".localized, imageName: "trash.fill", imageColor: .orange) {
                     router.route(to: \.resetPayments)
                 }
             }
         }
         .toast(message: toastText, isShowing: $isShowToast, config: .init())
-        .navigationTitle("Настройки")
+        .navigationTitle("title_settings".localized)
     }
 }
