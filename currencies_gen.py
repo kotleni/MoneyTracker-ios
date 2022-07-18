@@ -1,3 +1,7 @@
+"""
+    Swift currencies file generator
+    usage: python3 currencies_gen.py
+"""
 import os
 import copy
 
