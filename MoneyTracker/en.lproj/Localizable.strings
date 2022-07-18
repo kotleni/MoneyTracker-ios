@@ -79,3 +79,10 @@
 "btn_premiumwarn" = "It's a premium function";
 "hint_search" = "Search";
 "btn_reset" = "Reset";
+
+/* DEFAULT TAGS */
+"tag_food" = "Food";
+"tag_clothes" = "Clothes";
+"tag_entertainment" = "Entertainment";
+"tag_technique" = "Technique";
+"tag_any" = "Other";
