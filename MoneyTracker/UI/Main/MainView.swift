@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     // objects
-    @EnvironmentObject var router: CheckoutViewsRouter
+    @EnvironmentObject var router: HomeCoordinator.Router
     @ObservedObject var viewModel: MainViewModel
     
     @State private var isShowSheet: Bool = false
@@ -19,116 +19,113 @@ struct MainView: View {
             Color("MainBackground")
                 .ignoresSafeArea()
             
-            VStack(spacing: 0) {
-                ScrollView {
-                    // info card
-                    VStack {
-                        HStack {
+            List {
+                Section {
+                    HStack {
+                        VStack {
                             HStack {
-                                VStack {
-                                    HStack {
-                                        Text("\(String(format: "%.2f", viewModel.totalIncome)) \(viewModel.priceType)")
-                                            .bold()
-                                            .font(SwiftUI.Font.system(size: 19))
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        Text("Доход")
-                                            .foregroundColor(.gray)
-                                        Spacer()
-                                    }
-                                }
+                                Text("\(String(format: "%.2f", viewModel.totalBalance)) \(viewModel.priceType)")
+                                    .bold()
+                                    .font(SwiftUI.Font.system(size: 19))
                                 Spacer()
-                                VStack {
-                                    HStack {
-                                        Text("\(String(format: "%.2f", viewModel.totalOutcome).replacingOccurrences(of: "-", with: "")) \(viewModel.priceType)")
-                                            .bold()
-                                            .font(SwiftUI.Font.system(size: 19))
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        Text("Затраты")
-                                            .foregroundColor(.gray)
-                                        Spacer()
-                                    }
-                                }
+                            }
+                            HStack {
+                                Text("Баланс")
+                                    .foregroundColor(.gray)
+                                Spacer()
                             }
                         }
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 16).fill(Color("CardBackground")))
+                        Spacer()
+                        Button {
+                            isShowSheet = true
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 28, height: 28)
+                        }
                     }
-                    .padding(.leading, 16)
-                    .padding(.trailing, 16)
+                    //.padding(8)
                     
-                    // payments and settings btns
                     HStack {
                         HStack {
-                            Spacer()
-                            Button {
-                                router.pushTo(view: CheckoutView.builder.makeView(PaymentsView(viewModel: viewModel), withNavigationTitle: "Payments"))
-                            } label: {
-                                Label("Платежи", systemImage: "wallet.pass")
-                                    .font(.system(size: 16).bold())
+                            VStack {
+                                HStack {
+                                    Text("\(String(format: "%.2f", viewModel.totalIncome)) \(viewModel.priceType)")
+                                        .bold()
+                                        .font(SwiftUI.Font.system(size: 19))
+                                    Spacer()
+                                }
+                                HStack {
+                                    Text("Доход")
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                }
                             }
                             Spacer()
-                        }
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 16).fill(Color("CardBackground")))
-                        
-                        HStack {
-                            Spacer()
-                            Button {
-                                router.pushTo(view: CheckoutView.builder.makeView(SettingsView(viewModel: viewModel), withNavigationTitle: "Settings"))
-                            } label: {
-                                Label("Настройки", systemImage: "gear")
-                                    .font(.system(size: 16).bold())
+                            VStack {
+                                HStack {
+                                    Text("\(String(format: "%.2f", viewModel.totalOutcome).replacingOccurrences(of: "-", with: "")) \(viewModel.priceType)")
+                                        .bold()
+                                        .font(SwiftUI.Font.system(size: 19))
+                                    Spacer()
+                                }
+                                HStack {
+                                    Text("Затраты")
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                }
                             }
-                            Spacer()
                         }
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 16).fill(Color("CardBackground")))
-                        
                     }
-                    .padding()
+                    //.padding(8)
+                } header: {
+                    Text("Статистика")
                 }
                 
-                Spacer()
-                
-                // bottombar divider
-                Divider()
-                    .frame(height: 1)
-                
-                // bottombar
-                HStack {
-                    VStack {
-                        HStack {
-                            Text("\(String(format: "%.2f", viewModel.totalBalance)) \(viewModel.priceType)")
-                                .bold()
-                                .font(SwiftUI.Font.system(size: 19))
-                            Spacer()
+                Section {
+                    // PaymentsView(viewModel: viewModel)
+                    if viewModel.payments.count > 0 {
+                        ForEach(viewModel.payments, id: \.self) { payment in
+                            if isFilterOk(payment: payment) {
+                                PaymentItemView(payment: payment, viewModel: viewModel)
+                            }
                         }
-                        HStack {
-                            Text("Баланс")
-                                .foregroundColor(.gray)
-                            Spacer()
+                        .onDelete { indexSet in
+                            viewModel.deletePayment(index: indexSet.first!)
+                        }
+                    } else { // is empty
+                        Section {
+                            Text("hint_empty".localized)
+                        } footer: {
+                            Text("hint_emptyfooter".localized)
                         }
                     }
-                    Spacer()
-                    Button {
-                        isShowSheet = true
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 28, height: 28)
-                    }
+                } header: {
+                    Text("Все платежи")
                 }
-                .padding()
-                .background(Color("CardBackground"))
             }
+            
         }
+        .navigationTitle("Финансы")
         .sheet(isPresented: $isShowSheet, content: {
             AddPaymentView(viewModel: viewModel, isSheetShow: $isShowSheet)
         })
         
+    }
+    
+    /// Check filter for payment
+    private func isFilterOk(payment: Payment) -> Bool {
+        // is all
+        if viewModel.selectedFilter == "filter_all" {
+            return true
+        }
+        
+        // is selected tag
+        let paymentTag = (payment.tag == nil) ? Tag.getDefault().name! : payment.tag!
+        if viewModel.selectedFilter == paymentTag && payment.price < 0 {
+            return true
+        }
+        
+        return false
     }
 }

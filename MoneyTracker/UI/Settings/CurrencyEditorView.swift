@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChangeCurrencyView: View {
+struct CurrencyEditorView: View {
     @ObservedObject var viewModel: MainViewModel
     
     @State private var filterText: String = ""

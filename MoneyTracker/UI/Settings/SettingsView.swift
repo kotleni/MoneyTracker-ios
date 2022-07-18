@@ -11,7 +11,7 @@ import SwiftUI
 fileprivate var eggsCounter: Int = 0
 
 struct SettingsView: View {
-    @EnvironmentObject var router: CheckoutViewsRouter
+    @EnvironmentObject var router: SettingsCoordinator.Router
     @ObservedObject var viewModel: MainViewModel
     
     @State private var isShowPremiumWarn: Bool = false
@@ -98,7 +98,7 @@ struct SettingsView: View {
                         .foregroundColor(.white)
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.green))
                     Button(action: {
-                        router.pushTo(view: CheckoutView.builder.makeView(ChangeCurrencyView(viewModel: viewModel), withNavigationTitle: "Выбор валюты"))
+                        router.route(to: \.currencyEditor)
                     }, label: {
                         HStack {
                             Text("btn_selectcurrency".localized)
@@ -119,7 +119,7 @@ struct SettingsView: View {
                         .foregroundColor(.white)
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.red))
                     Button(action: {
-                        router.pushTo(view: CheckoutView.builder.makeView(TagsEditorView(viewModel: viewModel), withNavigationTitle: "Редактор тегов"))
+                        router.route(to: \.tagsEditor)
                     }, label: {
                         HStack {
                             Text("Изменить теги".localized)
@@ -142,7 +142,7 @@ struct SettingsView: View {
                             .foregroundColor(.white)
                             .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
                         Button(action: {
-                            router.pushTo(view: CheckoutView.builder.makeView(DevMenuView(viewModel: viewModel), withNavigationTitle: "Developer Menu"))
+                            router.route(to: \.developer)
                         }, label: {
                             HStack {
                                 Text("Developer Menu".localized)
@@ -165,7 +165,7 @@ struct SettingsView: View {
                         .foregroundColor(.white)
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.indigo))
                     Button(action: {
-                        router.pushTo(view: CheckoutView.builder.makeView(AboutAppView(viewModel: viewModel), withNavigationTitle: "О приложении"))
+                        router.route(to: \.aboutApp)
                     }, label: {
                         HStack {
                             Text("О приложении".localized)
@@ -208,6 +208,7 @@ struct SettingsView: View {
                 isShowResetPaymentsAlert = false
             }
         }
+        .navigationTitle("Настройки")
     }
 }
 

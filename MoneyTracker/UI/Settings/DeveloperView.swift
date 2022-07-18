@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-struct DevMenuView: View {
+struct DeveloperView: View {
     @ObservedObject var viewModel: MainViewModel
     
     var body: some View {

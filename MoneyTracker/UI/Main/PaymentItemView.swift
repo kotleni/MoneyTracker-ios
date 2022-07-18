@@ -38,6 +38,6 @@ struct PaymentItemView: View {
                 Spacer()
             }
         }
-        .padding(8)
+        //.padding(8)
     }
 }
