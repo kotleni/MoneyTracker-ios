@@ -19,6 +19,6 @@ final class HomeCoordinator: NavigationCoordinatable {
     @Root var main = makeMain
     
     @ViewBuilder func makeMain() -> some View {
-        MainView(viewModel: viewModel)
+        HomeView(viewModel: viewModel)
     }
 }
