@@ -19,10 +19,6 @@ struct ResetPaymentsView: View {
                 .ignoresSafeArea()
             
             VStack {
-                HStack {
-                    Text("🗑")
-                        .font(.system(size: 60))
-                }
                 Form {
                     Section {
                         HStack {
@@ -33,7 +29,7 @@ struct ResetPaymentsView: View {
                             }
                         }
                     } footer: {
-                        Text("После удаления, платежи вернуть будет не возможно")
+                        Text("Все платежи удаляться безвозвратно")
                     }
 
                 }
@@ -50,5 +46,7 @@ struct ResetPaymentsView: View {
             }
         }
         .toast(message: "toast_paymentsdeleted".localized, isShowing: $isShowResetPaymentsToast, config: .init())
+        .navigationTitle("Сброс платежей")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

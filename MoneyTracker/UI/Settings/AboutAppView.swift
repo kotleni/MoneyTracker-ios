@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// eggs counter
+fileprivate var eggsCounter: Int = 0
+
 struct AboutAppView: View {
     @ObservedObject var viewModel: MainViewModel
     
@@ -37,6 +40,7 @@ struct AboutAppView: View {
                 Text("btn_appingithub".localized)
             }
         }
+        .navigationTitle("О приложении")
     }
     
     // track current state of eggs

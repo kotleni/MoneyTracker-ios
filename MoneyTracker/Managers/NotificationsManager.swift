@@ -46,4 +46,13 @@ class NotificationsManager {
         notificationCenter.removeAllPendingNotificationRequests()
         notificationCenter.removeAllDeliveredNotifications()
     }
+    
+    /// Request notifications permission
+    func requestPermission(callback: @escaping (_ isSuccess: Bool) -> Void) {
+        let center  = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge]) { (granted, error) in
+            let isSucess = (error == nil)
+            callback(isSucess)
+        }
+    }
 }
