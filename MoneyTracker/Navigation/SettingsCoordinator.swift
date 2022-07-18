@@ -21,6 +21,7 @@ final class SettingsCoordinator: NavigationCoordinatable {
     @Route(.push) var tagsEditor = makeTagsEditor
     @Route(.push) var aboutApp = makeAboutApp
     @Route(.push) var developer = makeDeveloper
+    @Route(.push) var resetPayments = makeResetPayments
     
     @ViewBuilder func makeMain() -> some View {
         SettingsView(viewModel: viewModel)
@@ -40,5 +41,9 @@ final class SettingsCoordinator: NavigationCoordinatable {
     
     @ViewBuilder func makeDeveloper() -> some View {
         DeveloperView(viewModel: viewModel)
+    }
+    
+    @ViewBuilder func makeResetPayments() -> some View {
+        ResetPaymentsView(viewModel: viewModel)
     }
 }

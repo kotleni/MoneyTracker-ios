@@ -70,7 +70,7 @@ struct MainView: View {
                                     Spacer()
                                 }
                                 HStack {
-                                    Text("Затраты")
+                                    Text("Расходы")
                                         .foregroundColor(.gray)
                                     Spacer()
                                 }
@@ -83,7 +83,6 @@ struct MainView: View {
                 }
                 
                 Section {
-                    // PaymentsView(viewModel: viewModel)
                     if viewModel.payments.count > 0 {
                         ForEach(viewModel.payments, id: \.self) { payment in
                             if isFilterOk(payment: payment) {
@@ -94,11 +93,7 @@ struct MainView: View {
                             viewModel.deletePayment(index: indexSet.first!)
                         }
                     } else { // is empty
-                        Section {
-                            Text("hint_empty".localized)
-                        } footer: {
-                            Text("hint_emptyfooter".localized)
-                        }
+                        Text("Вы еще не добавили никаких платежей.".localized)
                     }
                 } header: {
                     Text("Все платежи")

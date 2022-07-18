@@ -15,8 +15,6 @@ struct SettingsView: View {
     @ObservedObject var viewModel: MainViewModel
     
     @State private var isShowPremiumWarn: Bool = false
-    @State private var isShowResetPaymentsAlert: Bool = false
-    @State private var isShowResetPaymentsToast: Bool = false
     
     var body: some View {
         Form {
@@ -179,78 +177,30 @@ struct SettingsView: View {
                     .foregroundColor(Color("DefaultText"))
                 }
                 
-                // reset paymetns btn
                 HStack {
                     Image(systemName: "trash.fill")
                         .frame(width: 22, height: 22)
                         .padding(4)
                         .foregroundColor(.white)
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.orange))
-                    Button {
-                        isShowResetPaymentsAlert = true
-                    } label: {
-                        Text("btn_resetpayments".localized)
-                            //.foregroundColor(.red)
-                    }
+                    Button(action: {
+                        router.route(to: \.resetPayments)
+                    }, label: {
+                        HStack {
+                            Text("Сбросить платежи".localized)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.gray)
+                        }
+                    })
                     .padding(.leading, 4)
+                    .padding(.trailing, 2)
+                    .foregroundColor(Color("DefaultText"))
                 }
+                
             }
         }
-        .toast(message: "toast_paymentsdeleted".localized, isShowing: $isShowResetPaymentsToast, config: .init())
         .toast(message: "premium_warn".localized, isShowing: $isShowPremiumWarn, config: .init())
-        .alert("label_deletepayments".localized, isPresented: $isShowResetPaymentsAlert) {
-            Button("btn_yes".localized) {
-                viewModel.removeAllPayments()
-                isShowResetPaymentsAlert = false
-                isShowResetPaymentsToast = true
-            }
-            Button("btn_no".localized) {
-                isShowResetPaymentsAlert = false
-            }
-        }
         .navigationTitle("Настройки")
-    }
-}
-
-
-struct AboutAppView: View {
-    @ObservedObject var viewModel: MainViewModel
-    
-    var body: some View {
-        Form {
-            // developer text
-            Text("label_developer".localized + "\(Static.developerString)")
-                .onTapGesture {
-                    trackEggs()
-                }
-            
-            // version text
-            Text("label_version".localized + "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "error")")
-            
-            // appstore btn
-            Button {
-                guard let url = URL(string: Static.appstoreUrl) else { return }
-                UIApplication.shared.open(url)
-            } label: {
-                Text("btn_appinappstore".localized)
-            }
-            
-            // github btn
-            Button {
-                guard let url = URL(string: Static.githubUrl) else { return }
-                UIApplication.shared.open(url)
-            } label: {
-                Text("btn_appingithub".localized)
-            }
-        }
-    }
-    
-    // track current state of eggs
-    private func trackEggs() {
-        eggsCounter += 1
-        if eggsCounter == 4 {
-            viewModel.isDeveloperOn = true
-            HapticManager.shared.success()
-        }
     }
 }
