@@ -15,30 +15,55 @@ struct AboutAppView: View {
     
     var body: some View {
         Form {
-            // developer text
-            Text("label_developer".localized + "\(Static.developerString)")
-                .onTapGesture {
-                    trackEggs()
+            Section {
+                // developer text
+                Text("label_developer".localized + "\(Static.developerString)")
+                    .onTapGesture {
+                        trackEggs()
+                    }
+                
+                // version text
+                Text("label_version".localized + "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "error")")
+            } header: {
+                Text("label_info".localized)
+            }
+            
+            Section {
+                // appstore btn
+                Button {
+                    guard let url = URL(string: Static.appstoreUrl) else { return }
+                    UIApplication.shared.open(url)
+                } label: {
+                    Text("btn_appinappstore".localized)
                 }
-            
-            // version text
-            Text("label_version".localized + "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "error")")
-            
-            // appstore btn
-            Button {
-                guard let url = URL(string: Static.appstoreUrl) else { return }
-                UIApplication.shared.open(url)
-            } label: {
-                Text("btn_appinappstore".localized)
+                
+                // github btn
+                Button {
+                    guard let url = URL(string: Static.githubUrl) else { return }
+                    UIApplication.shared.open(url)
+                } label: {
+                    Text("btn_appingithub".localized)
+                }
+                
+                // policy
+                Button {
+                    guard let url = URL(string: Static.policyUrl) else { return }
+                    UIApplication.shared.open(url)
+                } label: {
+                    Text("btn_policy".localized)
+                }
+                
+                // terms
+                Button {
+                    guard let url = URL(string: Static.termsUrl) else { return }
+                    UIApplication.shared.open(url)
+                } label: {
+                    Text("btn_terms".localized)
+                }
+            } header: {
+                Text("label_links".localized)
             }
-            
-            // github btn
-            Button {
-                guard let url = URL(string: Static.githubUrl) else { return }
-                UIApplication.shared.open(url)
-            } label: {
-                Text("btn_appingithub".localized)
-            }
+
         }
         .navigationTitle("title_aboutapp".localized)
     }

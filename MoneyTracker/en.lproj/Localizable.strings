@@ -89,3 +89,16 @@
 "tag_entertainment" = "Entertainment";
 "tag_technique" = "Technique";
 "tag_any" = "Other";
+
+"label_tips" = "What will be available";
+"label_tip1" = "Reminders";
+"label_tip1detail" = "Automatic report refresh reminders.";
+"label_tip2" = "Quick Reset";
+"label_tip2detail" = "Completely delete all payments with just one button.";
+"label_premiumabout" = "The free version of MoneyTracker offers users almost all the functionality that is different from many other apps.";
+"label_aboutpremium" = "Subscription";
+
+"btn_policy" = "Privacy Policy";
+"btn_terms" = "User Agreement";
+"label_links" = "Links";
+"label_info" = "About";
