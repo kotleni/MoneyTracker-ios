@@ -16,16 +16,6 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            if viewModel.isShopAvailable {
-                Section {
-                    PremiumBannerView(isPremium: $viewModel.isPremium, premiumPrice: $viewModel.premiumPrice) {
-                        viewModel.purshacePremium()
-                    }
-                } header: {
-                    Text("label_subscribe".localized)
-                }
-            }
-            
             Section {
                 // notif
                 SettingsItemView(title: "btn_notifchange".localized, imageName: "bell.fill", imageColor: .blue) {
@@ -47,6 +37,11 @@ struct SettingsView: View {
                     router.route(to: \.tagsEditor)
                 }
                 
+                // about
+                SettingsItemView(title: "btn_premium".localized, imageName: "cart.fill", imageColor: .gray) {
+                    router.route(to: \.premium)
+                }
+                
                 // developer
                 if viewModel.isDeveloperOn {
                     SettingsItemView(title: "btn_devmenu".localized, imageName: "hammer.fill", imageColor: .blue) {
@@ -61,7 +56,12 @@ struct SettingsView: View {
                 
                 // reset payments
                 SettingsItemView(title: "btn_resetpay".localized, imageName: "trash.fill", imageColor: .orange) {
-                    router.route(to: \.resetPayments)
+                    if(viewModel.isPremium) {
+                        router.route(to: \.resetPayments)
+                    } else {
+                        self.toastText = "btn_premiumwarn".localized
+                        self.isShowToast = true
+                    }
                 }
             }
         }

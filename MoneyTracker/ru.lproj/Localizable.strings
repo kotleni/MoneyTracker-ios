@@ -17,7 +17,10 @@
 
 /* НАСТРОЙКИ */
 "title_settings" = "Настройки";
-"label_subscribe" = "Подписаться";
+"label_subscribe" = "Вы сможете отменить подписку в любой момент";
+"label_shopnotavailable" = "Продукт не доступен";
+"btn_premium" = "Премиум подписка";
+"title_premium" = "Премиум подписка";
 "btn_notifchange" = "Уведомления";
 "btn_currencychange" = "Выберите валюту";
 "btn_edittags" = "Редактировать теги";
@@ -86,3 +89,11 @@
 "tag_entertainment" = "Развлечения";
 "tag_technique" = "Техника";
 "tag_any" = "Прочее";
+
+"label_tips" = "Что станет доступно";
+"label_tip1" = "Напоминания";
+"label_tip1detail" = "Автоматические напоминания об обновлении платежей.";
+"label_tip2" = "Быстрый сброс";
+"label_tip2detail" = "Полное удаление всех платежей всего одной кнопкой.";
+"label_premiumabout" = "Бесплатная версия MoneyTracker предлагает пользователям почти весь функционал, в отличии от многих других приложений.";
+"label_aboutpremium" = "О подписке";

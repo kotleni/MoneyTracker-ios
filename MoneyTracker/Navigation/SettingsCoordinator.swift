@@ -23,6 +23,7 @@ final class SettingsCoordinator: NavigationCoordinatable {
     @Route(.push) var developer = makeDeveloper
     @Route(.push) var resetPayments = makeResetPayments
     @Route(.push) var notifications = makeNotifications
+    @Route(.push) var premium = makePremium
     
     @ViewBuilder func makeMain() -> some View {
         SettingsView(viewModel: viewModel)
@@ -50,5 +51,9 @@ final class SettingsCoordinator: NavigationCoordinatable {
     
     @ViewBuilder func makeNotifications() -> some View {
         NotificationsView(viewModel: viewModel)
+    }
+    
+    @ViewBuilder func makePremium() -> some View {
+        PremiumView(viewModel: viewModel)
     }
 }

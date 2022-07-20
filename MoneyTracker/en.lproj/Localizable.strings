@@ -17,7 +17,10 @@
 
 /* SETTINGS */
 "title_settings" = "Settings";
-"label_subscribe" = "Subscribe";
+"label_subscribe" = "You can cancel your subscription at any time";
+"label_shopnotavailable" = "Product is not available";
+"btn_premium" = "Premium subscribe";
+"title_premium" = "Premium subscribe";
 "btn_notifchange" = "Notifications";
 "btn_currencychange" = "Select currency";
 "btn_edittags" = "Edit tags";
