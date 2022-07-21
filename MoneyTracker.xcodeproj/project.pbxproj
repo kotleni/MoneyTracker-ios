@@ -91,7 +91,6 @@
 		5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerTests.swift; sourceTree = "<group>"; };
 		5A00F462287EDE0800A4820A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5A00F46B287F313700A4820A /* PaymentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentItemView.swift; sourceTree = "<group>"; };
-		5A00F46F287F4CF000A4820A /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		5A00F4702880124100A4820A /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A0952B3287E959C006CCE2D /* CurrencyEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditorView.swift; sourceTree = "<group>"; };
@@ -322,7 +321,6 @@
 				5AD41C25287D4A0500A464B2 /* Static.swift */,
 				5A00F44D287EBF2700A4820A /* Currencies.swift */,
 				B42D29A3287EE10900F324CE /* Launch Screen.storyboard */,
-				5A00F46F287F4CF000A4820A /* Configuration.storekit */,
 				5AFA66D62882C07100088D53 /* MathematicalExpression.swift */,
 			);
 			path = MoneyTracker;
