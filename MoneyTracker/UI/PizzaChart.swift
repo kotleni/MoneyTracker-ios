@@ -74,7 +74,9 @@ struct PizzaChart: View {
             ZStack {
                 ForEach(0...items.count-1, id: \.self) { index in
                     PieSlice(radius: radius, startAngle: (index == 0) ? 0.0 : angles[index - 1], endAngle: angles[index])
-                        .foregroundStyle(items[index].color)
+                        .foregroundColor(items[index].color)
+                    //MARK: Шаловливые ручки
+                        //.foregroundStyle(items[index].color)
                 }
             }
             ChartLegend(items: items)

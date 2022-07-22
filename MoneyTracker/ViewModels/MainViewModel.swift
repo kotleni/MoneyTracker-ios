@@ -22,6 +22,8 @@ class MainViewModel: ObservableObject {
     @Published var premiumPrice: String = ""
     @Published var tags: [Tag] = []
     
+    var store: IAPStore!
+    
     /// Load all data in bg
     func loadAllData() {
         loadTags()
@@ -65,23 +67,24 @@ class MainViewModel: ObservableObject {
     /// Load premium state in bg
     func loadPremiumState() {
         Task.init {
-            let isPremium = await PremiumManager.shared.isPremiumExist()
-            let premiumPrice = await PremiumManager.shared.getPremiumPrice()
-            let isAvailable = await PremiumManager.shared.isAvailable()
-            DispatchQueue.main.async {
-                self.isShopAvailable = isAvailable
-            }
-            if isAvailable {
-                DispatchQueue.main.async {
-                    self.isPremium = isPremium
-                    self.premiumPrice = premiumPrice
-                }
-                
-                if !isPremium && isNotifOn {
-                    StorageManager.shared.setNotifEnable(isEnable: false)
-                    isNotifOn = false
-                }
-            }
+            //MARK: С этим потом разберусь
+            //let isPremium = await PremiumManager.shared.isPremiumExist()
+            //let premiumPrice = await PremiumManager.shared.getPremiumPrice()
+            //let isAvailable = await PremiumManager.shared.isAvailable()
+//            DispatchQueue.main.async {
+//                self.isShopAvailable = isAvailable
+//            }
+//            if isAvailable {
+//                DispatchQueue.main.async {
+//                    self.isPremium = isPremium
+//                    self.premiumPrice = premiumPrice
+//                }
+//
+//                if !isPremium && isNotifOn {
+//                    StorageManager.shared.setNotifEnable(isEnable: false)
+//                    isNotifOn = false
+//                }
+//            }
         }
     }
     
@@ -137,9 +140,16 @@ class MainViewModel: ObservableObject {
     
     /// Try purshace premium
     func purshacePremium() {
-        Task.init {
-            let _ = await PremiumManager.shared.trySubscribe()
-            isPremium = await PremiumManager.shared.isPremiumExist()
+        //MARK: Пока у тебя одна подписка, просто тащу из коллекции первую, потом нужно будет написать нормальный вызов
+        guard let productFirst = store.products.first else { return }
+        store.buyProduct(product: productFirst)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("purchasedSuccess"), object: nil, queue: .current) { data in
+            guard let userInfo = data.userInfo, let _ = userInfo["transactionID"] else { return }
+            //MARK: На этом моменте надо записывать в кордату если премиум оформлен
+            self.isPremium = true
+        }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("purchasedFailed"), object: nil, queue: .current) { _ in
+            print("Ошибка оплаты")
         }
     }
     
