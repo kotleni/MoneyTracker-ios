@@ -28,6 +28,9 @@ class PremiumManager {
     func trySubscribe() async -> Product.PurchaseResult? {
         do {
             let products = try await Product.products(for: [productId])
+            if products.isEmpty {
+                return nil
+            }
             let result = try await products[0].purchase()
             return result
         } catch let error { print(error.localizedDescription) }
@@ -39,6 +42,9 @@ class PremiumManager {
     func isPremiumExist() async -> Bool {
         do {
             let products = try await Product.products(for: [productId])
+            if products.isEmpty {
+                return false
+            }
             let state = await products[0].currentEntitlement
             switch state {
             case .verified( _):
@@ -59,6 +65,9 @@ class PremiumManager {
     func getPremiumPrice() async -> String {
         do {
             let products = try await Product.products(for: [productId])
+            if products.isEmpty {
+                return ""
+            }
             return products.first!.displayPrice
         } catch let error { print(error.localizedDescription) }
         
