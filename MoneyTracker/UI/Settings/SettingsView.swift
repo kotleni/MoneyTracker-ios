@@ -50,7 +50,7 @@ struct SettingsView: View {
                 }
                 
                 // about
-                SettingsItemView(title: "btn_aboutapp".localized, imageName: "info.circle.fill", imageColor: .indigo) {
+                SettingsItemView(title: "btn_aboutapp".localized, imageName: "info.circle.fill", imageColor: .black) {
                     router.route(to: \.aboutApp)
                 }
                 

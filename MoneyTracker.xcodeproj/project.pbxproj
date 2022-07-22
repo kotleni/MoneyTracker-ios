@@ -13,7 +13,6 @@
 		5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44F287EC72400A4820A /* SearchBarView.swift */; };
 		5A00F45A287EDA0100A4820A /* MoneyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */; };
 		5A00F46C287F313700A4820A /* PaymentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F46B287F313700A4820A /* PaymentItemView.swift */; };
-		5A00F4712880124100A4820A /* PremiumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F4702880124100A4820A /* PremiumManager.swift */; };
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A0952B4287E959C006CCE2D /* CurrencyEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* CurrencyEditorView.swift */; };
 		5A19B981288331A200C27056 /* TagsEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B980288331A200C27056 /* TagsEditorView.swift */; };
@@ -63,6 +62,10 @@
 		B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501382869AA860065EB4D /* PersistenceController.swift */; };
 		B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */; };
 		B4D501462869ABCE0065EB4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4D501482869ABCE0065EB4D /* Localizable.strings */; };
+		B4F01812288ACE73009CCA62 /* SKProduct+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F01811288ACE73009CCA62 /* SKProduct+ext.swift */; };
+		B4F01814288ACEBA009CCA62 /* SubscriptionsProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F01813288ACEBA009CCA62 /* SubscriptionsProducts.swift */; };
+		B4F01816288AD2CE009CCA62 /* IAPStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F01815288AD2CE009CCA62 /* IAPStore.swift */; };
+		B4F01818288AD316009CCA62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F01817288AD316009CCA62 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +94,6 @@
 		5A00F459287EDA0100A4820A /* MoneyTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerTests.swift; sourceTree = "<group>"; };
 		5A00F462287EDE0800A4820A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5A00F46B287F313700A4820A /* PaymentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentItemView.swift; sourceTree = "<group>"; };
-		5A00F4702880124100A4820A /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A0952B3287E959C006CCE2D /* CurrencyEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditorView.swift; sourceTree = "<group>"; };
 		5A19B980288331A200C27056 /* TagsEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsEditorView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,10 @@
 		B4D5013C2869AAB10065EB4D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B4D501472869ABCE0065EB4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B4D501492869ABD20065EB4D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B4F01811288ACE73009CCA62 /* SKProduct+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+ext.swift"; sourceTree = "<group>"; };
+		B4F01813288ACEBA009CCA62 /* SubscriptionsProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsProducts.swift; sourceTree = "<group>"; };
+		B4F01815288AD2CE009CCA62 /* IAPStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPStore.swift; sourceTree = "<group>"; };
+		B4F01817288AD316009CCA62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +192,6 @@
 				B4D501342869AA510065EB4D /* StorageManager.swift */,
 				5A36EE0D287DB76400812484 /* HapticManager.swift */,
 				5A0952AF287E0423006CCE2D /* NotificationsManager.swift */,
-				5A00F4702880124100A4820A /* PremiumManager.swift */,
 				5A19B982288333F000C27056 /* TagsManager.swift */,
 			);
 			path = Managers;
@@ -305,6 +310,7 @@
 		B4D501222869A87A0065EB4D /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				B4F01810288ACE43009CCA62 /* Store */,
 				5AAFDE8B28846D7E0076ECE7 /* Navigation */,
 				5A19B98E2883456200C27056 /* Validators */,
 				5AFA66D32882B00F00088D53 /* ViewModels */,
@@ -313,6 +319,7 @@
 				5A557F0A287D9B1800F7B68F /* Entities */,
 				5AD41C27287D4EA100A464B2 /* UI */,
 				B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */,
+				B4F01817288AD316009CCA62 /* AppDelegate.swift */,
 				B4D501482869ABCE0065EB4D /* Localizable.strings */,
 				B4D5013A2869AA900065EB4D /* Database */,
 				B4D501332869AA1B0065EB4D /* Extension */,
@@ -354,6 +361,16 @@
 				B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		B4F01810288ACE43009CCA62 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				B4F01811288ACE73009CCA62 /* SKProduct+ext.swift */,
+				B4F01815288AD2CE009CCA62 /* IAPStore.swift */,
+				B4F01813288ACEBA009CCA62 /* SubscriptionsProducts.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,12 +539,15 @@
 				5A36EE0E287DB76400812484 /* HapticManager.swift in Sources */,
 				5A19B981288331A200C27056 /* TagsEditorView.swift in Sources */,
 				5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */,
+				B4F01816288AD2CE009CCA62 /* IAPStore.swift in Sources */,
 				5A0952B4287E959C006CCE2D /* CurrencyEditorView.swift in Sources */,
 				5A19B98728833DAC00C27056 /* AddTagView.swift in Sources */,
 				5AD6E9CF2887D3F1005311C5 /* PremiumView.swift in Sources */,
 				5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */,
+				B4F01818288AD316009CCA62 /* AppDelegate.swift in Sources */,
 				5AD41C2B287D4ECE00A464B2 /* HomeView.swift in Sources */,
 				5A798FCD2885A16000A63300 /* HomeBalanceView.swift in Sources */,
+				B4F01814288ACEBA009CCA62 /* SubscriptionsProducts.swift in Sources */,
 				B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */,
 				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
 				5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */,
@@ -537,13 +557,13 @@
 				5A19B9902883458800C27056 /* EmojiValidator.swift in Sources */,
 				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
 				5A35061D2885DFD800AD5EC6 /* PizzaChart.swift in Sources */,
+				B4F01812288ACE73009CCA62 /* SKProduct+ext.swift in Sources */,
 				5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */,
 				5A19B98B2883418500C27056 /* EmojiTextField.swift in Sources */,
 				5A19B9922883460D00C27056 /* TagNameValidator.swift in Sources */,
 				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
 				5A3A6566288571120097B179 /* TabsCoordinator.swift in Sources */,
 				5A7C998A288306EB00F95214 /* DeveloperView.swift in Sources */,
-				5A00F4712880124100A4820A /* PremiumManager.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* PaymentsManager.swift in Sources */,
 				5A3A656A288572BD0097B179 /* SettingsCoordinator.swift in Sources */,
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,
@@ -783,7 +803,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = 534C989ZLQ;
+				DEVELOPMENT_TEAM = 9M7NZR7YP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoneyTracker/Info.plist;
@@ -793,7 +813,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -820,7 +840,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = 534C989ZLQ;
+				DEVELOPMENT_TEAM = 9M7NZR7YP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoneyTracker/Info.plist;
@@ -830,7 +850,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

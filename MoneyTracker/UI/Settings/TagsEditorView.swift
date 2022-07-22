@@ -47,16 +47,26 @@ struct TagsEditorView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toast(message: "toast_tagremove".localized, isShowing: $isTagError, config: .init())
         .toast(message: "toast_tagreset".localized, isShowing: $isShowResetToast, config: .init())
-        .alert("label_resettags".localized, isPresented: $isShowResetAlert) {
-            Button("btn_yes".localized) {
+        .alert(isPresented: $isShowResetAlert) {
+            Alert(title: Text("label_resettags".localized), primaryButton: .destructive(Text("btn_yes".localized), action: {
                 isShowResetToast = true
                 isShowResetAlert = false
                 viewModel.resetTags()
-            }
-            
-            Button("btn_no".localized) {
+            }), secondaryButton: .cancel(Text("btn_no".localized), action: {
                 isShowResetAlert = false
-            }
+            }))
         }
+//      MARK: Переписал алерты для 14 ios
+//        .alert("label_resettags".localized, isPresented: $isShowResetAlert) {
+//            Button("btn_yes".localized) {
+//                isShowResetToast = true
+//                isShowResetAlert = false
+//                viewModel.resetTags()
+//            }
+//
+//            Button("btn_no".localized) {
+//                isShowResetAlert = false
+//            }
+//        }
     }
 }
