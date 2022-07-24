@@ -42,8 +42,6 @@
 		5A798FCB28859DC200A63300 /* PremiumBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A798FCA28859DC200A63300 /* PremiumBannerView.swift */; };
 		5A798FCD2885A16000A63300 /* HomeBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A798FCC2885A16000A63300 /* HomeBalanceView.swift */; };
 		5A798FCF2885A1B000A63300 /* HomeBalance2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A798FCE2885A1B000A63300 /* HomeBalance2View.swift */; };
-		5A798FD72885B8EF00A63300 /* MoneyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A798FD62885B8EF00A63300 /* MoneyTrackerUITests.swift */; };
-		5A798FD92885B8EF00A63300 /* MoneyTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A798FD82885B8EF00A63300 /* MoneyTrackerUITestsLaunchTests.swift */; };
 		5A7C998A288306EB00F95214 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C9989288306EB00F95214 /* DeveloperView.swift */; };
 		5AAFDE8A2884418B0076ECE7 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAFDE892884418B0076ECE7 /* Date.swift */; };
 		5AD41C26287D4A0500A464B2 /* Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C25287D4A0500A464B2 /* Static.swift */; };
@@ -123,8 +121,6 @@
 		5A798FCC2885A16000A63300 /* HomeBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalanceView.swift; sourceTree = "<group>"; };
 		5A798FCE2885A1B000A63300 /* HomeBalance2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBalance2View.swift; sourceTree = "<group>"; };
 		5A798FD42885B8EF00A63300 /* MoneyTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A798FD62885B8EF00A63300 /* MoneyTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITests.swift; sourceTree = "<group>"; };
-		5A798FD82885B8EF00A63300 /* MoneyTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5A7C9989288306EB00F95214 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
 		5AAFDE892884418B0076ECE7 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5AD41C25287D4A0500A464B2 /* Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
@@ -217,15 +213,6 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		5A798FD52885B8EF00A63300 /* MoneyTrackerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5A798FD62885B8EF00A63300 /* MoneyTrackerUITests.swift */,
-				5A798FD82885B8EF00A63300 /* MoneyTrackerUITestsLaunchTests.swift */,
-			);
-			path = MoneyTrackerUITests;
-			sourceTree = "<group>";
-		};
 		5AAFDE8B28846D7E0076ECE7 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,7 +279,6 @@
 				5A00F449287EBD9100A4820A /* currencies_gen.py */,
 				B4D501222869A87A0065EB4D /* MoneyTracker */,
 				5A00F458287EDA0100A4820A /* MoneyTrackerTests */,
-				5A798FD52885B8EF00A63300 /* MoneyTrackerUITests */,
 				B4D501212869A87A0065EB4D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -520,8 +506,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A798FD92885B8EF00A63300 /* MoneyTrackerUITestsLaunchTests.swift in Sources */,
-				5A798FD72885B8EF00A63300 /* MoneyTrackerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
