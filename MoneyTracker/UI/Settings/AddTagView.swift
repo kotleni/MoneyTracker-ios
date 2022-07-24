@@ -45,7 +45,8 @@ struct AddTagView: View {
                         isSheetShow = false
                     } else {
                         isError = true
-                        HapticManager.shared.error()
+                        let generator = UINotificationFeedbackGenerator()
+                        generator.notificationOccurred(.error)
                     }
                 } label: {
                     Text("btn_create".localized)

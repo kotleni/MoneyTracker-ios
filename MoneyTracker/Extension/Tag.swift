@@ -22,10 +22,12 @@ extension Tag {
         return result
     }
     
+    @available(*, deprecated)
     static func getDefault() -> Tag {
         return TagsManager.shared.getDefaultTag()
     }
     
+    @available(*, deprecated)
     static func getAll() -> [Tag] {
         return TagsManager.shared.getTags()
     }

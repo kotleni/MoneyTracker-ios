@@ -13,7 +13,7 @@ struct AddPaymentView: View {
     @State private var spendingBool: Bool = true
     @State private var selectedTag: Tag = Tag.getDefault()
     
-    @ObservedObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: HomeViewModel
     @Binding var isSheetShow: Bool
     @State private var isError: Bool = false
     
@@ -51,7 +51,7 @@ struct AddPaymentView: View {
                                 Text("label_tag".localized)
                                 Spacer()
                                 Picker("", selection: $selectedTag) {
-                                    ForEach(Tag.getAll(), id: \.self) { tag in
+                                    ForEach(viewModel.tags, id: \.self) { tag in
                                         Text(tag.emoji! + " " + tag.name!)
                                     }
                                 }
@@ -84,8 +84,9 @@ struct AddPaymentView: View {
                                 let tag = selectedTag
                                 
                                 viewModel.addPayment(price: fl, about: about, tag: tag)
-                                //viewModel.loadAll()
-                                HapticManager.shared.success()
+                                
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.notificationOccurred(.success)
                                 
                                 isSheetShow = false
                                 
@@ -95,7 +96,8 @@ struct AddPaymentView: View {
                                 spendingBool = false
                             } else {
                                 isError = true
-                                HapticManager.shared.error()
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.notificationOccurred(.error)
                             }
                         } label: {
                             Text("btn_next".localized)

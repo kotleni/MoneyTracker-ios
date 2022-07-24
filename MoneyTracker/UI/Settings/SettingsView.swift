@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var router: SettingsCoordinator.Router
-    @ObservedObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: SettingsViewModel
     
     @State private var isShowToast: Bool = false
     @State private var toastText: String = ""
@@ -18,7 +18,7 @@ struct SettingsView: View {
         Form {
             Section {
                 // notif
-                SettingsItemView(title: "btn_notifchange".localized, imageName: "bell.fill", imageColor: .blue) {
+                SettingsItemView(title: "btn_notifchange".localized) {
                     if(viewModel.isPremium) {
                         router.route(to: \.notifications)
                     } else {
@@ -28,34 +28,34 @@ struct SettingsView: View {
                 }
                 
                 // currency
-                SettingsItemView(title: "btn_currencychange".localized, imageName: "dollarsign.circle.fill", imageColor: .green) {
+                SettingsItemView(title: "btn_currencychange".localized) {
                     router.route(to: \.currencyEditor)
                 }
                 
                 // tags
-                SettingsItemView(title: "btn_edittags".localized, imageName: "tag.fill", imageColor: .red) {
+                SettingsItemView(title: "btn_edittags".localized) {
                     router.route(to: \.tagsEditor)
                 }
                 
                 // about
-                SettingsItemView(title: "btn_premium".localized, imageName: "cart.fill", imageColor: .gray) {
+                SettingsItemView(title: "btn_premium".localized) {
                     router.route(to: \.premium)
                 }
                 
                 // developer
-                if viewModel.isDeveloperOn {
-                    SettingsItemView(title: "btn_devmenu".localized, imageName: "hammer.fill", imageColor: .blue) {
+                if viewModel.isDeveloper {
+                    SettingsItemView(title: "btn_devmenu".localized) {
                         router.route(to: \.developer)
                     }
                 }
                 
                 // about
-                SettingsItemView(title: "btn_aboutapp".localized, imageName: "info.circle.fill", imageColor: .black) {
+                SettingsItemView(title: "btn_aboutapp".localized) {
                     router.route(to: \.aboutApp)
                 }
                 
                 // reset payments
-                SettingsItemView(title: "btn_resetpay".localized, imageName: "trash.fill", imageColor: .orange) {
+                SettingsItemView(title: "btn_resetpay".localized) {
                     if(viewModel.isPremium) {
                         router.route(to: \.resetPayments)
                     } else {

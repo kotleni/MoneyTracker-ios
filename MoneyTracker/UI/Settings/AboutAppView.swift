@@ -73,7 +73,8 @@ struct AboutAppView: View {
         eggsCounter += 1
         if eggsCounter == 2 {
             viewModel.isDeveloperOn = true
-            HapticManager.shared.success()
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
         }
     }
 }

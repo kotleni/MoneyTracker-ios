@@ -9,6 +9,7 @@ import CoreData
 
 /// Manager for tags
 struct TagsManager {
+    @available(*, deprecated)
     static let shared = TagsManager()
     
     private var viewContext = PersistenceController.shared.container.viewContext

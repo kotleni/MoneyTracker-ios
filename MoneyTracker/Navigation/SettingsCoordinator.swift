@@ -9,10 +9,10 @@ import SwiftUI
 import Stinsen
 
 final class SettingsCoordinator: NavigationCoordinatable {
-    var viewModel: MainViewModel
+    var viewModel: SettingsViewModel
     var stack = NavigationStack(initial: \SettingsCoordinator.main)
     
-    init(viewModel: MainViewModel) {
+    init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
     }
     

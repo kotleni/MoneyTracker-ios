@@ -9,12 +9,12 @@ import SwiftUI
 
 struct PaymentItemView: View {
     var payment: Payment
-    @ObservedObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
         HStack {
             if payment.tag != nil {
-                Text((Tag.getByName(name: payment.tag!) == nil) ? "" : Tag.getByName(name: payment.tag!)!.emoji!)
+                Text((Tag.getByName(name: payment.tag!) == nil) ? /* fixme */"" : Tag.getByName(name: payment.tag!)!.emoji!)
                     .font(.system(size: 28))
                 VStack {
                     HStack {
@@ -24,7 +24,8 @@ struct PaymentItemView: View {
                         Spacer()
                     }
                     HStack {
-                        Text((payment.about == nil) ? "..." : payment.about!)
+                        
+                        Text((payment.about == nil) ? /* fixme */"..." : payment.about!)
                             .font(.system(size: 14))
                             .opacity(0.5)
                         Spacer()
@@ -39,7 +40,8 @@ struct PaymentItemView: View {
                     Spacer()
                 }
             } else {
-                Text("")
+                // fixme
+                Text("...")
             }
         }
     }

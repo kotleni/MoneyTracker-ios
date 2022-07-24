@@ -24,7 +24,8 @@ struct TagsEditorView: View {
                     if viewModel.tags[indexSet.first!].name! != "tag_any".localized {
                         viewModel.removeTag(index: indexSet.first!)
                     } else {
-                        HapticManager.shared.error()
+                        let generator = UINotificationFeedbackGenerator()
+                        generator.notificationOccurred(.error)
                         isTagError = true
                     }
                 }

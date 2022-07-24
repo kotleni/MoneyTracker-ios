@@ -9,26 +9,29 @@ import SwiftUI
 import Stinsen
 
 final class TabsCoordinator: TabCoordinatable {
-    var viewModel: MainViewModel
+    // viewmodels
+    private let homeViewModel: HomeViewModel
+    private let settingsViewModel: SettingsViewModel
+    
     lazy var child = TabChild(startingItems: [
         \TabsCoordinator.home,
-        \TabsCoordinator.settings,
+        //\TabsCoordinator.settings,
     ], activeTab: 0)
     
-    init(viewModel: MainViewModel) {
-        self.viewModel = viewModel
-        self.viewModel.loadAllData()
+    init(homeViewModel: HomeViewModel, settingsViewModel: SettingsViewModel) {
+        self.homeViewModel = homeViewModel
+        self.settingsViewModel = settingsViewModel
     }
     
     @Route(tabItem: makeHomeTab) var home = makeHome
     @Route(tabItem: makeSettingsTab) var settings = makeSettings
     
     func makeHome() -> NavigationViewCoordinator<HomeCoordinator> {
-        return NavigationViewCoordinator(HomeCoordinator(viewModel: viewModel))
+        return NavigationViewCoordinator(HomeCoordinator(viewModel: homeViewModel))
     }
     
     func makeSettings() -> NavigationViewCoordinator<SettingsCoordinator> {
-        return NavigationViewCoordinator(SettingsCoordinator(viewModel: viewModel))
+        return NavigationViewCoordinator(SettingsCoordinator(viewModel: settingsViewModel))
     }
     
     @ViewBuilder func makeHomeTab(isActive: Bool) -> some View {

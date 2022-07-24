@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(*, deprecated)
 class MainViewModel: ObservableObject {
     @Published var isLoading: Bool = true
     @Published var payments: [Payment] = []
@@ -22,7 +23,7 @@ class MainViewModel: ObservableObject {
     @Published var premiumPrice: String = ""
     @Published var tags: [Tag] = []
     
-    var store: IAPStore!
+    // var store: IAPStore!
     
     /// Load all data in bg
     func loadAllData() {
@@ -141,16 +142,16 @@ class MainViewModel: ObservableObject {
     /// Try purshace premium
     func purshacePremium() {
         //MARK: Пока у тебя одна подписка, просто тащу из коллекции первую, потом нужно будет написать нормальный вызов
-        guard let productFirst = store.products.first else { return }
-        store.buyProduct(product: productFirst)
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("purchasedSuccess"), object: nil, queue: .current) { data in
-            guard let userInfo = data.userInfo, let _ = userInfo["transactionID"] else { return }
-            //MARK: На этом моменте надо записывать в кордату если премиум оформлен
-            self.isPremium = true
-        }
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("purchasedFailed"), object: nil, queue: .current) { _ in
-            print("Ошибка оплаты")
-        }
+//        guard let productFirst = store.products.first else { return }
+//        store.buyProduct(product: productFirst)
+//        NotificationCenter.default.addObserver(forName: NSNotification.Name("purchasedSuccess"), object: nil, queue: .current) { data in
+//            guard let userInfo = data.userInfo, let _ = userInfo["transactionID"] else { return }
+//            //MARK: На этом моменте надо записывать в кордату если премиум оформлен
+//            self.isPremium = true
+//        }
+//        NotificationCenter.default.addObserver(forName: NSNotification.Name("purchasedFailed"), object: nil, queue: .current) { _ in
+//            print("Ошибка оплаты")
+//        }
     }
     
     /// Update notifications state

@@ -9,24 +9,33 @@ import SwiftUI
 
 @main
 struct MoneyTrackerApp: App {
+    // managers
+    private let paymentsManager: PaymentsManager
+    private let storageManager: StorageManager
+    private let notificationsManager: NotificationsManager
+    private let tagsManager: TagsManager
     
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
-    let store: IAPStore
-    
-    let viewModel = MainViewModel()
+    // viewmodels
+    private let homeViewModel: HomeViewModel
+    private let settingsViewModel: SettingsViewModel
     
     init() {
-        store = IAPStore(productsIDs: SubscriptionsProducts.subscriptionsID)
-        store.requestProducts()
+        // managers
+        paymentsManager = PaymentsManager()
+        storageManager = StorageManager()
+        notificationsManager = NotificationsManager()
+        tagsManager = TagsManager()
         
-        appDelegate.store = store
-        viewModel.store = store
+        // viewmodels
+        homeViewModel = HomeViewModel(paymentsManager: paymentsManager, storageManager: storageManager, tagsManager: tagsManager)
+        homeViewModel.loadAll()
+        settingsViewModel = SettingsViewModel(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager)
+        settingsViewModel.loadAll()
     }
     
     var body: some Scene {
         WindowGroup {
-            TabsCoordinator(viewModel: viewModel)
+            TabsCoordinator(homeViewModel: homeViewModel, settingsViewModel: settingsViewModel)
                 .view()
         }
     }

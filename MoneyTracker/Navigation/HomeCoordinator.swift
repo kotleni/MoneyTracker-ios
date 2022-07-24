@@ -9,10 +9,11 @@ import SwiftUI
 import Stinsen
 
 final class HomeCoordinator: NavigationCoordinatable {
-    var viewModel: MainViewModel
+    private let viewModel: HomeViewModel
+    
     var stack = NavigationStack(initial: \HomeCoordinator.main)
     
-    init(viewModel: MainViewModel) {
+    init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
     }
     

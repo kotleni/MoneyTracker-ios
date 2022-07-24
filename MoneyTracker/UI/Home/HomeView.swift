@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     // objects
     @EnvironmentObject var router: HomeCoordinator.Router
-    @ObservedObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: HomeViewModel
     
     @State private var isShowSheet: Bool = false
 
@@ -32,16 +32,6 @@ struct HomeView: View {
                         totalIncome: viewModel.totalIncome,
                         totalOutcome: viewModel.totalOutcome,
                         priceType: viewModel.priceType)
-                    
-//                    HStack {
-//                        Spacer()
-//                        PizzaChart(radius: 60, items: [
-//                            ChartItem(name: "Income", value: 11, color: .blue),
-//                            ChartItem(name: "Expenses", value: 22, color: .red),
-//                        ])
-//                        .frame(width: 200, height: 200)
-//                        Spacer()
-//                    }
                 } header: {
                     Text("label_statistic".localized)
                 }
@@ -49,7 +39,7 @@ struct HomeView: View {
                 Section {
                     if viewModel.payments.count > 0 {
                         ForEach(viewModel.payments, id: \.self) { payment in
-                            if isFilterOk(payment: payment) {
+                            if payment.isFilterOk(filter: viewModel.selectedFilter) {
                                 PaymentItemView(payment: payment, viewModel: viewModel)
                             }
                         }
@@ -73,21 +63,4 @@ struct HomeView: View {
         })
         
     }
-    
-    /// Check filter for payment
-    private func isFilterOk(payment: Payment) -> Bool {
-        // is all
-        if viewModel.selectedFilter == "filter_all" {
-            return true
-        }
-        
-        // is selected tag
-        let paymentTag = (payment.tag == nil) ? Tag.getDefault().name! : payment.tag!
-        if viewModel.selectedFilter == paymentTag && payment.price < 0 {
-            return true
-        }
-        
-        return false
-    }
 }
-

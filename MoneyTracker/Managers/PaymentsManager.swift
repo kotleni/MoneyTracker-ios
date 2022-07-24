@@ -9,6 +9,7 @@ import CoreData
 
 /// Manager for paymenets
 struct PaymentsManager {
+    @available(*, deprecated)
     static let shared = PaymentsManager()
     
     private var viewContext = PersistenceController.shared.container.viewContext

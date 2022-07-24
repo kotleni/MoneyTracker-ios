@@ -14,6 +14,7 @@ class StorageManager {
         static let notifEnable = "notifEnable"
     }
     
+    @available(*, deprecated)
     static let shared = StorageManager()
     
     /// Set price type
