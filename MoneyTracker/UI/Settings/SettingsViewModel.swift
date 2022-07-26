@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class SettingsViewModel: ObservableObject {
+class SettingsViewModel: ObservableObject, BaseViewModel {
     // managers
     private let paymentsManager: PaymentsManager
     private let storageManager: StorageManager
@@ -24,16 +24,10 @@ class SettingsViewModel: ObservableObject {
         self.tagsManager = tagsManager
     }
     
-    /// Load all
-    func loadAll() {
-        loadPremium()
+    /// Load data
+    func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
             
         }
-    }
-    
-    /// Load premium in background
-    func loadPremium() {
-        // MARK: todo
     }
 }

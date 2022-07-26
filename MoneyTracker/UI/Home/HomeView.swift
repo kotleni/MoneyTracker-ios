@@ -11,8 +11,6 @@ struct HomeView: View {
     // objects
     @EnvironmentObject var router: HomeCoordinator.Router
     @ObservedObject var viewModel: HomeViewModel
-    
-    @State private var isShowSheet: Bool = false
 
     var body: some View {
         ZStack {
@@ -25,7 +23,7 @@ struct HomeView: View {
                         totalBalance: viewModel.totalBalance,
                         priceType: viewModel.priceType
                     ) { // plus btn click
-                        isShowSheet = true
+                        router.route(to: \.addPayments)
                     }
                     
                     HomeBalance2View(
@@ -58,9 +56,6 @@ struct HomeView: View {
             
         }
         .navigationTitle("title_home".localized)
-        .sheet(isPresented: $isShowSheet, content: {
-            AddPaymentView(viewModel: viewModel, isSheetShow: $isShowSheet)
-        })
         
     }
 }

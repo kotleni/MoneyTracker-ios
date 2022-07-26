@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct AddPaymentView: View {
+    @EnvironmentObject var router: HomeCoordinator.Router
+    
     @State private var priceText: String = ""
     @State private var aboutText: String = ""
     @State private var spendingBool: Bool = true
     @State private var selectedTag: Tag = Tag.getDefault()
     
-    @ObservedObject var viewModel: HomeViewModel
-    @Binding var isSheetShow: Bool
+    @ObservedObject var viewModel: AddPaymentViewModel
     @State private var isError: Bool = false
     
     var body: some View {
@@ -66,7 +67,7 @@ struct AddPaymentView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
-                            isSheetShow = false
+                            router.popToRoot()
                         } label: {
                             Text("btn_cancel".localized)
                         }
@@ -88,7 +89,8 @@ struct AddPaymentView: View {
                                 let generator = UINotificationFeedbackGenerator()
                                 generator.notificationOccurred(.success)
                                 
-                                isSheetShow = false
+                                
+                                router.popToRoot()
                                 
                                 priceText = ""
                                 aboutText = ""

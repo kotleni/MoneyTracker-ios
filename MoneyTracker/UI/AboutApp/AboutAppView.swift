@@ -11,7 +11,8 @@ import SwiftUI
 fileprivate var eggsCounter: Int = 0
 
 struct AboutAppView: View {
-    @ObservedObject var viewModel: MainViewModel
+    @EnvironmentObject var router: SettingsCoordinator.Router
+    @ObservedObject var viewModel: AboutAppViewModel
     
     var body: some View {
         Form {
@@ -66,13 +67,16 @@ struct AboutAppView: View {
 
         }
         .navigationTitle("title_aboutapp".localized)
+        .onAppear {
+            viewModel.loadData()
+        }
     }
     
     // track current state of eggs
     private func trackEggs() {
         eggsCounter += 1
-        if eggsCounter == 2 {
-            viewModel.isDeveloperOn = true
+        if !viewModel.isDeveloper && eggsCounter == 2 {
+            viewModel.enableDeveloper()
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
         }

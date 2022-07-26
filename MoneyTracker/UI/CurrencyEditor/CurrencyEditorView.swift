@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CurrencyEditorView: View {
-    @ObservedObject var viewModel: MainViewModel
+    @EnvironmentObject var router: SettingsCoordinator.Router
+    @ObservedObject var viewModel: CurrencyEditorViewModel
     
     @State private var filterText: String = ""
-    @State private var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id
     
     var body: some View {
         VStack {
@@ -27,15 +27,14 @@ struct CurrencyEditorView: View {
                                 Text(curr.littleName)
                                     .foregroundColor(.gray)
                                 Spacer()
-                                if (selectedCurrencyId == curr.id) {
+                                if (viewModel.selectedCurrencyId == curr.id) {
                                     Image(systemName: "checkmark")
                                         .foregroundColor(.blue)
                                         .transition(.opacity)
                                 }
                             }
                             .onTapGesture {
-                                selectedCurrencyId = curr.id
-                                updateCurrency()
+                                viewModel.setCurrency(id: curr.id)
                             }
                         }
                     }
@@ -52,15 +51,14 @@ struct CurrencyEditorView: View {
                                 Text(curr.littleName)
                                     .foregroundColor(.gray)
                                 Spacer()
-                                if (selectedCurrencyId == curr.id) {
+                                if (viewModel.selectedCurrencyId == curr.id) {
                                     Image(systemName: "checkmark")
                                         .foregroundColor(.blue)
                                         .transition(.opacity)
                                 }
                             }
                             .onTapGesture {
-                                selectedCurrencyId = curr.id
-                                updateCurrency()
+                                viewModel.setCurrency(id: curr.id)
                             }
                         }
                     }
@@ -71,22 +69,7 @@ struct CurrencyEditorView: View {
             
             Spacer()
         }
-        .onAppear { loadStorage() }
         .navigationBarTitle("title_selcurrency".localized, displayMode: .inline)
-    }
-    
-    private func updateCurrency() {
-        DispatchQueue.global().async {
-            let currency = Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId)!
-            viewModel.setCurrency(currency: currency)
-        }
-    }
-    
-    /// load current currency from storage
-    private func loadStorage() {
-        let priceType = StorageManager.shared.getPriceType()
-        let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType)
-        selectedCurrencyId = currency!.id
     }
 }
 

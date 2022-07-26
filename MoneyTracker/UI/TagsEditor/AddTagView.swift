@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct AddTagView: View {
-    @ObservedObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: TagsEditorViewModel
     @Binding var isSheetShow: Bool
     
     @State private var emojiText: String = ""

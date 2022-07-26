@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ResetPaymentsView: View {
-    @ObservedObject var viewModel: MainViewModel
+    @EnvironmentObject var router: SettingsCoordinator.Router
+    @ObservedObject var viewModel: ResetPaymentsViewModel
     
     @State private var isShowResetPaymentsAlert: Bool = false
     @State private var isShowResetPaymentsToast: Bool = false
@@ -44,19 +45,8 @@ struct ResetPaymentsView: View {
                 isShowResetPaymentsAlert = false
             }))
         }
-        //MARK: Проверь правильно переписал алерты под 14 ios или нет
-//        .alert("label_deletepayments".localized, isPresented: $isShowResetPaymentsAlert, actions: {
-//            Button("btn_yes".localized) {
-//                viewModel.removeAllPayments()
-//                isShowResetPaymentsAlert = false
-//                isShowResetPaymentsToast = true
-//            }
-//            Button("btn_no".localized) {
-//                isShowResetPaymentsAlert = false
-//            }
-//        })
         .toast(message: "toast_paymentsdeleted".localized, isShowing: $isShowResetPaymentsToast, config: .init())
-        .navigationTitle("Сброс платежей")
+        .navigationTitle("btn_resetpayments".localized)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

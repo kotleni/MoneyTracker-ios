@@ -30,6 +30,7 @@ class HomeViewModel: ObservableObject {
     /// Load all
     func loadAll() {
         loadPremium()
+        loadTags()
         DispatchQueue.global(qos: .userInitiated).async {
             self.tags = self.tagsManager.getTags()
             self.payments = self.paymentsManager.getPayments()
@@ -41,6 +42,32 @@ class HomeViewModel: ObservableObject {
     /// Load premium in background
     func loadPremium() {
         // MARK: todo
+    }
+    
+    /// Load tags
+    func loadTags() {
+        DispatchQueue.global().async {
+            let _tags = TagsManager.shared.getTags()
+            DispatchQueue.main.async {
+                self.tags = _tags
+                
+                // first setup for tags
+                // is tags not exist
+                if self.tags.isEmpty {
+                    self.addTag(name: "tag_food".localized, emoji: "🍗")
+                    self.addTag(name: "tag_clothes".localized, emoji: "👚")
+                    self.addTag(name: "tag_entertainment".localized, emoji: "🎭")
+                    self.addTag(name: "tag_technique".localized, emoji: "💻")
+                    self.addTag(name: "tag_any".localized, emoji: "📦")
+                }
+            }
+        }
+    }
+    
+    /// Add new tag
+    func addTag(name: String, emoji: String) {
+        let tag = TagsManager.shared.addTag(name: name, emoji: emoji)
+        tags.append(tag)
     }
     
     /// Delete payment by index
