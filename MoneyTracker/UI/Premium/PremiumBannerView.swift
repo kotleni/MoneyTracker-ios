@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PremiumBannerView: View {
-    @Binding var isPremium: Bool
-    @Binding var premiumPrice: String
+    var isPremium: Bool
+    var premiumPrice: String
     let action: () -> Void
     
     var body: some View {

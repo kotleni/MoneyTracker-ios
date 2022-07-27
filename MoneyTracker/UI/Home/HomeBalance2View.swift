@@ -17,7 +17,7 @@ struct HomeBalance2View: View {
             HStack {
                 VStack {
                     HStack {
-                        Text("\(String(format: "%.2f", totalIncome)) \(priceType)")
+                        Text("\(String(format: "%.2f", totalOutcome)) \(priceType)")
                             .bold()
                             .font(SwiftUI.Font.system(size: 19))
                         Spacer()
@@ -31,7 +31,7 @@ struct HomeBalance2View: View {
                 Spacer()
                 VStack {
                     HStack {
-                        Text("\(String(format: "%.2f", totalOutcome).replacingOccurrences(of: "-", with: "")) \(priceType)")
+                        Text("\(String(format: "%.2f", totalIncome).replacingOccurrences(of: "-", with: "")) \(priceType)")
                             .bold()
                             .font(SwiftUI.Font.system(size: 19))
                         Spacer()

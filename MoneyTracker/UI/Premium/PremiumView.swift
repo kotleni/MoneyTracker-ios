@@ -10,19 +10,17 @@ import StoreKit
 
 struct PremiumView: View {
     @EnvironmentObject var router: SettingsCoordinator.Router
-    @ObservedObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: PremiumViewModel
     
     var body: some View {
         List {
-            
-            
             Section {
                 PremiumItemView(name: "label_tip1".localized, about: "label_tip1detail".localized)
                 PremiumItemView(name: "label_tip2".localized, about: "label_tip2detail".localized)
             } header: {
                 Text("label_tips".localized)
             }
-            
+
             Section {
                 Text("label_premiumabout".localized)
                     .font(.system(size: 16))
@@ -32,7 +30,7 @@ struct PremiumView: View {
 
             Section {
                 if viewModel.isShopAvailable {
-                    PremiumBannerView(isPremium: $viewModel.isPremium, premiumPrice: $viewModel.premiumPrice) {
+                    PremiumBannerView(isPremium: viewModel.isPremium, premiumPrice: viewModel.premiumPrice) {
                         viewModel.purshacePremium()
                     }
                 } else {
@@ -49,6 +47,7 @@ struct PremiumView: View {
         }
         .navigationTitle("title_premium".localized)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { viewModel.loadData() }
     }
 }
 

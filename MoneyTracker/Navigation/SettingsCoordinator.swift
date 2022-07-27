@@ -9,11 +9,38 @@ import SwiftUI
 import Stinsen
 
 final class SettingsCoordinator: NavigationCoordinatable {
-    var viewModel: MainViewModel
+    // managers
+    private let paymentsManager: PaymentsManager
+    private let storageManager: StorageManager
+    private let notificationsManager: NotificationsManager
+    private let tagsManager: TagsManager
+    
+    private let settingsViewModel: SettingsViewModel
+    private let currencyEditorViewModel: CurrencyEditorViewModel
+    private let tagsEditorViewModel: TagsEditorViewModel
+    private let aboutAppViewModel: AboutAppViewModel
+    private let developerViewModel: DeveloperViewModel
+    private let resetPaymentsViewModel: ResetPaymentsViewModel
+    private let notificationsViewModel: NotificationsViewModel
+    private let premiumViewModel: PremiumViewModel
+    
     var stack = NavigationStack(initial: \SettingsCoordinator.main)
     
-    init(viewModel: MainViewModel) {
-        self.viewModel = viewModel
+    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager) {
+        self.paymentsManager = paymentsManager
+        self.storageManager = storageManager
+        self.notificationsManager = notificationsManager
+        self.tagsManager = tagsManager
+        
+        // viewModels
+        settingsViewModel = SettingsViewModel(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager)
+        currencyEditorViewModel = CurrencyEditorViewModel(storageManager: storageManager)
+        tagsEditorViewModel = TagsEditorViewModel(tagsManager: tagsManager)
+        aboutAppViewModel = AboutAppViewModel(storageManager: storageManager)
+        developerViewModel = DeveloperViewModel(storageManager: storageManager, tagsManager: tagsManager, paymentsManager: paymentsManager, notificationsManager: notificationsManager)
+        resetPaymentsViewModel = ResetPaymentsViewModel(paymentsManager: paymentsManager)
+        notificationsViewModel = NotificationsViewModel(notificationsManager: notificationsManager, storageManager: storageManager)
+        premiumViewModel = PremiumViewModel(storageManager: storageManager)
     }
     
     @Root var main = makeMain
@@ -26,34 +53,34 @@ final class SettingsCoordinator: NavigationCoordinatable {
     @Route(.push) var premium = makePremium
     
     @ViewBuilder func makeMain() -> some View {
-        SettingsView(viewModel: viewModel)
+        SettingsView(viewModel: settingsViewModel)
     }
     
     @ViewBuilder func makeCurrencyEditor() -> some View {
-        CurrencyEditorView(viewModel: viewModel)
+        CurrencyEditorView(viewModel: currencyEditorViewModel)
     }
     
     @ViewBuilder func makeTagsEditor() -> some View {
-        TagsEditorView(viewModel: viewModel)
+        TagsEditorView(viewModel: tagsEditorViewModel)
     }
     
     @ViewBuilder func makeAboutApp() -> some View {
-        AboutAppView(viewModel: viewModel)
+        AboutAppView(viewModel: aboutAppViewModel)
     }
     
     @ViewBuilder func makeDeveloper() -> some View {
-        DeveloperView(viewModel: viewModel)
+        DeveloperView(viewModel: developerViewModel)
     }
     
     @ViewBuilder func makeResetPayments() -> some View {
-        ResetPaymentsView(viewModel: viewModel)
+        ResetPaymentsView(viewModel: resetPaymentsViewModel)
     }
     
     @ViewBuilder func makeNotifications() -> some View {
-        NotificationsView(viewModel: viewModel)
+        NotificationsView(viewModel: notificationsViewModel)
     }
     
     @ViewBuilder func makePremium() -> some View {
-        PremiumView(viewModel: viewModel)
+        PremiumView(viewModel: premiumViewModel)
     }
 }

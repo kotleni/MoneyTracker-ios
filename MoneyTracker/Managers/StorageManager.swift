@@ -11,9 +11,11 @@ import Foundation
 class StorageManager {
     class Keys {
         static let priceType = "price_type"
-        static let notifEnable = "notifEnable"
+        static let notifEnable = "notif_enable"
+        static let isDeveloper = "is_developer"
     }
     
+    @available(*, deprecated)
     static let shared = StorageManager()
     
     /// Set price type
@@ -36,5 +38,16 @@ class StorageManager {
     func isNotifEnable() -> Bool {
         let isEnable = UserDefaults.standard.bool(forKey: Keys.notifEnable)
         return isEnable
+    }
+    
+    /// Set is developer
+    func setDeveloper(isDeveloper: Bool) {
+        UserDefaults.standard.set(isDeveloper, forKey: Keys.isDeveloper)
+    }
+    
+    /// Check is developer
+    func isDeveloper() -> Bool {
+        let isDeveloper = UserDefaults.standard.bool(forKey: Keys.isDeveloper)
+        return isDeveloper
     }
 }

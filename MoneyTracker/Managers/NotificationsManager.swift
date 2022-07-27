@@ -9,6 +9,7 @@ import SwiftUI
 
 /// Notifications manager
 class NotificationsManager {
+    @available(*, deprecated)
     static let shared = NotificationsManager()
     
     /// Start new notifications task

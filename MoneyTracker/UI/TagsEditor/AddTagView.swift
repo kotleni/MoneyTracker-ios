@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct AddTagView: View {
-    @ObservedObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: TagsEditorViewModel
     @Binding var isSheetShow: Bool
     
     @State private var emojiText: String = ""
@@ -45,7 +45,8 @@ struct AddTagView: View {
                         isSheetShow = false
                     } else {
                         isError = true
-                        HapticManager.shared.error()
+                        let generator = UINotificationFeedbackGenerator()
+                        generator.notificationOccurred(.error)
                     }
                 } label: {
                     Text("btn_create".localized)

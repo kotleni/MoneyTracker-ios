@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct TagsEditorView: View {
-    @ObservedObject var viewModel: MainViewModel
+    @EnvironmentObject var router: SettingsCoordinator.Router
+    
+    @ObservedObject var viewModel: TagsEditorViewModel
     @State private var isSheetShow: Bool = false
     @State private var isTagError: Bool = false
     @State private var isShowResetAlert: Bool = false
@@ -17,14 +19,16 @@ struct TagsEditorView: View {
     var body: some View {
         List {
             Section {
-                ForEach(Tag.getAll(), id: \.self) { tag in
+                ForEach(viewModel.tags, id: \.self) { tag in
                     Text(tag.emoji! + " " + tag.name!)
                 }
                 .onDelete { indexSet in
+                    // MARK: fixme
                     if viewModel.tags[indexSet.first!].name! != "tag_any".localized {
                         viewModel.removeTag(index: indexSet.first!)
                     } else {
-                        HapticManager.shared.error()
+                        let generator = UINotificationFeedbackGenerator()
+                        generator.notificationOccurred(.error)
                         isTagError = true
                     }
                 }
@@ -56,17 +60,6 @@ struct TagsEditorView: View {
                 isShowResetAlert = false
             }))
         }
-//      MARK: Переписал алерты для 14 ios
-//        .alert("label_resettags".localized, isPresented: $isShowResetAlert) {
-//            Button("btn_yes".localized) {
-//                isShowResetToast = true
-//                isShowResetAlert = false
-//                viewModel.resetTags()
-//            }
-//
-//            Button("btn_no".localized) {
-//                isShowResetAlert = false
-//            }
-//        }
+        .onAppear { viewModel.loadData() }
     }
 }
