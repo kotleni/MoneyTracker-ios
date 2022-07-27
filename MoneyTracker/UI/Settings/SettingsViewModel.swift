@@ -31,5 +31,6 @@ class SettingsViewModel: ObservableObject, BaseViewModel {
     /// Load data
     func loadData() {
         currency = storageManager.getPriceType()
+        isDeveloper = storageManager.isDeveloper()
     }
 }
