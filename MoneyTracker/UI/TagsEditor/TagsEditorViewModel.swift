@@ -20,15 +20,9 @@ class TagsEditorViewModel: ObservableObject, BaseViewModel {
     
     /// Load data
     func loadData() {
-        loadTags()
-    }
-    
-    /// Load tags
-    func loadTags() {
-        DispatchQueue.global().async {
-            let _tags = self.tagsManager.getTags()
-            DispatchQueue.main.async {
-                self.tags = _tags
+        TagsPublisher(tagsManager: tagsManager)
+            .sink { tags in
+                self.tags = tags
                 
                 // first setup for tags
                 // is tags not exist
@@ -40,7 +34,7 @@ class TagsEditorViewModel: ObservableObject, BaseViewModel {
                     self.addTag(name: "tag_any".localized, emoji: "📦")
                 }
             }
-        }
+            .store(in: &publishers)
     }
     
     /// Add new tag
