@@ -10,40 +10,47 @@ import SwiftUI
 struct SearchBarView: View {
     @Binding var text: String
     var hint: String
- 
-    @State private var isEditing = false
- 
+    @State private var isButtonShown = false
+    
     var body: some View {
-        HStack {
-            TextField(hint, text: $text)
-                .padding(7)
-                .padding(.horizontal, 25)
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-                .padding(.horizontal, 10)
-                .transition(.move(edge: .trailing))
-                //.animation(.default)
-                .onTapGesture {
-                    withAnimation {
-                        self.isEditing = true
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                HStack(spacing: 10) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                        .padding(.leading, 8)
+                    TextField(hint, text: $text) { (editingChanged) in
+                        isButtonShown = editingChanged
+                    }
+                    .foregroundColor(.secondary)
+                    .padding(.vertical, 8)
+                    if !text.isEmpty {
+                        Button(action: {text.removeAll()}){
+                            Image(systemName: "xmark.circle.fill")
+                        }
+                        .padding(.trailing, 8)
+                        .foregroundColor(.gray)
                     }
                 }
- 
-            if isEditing {
-                Button(action: {
-                    withAnimation {
-                        self.isEditing = false
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color(.secondarySystemBackground)))
+                if isButtonShown {
+                    Button(action: {buttonClicked()}) {
+                        Text("btn_cancel".localized)
                     }
-                    self.text = ""
- 
-                }) {
-                    Text("btn_cancel".localized)
+                    .padding(.leading, 8)
+                    .buttonStyle(.plain)
                 }
-                .padding(.trailing, 18)
-                .transition(.move(edge: .trailing))
-                //.animation(.default)
             }
         }
+        .animation(.default, value: isButtonShown)
+        .multilineTextAlignment(.leading)
+        .padding(.horizontal)
+        .padding(.vertical, 3)
+    }
+    
+    private func buttonClicked() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        isButtonShown = false
     }
 }
 
