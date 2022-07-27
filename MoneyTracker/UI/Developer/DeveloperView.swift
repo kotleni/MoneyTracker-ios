@@ -12,21 +12,37 @@ struct DeveloperView: View {
     @EnvironmentObject var router: SettingsCoordinator.Router
     @ObservedObject var viewModel: DeveloperViewModel
     
+    @State private var isPremium: Bool = false
+    
     var body: some View {
         Form {
-//            Button {
-//                viewModel.addPayment(price: Float(Int.random(in: -999...999)), about: ":)", tag: Tag.getDefault())
-//            } label: {
-//                Text("btn_devaddpay".localized)
-//            }
-//            
-//            Button {
-//                viewModel.loadAllData()
-//            } label: {
-//                Text("btn_devupdatedata".localized)
-//            }
-//            
-//            Toggle("btn_devpremium".localized, isOn: $viewModel.isPremium)
+            Section {
+                Button {
+                    viewModel.addRandomPayment()
+                } label: {
+                    Text("Add payment")
+                }
+            } header: {
+                Text("Debug")
+            }
+            
+            Section {
+                HomeBalanceView(totalBalance: 0, priceType: "USD", action: {})
+                HomeBalance2View(totalIncome: 0, totalOutcome: 0, priceType: "USD")
+                PremiumBannerView(isPremium: isPremium, premiumPrice: "0.0 USD", action: { isPremium.toggle() })
+                SettingsItemView(title: "Title", action: {}, value: "Value")
+                SearchBarView(text: .constant(""), hint: "Search")
+                EmojiTextField(text: .constant(""), placeholder: "Emoji")
+                PizzaChart(radius: 24, items: [
+                    ChartItem(name: "First", value: 17, color: .red),
+                    ChartItem(name: "Second", value: 24, color: .blue),
+                ])
+                .frame(height: 110)
+            } header: {
+                Text("Views")
+            }
+
+
         }
         .navigationTitle("title_devmenu".localized)
         .navigationBarTitleDisplayMode(.inline)

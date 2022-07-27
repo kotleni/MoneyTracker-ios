@@ -26,4 +26,9 @@ class DeveloperViewModel: ObservableObject, BaseViewModel {
     func loadData() {
         
     }
+    
+    /// Add random payment
+    func addRandomPayment() {
+        let _ = paymentsManager.addPayment(price: Float.random(in: -100...100), about: "Pizza 🍕")
+    }
 }
