@@ -23,9 +23,7 @@ class NotificationsViewModel: ObservableObject, BaseViewModel {
     
     /// Load all
     func loadData() {
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.isNotifOn = self.storageManager.isNotifEnable()
-        }
+        self.isNotifOn = self.storageManager.isNotifEnable()
     }
     
     /// Update notifications state

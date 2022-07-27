@@ -20,7 +20,7 @@ class AboutAppViewModel: ObservableObject, BaseViewModel {
 
     /// Load data
     func loadData() {
-        isDeveloper = storageManager.isDeveloper()
+        self.isDeveloper = storageManager.isDeveloper()
     }
     
     /// Enable developer
