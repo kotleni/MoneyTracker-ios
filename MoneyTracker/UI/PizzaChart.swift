@@ -29,7 +29,6 @@ struct PieSlice: Shape {
 
 struct ChartLegend: View {
     let items: [ChartItem]
-    let selectedIndex: Int
     
     var body: some View {
         VStack {
@@ -38,9 +37,7 @@ struct ChartLegend: View {
                     RoundedRectangle(cornerRadius: 4)
                         .fill(items[index].color)
                         .frame(width: 18, height: 18)
-                        .if(selectedIndex == index) { view in
-                            view.shadow(color: items[index].color, radius: 4)
-                        }
+                        .shadow(color: items[index].color, radius: 2)
                     Text(items[index].name)
                         .opacity(0.6)
                     Spacer()
@@ -55,8 +52,6 @@ struct PizzaChart: View {
     let radius: Double
     let items: [ChartItem]
     var angles: [Double] = []
-    
-    @State private var selectedIndex: Int = -1
     
     init(radius: Double, items: [ChartItem]) {
         self.radius = radius
@@ -83,18 +78,10 @@ struct PizzaChart: View {
                 ForEach(0...items.count-1, id: \.self) { index in
                     PieSlice(radius: radius, startAngle: (index == 0) ? 0.0 : angles[index - 1], endAngle: angles[index])
                         .foregroundColor(items[index].color)
-                        .onTapGesture {
-                            selectedIndex = index
-                        }
-                        .if(selectedIndex == index) { view in
-                            view.shadow(color: items[index].color, radius: 4)
-                        }
+                        .shadow(color: items[index].color, radius: 2)
                 }
             }
-            ChartLegend(items: items, selectedIndex: selectedIndex)
-        }
-        .onTapGesture {
-            selectedIndex = -1
+            ChartLegend(items: items)
         }
     }
 }
