@@ -20,15 +20,15 @@ struct HomeView: View {
             List {
                 Section {
                     HomeBalanceView(
-                        totalBalance: viewModel.totalBalance,
+                        totalBalance: viewModel.balance.current,
                         priceType: viewModel.priceType
                     ) { // plus btn click
                         router.route(to: \.addPayments)
                     }
                     
                     HomeBalance2View(
-                        totalIncome: viewModel.totalIncome,
-                        totalOutcome: viewModel.totalOutcome,
+                        totalIncome: viewModel.balance.income,
+                        totalOutcome: viewModel.balance.outcome,
                         priceType: viewModel.priceType)
                 } header: {
                     Text("label_statistic".localized)

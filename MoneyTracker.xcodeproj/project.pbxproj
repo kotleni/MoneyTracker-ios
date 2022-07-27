@@ -43,6 +43,7 @@
 		5A46042F289073BD00E4A411 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46042E289073BD00E4A411 /* NotificationsViewModel.swift */; };
 		5A4604332890747700E4A411 /* PremiumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4604322890747700E4A411 /* PremiumViewModel.swift */; };
 		5A4604352890756E00E4A411 /* AddPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4604342890756E00E4A411 /* AddPaymentViewModel.swift */; };
+		5A46043728911CA700E4A411 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46043628911CA600E4A411 /* Balance.swift */; };
 		5A557F09287D87BD00F7B68F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F08287D87BD00F7B68F /* SettingsView.swift */; };
 		5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F0B287D9B2800F7B68F /* Filter.swift */; };
 		5A798FC32885957E00A63300 /* ResetPaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A798FC22885957E00A63300 /* ResetPaymentsView.swift */; };
@@ -128,6 +129,7 @@
 		5A46042E289073BD00E4A411 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		5A4604322890747700E4A411 /* PremiumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumViewModel.swift; sourceTree = "<group>"; };
 		5A4604342890756E00E4A411 /* AddPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentViewModel.swift; sourceTree = "<group>"; };
+		5A46043628911CA600E4A411 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		5A557F08287D87BD00F7B68F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5A557F0B287D9B2800F7B68F /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		5A798FC22885957E00A63300 /* ResetPaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPaymentsView.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			children = (
 				5A557F0B287D9B2800F7B68F /* Filter.swift */,
 				5A00F44B287EBE4E00A4820A /* Currency.swift */,
+				5A46043628911CA600E4A411 /* Balance.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				5A4352A22883EB7500C89F44 /* Character.swift in Sources */,
 				5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */,
 				B4D501322869A9ED0065EB4D /* String+Ext.swift in Sources */,
+				5A46043728911CA700E4A411 /* Balance.swift in Sources */,
 				5A460429288FF4D300E4A411 /* DeveloperViewModel.swift in Sources */,
 				5A19B981288331A200C27056 /* TagsEditorView.swift in Sources */,
 				5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */,

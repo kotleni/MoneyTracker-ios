@@ -13,9 +13,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     private let storageManager: StorageManager
     private let tagsManager: TagsManager
     
-    @Published private(set) var totalBalance: Float = 0
-    @Published private(set) var totalIncome: Float = 0
-    @Published private(set) var totalOutcome: Float = 0
+    @Published private(set) var balance: Balance
     @Published private(set) var priceType: String = "USD"
     @Published private(set) var payments: [Payment] = []
     @Published private(set) var selectedFilter: String = Filter.all.rawValue
@@ -25,6 +23,8 @@ class HomeViewModel: ObservableObject, BaseViewModel {
         self.paymentsManager = paymentsManager
         self.storageManager = storageManager
         self.tagsManager = tagsManager
+        
+        self.balance = Balance(current: 0, income: 0, outcome: 0)
     }
     
     /// Load data
@@ -32,10 +32,16 @@ class HomeViewModel: ObservableObject, BaseViewModel {
         loadPremium()
         loadTags()
         DispatchQueue.global(qos: .userInitiated).async {
-            self.tags = self.tagsManager.getTags()
-            self.payments = self.paymentsManager.getPayments()
-            self.priceType = self.storageManager.getPriceType()
-            self.calculatePayments()
+            let _tags = self.tagsManager.getTags()
+            let _payments = self.paymentsManager.getPayments()
+            let _priceType = self.storageManager.getPriceType()
+            let _balance = self.calculateBalance()
+            DispatchQueue.main.async {
+                self.tags = _tags
+                self.payments = _payments
+                self.priceType = _priceType
+                self.balance = _balance
+            }
         }
     }
     
@@ -76,7 +82,12 @@ class HomeViewModel: ObservableObject, BaseViewModel {
             self.paymentsManager.removePayment(index: index)
             DispatchQueue.main.async {
                 self.payments.remove(at: index)
-                self.calculatePayments()
+                DispatchQueue.global(qos: .userInitiated).async {
+                    let _balance = self.calculateBalance()
+                    DispatchQueue.main.async {
+                        self.balance = _balance
+                    }
+                }
             }
         }
     }
@@ -87,7 +98,12 @@ class HomeViewModel: ObservableObject, BaseViewModel {
             let payment = self.paymentsManager.addPayment(price: price, about: about, tag: tag)
             DispatchQueue.main.async {
                 self.payments.insert(payment, at: 0)
-                self.calculatePayments()
+                DispatchQueue.global(qos: .userInitiated).async {
+                    let _balance = self.calculateBalance()
+                    DispatchQueue.main.async {
+                        self.balance = _balance
+                    }
+                }
             }
         }
     }
@@ -104,7 +120,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Calculate payments
-    private func calculatePayments() {
+    private func calculateBalance() -> Balance {
         var _income: Float = 0
         var _outcome: Float = 0
         self.payments.forEach { payment in
@@ -115,8 +131,6 @@ class HomeViewModel: ObservableObject, BaseViewModel {
             }
         }
         
-        self.totalBalance = _income + _outcome
-        self.totalIncome = _income
-        self.totalOutcome = _outcome
+        return Balance(current: _income + _outcome, income: _income, outcome: _outcome)
     }
 }
