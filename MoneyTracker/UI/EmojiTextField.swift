@@ -9,6 +9,21 @@ import SwiftUI
 import UIKit
 
 class UIEmojiTextField: UITextField {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Not implemented")
+    }
+    
+    @objc func textFieldDidChange() {
+        if text!.count > 1 {
+            text?.removeLast()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
