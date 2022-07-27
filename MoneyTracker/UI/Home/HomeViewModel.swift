@@ -32,11 +32,11 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     func loadData() {
         loadPremium()
         loadTags()
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInitiated).sync {
             let _tags = self.tagsManager.getTags()
             let _payments = self.paymentsManager.getPayments()
             let _priceType = self.storageManager.getPriceType()
-            let _balance = self.calculateBalance()
+            let _balance = self.calculateBalance(payments: _payments)
             DispatchQueue.main.async {
                 self.isLoading = false
                 self.tags = _tags
@@ -84,8 +84,8 @@ class HomeViewModel: ObservableObject, BaseViewModel {
             self.paymentsManager.removePayment(index: index)
             DispatchQueue.main.async {
                 self.payments.remove(at: index)
-                DispatchQueue.global(qos: .userInitiated).async {
-                    let _balance = self.calculateBalance()
+                DispatchQueue.global(qos: .userInitiated).sync {
+                    let _balance = self.calculateBalance(payments: self.payments)
                     DispatchQueue.main.async {
                         self.balance = _balance
                     }
@@ -100,8 +100,8 @@ class HomeViewModel: ObservableObject, BaseViewModel {
             let payment = self.paymentsManager.addPayment(price: price, about: about, tag: tag)
             DispatchQueue.main.async {
                 self.payments.insert(payment, at: 0)
-                DispatchQueue.global(qos: .userInitiated).async {
-                    let _balance = self.calculateBalance()
+                DispatchQueue.global(qos: .userInitiated).sync {
+                    let _balance = self.calculateBalance(payments: self.payments)
                     DispatchQueue.main.async {
                         self.balance = _balance
                     }
@@ -122,10 +122,10 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Calculate payments
-    private func calculateBalance() -> Balance {
+    private func calculateBalance(payments: [Payment]) -> Balance {
         var _income: Float = 0
         var _outcome: Float = 0
-        self.payments.forEach { payment in
+        payments.forEach { payment in
             if payment.price > 0 { // is income
                 _income += payment.price
             } else if payment.price < 0 { // is outcome
