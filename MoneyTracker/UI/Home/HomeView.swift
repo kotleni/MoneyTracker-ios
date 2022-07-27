@@ -33,6 +33,14 @@ struct HomeView: View {
                             totalIncome: viewModel.balance.income,
                             totalOutcome: viewModel.balance.outcome,
                             priceType: viewModel.priceType)
+                        
+                        if viewModel.isExperimental {
+                            PizzaChart(radius: 36, items: [
+                                ChartItem(name: "label_expenses".localized, value: abs(Double(viewModel.balance.outcome)), color: Color(red: 0/255, green: 109/255, blue: 255/255)),
+                                ChartItem(name: "label_income".localized, value: Double(viewModel.balance.income), color: Color(red: 45/255, green: 192/255, blue: 79/255)),
+                            ])
+                            .frame(height: 110)
+                        }
                     } header: {
                         Text("label_statistic".localized)
                     }

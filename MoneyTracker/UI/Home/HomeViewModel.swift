@@ -22,6 +22,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     @Published private(set) var selectedFilter: String = Filter.all.rawValue
     @Published private(set) var tags: [Tag] = []
     @Published private(set) var isLoading: Bool = true
+    @Published var isExperimental: Bool = false
     
     init(paymentsManager: PaymentsManager, storageManager: StorageManager, tagsManager: TagsManager) {
         self.paymentsManager = paymentsManager
@@ -59,6 +60,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
             .store(in: &publishers)
         
         self.priceType = self.storageManager.getPriceType()
+        self.isExperimental = self.storageManager.isExperimental()
     }
     
     /// Add new tag

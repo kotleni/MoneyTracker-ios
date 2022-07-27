@@ -31,13 +31,14 @@ struct ChartLegend: View {
     let items: [ChartItem]
     
     var body: some View {
-        HStack {
+        VStack {
             ForEach(items, id: \.self) { item in
                 HStack {
                     RoundedRectangle(cornerRadius: 4)
                         .fill(item.color)
                         .frame(width: 18, height: 18)
                     /*@START_MENU_TOKEN@*/Text(item.name)/*@END_MENU_TOKEN@*/
+                    Spacer()
                 }
             }
         }
@@ -70,13 +71,11 @@ struct PizzaChart: View {
     }
     
     var body: some View {
-        VStack {
+        HStack {
             ZStack {
                 ForEach(0...items.count-1, id: \.self) { index in
                     PieSlice(radius: radius, startAngle: (index == 0) ? 0.0 : angles[index - 1], endAngle: angles[index])
                         .foregroundColor(items[index].color)
-                    //MARK: Шаловливые ручки
-                        //.foregroundStyle(items[index].color)
                 }
             }
             ChartLegend(items: items)

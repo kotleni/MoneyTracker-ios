@@ -26,6 +26,6 @@ class AboutAppViewModel: ObservableObject, BaseViewModel {
     /// Enable developer
     func enableDeveloper() {
         isDeveloper = true
-        storageManager.setDeveloper(isDeveloper: true)
+        storageManager.setDeveloper(isEnable: true)
     }
 }

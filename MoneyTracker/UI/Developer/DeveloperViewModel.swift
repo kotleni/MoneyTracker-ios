@@ -15,6 +15,12 @@ class DeveloperViewModel: ObservableObject, BaseViewModel {
     private let paymentsManager: PaymentsManager
     private let notificationsManager: NotificationsManager
     
+    @Published var isExperimental: Bool = false {
+        didSet {
+            storageManager.setExperimental(isEnable: isExperimental)
+        }
+    }
+    
     init(storageManager: StorageManager, tagsManager: TagsManager, paymentsManager: PaymentsManager, notificationsManager: NotificationsManager) {
         self.storageManager = storageManager
         self.tagsManager = tagsManager
@@ -24,7 +30,7 @@ class DeveloperViewModel: ObservableObject, BaseViewModel {
     
     /// Load all
     func loadData() {
-        
+        isExperimental = storageManager.isExperimental()
     }
     
     /// Add random payment

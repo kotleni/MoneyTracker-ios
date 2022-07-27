@@ -13,6 +13,7 @@ class StorageManager {
         static let priceType = "price_type"
         static let notifEnable = "notif_enable"
         static let isDeveloper = "is_developer"
+        static let isExperimental = "is_experimental"
     }
     
     @available(*, deprecated)
@@ -41,13 +42,24 @@ class StorageManager {
     }
     
     /// Set is developer
-    func setDeveloper(isDeveloper: Bool) {
-        UserDefaults.standard.set(isDeveloper, forKey: Keys.isDeveloper)
+    func setDeveloper(isEnable: Bool) {
+        UserDefaults.standard.set(isEnable, forKey: Keys.isDeveloper)
     }
     
     /// Check is developer
     func isDeveloper() -> Bool {
-        let isDeveloper = UserDefaults.standard.bool(forKey: Keys.isDeveloper)
-        return isDeveloper
+        let isEnable = UserDefaults.standard.bool(forKey: Keys.isDeveloper)
+        return isEnable
+    }
+    
+    /// Set is experimental
+    func setExperimental(isEnable: Bool) {
+        UserDefaults.standard.set(isEnable, forKey: Keys.isExperimental)
+    }
+    
+    /// Check is experimental
+    func isExperimental() -> Bool {
+        let isEnabled = UserDefaults.standard.bool(forKey: Keys.isExperimental)
+        return isEnabled
     }
 }
