@@ -21,12 +21,26 @@ class AddPaymentViewModel: ObservableObject, BaseViewModel {
     /// Load all
     func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.tags = self.tagsManager.getTags()
+            let _tags = self.tagsManager.getTags()
+            DispatchQueue.main.async {
+                self.tags = _tags
+            }
         }
     }
     
     /// Add new payment
     func addPayment(price: Float, about: String, tag: Tag) {
         let _ = paymentsManager.addPayment(price: price, about: about, tag: tag)
+    }
+    
+    /// Try add new payment
+    func tryAddPayment(priceText: String, aboutText: String, spendingBool: Bool, selectedTag: Tag) {
+        let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
+        let sum = MathematicalExpression(line: priceStr).makeResult()
+        guard let fl = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
+        let about = aboutText
+        let tag = selectedTag
+        
+        addPayment(price: fl, about: about, tag: tag)
     }
 }

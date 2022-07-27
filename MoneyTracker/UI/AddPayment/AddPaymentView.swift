@@ -66,22 +66,17 @@ struct AddPaymentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        if PriceValidator.validate(str: priceText) &&
-                            !aboutText.isEmpty {
-                            // fixme: stupid code
-                            let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
-                            let sum = MathematicalExpression(line: priceStr).makeResult()
-                            guard let fl = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
-                            let about = aboutText
-                            let tag = selectedTag
+                        if PriceValidator.validate(str: priceText) && !aboutText.isEmpty {
+                            viewModel.tryAddPayment(
+                                priceText: priceText,
+                                aboutText: aboutText,
+                                spendingBool: spendingBool,
+                                selectedTag: selectedTag)
                             
-                            viewModel.addPayment(price: fl, about: about, tag: tag)
+                            router.popToRoot()
                             
                             let generator = UINotificationFeedbackGenerator()
                             generator.notificationOccurred(.success)
-                            
-                            
-                            router.popToRoot()
                             
                             priceText = ""
                             aboutText = ""

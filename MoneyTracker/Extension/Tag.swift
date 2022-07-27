@@ -13,17 +13,6 @@ extension Tag {
     }
     
     @available(*, deprecated)
-    static func getByName(name: String) -> Tag? {
-        var result: Tag? = nil
-        getAll().forEach { tag in
-            if tag.name == name {
-                result = tag
-            }
-        }
-        return result
-    }
-    
-    @available(*, deprecated)
     static func getDefault() -> Tag {
         return TagsManager.shared.getDefaultTag()
     }
