@@ -16,6 +16,7 @@ class SettingsViewModel: ObservableObject, BaseViewModel {
     
     @Published private(set) var isDeveloper: Bool = false
     @Published private(set) var isPremium: Bool = false
+    @Published private(set) var currency: String = ""
     
     init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager) {
         self.paymentsManager = paymentsManager
@@ -26,8 +27,6 @@ class SettingsViewModel: ObservableObject, BaseViewModel {
     
     /// Load data
     func loadData() {
-        DispatchQueue.global(qos: .userInitiated).async {
-            
-        }
+        currency = storageManager.getPriceType()
     }
 }

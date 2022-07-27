@@ -18,51 +18,51 @@ struct SettingsView: View {
         Form {
             Section {
                 // notif
-                SettingsItemView(title: "btn_notifchange".localized) {
+                SettingsItemView(title: "btn_notifchange".localized, action: {
                     if(viewModel.isPremium) {
                         router.route(to: \.notifications)
                     } else {
                         self.toastText = "btn_premiumwarn".localized
                         self.isShowToast = true
                     }
-                }
+                }, value: "")
                 
                 // currency
-                SettingsItemView(title: "btn_currencychange".localized) {
+                SettingsItemView(title: "btn_currencychange".localized, action: {
                     router.route(to: \.currencyEditor)
-                }
+                }, value: viewModel.currency)
                 
                 // tags
-                SettingsItemView(title: "btn_edittags".localized) {
+                SettingsItemView(title: "btn_edittags".localized, action: {
                     router.route(to: \.tagsEditor)
-                }
+                }, value: "")
                 
                 // about
-                SettingsItemView(title: "btn_premium".localized) {
+                SettingsItemView(title: "btn_premium".localized, action: {
                     router.route(to: \.premium)
-                }
+                }, value: "")
                 
                 // developer
                 if viewModel.isDeveloper {
-                    SettingsItemView(title: "btn_devmenu".localized) {
+                    SettingsItemView(title: "btn_devmenu".localized, action: {
                         router.route(to: \.developer)
-                    }
+                    }, value: "")
                 }
                 
                 // about
-                SettingsItemView(title: "btn_aboutapp".localized) {
+                SettingsItemView(title: "btn_aboutapp".localized, action: {
                     router.route(to: \.aboutApp)
-                }
+                }, value: "")
                 
                 // reset payments
-                SettingsItemView(title: "btn_resetpay".localized) {
+                SettingsItemView(title: "btn_resetpay".localized, action: {
                     if(viewModel.isPremium) {
                         router.route(to: \.resetPayments)
                     } else {
                         self.toastText = "btn_premiumwarn".localized
                         self.isShowToast = true
                     }
-                }
+                }, value: "")
             }
         }
         .toast(message: toastText, isShowing: $isShowToast, config: .init())
