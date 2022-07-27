@@ -61,6 +61,7 @@
 		5AD6E9CF2887D3F1005311C5 /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD6E9CE2887D3F1005311C5 /* PremiumView.swift */; };
 		5ADD33D5289193F700C00F1C /* PaymentsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33D4289193F700C00F1C /* PaymentsPublisher.swift */; };
 		5ADD33D72891951900C00F1C /* BalancePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33D62891951900C00F1C /* BalancePublisher.swift */; };
+		5ADD33F42891C9FF00C00F1C /* PremiumItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33F32891C9FF00C00F1C /* PremiumItemView.swift */; };
 		5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA66D62882C07100088D53 /* MathematicalExpression.swift */; };
 		5AFED6E128918D1A00E33D66 /* TagsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */; };
 		B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B42D29A3287EE10900F324CE /* Launch Screen.storyboard */; };
@@ -150,6 +151,7 @@
 		5AD6E9CE2887D3F1005311C5 /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
 		5ADD33D4289193F700C00F1C /* PaymentsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsPublisher.swift; sourceTree = "<group>"; };
 		5ADD33D62891951900C00F1C /* BalancePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancePublisher.swift; sourceTree = "<group>"; };
+		5ADD33F32891C9FF00C00F1C /* PremiumItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumItemView.swift; sourceTree = "<group>"; };
 		5AFA66D62882C07100088D53 /* MathematicalExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalExpression.swift; sourceTree = "<group>"; };
 		5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPublisher.swift; sourceTree = "<group>"; };
 		B42D29A3287EE10900F324CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				5AD6E9CE2887D3F1005311C5 /* PremiumView.swift */,
 				5A798FCA28859DC200A63300 /* PremiumBannerView.swift */,
 				5A4604322890747700E4A411 /* PremiumViewModel.swift */,
+				5ADD33F32891C9FF00C00F1C /* PremiumItemView.swift */,
 			);
 			path = Premium;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				5A3A6566288571120097B179 /* TabsCoordinator.swift in Sources */,
 				5A2383F3288EAEB400DD60DE /* CurrencyEditorViewModel.swift in Sources */,
 				5A2383ED288DD20F00DD60DE /* HomeViewModel.swift in Sources */,
+				5ADD33F42891C9FF00C00F1C /* PremiumItemView.swift in Sources */,
 				5A7C998A288306EB00F95214 /* DeveloperView.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* PaymentsManager.swift in Sources */,
 				5A3A656A288572BD0097B179 /* SettingsCoordinator.swift in Sources */,

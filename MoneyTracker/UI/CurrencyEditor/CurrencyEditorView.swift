@@ -88,3 +88,8 @@ struct CurrencyEditorView: View {
     }
 }
 
+struct CurrencyEditorPreview: PreviewProvider {
+    static var previews: some View {
+        CurrencyEditorView(viewModel: CurrencyEditorViewModel(storageManager: StorageManager()))
+    }
+}

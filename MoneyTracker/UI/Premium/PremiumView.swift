@@ -51,24 +51,8 @@ struct PremiumView: View {
     }
 }
 
-struct PremiumItemView: View {
-    let name: String
-    let about: String
-    
-    var body: some View {
-        VStack {
-            HStack {
-                Text(name)
-                    .bold()
-                    .font(.system(size: 16))
-                Spacer()
-            }
-            HStack {
-                Text(about)
-                    .foregroundColor(.gray)
-                    .font(.system(size: 14))
-                Spacer()
-            }
-        }
+struct PremiumPreview: PreviewProvider {
+    static var previews: some View {
+        PremiumView(viewModel: PremiumViewModel(storageManager: StorageManager()))
     }
 }

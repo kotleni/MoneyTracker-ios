@@ -71,3 +71,9 @@ struct HomeView: View {
         .onAppear { viewModel.loadData() }
     }
 }
+
+struct HomePreview: PreviewProvider {
+    static var previews: some View {
+        HomeView(viewModel: HomeViewModel(paymentsManager: PaymentsManager(), storageManager: StorageManager(), tagsManager: TagsManager()))
+    }
+}

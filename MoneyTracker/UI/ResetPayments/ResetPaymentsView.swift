@@ -51,3 +51,9 @@ struct ResetPaymentsView: View {
         .onAppear { viewModel.loadData() }
     }
 }
+
+struct ResetPaymentsPreview: PreviewProvider {
+    static var previews: some View {
+        ResetPaymentsView(viewModel: ResetPaymentsViewModel(paymentsManager: PaymentsManager()))
+    }
+}

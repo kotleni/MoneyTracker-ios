@@ -30,3 +30,9 @@ struct DeveloperView: View {
         .onAppear { viewModel.loadData() }
     }
 }
+
+struct DeveloperPreview: PreviewProvider {
+    static var previews: some View {
+        DeveloperView(viewModel: DeveloperViewModel(storageManager: StorageManager(), tagsManager: TagsManager(), paymentsManager: PaymentsManager(), notificationsManager: NotificationsManager()))
+    }
+}

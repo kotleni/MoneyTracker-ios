@@ -77,3 +77,9 @@ struct SettingsView: View {
         .onAppear { viewModel.loadData() }
     }
 }
+
+struct SettingsPreview: PreviewProvider {
+    static var previews: some View {
+        SettingsView(viewModel: SettingsViewModel(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager()))
+    }
+}

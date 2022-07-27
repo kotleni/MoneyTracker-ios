@@ -82,3 +82,9 @@ struct EmojiTextField: UIViewRepresentable {
         }
     }
 }
+
+struct EmojiTextFieldPreview: PreviewProvider {
+    static var previews: some View {
+        EmojiTextField(text: .constant(""), placeholder: "Emoji")
+    }
+}

@@ -82,3 +82,12 @@ struct PizzaChart: View {
         }
     }
 }
+
+struct PizzaChartPreview: PreviewProvider {
+    static var previews: some View {
+        PizzaChart(radius: 60, items: [
+            ChartItem(name: "first", value: 1, color: .red),
+            ChartItem(name: "second", value: 3, color: .blue),
+        ])
+    }
+}

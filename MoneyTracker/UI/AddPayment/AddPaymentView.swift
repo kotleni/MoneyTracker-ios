@@ -97,3 +97,9 @@ struct AddPaymentView: View {
         .onAppear { viewModel.loadData() }
     }
 }
+
+struct AddPaymentPreview: PreviewProvider {
+    static var previews: some View {
+        AddPaymentView(viewModel: AddPaymentViewModel(paymentsManager: PaymentsManager(), tagsManager: TagsManager()))
+    }
+}

@@ -54,3 +54,9 @@ struct SearchBarView: View {
     }
 }
 
+
+struct SearchBarPreview: PreviewProvider {
+    static var previews: some View {
+        SearchBarView(text: .constant(""), hint: "Search")
+    }
+}

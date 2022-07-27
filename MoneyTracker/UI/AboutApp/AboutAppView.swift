@@ -81,3 +81,8 @@ struct AboutAppView: View {
     }
 }
 
+struct AboutAppPreview: PreviewProvider {
+    static var previews: some View {
+        AboutAppView(viewModel: AboutAppViewModel(storageManager: StorageManager()))
+    }
+}

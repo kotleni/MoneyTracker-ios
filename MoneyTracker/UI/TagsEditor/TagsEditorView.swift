@@ -63,3 +63,9 @@ struct TagsEditorView: View {
         .onAppear { viewModel.loadData() }
     }
 }
+
+struct TagsEditorPreview: PreviewProvider {
+    static var previews: some View {
+        TagsEditorView(viewModel: TagsEditorViewModel(tagsManager: TagsManager()))
+    }
+}

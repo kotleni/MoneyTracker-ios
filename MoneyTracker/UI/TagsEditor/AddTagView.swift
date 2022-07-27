@@ -56,3 +56,9 @@ struct AddTagView: View {
         .toast(message: "toast_invalidtagdata".localized, isShowing: $isError, config: .init())
     }
 }
+
+struct AddTagPreview: PreviewProvider {
+    static var previews: some View {
+        AddTagView(viewModel: TagsEditorViewModel(tagsManager: TagsManager()), isSheetShow: .constant(true))
+    }
+}
