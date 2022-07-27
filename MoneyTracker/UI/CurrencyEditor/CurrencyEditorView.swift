@@ -70,6 +70,7 @@ struct CurrencyEditorView: View {
             Spacer()
         }
         .navigationBarTitle("title_selcurrency".localized, displayMode: .inline)
+        .onAppear { viewModel.loadData() }
     }
 }
 

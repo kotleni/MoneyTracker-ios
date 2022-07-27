@@ -56,6 +56,6 @@ struct HomeView: View {
             
         }
         .navigationTitle("title_home".localized)
-        
+        .onAppear { viewModel.loadData() }
     }
 }

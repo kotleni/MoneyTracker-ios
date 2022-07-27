@@ -67,5 +67,6 @@ struct SettingsView: View {
         }
         .toast(message: toastText, isShowing: $isShowToast, config: .init())
         .navigationTitle("title_settings".localized)
+        .onAppear { viewModel.loadData() }
     }
 }

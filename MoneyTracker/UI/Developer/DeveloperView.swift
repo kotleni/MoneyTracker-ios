@@ -30,5 +30,6 @@ struct DeveloperView: View {
         }
         .navigationTitle("title_devmenu".localized)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { viewModel.loadData() }
     }
 }

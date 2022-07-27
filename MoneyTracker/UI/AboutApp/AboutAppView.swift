@@ -67,9 +67,7 @@ struct AboutAppView: View {
 
         }
         .navigationTitle("title_aboutapp".localized)
-        .onAppear {
-            viewModel.loadData()
-        }
+        .onAppear { viewModel.loadData() }
     }
     
     // track current state of eggs

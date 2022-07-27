@@ -48,5 +48,6 @@ struct ResetPaymentsView: View {
         .toast(message: "toast_paymentsdeleted".localized, isShowing: $isShowResetPaymentsToast, config: .init())
         .navigationTitle("btn_resetpayments".localized)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { viewModel.loadData() }
     }
 }

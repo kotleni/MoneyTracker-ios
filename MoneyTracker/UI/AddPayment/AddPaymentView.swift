@@ -109,5 +109,6 @@ struct AddPaymentView: View {
             }
         }
         .toast(message: "toast_invalidpaydata".localized, isShowing: $isError, config: .init())
+        .onAppear { viewModel.loadData() }
     }
 }

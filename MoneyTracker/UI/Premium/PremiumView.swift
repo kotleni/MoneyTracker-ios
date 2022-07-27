@@ -49,6 +49,7 @@ struct PremiumView: View {
         }
         .navigationTitle("title_premium".localized)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { viewModel.loadData() }
     }
 }
 

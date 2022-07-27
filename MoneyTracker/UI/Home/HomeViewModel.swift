@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
+class HomeViewModel: ObservableObject, BaseViewModel {
     // managers
     private let paymentsManager: PaymentsManager
     private let storageManager: StorageManager
@@ -27,8 +27,8 @@ class HomeViewModel: ObservableObject {
         self.tagsManager = tagsManager
     }
     
-    /// Load all
-    func loadAll() {
+    /// Load data
+    func loadData() {
         loadPremium()
         loadTags()
         DispatchQueue.global(qos: .userInitiated).async {

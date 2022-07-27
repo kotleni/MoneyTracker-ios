@@ -37,6 +37,7 @@ struct NotificationsView: View {
         .toast(message: toastText, isShowing: $isShowToast, config: .init())
         .navigationTitle("title_notifications".localized)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { viewModel.loadData() }
     }
 }
 

@@ -60,5 +60,6 @@ struct TagsEditorView: View {
                 isShowResetAlert = false
             }))
         }
+        .onAppear { viewModel.loadData() }
     }
 }
