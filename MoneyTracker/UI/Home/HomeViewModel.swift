@@ -33,37 +33,9 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     
     /// Load data
     func loadData() {
-        loadPremium()
-        loadTags()
-        DispatchQueue.global(qos: .userInitiated).sync {
-            let _tags = self.tagsManager.getTags()
-            let _payments = self.paymentsManager.getPayments()
-            let _priceType = self.storageManager.getPriceType()
-            let _balance = self.calculateBalance(payments: _payments)
-            DispatchQueue.main.async {
-                self.isLoading = false
-                self.tags = _tags
-                self.payments = _payments
-                self.priceType = _priceType
-                self.balance = _balance
-            }
-        }
-    }
-    
-    /// Load premium in background
-    func loadPremium() {
-        // MARK: todo
-    }
-    
-    /// Load tags
-    func loadTags() {
-        DispatchQueue.global().async {
-            let _tags = self.tagsManager.getTags()
-            DispatchQueue.main.async {
-                self.tags = _tags
-                
-                // first setup for tags
-                // is tags not exist
+        TagsPublisher(tagsManager: tagsManager)
+            .sink { tags in
+                self.tags = tags
                 if self.tags.isEmpty {
                     self.addTag(name: "tag_food".localized, emoji: "🍗")
                     self.addTag(name: "tag_clothes".localized, emoji: "👚")
@@ -72,7 +44,21 @@ class HomeViewModel: ObservableObject, BaseViewModel {
                     self.addTag(name: "tag_any".localized, emoji: "📦")
                 }
             }
-        }
+            .store(in: &publishers)
+        
+        PaymentsPublisher(paymentsManager: paymentsManager)
+            .sink { payments in
+                self.payments = payments
+                BalancePublisher(payments: payments)
+                    .sink { balance in
+                        self.balance = balance
+                        self.isLoading = false
+                    }
+                    .store(in: &self.publishers)
+            }
+            .store(in: &publishers)
+        
+        self.priceType = self.storageManager.getPriceType()
     }
     
     /// Add new tag
@@ -83,34 +69,28 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     
     /// Delete payment by index
     func deletePayment(index: Int) {
-        DispatchQueue.global().async {
-            self.paymentsManager.removePayment(index: index)
-            DispatchQueue.main.async {
-                self.payments.remove(at: index)
-                DispatchQueue.global(qos: .userInitiated).sync {
-                    let _balance = self.calculateBalance(payments: self.payments)
-                    DispatchQueue.main.async {
-                        self.balance = _balance
-                    }
-                }
+        self.paymentsManager.removePayment(index: index)
+        self.payments.remove(at: index)
+        self.isLoading = true
+        BalancePublisher(payments: self.payments)
+            .sink { balance in
+                self.balance = balance
+                self.isLoading = false
             }
-        }
+            .store(in: &self.publishers)
     }
     
     /// Add new payment
     func addPayment(price: Float, about: String, tag: Tag) {
-        DispatchQueue.global().async {
-            let payment = self.paymentsManager.addPayment(price: price, about: about, tag: tag)
-            DispatchQueue.main.async {
-                self.payments.insert(payment, at: 0)
-                DispatchQueue.global(qos: .userInitiated).sync {
-                    let _balance = self.calculateBalance(payments: self.payments)
-                    DispatchQueue.main.async {
-                        self.balance = _balance
-                    }
-                }
+        let payment = self.paymentsManager.addPayment(price: price, about: about, tag: tag)
+        self.payments.insert(payment, at: 0)
+        self.isLoading = true
+        BalancePublisher(payments: self.payments)
+            .sink { balance in
+                self.balance = balance
+                self.isLoading = false
             }
-        }
+            .store(in: &self.publishers)
     }
     
     /// Find tag by name
@@ -122,20 +102,5 @@ class HomeViewModel: ObservableObject, BaseViewModel {
             }
         }
         return result
-    }
-    
-    /// Calculate payments
-    private func calculateBalance(payments: [Payment]) -> Balance {
-        var _income: Float = 0
-        var _outcome: Float = 0
-        payments.forEach { payment in
-            if payment.price > 0 { // is income
-                _income += payment.price
-            } else if payment.price < 0 { // is outcome
-                _outcome += payment.price
-            }
-        }
-        
-        return Balance(current: _income + _outcome, income: _income, outcome: _outcome)
     }
 }
