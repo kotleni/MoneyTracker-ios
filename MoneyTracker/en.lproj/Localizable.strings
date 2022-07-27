@@ -9,7 +9,7 @@
 /* HOME */
 "title_home" = "Finances";
 "label_statistic" = "Statistics";
-"label_payments" = "Платежи";
+"label_payments" = "Payments";
 "label_nopayments" = "You don't have any payments.";
 "label_balance" = "Balance";
 "label_income" = "Income";
