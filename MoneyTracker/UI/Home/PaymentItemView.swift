@@ -9,12 +9,12 @@ import SwiftUI
 
 struct PaymentItemView: View {
     var payment: Payment
-    var tag: Tag
+    var tag: Tag?
     var priceType: String
     
     var body: some View {
         HStack {
-            Text(tag.emoji!)
+            Text((tag == nil) ? "❓" : tag!.emoji!)
                 .font(.system(size: 28))
             VStack {
                 HStack {
