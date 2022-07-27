@@ -7,11 +7,17 @@
 
 import Foundation
 
-/// Mathemical expression with calucating
+/// Mathemical expression with calucating (only sum)
 class MathematicalExpression {
-    private var numbers: [Float] = []
+    private let line: String
     
     init(line: String) {
+        self.line = line
+    }
+    
+    /// Parse expression string
+    func parse() -> [Float] {
+        var numbers: [Float] = []
         let strs = line.split(separator: "+")
         for str in strs {
             let value = Float(str.replacingOccurrences(of: " ", with: ""))
@@ -21,13 +27,16 @@ class MathematicalExpression {
                 numbers.append(value!)
             }
         }
+        
+        return numbers
     }
     
     /// Calculate expression
-    func makeResult() -> Float {
+    func calculate() -> Float {
+        let values = parse()
         var sum: Float = 0.0
-        for numb in numbers {
-            sum += numb
+        for value in values {
+            sum += value
         }
         return sum
     }

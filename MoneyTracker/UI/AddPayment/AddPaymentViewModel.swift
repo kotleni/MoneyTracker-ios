@@ -36,7 +36,7 @@ class AddPaymentViewModel: ObservableObject, BaseViewModel {
     /// Try add new payment
     func tryAddPayment(priceText: String, aboutText: String, spendingBool: Bool, selectedTag: Tag) {
         let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
-        let sum = MathematicalExpression(line: priceStr).makeResult()
+        let sum = MathematicalExpression(line: priceStr).calculate()
         guard let fl = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
         let about = aboutText
         let tag = selectedTag
