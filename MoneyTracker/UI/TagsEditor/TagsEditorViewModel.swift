@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 class TagsEditorViewModel: ObservableObject, BaseViewModel {
+    var publishers: Set<AnyCancellable> = []
     private let tagsManager: TagsManager
     
     @Published var tags: [Tag] = []

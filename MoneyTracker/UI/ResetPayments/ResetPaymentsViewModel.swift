@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 class ResetPaymentsViewModel: ObservableObject, BaseViewModel {
+    var publishers: Set<AnyCancellable> = []
     private let paymentsManager: PaymentsManager
     
     init(paymentsManager: PaymentsManager) {

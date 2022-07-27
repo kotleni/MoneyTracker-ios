@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 class AddPaymentViewModel: ObservableObject, BaseViewModel {
+    var publishers: Set<AnyCancellable> = []
     private let paymentsManager: PaymentsManager
     private let tagsManager: TagsManager
     
@@ -20,12 +22,11 @@ class AddPaymentViewModel: ObservableObject, BaseViewModel {
     
     /// Load all
     func loadData() {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let _tags = self.tagsManager.getTags()
-            DispatchQueue.main.async {
-                self.tags = _tags
+        TagsPublisher(tagsManager: tagsManager)
+            .sink { tags in
+                self.tags = tags
             }
-        }
+            .store(in: &publishers)
     }
     
     /// Add new payment

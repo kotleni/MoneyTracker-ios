@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Combine
 
 protocol BaseViewModel {
+    var publishers: Set<AnyCancellable> { get set }
     func loadData()
 }

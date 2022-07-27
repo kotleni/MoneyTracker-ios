@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 class PremiumViewModel: ObservableObject, BaseViewModel {
+    var publishers: Set<AnyCancellable> = []
     private let storageManager: StorageManager
     
     @Published private(set) var isShopAvailable: Bool = false

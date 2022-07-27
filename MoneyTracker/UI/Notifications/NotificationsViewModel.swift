@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 class NotificationsViewModel: ObservableObject, BaseViewModel {
+    var publishers: Set<AnyCancellable> = []
+    
     private let notificationsManager: NotificationsManager
     private let storageManager: StorageManager
     

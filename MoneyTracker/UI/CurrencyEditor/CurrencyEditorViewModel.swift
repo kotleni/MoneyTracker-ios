@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 class CurrencyEditorViewModel: ObservableObject, BaseViewModel {
+    var publishers: Set<AnyCancellable> = []
     private let storageManager: StorageManager
     
     @Published private(set) var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id

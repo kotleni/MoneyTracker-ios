@@ -60,6 +60,7 @@
 		5AD41C2B287D4ECE00A464B2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD41C2A287D4ECE00A464B2 /* HomeView.swift */; };
 		5AD6E9CF2887D3F1005311C5 /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD6E9CE2887D3F1005311C5 /* PremiumView.swift */; };
 		5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA66D62882C07100088D53 /* MathematicalExpression.swift */; };
+		5AFED6E128918D1A00E33D66 /* TagsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */; };
 		B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B42D29A3287EE10900F324CE /* Launch Screen.storyboard */; };
 		B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */; };
 		B4D501282869A87C0065EB4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D501272869A87C0065EB4D /* Assets.xcassets */; };
@@ -146,6 +147,7 @@
 		5AD41C2A287D4ECE00A464B2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5AD6E9CE2887D3F1005311C5 /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
 		5AFA66D62882C07100088D53 /* MathematicalExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalExpression.swift; sourceTree = "<group>"; };
+		5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPublisher.swift; sourceTree = "<group>"; };
 		B42D29A3287EE10900F324CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B4D501202869A87A0065EB4D /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
@@ -276,8 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				5AD6E9CE2887D3F1005311C5 /* PremiumView.swift */,
-				5A4604322890747700E4A411 /* PremiumViewModel.swift */,
 				5A798FCA28859DC200A63300 /* PremiumBannerView.swift */,
+				5A4604322890747700E4A411 /* PremiumViewModel.swift */,
 			);
 			path = Premium;
 			sourceTree = "<group>";
@@ -353,6 +355,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		5AFED6DF28918D0D00E33D66 /* Publishers */ = {
+			isa = PBXGroup;
+			children = (
+				5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */,
+			);
+			path = Publishers;
+			sourceTree = "<group>";
+		};
 		B4D501172869A87A0065EB4D = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +385,7 @@
 		B4D501222869A87A0065EB4D /* MoneyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				5AFED6DF28918D0D00E33D66 /* Publishers */,
 				5AAFDE8B28846D7E0076ECE7 /* Navigation */,
 				5AD41C27287D4EA100A464B2 /* UI */,
 				5A19B98E2883456200C27056 /* Validators */,
@@ -587,6 +598,7 @@
 				5A00F46C287F313700A4820A /* PaymentItemView.swift in Sources */,
 				5A46042C289071BB00E4A411 /* ResetPaymentsViewModel.swift in Sources */,
 				5A4352A22883EB7500C89F44 /* Character.swift in Sources */,
+				5AFED6E128918D1A00E33D66 /* TagsPublisher.swift in Sources */,
 				5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */,
 				B4D501322869A9ED0065EB4D /* String+Ext.swift in Sources */,
 				5A46043728911CA700E4A411 /* Balance.swift in Sources */,

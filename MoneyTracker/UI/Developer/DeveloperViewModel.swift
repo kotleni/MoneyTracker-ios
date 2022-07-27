@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 class DeveloperViewModel: ObservableObject, BaseViewModel {
+    var publishers: Set<AnyCancellable> = []
     private let storageManager: StorageManager
     private let tagsManager: TagsManager
     private let paymentsManager: PaymentsManager
