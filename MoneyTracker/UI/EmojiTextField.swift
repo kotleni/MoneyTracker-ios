@@ -20,7 +20,7 @@ class UIEmojiTextField: UITextField {
     
     @objc func textFieldDidChange() {
         if text!.count > 1 {
-            text?.removeLast()
+            text?.removeFirst()
         }
     }
     
