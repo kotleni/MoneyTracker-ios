@@ -68,7 +68,7 @@
 "field_price" = "Price";
 "field_desc" = "Description";
 "hint_necessarily" = "Required";
-"label_tag" = "Тег";
+"label_tag" = "Tag";
 "hint_payment" = "After creating payment, it will be added to the history and the funds counter will be updated";
 "toast_invalidpaydata" = "Invalidate payment data";
 
