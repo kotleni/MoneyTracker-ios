@@ -26,19 +26,21 @@ struct CurrencyEditorView: View {
                         Section {
                             ForEach(Currencies.currenciesPopular, id: \.self) { curr in
                                 if curr.fullName.lowercased().contains(filterText.lowercased()) || curr.littleName.lowercased().contains(filterText.lowercased()) || filterText.isEmpty {
-                                    HStack {
-                                        Text(curr.fullName)
-                                        Text(curr.littleName)
-                                            .foregroundColor(.gray)
-                                        Spacer()
-                                        if (viewModel.selectedCurrencyId == curr.id) {
-                                            Image(systemName: "checkmark")
-                                                .foregroundColor(.blue)
-                                                .transition(.opacity)
-                                        }
-                                    }
-                                    .onTapGesture {
+                                    Button {
                                         viewModel.setCurrency(id: curr.id)
+                                    } label: {
+                                        HStack {
+                                            Text(curr.fullName)
+                                                .foregroundColor(Color("DefaultText"))
+                                            Text(curr.littleName)
+                                                .foregroundColor(.gray)
+                                            Spacer()
+                                            if (viewModel.selectedCurrencyId == curr.id) {
+                                                Image(systemName: "checkmark")
+                                                    .foregroundColor(.blue)
+                                                    .transition(.opacity)
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -51,20 +53,22 @@ struct CurrencyEditorView: View {
                     Section {
                         ForEach(Currencies.currenciesAll, id: \.self) { curr in
                             if curr.fullName.lowercased().contains(filterText.lowercased()) || curr.littleName.lowercased().contains(filterText.lowercased()) || filterText.isEmpty {
-                                HStack {
-                                    Text(curr.fullName)
-                                    Text(curr.littleName)
-                                        .foregroundColor(.gray)
-                                    Spacer()
-                                    if (viewModel.selectedCurrencyId == curr.id) {
-                                        Image(systemName: "checkmark")
-                                            .foregroundColor(.blue)
-                                            .transition(.opacity)
-                                    }
-                                }
-                                .onTapGesture {
+                                Button(action: {
                                     viewModel.setCurrency(id: curr.id)
-                                }
+                                }, label: {
+                                    HStack {
+                                        Text(curr.fullName)
+                                            .foregroundColor(Color("DefaultText"))
+                                        Text(curr.littleName)
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                        if (viewModel.selectedCurrencyId == curr.id) {
+                                            Image(systemName: "checkmark")
+                                                .foregroundColor(.blue)
+                                                .transition(.opacity)
+                                        }
+                                    }
+                                })
                             }
                         }
                     } header: {
