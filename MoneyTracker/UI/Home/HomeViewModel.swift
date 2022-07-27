@@ -18,6 +18,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     @Published private(set) var payments: [Payment] = []
     @Published private(set) var selectedFilter: String = Filter.all.rawValue
     @Published private(set) var tags: [Tag] = []
+    @Published private(set) var isLoading: Bool = true
     
     init(paymentsManager: PaymentsManager, storageManager: StorageManager, tagsManager: TagsManager) {
         self.paymentsManager = paymentsManager
@@ -37,6 +38,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
             let _priceType = self.storageManager.getPriceType()
             let _balance = self.calculateBalance()
             DispatchQueue.main.async {
+                self.isLoading = false
                 self.tags = _tags
                 self.payments = _payments
                 self.priceType = _priceType
