@@ -22,7 +22,7 @@ struct SearchBarView: View {
                     TextField(hint, text: $text) { (editingChanged) in
                         isButtonShown = editingChanged
                     }
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.black)
                     .padding(.vertical, 8)
                     if !text.isEmpty {
                         Button(action: {text.removeAll()}){
