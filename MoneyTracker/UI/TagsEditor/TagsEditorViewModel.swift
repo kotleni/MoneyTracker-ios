@@ -54,6 +54,6 @@ class TagsEditorViewModel: ObservableObject, BaseViewModel {
         tags.forEach { _ in
             removeTag(index: 0)
         }
-        loadTags()
+        loadData()
     }
 }
