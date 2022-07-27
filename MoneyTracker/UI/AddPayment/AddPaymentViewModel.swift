@@ -27,6 +27,6 @@ class AddPaymentViewModel: ObservableObject, BaseViewModel {
     
     /// Add new payment
     func addPayment(price: Float, about: String, tag: Tag) {
-        paymentsManager.addPayment(price: price, about: about, tag: tag)
+        let _ = paymentsManager.addPayment(price: price, about: about, tag: tag)
     }
 }

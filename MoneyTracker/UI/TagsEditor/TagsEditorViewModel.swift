@@ -24,7 +24,7 @@ class TagsEditorViewModel: ObservableObject, BaseViewModel {
     /// Load tags
     func loadTags() {
         DispatchQueue.global().async {
-            let _tags = TagsManager.shared.getTags()
+            let _tags = self.tagsManager.getTags()
             DispatchQueue.main.async {
                 self.tags = _tags
                 
@@ -43,13 +43,13 @@ class TagsEditorViewModel: ObservableObject, BaseViewModel {
     
     /// Add new tag
     func addTag(name: String, emoji: String) {
-        let tag = TagsManager.shared.addTag(name: name, emoji: emoji)
+        let tag = tagsManager.addTag(name: name, emoji: emoji)
         tags.append(tag)
     }
     
     /// Remove tag by index
     func removeTag(index: Int) {
-        TagsManager.shared.removeTag(tag: tags[index])
+        tagsManager.removeTag(tag: tags[index])
         tags.remove(at: index)
     }
     

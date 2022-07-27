@@ -14,38 +14,36 @@ struct PremiumView: View {
     
     var body: some View {
         List {
-            Text("not implemented")
-//
-//            Section {
-//                PremiumItemView(name: "label_tip1".localized, about: "label_tip1detail".localized)
-//                PremiumItemView(name: "label_tip2".localized, about: "label_tip2detail".localized)
-//            } header: {
-//                Text("label_tips".localized)
-//            }
-//
-//            Section {
-//                Text("label_premiumabout".localized)
-//                    .font(.system(size: 16))
-//            } header: {
-//                Text("label_aboutpremium".localized)
-//            }
-//
-//            Section {
-//                if viewModel.isShopAvailable {
-//                    PremiumBannerView(isPremium: $viewModel.isPremium, premiumPrice: $viewModel.premiumPrice) {
-//                        viewModel.purshacePremium()
-//                    }
-//                } else {
-//                    Text("label_shopnotavailable".localized)
-//                        .foregroundColor(.gray)
-//                }
-//            } footer: {
-//                if viewModel.isShopAvailable {
-//                    Text("label_subscribe".localized)
-//                } else {
-//                    Text("")
-//                }
-//            }
+            Section {
+                PremiumItemView(name: "label_tip1".localized, about: "label_tip1detail".localized)
+                PremiumItemView(name: "label_tip2".localized, about: "label_tip2detail".localized)
+            } header: {
+                Text("label_tips".localized)
+            }
+
+            Section {
+                Text("label_premiumabout".localized)
+                    .font(.system(size: 16))
+            } header: {
+                Text("label_aboutpremium".localized)
+            }
+
+            Section {
+                if viewModel.isShopAvailable {
+                    PremiumBannerView(isPremium: viewModel.isPremium, premiumPrice: viewModel.premiumPrice) {
+                        viewModel.purshacePremium()
+                    }
+                } else {
+                    Text("label_shopnotavailable".localized)
+                        .foregroundColor(.gray)
+                }
+            } footer: {
+                if viewModel.isShopAvailable {
+                    Text("label_subscribe".localized)
+                } else {
+                    Text("")
+                }
+            }
         }
         .navigationTitle("title_premium".localized)
         .navigationBarTitleDisplayMode(.inline)

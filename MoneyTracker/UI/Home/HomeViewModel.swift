@@ -47,7 +47,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     /// Load tags
     func loadTags() {
         DispatchQueue.global().async {
-            let _tags = TagsManager.shared.getTags()
+            let _tags = self.tagsManager.getTags()
             DispatchQueue.main.async {
                 self.tags = _tags
                 
@@ -66,7 +66,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     
     /// Add new tag
     func addTag(name: String, emoji: String) {
-        let tag = TagsManager.shared.addTag(name: name, emoji: emoji)
+        let tag = tagsManager.addTag(name: name, emoji: emoji)
         tags.append(tag)
     }
     
@@ -81,7 +81,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
         }
     }
     
-    // Add new payment
+    /// Add new payment
     func addPayment(price: Float, about: String, tag: Tag) {
         DispatchQueue.global().async {
             let payment = self.paymentsManager.addPayment(price: price, about: about, tag: tag)
@@ -90,6 +90,17 @@ class HomeViewModel: ObservableObject, BaseViewModel {
                 self.calculatePayments()
             }
         }
+    }
+    
+    /// Find tag by name
+    func findTagByName(name: String) -> Tag? {
+        var result: Tag? = nil
+        tags.forEach { tag in
+            if tag.name == name {
+                result = tag
+            }
+        }
+        return result
     }
     
     /// Calculate payments

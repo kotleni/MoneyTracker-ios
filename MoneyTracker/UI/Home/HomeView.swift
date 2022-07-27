@@ -38,7 +38,7 @@ struct HomeView: View {
                     if viewModel.payments.count > 0 {
                         ForEach(viewModel.payments, id: \.self) { payment in
                             if payment.isFilterOk(filter: viewModel.selectedFilter) {
-                                PaymentItemView(payment: payment, viewModel: viewModel)
+                                PaymentItemView(payment: payment, tag: viewModel.findTagByName(name: payment.tag!)!, priceType: viewModel.priceType)
                             }
                         }
                         .onDelete { indexSet in

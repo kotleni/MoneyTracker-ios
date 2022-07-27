@@ -12,6 +12,7 @@ extension Tag {
         return "\(emoji!) \(name!)"
     }
     
+    @available(*, deprecated)
     static func getByName(name: String) -> Tag? {
         var result: Tag? = nil
         getAll().forEach { tag in

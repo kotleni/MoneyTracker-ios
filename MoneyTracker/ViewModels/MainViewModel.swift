@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 @available(*, deprecated)
 class MainViewModel: ObservableObject {
     @Published var isLoading: Bool = true
@@ -189,3 +190,4 @@ class MainViewModel: ObservableObject {
         loadTags()
     }
 }
+ */

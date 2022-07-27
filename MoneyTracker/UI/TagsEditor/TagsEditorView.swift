@@ -19,7 +19,7 @@ struct TagsEditorView: View {
     var body: some View {
         List {
             Section {
-                ForEach(Tag.getAll(), id: \.self) { tag in
+                ForEach(viewModel.tags, id: \.self) { tag in
                     Text(tag.emoji! + " " + tag.name!)
                 }
                 .onDelete { indexSet in

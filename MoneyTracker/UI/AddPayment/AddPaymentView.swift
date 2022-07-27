@@ -19,91 +19,81 @@ struct AddPaymentView: View {
     @State private var isError: Bool = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Picker("", selection: $spendingBool) {
-                    Text("segment_expenses".localized)
-                        .tag(true)
-                    Text("segment_income".localized)
-                        .tag(false)
-                }
-                .pickerStyle(.segmented)
-                .padding()
-                
-                Form {
-                    Section {
+        VStack {
+            Picker("", selection: $spendingBool) {
+                Text("segment_expenses".localized)
+                    .tag(true)
+                Text("segment_income".localized)
+                    .tag(false)
+            }
+            .pickerStyle(.segmented)
+            .padding()
+            
+            Form {
+                Section {
+                    HStack {
+                        Text("field_price".localized)
+                        Spacer()
+                        TextField("hint_necessarily".localized, text: $priceText)
+                            .keyboardType(.decimalPad)
+                            .multilineTextAlignment(.trailing)
+                            .frame(width: UIScreen.main.bounds.width / 3)
+                    }
+                    HStack {
+                        Text("field_desc".localized)
+                        Spacer()
+                        TextField("hint_necessarily".localized, text: $aboutText)
+                            .multilineTextAlignment(.trailing)
+                            .frame(width: UIScreen.main.bounds.width / 3)
+                    }
+                    if spendingBool {
                         HStack {
-                            Text("field_price".localized)
+                            Text("label_tag".localized)
                             Spacer()
-                            TextField("hint_necessarily".localized, text: $priceText)
-                                .keyboardType(.decimalPad)
-                                .multilineTextAlignment(.trailing)
-                                .frame(width: UIScreen.main.bounds.width / 3)
-                        }
-                        HStack {
-                            Text("field_desc".localized)
-                            Spacer()
-                            TextField("hint_necessarily".localized, text: $aboutText)
-                                .multilineTextAlignment(.trailing)
-                                .frame(width: UIScreen.main.bounds.width / 3)
-                        }
-                        if spendingBool {
-                            HStack {
-                                Text("label_tag".localized)
-                                Spacer()
-                                Picker("", selection: $selectedTag) {
-                                    ForEach(viewModel.tags, id: \.self) { tag in
-                                        Text(tag.emoji! + " " + tag.name!)
-                                    }
+                            Picker("", selection: $selectedTag) {
+                                ForEach(viewModel.tags, id: \.self) { tag in
+                                    Text(tag.emoji! + " " + tag.name!)
                                 }
-                                .pickerStyle(.menu)
                             }
+                            .pickerStyle(.menu)
                         }
-                    } footer: {
-                        Text("hint_payment".localized)
                     }
+                } footer: {
+                    Text("hint_payment".localized)
                 }
-                .navigationBarTitle("title_newpayment".localized, displayMode: .inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
+            }
+            .navigationBarTitle("title_newpayment".localized, displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        if PriceValidator.validate(str: priceText) &&
+                            !aboutText.isEmpty {
+                            // fixme: stupid code
+                            let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
+                            let sum = MathematicalExpression(line: priceStr).makeResult()
+                            guard let fl = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
+                            let about = aboutText
+                            let tag = selectedTag
+                            
+                            viewModel.addPayment(price: fl, about: about, tag: tag)
+                            
+                            let generator = UINotificationFeedbackGenerator()
+                            generator.notificationOccurred(.success)
+                            
+                            
                             router.popToRoot()
-                        } label: {
-                            Text("btn_cancel".localized)
+                            
+                            priceText = ""
+                            aboutText = ""
+                            selectedTag = Tag.getDefault()
+                            spendingBool = false
+                        } else {
+                            isError = true
+                            let generator = UINotificationFeedbackGenerator()
+                            generator.notificationOccurred(.error)
                         }
-                    }
-                    
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            if PriceValidator.validate(str: priceText) &&
-                                !aboutText.isEmpty {
-                                // fixme: stupid code
-                                let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
-                                let sum = MathematicalExpression(line: priceStr).makeResult()
-                                guard let fl = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
-                                let about = aboutText
-                                let tag = selectedTag
-                                
-                                viewModel.addPayment(price: fl, about: about, tag: tag)
-                                
-                                let generator = UINotificationFeedbackGenerator()
-                                generator.notificationOccurred(.success)
-                                
-                                
-                                router.popToRoot()
-                                
-                                priceText = ""
-                                aboutText = ""
-                                selectedTag = Tag.getDefault()
-                                spendingBool = false
-                            } else {
-                                isError = true
-                                let generator = UINotificationFeedbackGenerator()
-                                generator.notificationOccurred(.error)
-                            }
-                        } label: {
-                            Text("btn_next".localized)
-                        }
+                    } label: {
+                        Text("btn_next".localized)
                     }
                 }
             }

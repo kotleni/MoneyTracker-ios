@@ -33,7 +33,7 @@ final class HomeCoordinator: NavigationCoordinatable {
     }
     
     @Root var main = makeMain
-    @Route(.modal) var addPayments = makeAddPayments
+    @Route(.push) var addPayments = makeAddPayments
     
     @ViewBuilder func makeMain() -> some View {
         HomeView(viewModel: homeViewModel)
