@@ -19,14 +19,19 @@ class CurrencyEditorViewModel: ObservableObject, BaseViewModel {
     /// Load data
     func loadData() {
         let priceType = storageManager.getPriceType()
-        let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType)
-        selectedCurrencyId = currency!.id
+        if let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType) {
+            selectedCurrencyId = currency.id
+        } else { // is currency not found
+            // reset it to default
+            selectedCurrencyId = Currencies.currenciesPopular.first!.id
+        }
     }
     
     /// Set currency currency
     func setCurrency(id: UUID) {
         selectedCurrencyId = id
-        let currency = Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId)!
-        storageManager.setPriceType(type: currency.littleName)
+        if let currency = Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId) {
+            storageManager.setPriceType(type: currency.littleName)
+        }
     }
 }
