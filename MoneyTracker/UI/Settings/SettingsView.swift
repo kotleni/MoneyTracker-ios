@@ -36,8 +36,12 @@ struct SettingsView: View {
                 SettingsItemView(title: "btn_edittags".localized, action: {
                     router.route(to: \.tagsEditor)
                 }, value: "")
-                
-                // about
+            } header: {
+                Text("settings_main".localized)
+            }
+
+            Section {
+                // premium
                 SettingsItemView(title: "btn_premium".localized, action: {
                     router.route(to: \.premium)
                 }, value: "")
@@ -49,11 +53,6 @@ struct SettingsView: View {
                     }, value: "")
                 }
                 
-                // about
-                SettingsItemView(title: "btn_aboutapp".localized, action: {
-                    router.route(to: \.aboutApp)
-                }, value: "")
-                
                 // reset payments
                 SettingsItemView(title: "btn_resetpay".localized, action: {
                     if(viewModel.isPremium) {
@@ -63,8 +62,16 @@ struct SettingsView: View {
                         self.isShowToast = true
                     }
                 }, value: "")
+                
+                // about
+                SettingsItemView(title: "btn_aboutapp".localized, action: {
+                    router.route(to: \.aboutApp)
+                }, value: "")
+            } header: {
+                Text("settings_other".localized)
             }
         }
+        .background(Color("MainBackground"))
         .toast(message: toastText, isShowing: $isShowToast, config: .init())
         .navigationTitle("title_settings".localized)
         .onAppear { viewModel.loadData() }

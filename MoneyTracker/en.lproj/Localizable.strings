@@ -102,3 +102,6 @@
 "btn_terms" = "User Agreement";
 "label_links" = "Links";
 "label_info" = "About";
+
+"settings_main" = "Main";
+"settings_other" = "Other";

@@ -102,3 +102,6 @@
 "btn_terms" = "Пользовательское соглашение";
 "label_links" = "Ссылки";
 "label_info" = "Информация";
+
+"settings_main" = "Основные";
+"settings_other" = "Прочее";
