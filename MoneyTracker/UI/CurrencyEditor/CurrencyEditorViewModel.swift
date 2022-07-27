@@ -11,6 +11,7 @@ class CurrencyEditorViewModel: ObservableObject, BaseViewModel {
     private let storageManager: StorageManager
     
     @Published private(set) var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id
+    @Published private(set) var isLoading: Bool = true
     
     init(storageManager: StorageManager) {
         self.storageManager = storageManager
@@ -18,12 +19,15 @@ class CurrencyEditorViewModel: ObservableObject, BaseViewModel {
     
     /// Load data
     func loadData() {
-        let priceType = storageManager.getPriceType()
-        if let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType) {
-            selectedCurrencyId = currency.id
-        } else { // is currency not found
-            // reset it to default
-            selectedCurrencyId = Currencies.currenciesPopular.first!.id
+        DispatchQueue.global(qos: .userInitiated).async {
+            let priceType = self.storageManager.getPriceType()
+            if let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType) {
+                self.selectedCurrencyId = currency.id
+            } else { // is currency not found
+                // reset it to default
+                self.selectedCurrencyId = Currencies.currenciesPopular.first!.id
+            }
+            self.isLoading = false
         }
     }
     
