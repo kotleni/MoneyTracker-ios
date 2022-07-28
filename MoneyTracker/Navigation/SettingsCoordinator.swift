@@ -14,6 +14,7 @@ final class SettingsCoordinator: NavigationCoordinatable {
     private let storageManager: StorageManager
     private let notificationsManager: NotificationsManager
     private let tagsManager: TagsManager
+    private let storeManager: StoreManager
     
     private let settingsViewModel: SettingsViewModel
     private let currencyEditorViewModel: CurrencyEditorViewModel
@@ -26,12 +27,12 @@ final class SettingsCoordinator: NavigationCoordinatable {
     
     var stack = NavigationStack(initial: \SettingsCoordinator.main)
     
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager) {
+    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager) {
         self.paymentsManager = paymentsManager
         self.storageManager = storageManager
         self.notificationsManager = notificationsManager
         self.tagsManager = tagsManager
-        
+        self.storeManager = storeManager
         // viewModels
         settingsViewModel = SettingsViewModel(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager)
         currencyEditorViewModel = CurrencyEditorViewModel(storageManager: storageManager)
@@ -40,7 +41,7 @@ final class SettingsCoordinator: NavigationCoordinatable {
         developerViewModel = DeveloperViewModel(storageManager: storageManager, tagsManager: tagsManager, paymentsManager: paymentsManager, notificationsManager: notificationsManager)
         resetPaymentsViewModel = ResetPaymentsViewModel(paymentsManager: paymentsManager)
         notificationsViewModel = NotificationsViewModel(notificationsManager: notificationsManager, storageManager: storageManager)
-        premiumViewModel = PremiumViewModel(storageManager: storageManager)
+        premiumViewModel = PremiumViewModel(storageManager: storageManager, storeManager: storeManager)
     }
     
     @Root var main = makeMain
