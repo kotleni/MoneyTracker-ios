@@ -62,6 +62,8 @@ extension StoreManager: SKProductsRequestDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.products = response.products
             self?.objectWillChange.send()
+            //Вот тут
+            print(response.products)
         }
     }
     
