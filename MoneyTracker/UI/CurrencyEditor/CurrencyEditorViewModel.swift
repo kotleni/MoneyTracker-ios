@@ -24,12 +24,18 @@ class CurrencyEditorViewModel: ObservableObject, BaseViewModel {
         DispatchQueue.global(qos: .userInitiated).async {
             let priceType = self.storageManager.getPriceType()
             if let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType) {
-                self.selectedCurrencyId = currency.id
+                DispatchQueue.main.async {
+                    self.selectedCurrencyId = currency.id
+                }
             } else { // is currency not found
                 // reset it to default
+                DispatchQueue.main.async {
                 self.selectedCurrencyId = Currencies.currenciesPopular.first!.id
+                }
             }
-            self.isLoading = false
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
         }
     }
     
