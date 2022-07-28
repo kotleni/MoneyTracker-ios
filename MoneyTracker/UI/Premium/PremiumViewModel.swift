@@ -31,6 +31,8 @@ class PremiumViewModel: ObservableObject, BaseViewModel {
     
     /// Try purshace premium
     func purshacePremium() {
-        storeManager.buyProductMonth()
+        storeManager.buyProductMonth { isSuccess in
+            print(isSuccess)
+        }
     }
 }

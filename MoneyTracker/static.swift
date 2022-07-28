@@ -14,5 +14,5 @@ final class Static {
     static let githubUrl = "https://github.com/kotleni/MoneyTracker-ios/"
     static let policyUrl = "http://kotleni.github.io/money%20tracker/policy.html"
     static let termsUrl = "http://kotleni.github.io/money%20tracker/terms.html"
-    static let subscriptionsID: Set<String> = ["moneytracker.premium1"]
+    static let subscriptionsID: Set<String> = ["moneytracker.premiumEveryMonth"]
 }

@@ -14,6 +14,8 @@ class StoreManager: NSObject, ObservableObject {
     private var productsRequest: SKProductsRequest? = nil
     @Published private(set) var products = [SKProduct]()
     
+    public var callbackPurchase: ((Bool) -> Void)?
+    
     init(productsIDs: Set<String>) {
         productsIdentifiers = productsIDs
         super.init()
@@ -26,11 +28,14 @@ class StoreManager: NSObject, ObservableObject {
         productsRequest?.start()
     }
     
-    func buyProductMonth() {
+    func buyProductMonth(_ callback: @escaping (Bool) -> Void) {
         let sortedProduct = products.sorted { priceFormatter($0) < priceFormatter($1) }
         guard let product = sortedProduct.first else { return }
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
+        callbackPurchase = { bool in
+            callback(bool)
+        }
     }
     
     func priceFormatter(_ product: SKProduct) -> String {

@@ -38,7 +38,8 @@ extension AppDelegate: SKPaymentTransactionObserver {
     }
     private func completeTransaction(_ transaction: SKPaymentTransaction) {
         defer { SKPaymentQueue.default().finishTransaction(transaction) }
-        NotificationCenter.default.post(name: NSNotification.Name("purchasedSuccess"), object: nil, userInfo: ["transactionID": transaction.transactionIdentifier!])
+        //NotificationCenter.default.post(name: NSNotification.Name("purchasedSuccess"), object: nil, userInfo: ["transactionID": transaction.transactionIdentifier!])
+        store.callbackPurchase?(true)
     }
     private func failedTransaction(_ transaction: SKPaymentTransaction) {
         if let transactionError = transaction.error as NSError?,
@@ -46,7 +47,8 @@ extension AppDelegate: SKPaymentTransactionObserver {
            transactionError.code != SKError.paymentCancelled.rawValue {
             print("transaction error: \(errorDescription)")
         }
-        NotificationCenter.default.post(name: NSNotification.Name("purchasedFailed"), object: nil)
+        store.callbackPurchase?(false)
+        //NotificationCenter.default.post(name: NSNotification.Name("purchasedFailed"), object: nil)
         SKPaymentQueue.default().finishTransaction(transaction)
     }
 }
