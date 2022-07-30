@@ -15,4 +15,8 @@ final class Static {
     static let policyUrl = "http://kotleni.github.io/money%20tracker/policy.html"
     static let termsUrl = "http://kotleni.github.io/money%20tracker/terms.html"
     static let subscriptionsID: Set<String> = ["moneytracker.premiumEveryMonth"]
+    static let developers: Array<Developer> = [
+        Developer(name: "Victor Varenik", about: "label_developermain".localized, url: ""),
+        Developer(name: "Mark Hmelnitsky", about: "label_developercontr".localized, url: ""),
+    ]
 }
