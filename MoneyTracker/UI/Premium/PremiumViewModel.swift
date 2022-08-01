@@ -31,7 +31,12 @@ class PremiumViewModel: ObservableObject, BaseViewModel {
     
     /// Try purshace premium
     func purshacePremium() {
-        storeManager.buyProductMonth { isSuccess in
+        // Потом нужно будет переписать, если будет больше одной покупки,
+        // сейчас покупается самая дешевая покупка))
+        let sortedProduct = storeManager.products.sorted { storeManager.priceFormatter($0) < storeManager.priceFormatter($1) }
+        guard let product = sortedProduct.first else { return }
+        
+        storeManager.buyProduct(product: product) { isSuccess in
             print(isSuccess)
         }
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 /// Data storage manager
-class StorageManager {
+final class StorageManager {
     class Keys {
         static let priceType = "price_type"
         static let notifEnable = "notif_enable"

@@ -16,22 +16,29 @@ struct MoneyTrackerApp: App {
     private let notificationsManager: NotificationsManager
     private let tagsManager: TagsManager
     private let storeManager: StoreManager
+    private let keychainManager: KeychainManager
     init() {
         // managers
         paymentsManager = PaymentsManager()
         storageManager = StorageManager()
         notificationsManager = NotificationsManager()
         tagsManager = TagsManager()
-        storeManager = StoreManager(productsIDs: Static.subscriptionsID)
+        keychainManager = KeychainManager()
+        storeManager = StoreManager(keychain: keychainManager, productsIDs: Static.subscriptionsID)
         // injects
         storeManager.requestProducts()
         appDelegate.store = storeManager
+        appDelegate.keychain = keychainManager
     }
     
     var body: some Scene {
         WindowGroup {
-            TabsCoordinator(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager)
-                .view()
+            TabsCoordinator(paymentsManager: paymentsManager,
+                            storageManager: storageManager,
+                            notificationsManager: notificationsManager,
+                            tagsManager: tagsManager,
+                            storeManager: storeManager)
+            .view()
         }
     }
 }

@@ -1,5 +1,5 @@
 {
-  "identifier" : "5BDE16C1",
+  "identifier" : "50C5D43E",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -11,7 +11,7 @@
   },
   "subscriptionGroups" : [
     {
-      "id" : "6C9B7800",
+      "id" : "8EAE1478",
       "localizations" : [
 
       ],
@@ -27,7 +27,7 @@
           "displayPrice" : "0.99",
           "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "063E0D5E",
+          "internalID" : "BD0E39EF",
           "introductoryOffer" : null,
           "localizations" : [
             {
@@ -39,7 +39,7 @@
           "productID" : "moneytracker.premiumEveryMonth",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Premium",
-          "subscriptionGroupID" : "6C9B7800",
+          "subscriptionGroupID" : "8EAE1478",
           "type" : "RecurringSubscription"
         }
       ]
