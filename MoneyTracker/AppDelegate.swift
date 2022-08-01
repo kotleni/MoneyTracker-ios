@@ -10,6 +10,7 @@ import StoreKit
 
 class AppDelegate: NSObject {
     var store: StoreManager!
+    var keychain: KeychainManager!
 }
 
 extension AppDelegate: UIApplicationDelegate {
@@ -38,7 +39,10 @@ extension AppDelegate: SKPaymentTransactionObserver {
     }
     private func completeTransaction(_ transaction: SKPaymentTransaction) {
         defer { SKPaymentQueue.default().finishTransaction(transaction) }
-        //NotificationCenter.default.post(name: NSNotification.Name("purchasedSuccess"), object: nil, userInfo: ["transactionID": transaction.transactionIdentifier!])
+        // Encode BOOL to data type
+        let boolData = try! JSONEncoder().encode(true)
+        // Save to keychain
+        keychain.save(boolData, key: transaction.payment.productIdentifier)
         store.callbackPurchase?(true)
     }
     private func failedTransaction(_ transaction: SKPaymentTransaction) {
@@ -48,7 +52,6 @@ extension AppDelegate: SKPaymentTransactionObserver {
             print("transaction error: \(errorDescription)")
         }
         store.callbackPurchase?(false)
-        //NotificationCenter.default.post(name: NSNotification.Name("purchasedFailed"), object: nil)
         SKPaymentQueue.default().finishTransaction(transaction)
     }
 }

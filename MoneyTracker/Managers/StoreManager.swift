@@ -8,16 +8,24 @@
 import Foundation
 import StoreKit
 
-class StoreManager: NSObject, ObservableObject {
-    
+final class StoreManager: NSObject, ObservableObject {
+    var keychain: KeychainManager
     private let productsIdentifiers: Set<String>
     private var productsRequest: SKProductsRequest? = nil
     @Published private(set) var products = [SKProduct]()
     
+    private(set) var purchasedProducts: Set<String> = []
+    
     public var callbackPurchase: ((Bool) -> Void)?
     
-    init(productsIDs: Set<String>) {
+    init(keychain: KeychainManager, productsIDs: Set<String>) {
+        self.keychain = keychain
         productsIdentifiers = productsIDs
+        // Check if product saved in keychain
+        purchasedProducts = Set(productsIdentifiers.filter {
+            guard let data = keychain.read(key: $0) else { return false }
+            return try! JSONDecoder().decode(Bool.self, from: data)
+        })
         super.init()
     }
     
@@ -28,9 +36,7 @@ class StoreManager: NSObject, ObservableObject {
         productsRequest?.start()
     }
     
-    func buyProductMonth(_ callback: @escaping (Bool) -> Void) {
-        let sortedProduct = products.sorted { priceFormatter($0) < priceFormatter($1) }
-        guard let product = sortedProduct.first else { return }
+    func buyProduct(product: SKProduct, _ callback: @escaping (Bool) -> Void) {
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
         callbackPurchase = { bool in

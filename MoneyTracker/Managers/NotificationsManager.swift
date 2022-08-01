@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Notifications manager
-class NotificationsManager {
+final class NotificationsManager {
     @available(*, deprecated)
     static let shared = NotificationsManager()
     
