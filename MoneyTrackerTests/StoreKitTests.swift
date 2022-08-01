@@ -18,9 +18,10 @@ class StoreKitTests: XCTestCase {
         if products.count > 0 {
             return
         }
-        let session = try SKTestSession(configurationFileNamed: "Configuration")
-        session.disableDialogs = true
-        session.clearTransactions()
+        
+//        let session = try SKTestSession(configurationFileNamed: "Configuration")
+//        session.disableDialogs = true
+//        session.clearTransactions()
     
         let store = StoreManager(keychain: keychain, productsIDs: Static.subscriptionsID)
         
@@ -53,7 +54,6 @@ class StoreKitTests: XCTestCase {
     }
     
     func testBuyProduct() {
-        
         let product = products.first!
         
         keychain.delete(key: product.productIdentifier)
@@ -61,18 +61,12 @@ class StoreKitTests: XCTestCase {
         
         let store = StoreManager(keychain: keychain, productsIDs: Static.subscriptionsID)
         store.buyProduct(product: product) { result in
-            print(result)
-        }
-        
-        let purchaseExpectation = expectation(description: "test after a second")
-        let result = XCTWaiter.wait(for: [purchaseExpectation], timeout: 1.0)
-        
-        if result == XCTWaiter.Result.timedOut {
-            let data = keychain.read(key: product.productIdentifier)
+            
+            let data = self.keychain.read(key: product.productIdentifier)
             XCTAssertNotNil(data)
             let isOwned = try? JSONDecoder().decode(Bool.self, from: data!)
             XCTAssertNotNil(isOwned)
-            XCTAssertTrue(isOwned!)
+            XCTAssertTrue(result)
         }
     }
     
