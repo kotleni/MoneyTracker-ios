@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "openssl",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/OpenSSL",
+      "state" : {
+        "revision" : "9429bf89fe0df2d2f25f3a9a51cbf7092e69640f",
+        "version" : "1.1.1700"
+      }
+    },
+    {
       "identity" : "stinsen",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rundfunk47/stinsen",

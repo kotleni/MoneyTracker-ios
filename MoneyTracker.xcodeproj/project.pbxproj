@@ -67,6 +67,7 @@
 		5ADD33F62891DBF500C00F1C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33F52891DBF500C00F1C /* View.swift */; };
 		5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA66D62882C07100088D53 /* MathematicalExpression.swift */; };
 		5AFED6E128918D1A00E33D66 /* TagsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */; };
+		B4043A132898F840009DB652 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = B4043A122898F840009DB652 /* OpenSSL */; };
 		B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B42D29A3287EE10900F324CE /* Launch Screen.storyboard */; };
 		B4BD4E9B2892678B004646E2 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD4E9A2892678B004646E2 /* StoreManager.swift */; };
 		B4BD4E9F28926912004646E2 /* SKProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD4E9E28926912004646E2 /* SKProduct.swift */; };
@@ -79,6 +80,9 @@
 		B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501382869AA860065EB4D /* PersistenceController.swift */; };
 		B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */; };
 		B4D501462869ABCE0065EB4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4D501482869ABCE0065EB4D /* Localizable.strings */; };
+		B4DDA7A62898F0890088225C /* IAPReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DDA7A32898F0890088225C /* IAPReceipt.swift */; };
+		B4DDA7A72898F0890088225C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DDA7A42898F0890088225C /* Receipt.swift */; };
+		B4DDA7A82898F0890088225C /* ASN1Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DDA7A52898F0890088225C /* ASN1Helpers.swift */; };
 		B4F01818288AD316009CCA62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F01817288AD316009CCA62 /* AppDelegate.swift */; };
 		B4F15B0B28979D8400DC8CA2 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F15B0A28979D8400DC8CA2 /* KeychainManager.swift */; };
 		B4F15B0D2898121100DC8CA2 /* StoreKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F15B0C2898121100DC8CA2 /* StoreKitTests.swift */; };
@@ -181,6 +185,9 @@
 		B4D5013C2869AAB10065EB4D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B4D501472869ABCE0065EB4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B4D501492869ABD20065EB4D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B4DDA7A32898F0890088225C /* IAPReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPReceipt.swift; sourceTree = "<group>"; };
+		B4DDA7A42898F0890088225C /* Receipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		B4DDA7A52898F0890088225C /* ASN1Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASN1Helpers.swift; sourceTree = "<group>"; };
 		B4F01817288AD316009CCA62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4F15B0928979D2800DC8CA2 /* MoneyTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoneyTracker.entitlements; sourceTree = "<group>"; };
 		B4F15B0A28979D8400DC8CA2 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -207,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4043A132898F840009DB652 /* OpenSSL in Frameworks */,
 				5A3A6564288570DA0097B179 /* Stinsen in Frameworks */,
 				5A0EF6ED289562A5009470DB /* StoreKit.framework in Frameworks */,
 			);
@@ -434,6 +442,7 @@
 				5AD41C27287D4EA100A464B2 /* UI */,
 				5A19B98E2883456200C27056 /* Validators */,
 				5A0952B2287E0852006CCE2D /* Managers */,
+				B4DDA7A22898F0890088225C /* Receipt */,
 				5A557F0A287D9B1800F7B68F /* Entities */,
 				B4D5013A2869AA900065EB4D /* Database */,
 				B4D501332869AA1B0065EB4D /* Extension */,
@@ -483,6 +492,16 @@
 				B4D5013B2869AAB10065EB4D /* Model.xcdatamodeld */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		B4DDA7A22898F0890088225C /* Receipt */ = {
+			isa = PBXGroup;
+			children = (
+				B4DDA7A32898F0890088225C /* IAPReceipt.swift */,
+				B4DDA7A42898F0890088225C /* Receipt.swift */,
+				B4DDA7A52898F0890088225C /* ASN1Helpers.swift */,
+			);
+			path = Receipt;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -539,6 +558,7 @@
 			name = MoneyTracker;
 			packageProductDependencies = (
 				5A3A6563288570DA0097B179 /* Stinsen */,
+				B4043A122898F840009DB652 /* OpenSSL */,
 			);
 			productName = MoneyTracker;
 			productReference = B4D501202869A87A0065EB4D /* MoneyTracker.app */;
@@ -578,6 +598,7 @@
 			mainGroup = B4D501172869A87A0065EB4D;
 			packageReferences = (
 				5A3A6562288570DA0097B179 /* XCRemoteSwiftPackageReference "stinsen" */,
+				B4043A112898F840009DB652 /* XCRemoteSwiftPackageReference "OpenSSL" */,
 			);
 			productRefGroup = B4D501212869A87A0065EB4D /* Products */;
 			projectDirPath = "";
@@ -666,7 +687,9 @@
 				5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */,
 				B4F01818288AD316009CCA62 /* AppDelegate.swift in Sources */,
 				5AD41C2B287D4ECE00A464B2 /* HomeView.swift in Sources */,
+				B4DDA7A82898F0890088225C /* ASN1Helpers.swift in Sources */,
 				5A798FCD2885A16000A63300 /* HomeBalanceView.swift in Sources */,
+				B4DDA7A62898F0890088225C /* IAPReceipt.swift in Sources */,
 				B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */,
 				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
 				5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */,
@@ -698,6 +721,7 @@
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,
 				5A798FC928859C6100A63300 /* SettingsItemView.swift in Sources */,
 				5AD41C26287D4A0500A464B2 /* Static.swift in Sources */,
+				B4DDA7A72898F0890088225C /* Receipt.swift in Sources */,
 				5A4352A42883EB8900C89F44 /* String.swift in Sources */,
 				5AAFDE8A2884418B0076ECE7 /* Date.swift in Sources */,
 				5A4604352890756E00E4A411 /* AddPaymentViewModel.swift in Sources */,
@@ -1050,6 +1074,14 @@
 				kind = branch;
 			};
 		};
+		B4043A112898F840009DB652 /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.1700;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1057,6 +1089,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A3A6562288570DA0097B179 /* XCRemoteSwiftPackageReference "stinsen" */;
 			productName = Stinsen;
+		};
+		B4043A122898F840009DB652 /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4043A112898F840009DB652 /* XCRemoteSwiftPackageReference "OpenSSL" */;
+			productName = OpenSSL;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -39,11 +39,18 @@ extension AppDelegate: SKPaymentTransactionObserver {
     }
     private func completeTransaction(_ transaction: SKPaymentTransaction) {
         defer { SKPaymentQueue.default().finishTransaction(transaction) }
-        // Encode BOOL to data type
-        let boolData = try! JSONEncoder().encode(true)
-        // Save to keychain
-        keychain.save(boolData, key: transaction.payment.productIdentifier)
-        store.callbackPurchase?(true)
+        // MARK: Локальные покупки не генерируют чек, поэтому нужно их отключать при валидации чека
+        guard Receipt.isReceiptPresent() else { return }
+        let receipt = Receipt()
+        if receipt.receiptStatus == .validationSuccess {
+            // Encode BOOL to data type
+            let boolData = try! JSONEncoder().encode(true)
+            // Save to keychain
+            keychain.save(boolData, key: transaction.payment.productIdentifier)
+            store.callbackPurchase?(true)
+        } else {
+            store.callbackPurchase?(false)
+        }
     }
     private func failedTransaction(_ transaction: SKPaymentTransaction) {
         if let transactionError = transaction.error as NSError?,
