@@ -50,7 +50,6 @@ class StoreKitTests: XCTestCase {
     }
     
     func testBuyProduct() {
-        
         let product = products.first!
         
         keychain.delete(key: product.productIdentifier)
