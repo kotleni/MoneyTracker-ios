@@ -39,7 +39,6 @@ extension AppDelegate: SKPaymentTransactionObserver {
     }
     private func completeTransaction(_ transaction: SKPaymentTransaction) {
         defer { SKPaymentQueue.default().finishTransaction(transaction) }
-        // MARK: Локальные покупки не генерируют чек, поэтому нужно их отключать при валидации чека
         guard Receipt.isReceiptPresent() else { return }
         let receipt = Receipt()
         if receipt.receiptStatus == .validationSuccess {
