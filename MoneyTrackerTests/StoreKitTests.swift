@@ -18,10 +18,6 @@ class StoreKitTests: XCTestCase {
         if products.count > 0 {
             return
         }
-        
-//        let session = try SKTestSession(configurationFileNamed: "Configuration")
-//        session.disableDialogs = true
-//        session.clearTransactions()
     
         let store = StoreManager(keychain: keychain, productsIDs: Static.subscriptionsID)
         
@@ -61,7 +57,6 @@ class StoreKitTests: XCTestCase {
         
         let store = StoreManager(keychain: keychain, productsIDs: Static.subscriptionsID)
         store.buyProduct(product: product) { result in
-            
             let data = self.keychain.read(key: product.productIdentifier)
             XCTAssertNotNil(data)
             let isOwned = try? JSONDecoder().decode(Bool.self, from: data!)
