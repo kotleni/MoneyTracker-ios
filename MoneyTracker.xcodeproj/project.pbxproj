@@ -87,9 +87,6 @@
 		B4F01818288AD316009CCA62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F01817288AD316009CCA62 /* AppDelegate.swift */; };
 		B4F15B0B28979D8400DC8CA2 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F15B0A28979D8400DC8CA2 /* KeychainManager.swift */; };
 		B4F15B0D2898121100DC8CA2 /* StoreKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F15B0C2898121100DC8CA2 /* StoreKitTests.swift */; };
-		B4F15B0F2898192800DC8CA2 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B4F15B0E2898192800DC8CA2 /* Configuration.storekit */; };
-		B4F15B102898192800DC8CA2 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B4F15B0E2898192800DC8CA2 /* Configuration.storekit */; };
-		B4F15B112898192800DC8CA2 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B4F15B0E2898192800DC8CA2 /* Configuration.storekit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,7 +191,6 @@
 		B4F15B0928979D2800DC8CA2 /* MoneyTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoneyTracker.entitlements; sourceTree = "<group>"; };
 		B4F15B0A28979D8400DC8CA2 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B4F15B0C2898121100DC8CA2 /* StoreKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitTests.swift; sourceTree = "<group>"; };
-		B4F15B0E2898192800DC8CA2 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,7 +435,6 @@
 			isa = PBXGroup;
 			children = (
 				B4F15B0928979D2800DC8CA2 /* MoneyTracker.entitlements */,
-				B4F15B0E2898192800DC8CA2 /* Configuration.storekit */,
 				5AFED6DF28918D0D00E33D66 /* Publishers */,
 				5AAFDE8B28846D7E0076ECE7 /* Navigation */,
 				5AD41C27287D4EA100A464B2 /* UI */,
@@ -619,7 +614,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4F15B102898192800DC8CA2 /* Configuration.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +621,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4F15B112898192800DC8CA2 /* Configuration.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,7 +629,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */,
-				B4F15B0F2898192800DC8CA2 /* Configuration.storekit in Resources */,
 				B4D5012B2869A87C0065EB4D /* Preview Assets.xcassets in Resources */,
 				B4D501462869ABCE0065EB4D /* Localizable.strings in Resources */,
 				B4043A162899148F009DB652 /* AppleIncRootCertificate.cer in Resources */,
@@ -962,7 +954,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = 9M7NZR7YP6;
+				DEVELOPMENT_TEAM = 534C989ZLQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoneyTracker/Info.plist;
@@ -1000,7 +992,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 534C989ZLQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoneyTracker/Info.plist;
