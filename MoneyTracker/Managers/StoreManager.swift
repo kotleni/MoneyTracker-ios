@@ -14,18 +14,21 @@ final class StoreManager: NSObject, ObservableObject {
     private var productsRequest: SKProductsRequest? = nil
     @Published private(set) var products = [SKProduct]()
     
-    private(set) var purchasedProducts: Set<String> = []
+    private(set) var subscriptionDate: Date?
     
     public var callbackPurchase: ((Bool) -> Void)?
     
     init(keychain: KeychainManager, productsIDs: Set<String>) {
         self.keychain = keychain
         productsIdentifiers = productsIDs
+        
         // Check if product saved in keychain
-        purchasedProducts = Set(productsIdentifiers.filter {
-            guard let data = keychain.read(key: $0) else { return false }
-            return try! JSONDecoder().decode(Bool.self, from: data)
-        })
+        if let data = keychain.read(key: Static.subsExpirationKeychain),
+           let expirationTimeInteval = try? JSONDecoder().decode(TimeInterval.self, from: data) {
+            subscriptionDate = Date(timeIntervalSince1970: expirationTimeInteval)
+            print("Подписка истекает: \(String(describing: subscriptionDate))")
+        }
+       
         super.init()
     }
     
@@ -39,8 +42,8 @@ final class StoreManager: NSObject, ObservableObject {
     func buyProduct(product: SKProduct, _ callback: @escaping (Bool) -> Void) {
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
-        callbackPurchase = { bool in
-            callback(bool)
+        callbackPurchase = { isPurchased in
+            callback(isPurchased)
         }
     }
     
@@ -50,7 +53,7 @@ final class StoreManager: NSObject, ObservableObject {
         formatter.numberStyle = .currencyAccounting
         return formatter.string(from: product.price) ?? ""
     }
-    
+    // MARK: Сейчас не используется, но в будущем если будет несколько подписок или нужно будет выводить продолжительность подписки - смотри сюда
     func subscribtionPeriod(_ product: SKProduct) -> String {
         let duration = product.subscriptionPeriod
         switch duration {

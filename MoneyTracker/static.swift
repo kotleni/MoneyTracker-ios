@@ -19,4 +19,5 @@ final class Static {
         Developer(name: "Victor Varenik", about: "label_developermain".localized, url: ""),
         Developer(name: "Mark Hmelnitsky", about: "label_developercontr".localized, url: ""),
     ]
+    static let subsExpirationKeychain = "SubscriptionExpirationDate"
 }
