@@ -69,9 +69,9 @@
 		5AFED6E128918D1A00E33D66 /* TagsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */; };
 		B4043A132898F840009DB652 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = B4043A122898F840009DB652 /* OpenSSL */; };
 		B4043A162899148F009DB652 /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = B4043A152899148F009DB652 /* AppleIncRootCertificate.cer */; };
+		B425FB7228992A8600D32BB1 /* SKProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425FB7128992A8600D32BB1 /* SKProduct.swift */; };
 		B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B42D29A3287EE10900F324CE /* Launch Screen.storyboard */; };
 		B4BD4E9B2892678B004646E2 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD4E9A2892678B004646E2 /* StoreManager.swift */; };
-		B4BD4E9F28926912004646E2 /* SKProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD4E9E28926912004646E2 /* SKProduct.swift */; };
 		B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */; };
 		B4D501282869A87C0065EB4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D501272869A87C0065EB4D /* Assets.xcassets */; };
 		B4D5012B2869A87C0065EB4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D5012A2869A87C0065EB4D /* Preview Assets.xcassets */; };
@@ -170,9 +170,9 @@
 		5AFA66D62882C07100088D53 /* MathematicalExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalExpression.swift; sourceTree = "<group>"; };
 		5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPublisher.swift; sourceTree = "<group>"; };
 		B4043A152899148F009DB652 /* AppleIncRootCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate.cer; sourceTree = "<group>"; };
+		B425FB7128992A8600D32BB1 /* SKProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKProduct.swift; sourceTree = "<group>"; };
 		B42D29A3287EE10900F324CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B4BD4E9A2892678B004646E2 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
-		B4BD4E9E28926912004646E2 /* SKProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKProduct.swift; sourceTree = "<group>"; };
 		B4D501202869A87A0065EB4D /* MoneyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D501232869A87A0065EB4D /* MoneyTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTrackerApp.swift; sourceTree = "<group>"; };
 		B4D501272869A87C0065EB4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -476,9 +476,9 @@
 				5A4352A12883EB7500C89F44 /* Character.swift */,
 				5A4352A32883EB8900C89F44 /* String.swift */,
 				5AAFDE892884418B0076ECE7 /* Date.swift */,
+				B425FB7128992A8600D32BB1 /* SKProduct.swift */,
 				5A2383EE288DD68500DD60DE /* Payment.swift */,
 				5ADD33F52891DBF500C00F1C /* View.swift */,
-				B4BD4E9E28926912004646E2 /* SKProduct.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -669,7 +669,6 @@
 				5A4352A22883EB7500C89F44 /* Character.swift in Sources */,
 				5AFED6E128918D1A00E33D66 /* TagsPublisher.swift in Sources */,
 				5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */,
-				B4BD4E9F28926912004646E2 /* SKProduct.swift in Sources */,
 				B4D501322869A9ED0065EB4D /* String+Ext.swift in Sources */,
 				5A46043728911CA700E4A411 /* Balance.swift in Sources */,
 				5A460429288FF4D300E4A411 /* DeveloperViewModel.swift in Sources */,
@@ -679,6 +678,7 @@
 				5A0952B4287E959C006CCE2D /* CurrencyEditorView.swift in Sources */,
 				5A19B98728833DAC00C27056 /* AddTagView.swift in Sources */,
 				5A4604332890747700E4A411 /* PremiumViewModel.swift in Sources */,
+				B425FB7228992A8600D32BB1 /* SKProduct.swift in Sources */,
 				5AD6E9CF2887D3F1005311C5 /* PremiumView.swift in Sources */,
 				5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */,
 				B4F01818288AD316009CCA62 /* AppDelegate.swift in Sources */,

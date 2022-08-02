@@ -2,11 +2,13 @@
 //  SKProduct.swift
 //  MoneyTracker
 //
-//  Created by Mark Khmelnitskii on 28.07.2022.
+//  Created by Mark Khmelnitskii on 02.08.2022.
 //
 
+import Foundation
 import StoreKit
 
+// MARK: Используется для локализации продолжительности подписки
 extension SKProduct.PeriodUnit {
     func toCalendarUnit() -> NSCalendar.Unit {
         switch self {

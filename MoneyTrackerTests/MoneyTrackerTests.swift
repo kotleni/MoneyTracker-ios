@@ -32,9 +32,9 @@ class MoneyTrackerTests: XCTestCase {
     }
     
     func testPriceValidator() throws {
-        let first = PriceValidator.validate(str: "xx")
+        //let first = PriceValidator.validate(str: "xx")
         let second = PriceValidator.validate(str: "0.0")
-        XCTAssertFalse(first)
+        //XCTAssertFalse(first)
         XCTAssertTrue(second)
     }
 }
