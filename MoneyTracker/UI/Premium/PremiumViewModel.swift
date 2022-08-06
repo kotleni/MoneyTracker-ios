@@ -28,7 +28,7 @@ class PremiumViewModel: ObservableObject, BaseViewModel {
             isShopAvailable = true
         }
         if let subscriptionExpireDate = storeManager.subscriptionDate {
-            if Date().localDate() <= subscriptionExpireDate {
+            if Date().localDate() >= subscriptionExpireDate {
                 print("Подписка истекла")
                 isPremium = false
             } else {
@@ -45,8 +45,10 @@ class PremiumViewModel: ObservableObject, BaseViewModel {
         let sortedProduct = storeManager.products.sorted { storeManager.priceFormatter($0) < storeManager.priceFormatter($1) }
         guard let product = sortedProduct.first else { return }
         
+        print("buyproduct")
         storeManager.buyProduct(product: product) { isSuccess in
             self.isPremium = isSuccess
+            print(isSuccess)
         }
     }
 }

@@ -80,6 +80,6 @@ struct SettingsView: View {
 
 struct SettingsPreview: PreviewProvider {
     static var previews: some View {
-        SettingsView(viewModel: SettingsViewModel(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager()))
+        SettingsView(viewModel: SettingsViewModel(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), keychainManager: KeychainManager()))
     }
 }

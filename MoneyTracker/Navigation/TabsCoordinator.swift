@@ -15,13 +15,15 @@ final class TabsCoordinator: TabCoordinatable {
     private let notificationsManager: NotificationsManager
     private let tagsManager: TagsManager
     private let storeManager: StoreManager
+    private let keychainManager: KeychainManager
     
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager) {
+    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager, keychainManager: KeychainManager) {
         self.paymentsManager = paymentsManager
         self.storageManager = storageManager
         self.notificationsManager = notificationsManager
         self.tagsManager = tagsManager
         self.storeManager = storeManager
+        self.keychainManager = keychainManager
     }
     
     lazy var child = TabChild(startingItems: [
@@ -37,7 +39,7 @@ final class TabsCoordinator: TabCoordinatable {
     }
     
     func makeSettings() -> NavigationViewCoordinator<SettingsCoordinator> {
-        return NavigationViewCoordinator(SettingsCoordinator(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager))
+        return NavigationViewCoordinator(SettingsCoordinator(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager))
     }
     
     @ViewBuilder func makeHomeTab(isActive: Bool) -> some View {

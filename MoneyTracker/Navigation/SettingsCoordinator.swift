@@ -15,6 +15,7 @@ final class SettingsCoordinator: NavigationCoordinatable {
     private let notificationsManager: NotificationsManager
     private let tagsManager: TagsManager
     private let storeManager: StoreManager
+    private let keychainManager: KeychainManager
     
     private let settingsViewModel: SettingsViewModel
     private let currencyEditorViewModel: CurrencyEditorViewModel
@@ -27,14 +28,16 @@ final class SettingsCoordinator: NavigationCoordinatable {
     
     var stack = NavigationStack(initial: \SettingsCoordinator.main)
     
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager) {
+    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager, keychainManager: KeychainManager) {
         self.paymentsManager = paymentsManager
         self.storageManager = storageManager
         self.notificationsManager = notificationsManager
         self.tagsManager = tagsManager
         self.storeManager = storeManager
+        self.keychainManager = keychainManager
+        
         // viewModels
-        settingsViewModel = SettingsViewModel(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager)
+        settingsViewModel = SettingsViewModel(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, keychainManager: keychainManager)
         currencyEditorViewModel = CurrencyEditorViewModel(storageManager: storageManager)
         tagsEditorViewModel = TagsEditorViewModel(tagsManager: tagsManager)
         aboutAppViewModel = AboutAppViewModel(storageManager: storageManager)

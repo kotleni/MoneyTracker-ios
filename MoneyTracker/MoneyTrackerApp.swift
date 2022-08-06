@@ -17,6 +17,7 @@ struct MoneyTrackerApp: App {
     private let tagsManager: TagsManager
     private let storeManager: StoreManager
     private let keychainManager: KeychainManager
+    
     init() {
         // managers
         paymentsManager = PaymentsManager()
@@ -37,7 +38,7 @@ struct MoneyTrackerApp: App {
                             storageManager: storageManager,
                             notificationsManager: notificationsManager,
                             tagsManager: tagsManager,
-                            storeManager: storeManager)
+                            storeManager: storeManager, keychainManager: keychainManager)
             .view()
         }
     }
