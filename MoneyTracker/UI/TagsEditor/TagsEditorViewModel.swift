@@ -8,8 +8,7 @@
 import SwiftUI
 import Combine
 
-class TagsEditorViewModel: ObservableObject, BaseViewModel {
-    var publishers: Set<AnyCancellable> = []
+class TagsEditorViewModel: BaseViewModel, ObservableObject {
     private let tagsManager: TagsManager
     
     @Published var tags: [Tag] = []
@@ -19,7 +18,7 @@ class TagsEditorViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Load data
-    func loadData() {
+    override func loadData() {
         TagsPublisher(tagsManager: tagsManager)
             .sink { tags in
                 self.tags = tags

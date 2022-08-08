@@ -8,8 +8,7 @@
 import SwiftUI
 import Combine
 
-class DeveloperViewModel: ObservableObject, BaseViewModel {
-    var publishers: Set<AnyCancellable> = []
+class DeveloperViewModel: BaseViewModel, ObservableObject {
     private let storageManager: StorageManager
     private let tagsManager: TagsManager
     private let paymentsManager: PaymentsManager
@@ -29,7 +28,7 @@ class DeveloperViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Load all
-    func loadData() {
+    override func loadData() {
         isExperimental = storageManager.isExperimental()
     }
     

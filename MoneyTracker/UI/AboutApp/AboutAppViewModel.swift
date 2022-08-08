@@ -8,8 +8,7 @@
 import SwiftUI
 import Combine
 
-class AboutAppViewModel: ObservableObject, BaseViewModel {
-    var publishers: Set<AnyCancellable> = []
+class AboutAppViewModel: BaseViewModel, ObservableObject {
     private let storageManager: StorageManager
     
     @Published private(set) var isDeveloper: Bool = false
@@ -19,7 +18,7 @@ class AboutAppViewModel: ObservableObject, BaseViewModel {
     }
 
     /// Load data
-    func loadData() {
+    override func loadData() {
         self.isDeveloper = storageManager.isDeveloper()
     }
     

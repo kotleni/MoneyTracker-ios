@@ -8,8 +8,7 @@
 import SwiftUI
 import Combine
 
-class ResetPaymentsViewModel: ObservableObject, BaseViewModel {
-    var publishers: Set<AnyCancellable> = []
+class ResetPaymentsViewModel: BaseViewModel, ObservableObject {
     private let paymentsManager: PaymentsManager
     
     init(paymentsManager: PaymentsManager) {
@@ -17,7 +16,7 @@ class ResetPaymentsViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Load all
-    func loadData() {
+    override func loadData() {
         
     }
     

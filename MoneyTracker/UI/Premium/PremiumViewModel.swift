@@ -8,8 +8,7 @@
 import SwiftUI
 import Combine
 
-class PremiumViewModel: ObservableObject, BaseViewModel {
-    var publishers: Set<AnyCancellable> = []
+class PremiumViewModel: BaseViewModel, ObservableObject {
     private let storageManager: StorageManager
     private let storeManager: StoreManager
     @Published private(set) var isShopAvailable: Bool = false
@@ -22,7 +21,7 @@ class PremiumViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Load all
-    func loadData() {
+    override func loadData() {
         if let product = storeManager.products.first {
             premiumPrice = storeManager.priceFormatter(product)
             isShopAvailable = true

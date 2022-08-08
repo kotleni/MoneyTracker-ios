@@ -8,9 +8,7 @@
 import SwiftUI
 import Combine
 
-class HomeViewModel: ObservableObject, BaseViewModel {
-    var publishers: Set<AnyCancellable> = []
-    
+class HomeViewModel: BaseViewModel, ObservableObject {
     // managers
     private let paymentsManager: PaymentsManager
     private let storageManager: StorageManager
@@ -33,7 +31,7 @@ class HomeViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Load data
-    func loadData() {
+    override func loadData() {
         TagsPublisher(tagsManager: tagsManager)
             .sink { tags in
                 self.tags = tags

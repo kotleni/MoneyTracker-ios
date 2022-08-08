@@ -8,8 +8,7 @@
 import SwiftUI
 import Combine
 
-class CurrencyEditorViewModel: ObservableObject, BaseViewModel {
-    var publishers: Set<AnyCancellable> = []
+class CurrencyEditorViewModel: BaseViewModel, ObservableObject {
     private let storageManager: StorageManager
     
     @Published private(set) var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id
@@ -20,7 +19,7 @@ class CurrencyEditorViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Load data
-    func loadData() {
+    override func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
             let priceType = self.storageManager.getPriceType()
             if let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType) {

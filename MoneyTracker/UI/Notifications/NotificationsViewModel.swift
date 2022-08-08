@@ -8,9 +8,7 @@
 import SwiftUI
 import Combine
 
-class NotificationsViewModel: ObservableObject, BaseViewModel {
-    var publishers: Set<AnyCancellable> = []
-    
+class NotificationsViewModel: BaseViewModel, ObservableObject {
     private let notificationsManager: NotificationsManager
     private let storageManager: StorageManager
     
@@ -22,7 +20,7 @@ class NotificationsViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Load all
-    func loadData() {
+    override func loadData() {
         self.isNotifOn = self.storageManager.isNotifEnable()
     }
     

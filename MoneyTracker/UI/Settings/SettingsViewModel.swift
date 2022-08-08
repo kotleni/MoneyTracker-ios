@@ -8,8 +8,7 @@
 import SwiftUI
 import Combine
 
-class SettingsViewModel: ObservableObject, BaseViewModel {
-    var publishers: Set<AnyCancellable> = []
+class SettingsViewModel: BaseViewModel, ObservableObject {
     
     // managers
     private let paymentsManager: PaymentsManager
@@ -31,7 +30,7 @@ class SettingsViewModel: ObservableObject, BaseViewModel {
     }
     
     /// Load data
-    func loadData() {
+    override func loadData() {
         currency = storageManager.getPriceType()
         isDeveloper = storageManager.isDeveloper()
         
