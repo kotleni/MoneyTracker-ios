@@ -109,3 +109,6 @@
 "label_developers" = "Developers";
 "label_developermain" = "Main developer";
 "label_developercontr" = "Contributors";
+
+"notif_title" = "Reminder";
+"notif_body" = "Time to update your payment list!";

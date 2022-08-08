@@ -109,3 +109,6 @@
 "label_developers" = "Разработчики";
 "label_developermain" = "Основный разработчик";
 "label_developercontr" = "Контрибьютор";
+
+"notif_title" = "Напоминание";
+"notif_body" = "Пора обновить список ваших платежей!";
