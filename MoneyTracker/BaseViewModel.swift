@@ -8,8 +8,11 @@
 import Foundation
 import Combine
 
-/// Universal view model protocol
+/// Universal view model base
 class BaseViewModel {
+    /// All viewmodel publishers
     var publishers: Set<AnyCancellable> = []
+    
+    /// Loading data
     func loadData() { /* nothing */ }
 }
