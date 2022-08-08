@@ -8,16 +8,8 @@
 import SwiftUI
 import Combine
 
-class NotificationsViewModel: BaseViewModel, ObservableObject {
-    private let notificationsManager: NotificationsManager
-    private let storageManager: StorageManager
-    
+class NotificationsViewModel: BaseViewModel {
     @Published var isNotifOn: Bool = false
-    
-    init(notificationsManager: NotificationsManager, storageManager: StorageManager) {
-        self.notificationsManager = notificationsManager
-        self.storageManager = storageManager
-    }
     
     /// Load all
     override func loadData() {

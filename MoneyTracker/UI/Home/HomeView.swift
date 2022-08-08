@@ -72,8 +72,9 @@ struct HomeView: View {
     }
 }
 
-struct HomePreview: PreviewProvider {
-    static var previews: some View {
-        HomeView(viewModel: HomeViewModel(paymentsManager: PaymentsManager(), storageManager: StorageManager(), tagsManager: TagsManager()))
-    }
-}
+// MARK: disabled
+//struct HomePreview: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(viewModel: HomeViewModel(paymentsManager: PaymentsManager(), storageManager: StorageManager(), tagsManager: TagsManager()))
+//    }
+//}

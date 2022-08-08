@@ -51,8 +51,9 @@ struct PremiumView: View {
     }
 }
 
-struct PremiumPreview: PreviewProvider {
-    static var previews: some View {
-        PremiumView(viewModel: PremiumViewModel(storageManager: StorageManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: Static.subscriptionsID)))
-    }
-}
+// MARK: disabled
+//struct PremiumPreview: PreviewProvider {
+//    static var previews: some View {
+//        PremiumView(viewModel: PremiumViewModel(storageManager: StorageManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: Static.subscriptionsID)))
+//    }
+//}

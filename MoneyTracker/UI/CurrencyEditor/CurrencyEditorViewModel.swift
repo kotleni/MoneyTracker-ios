@@ -8,15 +8,9 @@
 import SwiftUI
 import Combine
 
-class CurrencyEditorViewModel: BaseViewModel, ObservableObject {
-    private let storageManager: StorageManager
-    
+class CurrencyEditorViewModel: BaseViewModel {
     @Published private(set) var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id
     @Published private(set) var isLoading: Bool = true
-    
-    init(storageManager: StorageManager) {
-        self.storageManager = storageManager
-    }
     
     /// Load data
     override func loadData() {

@@ -8,13 +8,7 @@
 import SwiftUI
 import Combine
 
-class ResetPaymentsViewModel: BaseViewModel, ObservableObject {
-    private let paymentsManager: PaymentsManager
-    
-    init(paymentsManager: PaymentsManager) {
-        self.paymentsManager = paymentsManager
-    }
-    
+class ResetPaymentsViewModel: BaseViewModel {
     /// Load all
     override func loadData() {
         

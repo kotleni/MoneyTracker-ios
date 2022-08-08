@@ -98,8 +98,9 @@ struct AddPaymentView: View {
     }
 }
 
-struct AddPaymentPreview: PreviewProvider {
-    static var previews: some View {
-        AddPaymentView(viewModel: AddPaymentViewModel(paymentsManager: PaymentsManager(), tagsManager: TagsManager()))
-    }
-}
+// MARK: disabled
+//struct AddPaymentPreview: PreviewProvider {
+//    static var previews: some View {
+//        AddPaymentView(viewModel: AddPaymentViewModel(paymentsManager: PaymentsManager(), tagsManager: TagsManager()))
+//    }
+//}

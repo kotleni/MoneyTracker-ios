@@ -8,16 +8,8 @@
 import SwiftUI
 import Combine
 
-class AddPaymentViewModel: BaseViewModel, ObservableObject {
-    private let paymentsManager: PaymentsManager
-    private let tagsManager: TagsManager
-    
+class AddPaymentViewModel: BaseViewModel {
     @Published private(set) var tags: [Tag] = []
-    
-    init(paymentsManager: PaymentsManager, tagsManager: TagsManager) {
-        self.paymentsManager = paymentsManager
-        self.tagsManager = tagsManager
-    }
     
     /// Load all
     override func loadData() {

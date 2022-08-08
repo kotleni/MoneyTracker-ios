@@ -8,12 +8,7 @@
 import SwiftUI
 import Combine
 
-class HomeViewModel: BaseViewModel, ObservableObject {
-    // managers
-    private let paymentsManager: PaymentsManager
-    private let storageManager: StorageManager
-    private let tagsManager: TagsManager
-    
+class HomeViewModel: BaseViewModel {
     @Published private(set) var balance: Balance
     @Published private(set) var priceType: String = "USD"
     @Published private(set) var payments: [Payment] = []
@@ -22,14 +17,10 @@ class HomeViewModel: BaseViewModel, ObservableObject {
     @Published private(set) var isLoading: Bool = true
     @Published var isExperimental: Bool = false
     
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, tagsManager: TagsManager) {
-        self.paymentsManager = paymentsManager
-        self.storageManager = storageManager
-        self.tagsManager = tagsManager
-        
+    override init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager, keychainManager: KeychainManager) {
         self.balance = Balance(current: 0, income: 0, outcome: 0)
+        super.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
     }
-    
     /// Load data
     override func loadData() {
         TagsPublisher(tagsManager: tagsManager)

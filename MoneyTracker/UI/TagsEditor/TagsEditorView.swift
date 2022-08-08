@@ -64,8 +64,9 @@ struct TagsEditorView: View {
     }
 }
 
-struct TagsEditorPreview: PreviewProvider {
-    static var previews: some View {
-        TagsEditorView(viewModel: TagsEditorViewModel(tagsManager: TagsManager()))
-    }
-}
+// MARK: disabled
+//struct TagsEditorPreview: PreviewProvider {
+//    static var previews: some View {
+//        TagsEditorView(viewModel: TagsEditorViewModel(tagsManager: TagsManager()))
+//    }
+//}

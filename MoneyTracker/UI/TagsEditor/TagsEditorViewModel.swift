@@ -8,14 +8,8 @@
 import SwiftUI
 import Combine
 
-class TagsEditorViewModel: BaseViewModel, ObservableObject {
-    private let tagsManager: TagsManager
-    
+class TagsEditorViewModel: BaseViewModel {
     @Published var tags: [Tag] = []
-    
-    init(tagsManager: TagsManager) {
-        self.tagsManager = tagsManager
-    }
     
     /// Load data
     override func loadData() {

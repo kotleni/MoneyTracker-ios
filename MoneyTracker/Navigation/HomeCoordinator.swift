@@ -14,6 +14,8 @@ final class HomeCoordinator: NavigationCoordinatable {
     private let storageManager: StorageManager
     private let notificationsManager: NotificationsManager
     private let tagsManager: TagsManager
+    private let storeManager: StoreManager
+    private let keychainManager: KeychainManager
     
     // viewModels
     private let homeViewModel: HomeViewModel
@@ -21,15 +23,18 @@ final class HomeCoordinator: NavigationCoordinatable {
     
     var stack = NavigationStack(initial: \HomeCoordinator.main)
     
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager) {
+    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager, keychainManager: KeychainManager) {
         self.paymentsManager = paymentsManager
-        self.storageManager = storageManager 
+        self.storageManager = storageManager
         self.notificationsManager = notificationsManager
         self.tagsManager = tagsManager
+        self.storeManager = storeManager
+        self.keychainManager = keychainManager
         
+        // MARK: fixme, stupid many initializaions
         // viewModels
-        homeViewModel = HomeViewModel(paymentsManager: paymentsManager, storageManager: storageManager, tagsManager: tagsManager)
-        addPaymentViewModel = AddPaymentViewModel(paymentsManager: paymentsManager, tagsManager: tagsManager)
+        homeViewModel = HomeViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        addPaymentViewModel = AddPaymentViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
     }
     
     @Root var main = makeMain

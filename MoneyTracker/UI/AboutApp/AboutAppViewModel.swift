@@ -8,14 +8,8 @@
 import SwiftUI
 import Combine
 
-class AboutAppViewModel: BaseViewModel, ObservableObject {
-    private let storageManager: StorageManager
-    
+class AboutAppViewModel: BaseViewModel {
     @Published private(set) var isDeveloper: Bool = false
-    
-    init(storageManager: StorageManager) {
-        self.storageManager = storageManager
-    }
 
     /// Load data
     override func loadData() {

@@ -35,7 +35,7 @@ final class TabsCoordinator: TabCoordinatable {
     @Route(tabItem: makeSettingsTab) var settings = makeSettings
     
     func makeHome() -> NavigationViewCoordinator<HomeCoordinator> {
-        return NavigationViewCoordinator(HomeCoordinator(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager))
+        return NavigationViewCoordinator(HomeCoordinator(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager))
     }
     
     func makeSettings() -> NavigationViewCoordinator<SettingsCoordinator> {

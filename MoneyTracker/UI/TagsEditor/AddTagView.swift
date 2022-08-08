@@ -57,8 +57,9 @@ struct AddTagView: View {
     }
 }
 
-struct AddTagPreview: PreviewProvider {
-    static var previews: some View {
-        AddTagView(viewModel: TagsEditorViewModel(tagsManager: TagsManager()), isSheetShow: .constant(true))
-    }
-}
+// MARK: disabled
+//struct AddTagPreview: PreviewProvider {
+//    static var previews: some View {
+//        AddTagView(viewModel: TagsEditorViewModel(tagsManager: TagsManager()), isSheetShow: .constant(true))
+//    }
+//}

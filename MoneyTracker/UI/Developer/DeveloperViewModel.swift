@@ -8,23 +8,11 @@
 import SwiftUI
 import Combine
 
-class DeveloperViewModel: BaseViewModel, ObservableObject {
-    private let storageManager: StorageManager
-    private let tagsManager: TagsManager
-    private let paymentsManager: PaymentsManager
-    private let notificationsManager: NotificationsManager
-    
+class DeveloperViewModel: BaseViewModel {
     @Published var isExperimental: Bool = false {
         didSet {
             storageManager.setExperimental(isEnable: isExperimental)
         }
-    }
-    
-    init(storageManager: StorageManager, tagsManager: TagsManager, paymentsManager: PaymentsManager, notificationsManager: NotificationsManager) {
-        self.storageManager = storageManager
-        self.tagsManager = tagsManager
-        self.paymentsManager = paymentsManager
-        self.notificationsManager = notificationsManager
     }
     
     /// Load all

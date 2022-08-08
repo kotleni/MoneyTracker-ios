@@ -8,17 +8,10 @@
 import SwiftUI
 import Combine
 
-class PremiumViewModel: BaseViewModel, ObservableObject {
-    private let storageManager: StorageManager
-    private let storeManager: StoreManager
+class PremiumViewModel: BaseViewModel {
     @Published private(set) var isShopAvailable: Bool = false
     @Published private(set) var isPremium: Bool = false
     @Published private(set) var premiumPrice: String = ""
-    
-    init(storageManager: StorageManager, storeManager: StoreManager) {
-        self.storageManager = storageManager
-        self.storeManager = storeManager
-    }
     
     /// Load all
     override func loadData() {

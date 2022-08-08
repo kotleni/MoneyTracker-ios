@@ -8,26 +8,10 @@
 import SwiftUI
 import Combine
 
-class SettingsViewModel: BaseViewModel, ObservableObject {
-    
-    // managers
-    private let paymentsManager: PaymentsManager
-    private let storageManager: StorageManager
-    private let notificationsManager: NotificationsManager
-    private let tagsManager: TagsManager
-    private let keychainManager: KeychainManager
-    
+class SettingsViewModel: BaseViewModel {
     @Published private(set) var isDeveloper: Bool = false
     @Published private(set) var isPremium: Bool = false
     @Published private(set) var currency: String = ""
-    
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, keychainManager: KeychainManager) {
-        self.paymentsManager = paymentsManager
-        self.storageManager = storageManager
-        self.notificationsManager = notificationsManager
-        self.tagsManager = tagsManager
-        self.keychainManager = keychainManager
-    }
     
     /// Load data
     override func loadData() {

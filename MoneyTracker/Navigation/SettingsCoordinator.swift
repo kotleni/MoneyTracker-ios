@@ -36,15 +36,16 @@ final class SettingsCoordinator: NavigationCoordinatable {
         self.storeManager = storeManager
         self.keychainManager = keychainManager
         
+        // MARK: fixme, stupid many initializaions
         // viewModels
-        settingsViewModel = SettingsViewModel(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, keychainManager: keychainManager)
-        currencyEditorViewModel = CurrencyEditorViewModel(storageManager: storageManager)
-        tagsEditorViewModel = TagsEditorViewModel(tagsManager: tagsManager)
-        aboutAppViewModel = AboutAppViewModel(storageManager: storageManager)
-        developerViewModel = DeveloperViewModel(storageManager: storageManager, tagsManager: tagsManager, paymentsManager: paymentsManager, notificationsManager: notificationsManager)
-        resetPaymentsViewModel = ResetPaymentsViewModel(paymentsManager: paymentsManager)
-        notificationsViewModel = NotificationsViewModel(notificationsManager: notificationsManager, storageManager: storageManager)
-        premiumViewModel = PremiumViewModel(storageManager: storageManager, storeManager: storeManager)
+        settingsViewModel = SettingsViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        currencyEditorViewModel = CurrencyEditorViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        tagsEditorViewModel = TagsEditorViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        aboutAppViewModel = AboutAppViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        developerViewModel = DeveloperViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        resetPaymentsViewModel = ResetPaymentsViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        notificationsViewModel = NotificationsViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        premiumViewModel = PremiumViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
     }
     
     @Root var main = makeMain
