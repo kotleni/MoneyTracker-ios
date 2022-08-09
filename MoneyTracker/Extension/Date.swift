@@ -15,13 +15,6 @@ extension Date {
         return df.string(from: date)
     }
     
-    func getTimeString() -> String {
-        let date = Date()
-        let df = DateFormatter()
-        df.dateFormat = "hh:MM"
-        return df.string(from: date)
-    }
-    
     func localDate() -> Date {
         return Date()
 //        let nowUTC = Date()

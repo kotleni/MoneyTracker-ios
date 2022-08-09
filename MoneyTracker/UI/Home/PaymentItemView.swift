@@ -33,7 +33,7 @@ struct PaymentItemView: View {
             .padding(.leading, 8)
             Spacer()
             VStack {
-                Text("\(payment.date!.getTimeString())")
+                Text("\(payment.date!.getDateString())")
                     .font(.system(size: 14))
                     .opacity(0.5)
                 Spacer()
