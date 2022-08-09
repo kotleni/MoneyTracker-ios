@@ -69,7 +69,7 @@
 		5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA66D62882C07100088D53 /* MathematicalExpression.swift */; };
 		5AFED6E128918D1A00E33D66 /* TagsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */; };
 		B4043A132898F840009DB652 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = B4043A122898F840009DB652 /* OpenSSL */; };
-		B4043A162899148F009DB652 /* AppleIncRootCertificate2.cer in Resources */ = {isa = PBXBuildFile; fileRef = B4043A152899148F009DB652 /* AppleIncRootCertificate2.cer */; };
+		B4043A162899148F009DB652 /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = B4043A152899148F009DB652 /* AppleIncRootCertificate.cer */; };
 		B425FB7228992A8600D32BB1 /* SKProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B425FB7128992A8600D32BB1 /* SKProduct.swift */; };
 		B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B42D29A3287EE10900F324CE /* Launch Screen.storyboard */; };
 		B4BD4E9B2892678B004646E2 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD4E9A2892678B004646E2 /* StoreManager.swift */; };
@@ -171,7 +171,7 @@
 		5ADD33F52891DBF500C00F1C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5AFA66D62882C07100088D53 /* MathematicalExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalExpression.swift; sourceTree = "<group>"; };
 		5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPublisher.swift; sourceTree = "<group>"; };
-		B4043A152899148F009DB652 /* AppleIncRootCertificate2.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate2.cer; sourceTree = "<group>"; };
+		B4043A152899148F009DB652 /* AppleIncRootCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate.cer; sourceTree = "<group>"; };
 		B425FB7128992A8600D32BB1 /* SKProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKProduct.swift; sourceTree = "<group>"; };
 		B42D29A3287EE10900F324CE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B4BD4E9A2892678B004646E2 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 		B4D501172869A87A0065EB4D = {
 			isa = PBXGroup;
 			children = (
-				B4043A152899148F009DB652 /* AppleIncRootCertificate2.cer */,
+				B4043A152899148F009DB652 /* AppleIncRootCertificate.cer */,
 				B4D501222869A87A0065EB4D /* MoneyTracker */,
 				5A00F458287EDA0100A4820A /* MoneyTrackerTests */,
 				B4D501212869A87A0065EB4D /* Products */,
@@ -634,7 +634,7 @@
 				B42D29A4287EE10900F324CE /* Launch Screen.storyboard in Resources */,
 				B4D5012B2869A87C0065EB4D /* Preview Assets.xcassets in Resources */,
 				B4D501462869ABCE0065EB4D /* Localizable.strings in Resources */,
-				B4043A162899148F009DB652 /* AppleIncRootCertificate2.cer in Resources */,
+				B4043A162899148F009DB652 /* AppleIncRootCertificate.cer in Resources */,
 				B4D501282869A87C0065EB4D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
