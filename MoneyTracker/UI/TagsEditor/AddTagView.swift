@@ -57,9 +57,8 @@ struct AddTagView: View {
     }
 }
 
-// MARK: disabled
-//struct AddTagPreview: PreviewProvider {
-//    static var previews: some View {
-//        AddTagView(viewModel: TagsEditorViewModel(tagsManager: TagsManager()), isSheetShow: .constant(true))
-//    }
-//}
+struct AddTagPreview: PreviewProvider {
+    static var previews: some View {
+        AddTagView(viewModel: TagsEditorViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()), isSheetShow: .constant(false))
+    }
+}

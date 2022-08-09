@@ -39,3 +39,9 @@ struct PremiumBannerView: View {
     }
 }
 
+struct PremiumBannerPreview: PreviewProvider {
+    static var previews: some View {
+        PremiumBannerView(isPremium: false, premiumPrice: "0 USD", action: {})
+        PremiumBannerView(isPremium: true, premiumPrice: "0 USD", action: {})
+    }
+}
