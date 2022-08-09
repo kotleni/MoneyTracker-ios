@@ -289,11 +289,11 @@ final class Currencies {
 		Currency(fullName: "Zloty", littleName: "PLN"),
 	]
 
+    // popular currecies list
 	static let currenciesPopular = [
 		currenciesAll[72],
 		currenciesAll[92],
 		currenciesAll[208],
 		currenciesAll[250],
 	]
-
 }

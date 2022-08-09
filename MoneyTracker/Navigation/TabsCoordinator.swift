@@ -27,8 +27,8 @@ final class TabsCoordinator: TabCoordinatable {
     }
     
     lazy var child = TabChild(startingItems: [
-        \TabsCoordinator.home,
-        \TabsCoordinator.settings,
+        \TabsCoordinator.home,      // home
+        \TabsCoordinator.settings,  // settings
     ], activeTab: 0)
     
     @Route(tabItem: makeHomeTab) var home = makeHome

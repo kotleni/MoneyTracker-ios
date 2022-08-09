@@ -7,6 +7,7 @@
 
 import Combine
 
+/// Publisher for loading payments
 struct PaymentsPublisher: Publisher {
     typealias Output = [Payment]
     typealias Failure = Never

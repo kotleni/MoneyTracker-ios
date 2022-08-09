@@ -7,6 +7,7 @@
 
 import Combine
 
+/// Publisher for loading tags
 struct TagsPublisher: Publisher {
     typealias Output = [Tag]
     typealias Failure = Never

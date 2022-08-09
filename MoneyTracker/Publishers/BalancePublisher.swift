@@ -7,6 +7,7 @@
 
 import Combine
 
+/// Publisher for calculationg balance
 struct BalancePublisher: Publisher {
     typealias Output = Balance
     typealias Failure = Never
@@ -18,6 +19,7 @@ struct BalancePublisher: Publisher {
         let _ = subscriber.receive(balance)
     }
     
+    /// Calculate balance by payments array
     private func calculateBalance(payments: [Payment]) -> Balance {
         var _income: Float = 0
         var _outcome: Float = 0

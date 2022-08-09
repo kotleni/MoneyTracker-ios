@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct MoneyTrackerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     // managers
     private let paymentsManager: PaymentsManager
     private let storageManager: StorageManager
@@ -26,6 +27,7 @@ struct MoneyTrackerApp: App {
         tagsManager = TagsManager()
         keychainManager = KeychainManager()
         storeManager = StoreManager(keychain: keychainManager, productsIDs: Static.subscriptionsID)
+        
         // injects
         storeManager.requestProducts()
         appDelegate.store = storeManager

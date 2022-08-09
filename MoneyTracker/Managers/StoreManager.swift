@@ -8,6 +8,7 @@
 import Foundation
 import StoreKit
 
+/// Store purchases manager
 final class StoreManager: NSObject, ObservableObject {
     var keychain: KeychainManager
     private let productsIdentifiers: Set<String>
@@ -22,7 +23,7 @@ final class StoreManager: NSObject, ObservableObject {
         self.keychain = keychain
         productsIdentifiers = productsIDs
         
-        // Check if product saved in keychain
+        // check if product saved in keychain
         if let data = keychain.read(key: Static.subsExpirationKeychain),
            let expirationTimeInteval = try? JSONDecoder().decode(TimeInterval.self, from: data) {
             subscriptionDate = Date(timeIntervalSince1970: expirationTimeInteval)
@@ -33,6 +34,7 @@ final class StoreManager: NSObject, ObservableObject {
         super.init()
     }
     
+    /// Request all available products
     func requestProducts() {
         productsRequest?.cancel()
         productsRequest = SKProductsRequest(productIdentifiers: productsIdentifiers)
@@ -40,6 +42,7 @@ final class StoreManager: NSObject, ObservableObject {
         productsRequest?.start()
     }
     
+    /// Try buy product
     func buyProduct(product: SKProduct, _ callback: @escaping (Bool) -> Void) {
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
@@ -48,6 +51,7 @@ final class StoreManager: NSObject, ObservableObject {
         }
     }
     
+    /// Formate price
     func priceFormatter(_ product: SKProduct) -> String {
         let formatter = NumberFormatter()
         formatter.locale = product.priceLocale
@@ -55,7 +59,9 @@ final class StoreManager: NSObject, ObservableObject {
         return formatter.string(from: product.price) ?? ""
     }
     
-    // MARK: Сейчас не используется, но в будущем если будет несколько подписок или нужно будет выводить продолжительность подписки - смотри сюда
+    // MARK: Currently not used, but in the future if there are several
+    // MARK: subscriptions or you need to display the duration of the subscription - see here.
+    /// Get subscribe period string
     func subscribtionPeriod(_ product: SKProduct) -> String {
         let duration = product.subscriptionPeriod
         switch duration {
@@ -68,7 +74,6 @@ final class StoreManager: NSObject, ObservableObject {
 }
 
 extension StoreManager: SKProductsRequestDelegate {
-    
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         DispatchQueue.main.async { [weak self] in
             self?.products = response.products

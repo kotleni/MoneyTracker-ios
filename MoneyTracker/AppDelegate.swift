@@ -37,6 +37,7 @@ extension AppDelegate: SKPaymentTransactionObserver {
             }
         }
     }
+    
     private func completeTransaction(_ transaction: SKPaymentTransaction) {
         defer { SKPaymentQueue.default().finishTransaction(transaction) }
         guard Receipt.isReceiptPresent() else { return }
@@ -59,6 +60,7 @@ extension AppDelegate: SKPaymentTransactionObserver {
             store.callbackPurchase?(false)
         }
     }
+    
     private func failedTransaction(_ transaction: SKPaymentTransaction) {
         if let transactionError = transaction.error as NSError?,
            let errorDescription = transaction.error?.localizedDescription,
@@ -69,4 +71,3 @@ extension AppDelegate: SKPaymentTransactionObserver {
         SKPaymentQueue.default().finishTransaction(transaction)
     }
 }
-

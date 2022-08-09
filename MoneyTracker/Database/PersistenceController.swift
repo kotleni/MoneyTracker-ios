@@ -13,6 +13,7 @@ struct PersistenceController {
 
     let container: NSPersistentContainer
     
+    // disabled (need for previews)
 //    static var preview: PersistenceController = {
 //        let result = PersistenceController(inMemory: true)
 //        let viewContext = result.container.viewContext

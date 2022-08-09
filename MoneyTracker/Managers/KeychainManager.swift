@@ -7,7 +7,10 @@
 
 import Foundation
 
+/// Keychain values manager
 final class KeychainManager {
+    
+    /// Save data
     func save(_ data: Data, key: String) {
         let query = [
             kSecValueData: data,
@@ -34,6 +37,7 @@ final class KeychainManager {
         }
     }
     
+    /// Read data
     func read(key: String) -> Data? {
         let query = [
             kSecAttrSynchronizable: true,

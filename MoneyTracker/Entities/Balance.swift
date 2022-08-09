@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Balance values structure
 struct Balance {
     var current: Float
     var income: Float

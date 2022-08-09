@@ -9,7 +9,7 @@ import Foundation
 
 /// Developer info
 struct Developer: Hashable {
-    let name: String
-    let about: String
-    let url: String
+    let name: String   // name
+    let about: String  // about
+    let url: String    // link to github
 }

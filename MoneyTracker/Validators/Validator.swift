@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Base protocol for validators
 protocol Validator {
     static func validate(str: String) -> Bool
 }
