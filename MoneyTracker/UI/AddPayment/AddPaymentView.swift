@@ -98,9 +98,8 @@ struct AddPaymentView: View {
     }
 }
 
-// MARK: disabled
-//struct AddPaymentPreview: PreviewProvider {
-//    static var previews: some View {
-//        AddPaymentView(viewModel: AddPaymentViewModel(paymentsManager: PaymentsManager(), tagsManager: TagsManager()))
-//    }
-//}
+struct AddPaymentPreview: PreviewProvider {
+    static var previews: some View {
+        AddPaymentView(viewModel: AddPaymentViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+    }
+}

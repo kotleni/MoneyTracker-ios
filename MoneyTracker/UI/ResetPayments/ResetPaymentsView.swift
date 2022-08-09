@@ -52,9 +52,8 @@ struct ResetPaymentsView: View {
     }
 }
 
-// MARK: disabled
-//struct ResetPaymentsPreview: PreviewProvider {
-//    static var previews: some View {
-//        ResetPaymentsView(viewModel: ResetPaymentsViewModel(paymentsManager: PaymentsManager()))
-//    }
-//}
+struct ResetPaymentsPreview: PreviewProvider {
+    static var previews: some View {
+        ResetPaymentsView(viewModel: ResetPaymentsViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+    }
+}

@@ -64,9 +64,8 @@ struct TagsEditorView: View {
     }
 }
 
-// MARK: disabled
-//struct TagsEditorPreview: PreviewProvider {
-//    static var previews: some View {
-//        TagsEditorView(viewModel: TagsEditorViewModel(tagsManager: TagsManager()))
-//    }
-//}
+struct TagsEditorPreview: PreviewProvider {
+    static var previews: some View {
+        TagsEditorView(viewModel: TagsEditorViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+    }
+}

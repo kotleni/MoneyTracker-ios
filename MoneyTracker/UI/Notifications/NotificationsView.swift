@@ -41,9 +41,8 @@ struct NotificationsView: View {
     }
 }
 
-// MARK: disabled
-//struct NotificationsPreview: PreviewProvider {
-//    static var previews: some View {
-//        NotificationsView(viewModel: NotificationsViewModel(notificationsManager: NotificationsManager(), storageManager: StorageManager()))
-//    }
-//}
+struct NotificationsPreview: PreviewProvider {
+    static var previews: some View {
+        NotificationsView(viewModel: NotificationsViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+    }
+}

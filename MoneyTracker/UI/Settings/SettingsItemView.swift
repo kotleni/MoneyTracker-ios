@@ -35,3 +35,9 @@ struct SettingsItemView: View {
     }
 }
 
+struct SettingsItemPreview: PreviewProvider {
+    static var previews: some View {
+        SettingsItemView(title: "title", action: {}, value: nil)
+        SettingsItemView(title: "title2", action: {}, value: "value")
+    }
+}

@@ -81,9 +81,8 @@ struct AboutAppView: View {
     }
 }
 
-// MARK: disabled
-//struct AboutAppPreview: PreviewProvider {
-//    static var previews: some View {
-//        AboutAppView(viewModel: AboutAppViewModel(storageManager: StorageManager()))
-//    }
-//}
+struct AboutAppPreview: PreviewProvider {
+    static var previews: some View {
+        AboutAppView(viewModel: AboutAppViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+    }
+}

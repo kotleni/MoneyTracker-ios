@@ -72,9 +72,8 @@ struct HomeView: View {
     }
 }
 
-// MARK: disabled
-//struct HomePreview: PreviewProvider {
-//    static var previews: some View {
-//        HomeView(viewModel: HomeViewModel(paymentsManager: PaymentsManager(), storageManager: StorageManager(), tagsManager: TagsManager()))
-//    }
-//}
+struct HomePreview: PreviewProvider {
+    static var previews: some View {
+        HomeView(viewModel: HomeViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+    }
+}

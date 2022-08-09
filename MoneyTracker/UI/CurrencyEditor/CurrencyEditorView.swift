@@ -88,9 +88,8 @@ struct CurrencyEditorView: View {
     }
 }
 
-// MARK: disabled
-//struct CurrencyEditorPreview: PreviewProvider {
-//    static var previews: some View {
-//        CurrencyEditorView(viewModel: CurrencyEditorViewModel(storageManager: StorageManager()))
-//    }
-//}
+struct CurrencyEditorPreview: PreviewProvider {
+    static var previews: some View {
+        CurrencyEditorView(viewModel: CurrencyEditorViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+    }
+}

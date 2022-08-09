@@ -78,9 +78,8 @@ struct SettingsView: View {
     }
 }
 
-// MARK: disabled
-//struct SettingsPreview: PreviewProvider {
-//    static var previews: some View {
-//        SettingsView(viewModel: SettingsViewModel(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), keychainManager: KeychainManager()))
-//    }
-//}
+struct SettingsPreview: PreviewProvider {
+    static var previews: some View {
+        SettingsView(viewModel: SettingsViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+    }
+}
