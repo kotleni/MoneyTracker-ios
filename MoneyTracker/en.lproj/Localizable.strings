@@ -107,7 +107,7 @@
 "settings_other" = "Other";
 
 "label_developers" = "Developers";
-"label_developermain" = "Main developer";
+"label_developermain" = "Main";
 "label_developercontr" = "Contributors";
 
 "notif_title" = "Reminder";

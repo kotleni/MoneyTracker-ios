@@ -107,7 +107,7 @@
 "settings_other" = "Прочее";
 
 "label_developers" = "Разработчики";
-"label_developermain" = "Основный разработчик";
+"label_developermain" = "Основной";
 "label_developercontr" = "Контрибьютор";
 
 "notif_title" = "Напоминание";
