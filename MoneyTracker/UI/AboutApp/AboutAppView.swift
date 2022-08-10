@@ -19,7 +19,6 @@ struct AboutAppView: View {
                         SettingsItemView(title: developer.name, action: {
                             developer.url.openAsLink()
                         }, value: developer.about)
-                            .withoutPaddings()
                     }
                 } label: {
                     Text("label_developers".localized)

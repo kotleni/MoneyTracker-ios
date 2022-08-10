@@ -12,8 +12,6 @@ struct SettingsItemView: View {
     let action: () -> Void
     let value: String?
     
-    @State private var isNeedPadding: Bool = true
-    
     var body: some View {
         HStack {
             Button(action: {
@@ -27,21 +25,15 @@ struct SettingsItemView: View {
                             .opacity(0.5)
                     }
                     Image(systemName: "chevron.right")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 12, height: 12)
                         .foregroundColor(.gray)
+                        .opacity(0.9)
                 }
-            })
-            .if(isNeedPadding, content: { view in
-                view
-                    .padding(.leading, 4)
-                    .padding(.trailing, 2)
             })
             .foregroundColor(Color("DefaultText"))
         }
-    }
-    
-    func withoutPaddings() -> some View {
-        isNeedPadding = false
-        return self
     }
 }
 
