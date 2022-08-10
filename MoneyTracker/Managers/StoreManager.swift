@@ -28,7 +28,7 @@ final class StoreManager: NSObject, ObservableObject {
            let expirationTimeInteval = try? JSONDecoder().decode(TimeInterval.self, from: data) {
             subscriptionDate = Date(timeIntervalSince1970: expirationTimeInteval)
             print("Подписка истекает: \(String(describing: subscriptionDate))")
-            print("Текущая дата: \(String(describing: Date().localDate()))")
+            print("Текущая дата: \(String(describing: Date()))")
         }
        
         super.init()

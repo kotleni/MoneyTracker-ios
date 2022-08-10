@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 class ResetPaymentsViewModel: BaseViewModel {
-    /// Load all
+    /// Load data
     override func loadData() {
         
     }

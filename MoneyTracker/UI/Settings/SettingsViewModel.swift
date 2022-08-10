@@ -22,7 +22,7 @@ class SettingsViewModel: BaseViewModel {
         if let data = keychainManager.read(key: Static.subsExpirationKeychain),
            let expirationTimeInteval = try? JSONDecoder().decode(TimeInterval.self, from: data) {
             let subscriptionDate = Date(timeIntervalSince1970: expirationTimeInteval)
-            isPremium = (Date().localDate() <= subscriptionDate)
+            isPremium = (Date() <= subscriptionDate)
             print("Settings load premium: \(isPremium)")
         }
     }

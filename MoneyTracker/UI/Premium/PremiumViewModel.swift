@@ -20,7 +20,7 @@ class PremiumViewModel: BaseViewModel {
             isShopAvailable = true
         }
         if let subscriptionExpireDate = storeManager.subscriptionDate {
-            if Date().localDate() >= subscriptionExpireDate {
+            if Date() >= subscriptionExpireDate {
                 print("Подписка истекла")
                 isPremium = false
             } else {
