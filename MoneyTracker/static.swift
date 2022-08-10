@@ -17,8 +17,8 @@ final class Static {
     
     // developers list
     static let developers: Array<Developer> = [
-        Developer(name: "Victor Varenik", about: "label_developermain".localized, url: ""),
-        Developer(name: "Mark Hmelnitsky", about: "label_developercontr".localized, url: ""),
+        Developer(name: "Victor Varenik", about: "label_developermain".localized, url: "https://github.com/kotleni"),
+        Developer(name: "Mark Hmelnitsky", about: "label_developercontr".localized, url: "https://github.com/openmetrue"),
     ]
     
     // subs

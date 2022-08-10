@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension String {
     // emojies utils
@@ -20,5 +21,10 @@ extension String {
         return self
             .replacingOccurrences(of: " ", with: "")
             .replacingOccurrences(of: "\t", with: "")
+    }
+    
+    func openAsLink() {
+        guard let url = URL(string: self) else { return }
+        UIApplication.shared.open(url)
     }
 }

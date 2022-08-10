@@ -16,12 +16,10 @@ struct AboutAppView: View {
             Section {
                 DisclosureGroup {
                     ForEach(Static.developers, id: \.self) { developer in
-                        HStack {
-                            Text("\(developer.name)")
-                            Spacer()
-                            Text("\(developer.about)")
-                                .opacity(0.6)
-                        }
+                        SettingsItemView(title: developer.name, action: {
+                            developer.url.openAsLink()
+                        }, value: developer.about)
+                            .withoutPaddings()
                     }
                 } label: {
                     Text("label_developers".localized)
