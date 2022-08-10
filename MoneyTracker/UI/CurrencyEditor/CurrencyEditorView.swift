@@ -16,6 +16,9 @@ struct CurrencyEditorView: View {
     var body: some View {
         VStack {
             SearchBarView(text: $filterText, hint: "hint_search".localized)
+                .onChange(of: filterText) { _ in
+                    viewModel.updateFilter(filterString: filterText)
+                }
             
             if viewModel.isLoading {
                 ProgressView()
@@ -48,11 +51,13 @@ struct CurrencyEditorView: View {
                             Text("label_popular".localized)
                         }
                     }
-
-                    // all
-                    Section {
-                        ForEach(Currencies.currenciesAll, id: \.self) { curr in
-                            if curr.fullName.lowercased().contains(filterText.lowercased()) || curr.littleName.lowercased().contains(filterText.lowercased()) || filterText.isEmpty {
+                    
+                    if viewModel.currenciesFiltered.isEmpty {
+                        Text("Ничего не найдено")
+                    } else {
+                        // all
+                        Section {
+                            ForEach(viewModel.currenciesFiltered, id: \.self) { curr in
                                 Button(action: {
                                     viewModel.setCurrency(id: curr.id)
                                 }, label: {
@@ -70,12 +75,12 @@ struct CurrencyEditorView: View {
                                     }
                                 })
                             }
-                        }
-                    } header: {
-                        if filterText == "" {
-                            Text("label_allcurrencies".localized)
-                        } else {
-                            Text("")
+                        } header: {
+                            if filterText == "" {
+                                Text("label_allcurrencies".localized)
+                            } else {
+                                Text("")
+                            }
                         }
                     }
                 }

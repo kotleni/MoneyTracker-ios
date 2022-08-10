@@ -12,6 +12,8 @@ class CurrencyEditorViewModel: BaseViewModel {
     @Published private(set) var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id
     @Published private(set) var isLoading: Bool = true
     
+    @Published private(set) var currenciesFiltered: Array<Currency> = []
+    
     /// Load data
     override func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
@@ -28,6 +30,7 @@ class CurrencyEditorViewModel: BaseViewModel {
             }
             DispatchQueue.main.async {
                 self.isLoading = false
+                self.updateFilter(filterString: "")
             }
         }
     }
@@ -37,6 +40,27 @@ class CurrencyEditorViewModel: BaseViewModel {
         selectedCurrencyId = id
         if let currency = Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId) {
             storageManager.setPriceType(type: currency.littleName)
+        }
+    }
+    
+    /// Update filtered currencies list
+    func updateFilter(filterString: String) {
+        if filterString == "" {
+            // set to all
+            self.currenciesFiltered = Currencies.currenciesAll
+            return
+        }
+        
+        // clean
+        currenciesFiltered.removeAll()
+        
+        Task.init {
+            Currencies.currenciesAll.forEach { currency in
+                if currency.fullName.lowercased().contains(filterString.lowercased()) ||
+                    currency.littleName.lowercased().contains(filterString.lowercased()) {
+                    currenciesFiltered.append(currency)
+                }
+            }
         }
     }
 }
