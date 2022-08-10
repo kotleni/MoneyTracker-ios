@@ -112,3 +112,5 @@
 
 "notif_title" = "Reminder";
 "notif_body" = "Time to update your payment list!";
+
+"search_empty" = "Nothing found";

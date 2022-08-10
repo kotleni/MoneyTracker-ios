@@ -53,7 +53,7 @@ struct CurrencyEditorView: View {
                     }
                     
                     if viewModel.currenciesFiltered.isEmpty {
-                        Text("Ничего не найдено")
+                        Text("search_empty".localized)
                     } else {
                         // all
                         Section {
