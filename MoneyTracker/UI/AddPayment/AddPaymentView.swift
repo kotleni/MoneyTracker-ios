@@ -35,7 +35,7 @@ struct AddPaymentView: View {
                         Text("field_price".localized)
                         Spacer()
                         TextField("hint_necessarily".localized, text: $priceText)
-                            .keyboardType(.decimalPad)
+                            .keyboardType(.numbersAndPunctuation)
                             .multilineTextAlignment(.trailing)
                             .frame(width: UIScreen.main.bounds.width / 3)
                     }
