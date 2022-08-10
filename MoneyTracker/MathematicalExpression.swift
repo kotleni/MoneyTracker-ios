@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum ExpressionError: Error {
+    case invalidExpression
+}
+
 enum OperatorType {
     case NUM // number
     
@@ -46,7 +50,7 @@ class MathematicalExpression {
     }
     
     /// Parse expression string
-    func parse() -> [OperatorItem] {
+    func parse() throws -> [OperatorItem] {
         var operators: [OperatorItem] = []
         
         var buff = ""
@@ -96,9 +100,13 @@ class MathematicalExpression {
     }
     
     /// Calculate expression
-    func calculate() -> Float {
-        let operators = parse()
+    func calculate() throws -> Float {
+        let operators = try parse()
         var index = 1
+        
+        if operators.isEmpty {
+            throw ExpressionError.invalidExpression
+        }
         
         var sum: Float = (operators[0] as! NumberOperatorItem).value
         
@@ -123,8 +131,7 @@ class MathematicalExpression {
                     sum /= opNext.value
                     break
                 default:
-                    fatalError("To-do error")
-                    break
+                    throw ExpressionError.invalidExpression
                 }
             }
             

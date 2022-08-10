@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 class AddPaymentViewModel: BaseViewModel {
+    @Published var isError: Bool = false
     @Published private(set) var tags: [Tag] = []
     
     /// Load all
@@ -26,13 +27,27 @@ class AddPaymentViewModel: BaseViewModel {
     }
     
     /// Try add new payment
-    func tryAddPayment(priceText: String, aboutText: String, spendingBool: Bool, selectedTag: Tag) {
+    func tryAddPayment(priceText: String, aboutText: String, spendingBool: Bool, selectedTag: Tag, onFinish: (_ isSuccess: Bool) -> ()) {
         let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
-        let sum = MathematicalExpression(line: priceStr).calculate()
-        guard let fl = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
-        let about = aboutText
-        let tag = selectedTag
-        
-        addPayment(price: fl, about: about, tag: tag)
+        let mathExp = MathematicalExpression(line: priceStr)
+        do {
+            let sum = try mathExp.calculate()
+            guard let fl = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
+            let about = aboutText
+            let tag = selectedTag
+            
+            addPayment(price: fl, about: about, tag: tag)
+            
+            onFinish(true)
+        } catch let error {
+            print(error)
+            
+            onFinish(false)
+        }
+    }
+    
+    /// Show error
+    func showError() {
+        isError = true
     }
 }

@@ -16,7 +16,6 @@ struct AddPaymentView: View {
     @State private var selectedTag: Tag = Tag.getDefault()
     
     @ObservedObject var viewModel: AddPaymentViewModel
-    @State private var isError: Bool = false
     
     var body: some View {
         VStack {
@@ -71,19 +70,23 @@ struct AddPaymentView: View {
                                 priceText: priceText,
                                 aboutText: aboutText,
                                 spendingBool: spendingBool,
-                                selectedTag: selectedTag)
-                            
-                            router.popToRoot()
-                            
-                            let generator = UINotificationFeedbackGenerator()
-                            generator.notificationOccurred(.success)
-                            
-                            priceText = ""
-                            aboutText = ""
-                            selectedTag = Tag.getDefault()
-                            spendingBool = false
+                                selectedTag: selectedTag) { isSuccess in
+                                    if isSuccess {
+                                        router.popToRoot()
+                                        
+                                        let generator = UINotificationFeedbackGenerator()
+                                        generator.notificationOccurred(.success)
+                                        
+                                        priceText = ""
+                                        aboutText = ""
+                                        selectedTag = Tag.getDefault()
+                                        spendingBool = false
+                                    } else {
+                                        viewModel.showError()
+                                    }
+                                }
                         } else {
-                            isError = true
+                            viewModel.showError()
                             let generator = UINotificationFeedbackGenerator()
                             generator.notificationOccurred(.error)
                         }
@@ -93,7 +96,7 @@ struct AddPaymentView: View {
                 }
             }
         }
-        .toast(message: "toast_invalidpaydata".localized, isShowing: $isError, config: .init())
+        .toast(message: "toast_invalidpaydata".localized, isShowing: $viewModel.isError, config: .init())
         .onAppear { viewModel.loadData() }
     }
 }
