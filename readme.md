@@ -1,3 +1,8 @@
+<!-- Banner -->
+<p align="center">
+    <img src="https://github.com/kotleni/moneytracker-ios/blob/master/Assets/banner.png?raw=true">
+</p>
+
 <p align="center">
 <img src="https://github.com/kotleni/moneytracker-ios/blob/master/MoneyTracker/Assets.xcassets/AppIcon.appiconset/iTunesArtwork-1024.png?raw=true" width=80></img>
 <br>
