@@ -1,4 +1,4 @@
-<img src="https://github.com/kotleni/moneytracker-ios/blob/master/Assets/btn_appstore.png?raw=true">
+<img src="https://github.com/kotleni/moneytracker-ios/blob/master/Assets/btn_appstore.png?raw=true" width=200>
 
 <!-- Banner -->
 <p align="center">
