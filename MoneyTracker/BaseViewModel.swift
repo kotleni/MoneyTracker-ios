@@ -10,6 +10,7 @@ import Combine
 
 /// Universal view model base
 class BaseViewModel: ObservableObject {
+    // managers
     internal let paymentsManager: PaymentsManager
     internal let storageManager: StorageManager
     internal let notificationsManager: NotificationsManager
