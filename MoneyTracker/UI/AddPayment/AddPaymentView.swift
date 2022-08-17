@@ -13,6 +13,8 @@ struct AddPaymentView: View {
     @State private var priceText: String = ""
     @State private var aboutText: String = ""
     @State private var spendingBool: Bool = true
+    
+    // MARK: todo fix deprecation
     @State private var selectedTag: Tag = Tag.getDefault()
     
     @ObservedObject var viewModel: AddPaymentViewModel
@@ -79,7 +81,7 @@ struct AddPaymentView: View {
                                         
                                         priceText = ""
                                         aboutText = ""
-                                        selectedTag = Tag.getDefault()
+                                        selectedTag = Tag.getDefault() // MARK: todo fix deprecation
                                         spendingBool = false
                                     } else {
                                         viewModel.showError()

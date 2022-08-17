@@ -15,7 +15,7 @@ struct PaymentsManager {
     private var viewContext = PersistenceController.shared.container.viewContext
     
     /// Add new payment
-    func addPayment(price: Float, about: String, tag: Tag = Tag.getDefault(), copies: Int = 0) -> Payment {
+    func addPayment(price: Float, about: String, tag: Tag = Tag.getDefault(), copies: Int = 0) -> Payment { // MARK: todo fix deprecation
         let payment = Payment(context: viewContext)
         payment.price = Float(price)
         payment.about = about
