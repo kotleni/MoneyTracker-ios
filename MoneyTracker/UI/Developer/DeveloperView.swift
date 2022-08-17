@@ -16,9 +16,9 @@ struct DeveloperView: View {
         Form {
             Section {
                 Button {
-                    viewModel.addRandomPayment()
+                    viewModel.addSpecialPayments()
                 } label: {
-                    Text("Add payment")
+                    Text("Add payments for screenshot")
                 }
                 Toggle(isOn: $viewModel.isExperimental, label: { Text("Experimental features") })
             } header: {

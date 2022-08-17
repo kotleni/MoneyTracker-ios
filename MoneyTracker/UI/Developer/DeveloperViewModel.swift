@@ -20,8 +20,12 @@ class DeveloperViewModel: BaseViewModel {
         isExperimental = storageManager.isExperimental()
     }
     
-    /// Add random payment
-    func addRandomPayment() {
-        let _ = paymentsManager.addPayment(price: Float.random(in: -100...100), about: "Pizza 🍕")
+    /// Add special payments
+    func addSpecialPayments() {
+        let tags = tagsManager.getTags()
+        
+        let _ = paymentsManager.addPayment(price: 4000, about: "Зарплата")
+        let _ = paymentsManager.addPayment(price: 160, about: "Отдали долг")
+        let _ = paymentsManager.addPayment(price: -307, about: "Купил пицу", tag: tags.first!)
     }
 }
