@@ -23,6 +23,8 @@ struct BalancePublisher: Publisher {
     private func calculateBalance(payments: [Payment]) -> Balance {
         var _income: Float = 0
         var _outcome: Float = 0
+        
+        // summary all payments price
         payments.forEach { payment in
             if payment.price > 0 { // is income
                 _income += payment.price
