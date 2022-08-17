@@ -9,6 +9,7 @@ import Foundation
 
 /// Names validator
 class TagNameValidator: Validator {
+    // MARK: todo normal validate
     static func validate(str: String) -> Bool {
         if !str.isEmpty {
             return true

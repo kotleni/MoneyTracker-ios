@@ -9,7 +9,7 @@ import Foundation
 
 /// Price string validator
 class PriceValidator: Validator {
-    // MARK: do normal validator
+    // MARK: todo normal validate
     static func validate(str: String) -> Bool {
         // let price = Float(str.replacingOccurrences(of: ",", with: "."))
         if !str.isEmpty {
