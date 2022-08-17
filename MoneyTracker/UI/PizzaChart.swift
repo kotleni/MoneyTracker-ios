@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+/// Item for chart
 struct ChartItem: Hashable {
     let name: String
     let value: Double
     let color: Color
 }
 
+/// Pie slide shape
 struct PieSlice: Shape {
     let radius: Double
     let startAngle: Double
@@ -27,6 +29,7 @@ struct PieSlice: Shape {
     }
 }
 
+/// Legend view for chart
 struct ChartLegend: View {
     let items: [ChartItem]
     
@@ -48,6 +51,7 @@ struct ChartLegend: View {
     }
 }
 
+/// Pizza chart view
 struct PizzaChart: View {
     let radius: Double
     let items: [ChartItem]
@@ -57,11 +61,13 @@ struct PizzaChart: View {
         self.radius = radius
         self.items = items
         
+        // calculating sum
         var sum = 0.0
         items.forEach { item in
             sum += item.value
         }
         
+        // calculating angles
         let per = 360 / sum
         var last = 0.0
         items.forEach { item in

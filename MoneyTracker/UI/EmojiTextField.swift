@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+/// Emoji  field view (UIKit)
 class UIEmojiTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,6 +48,7 @@ class UIEmojiTextField: UITextField {
     }
 }
 
+/// Emoji field view
 struct EmojiTextField: UIViewRepresentable {
     @Binding var text: String
     var placeholder: String

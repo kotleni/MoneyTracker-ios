@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Search bar view
 struct SearchBarView: View {
     @Binding var text: String
     var hint: String
@@ -33,6 +34,7 @@ struct SearchBarView: View {
                     }
                 }
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color(.secondarySystemBackground)))
+                
                 if isButtonShown {
                     Button(action: {buttonClicked()}) {
                         Text("btn_cancel".localized)
