@@ -39,16 +39,16 @@ func readASN1Integer(ptr: inout UnsafePointer<UInt8>?, maxLength: Int) -> Int? {
     var length: Int = 0
     let save_ptr = ptr
     ASN1_get_object(&ptr, &length, &type, &xclass, maxLength)
-
+    
     guard type == V_ASN1_INTEGER else {
         return nil
     }
-   
+    
     ptr = save_ptr
     let integerObject = d2i_ASN1_UINTEGER(nil, &ptr, maxLength)
     let intValue = ASN1_INTEGER_get(integerObject)
     ASN1_INTEGER_free(integerObject)
-  
+    
     
     return intValue
 }
