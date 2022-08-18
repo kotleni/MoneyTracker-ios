@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,7 +19,6 @@
 		5A19B983288333F000C27056 /* TagsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B982288333F000C27056 /* TagsManager.swift */; };
 		5A19B985288335FB00C27056 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B984288335FB00C27056 /* Tag.swift */; };
 		5A19B98728833DAC00C27056 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98628833DAC00C27056 /* AddTagView.swift */; };
-		5A19B98B2883418500C27056 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98A2883418500C27056 /* EmojiTextField.swift */; };
 		5A19B98D288343D300C27056 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98C288343D300C27056 /* Toast.swift */; };
 		5A19B9902883458800C27056 /* EmojiValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B98F2883458700C27056 /* EmojiValidator.swift */; };
 		5A19B9922883460D00C27056 /* TagNameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B9912883460D00C27056 /* TagNameValidator.swift */; };
@@ -129,7 +128,6 @@
 		5A19B982288333F000C27056 /* TagsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsManager.swift; sourceTree = "<group>"; };
 		5A19B984288335FB00C27056 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		5A19B98628833DAC00C27056 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
-		5A19B98A2883418500C27056 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
 		5A19B98C288343D300C27056 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		5A19B98F2883458700C27056 /* EmojiValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiValidator.swift; sourceTree = "<group>"; };
 		5A19B9912883460D00C27056 /* TagNameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNameValidator.swift; sourceTree = "<group>"; };
@@ -375,7 +373,6 @@
 				5AFA66D92883067200088D53 /* Home */,
 				5AFA66D82883065C00088D53 /* Settings */,
 				5A00F44F287EC72400A4820A /* SearchBarView.swift */,
-				5A19B98A2883418500C27056 /* EmojiTextField.swift */,
 				5A35061C2885DFD800AD5EC6 /* PizzaChart.swift */,
 			);
 			path = UI;
@@ -568,7 +565,7 @@
 				};
 			};
 			buildConfigurationList = B4D5011B2869A87A0065EB4D /* Build configuration list for PBXProject "MoneyTracker" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -668,7 +665,6 @@
 				5A35061D2885DFD800AD5EC6 /* PizzaChart.swift in Sources */,
 				5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */,
 				5A2383F1288DE05100DD60DE /* SettingsViewModel.swift in Sources */,
-				5A19B98B2883418500C27056 /* EmojiTextField.swift in Sources */,
 				5A2383F7288EB12700DD60DE /* TagsEditorViewModel.swift in Sources */,
 				5A460426288FF18200E4A411 /* BaseViewModel.swift in Sources */,
 				5A460423288FF02600E4A411 /* AboutAppViewModel.swift in Sources */,
@@ -883,7 +879,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoneyTracker/MoneyTracker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = 534C989ZLQ;
 				ENABLE_PREVIEWS = YES;
@@ -900,7 +896,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.6;
+				MARKETING_VERSION = 3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -922,7 +918,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoneyTracker/MoneyTracker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = 534C989ZLQ;
 				ENABLE_PREVIEWS = YES;
@@ -939,7 +935,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.6;
+				MARKETING_VERSION = 3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

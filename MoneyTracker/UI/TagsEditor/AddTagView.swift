@@ -12,7 +12,7 @@ struct AddTagView: View {
     @ObservedObject var viewModel: TagsEditorViewModel
     @Binding var isSheetShow: Bool
     
-    @State private var emojiText: String = ""
+    @State private var emojiText: String = "🍕"
     @State private var nameText: String = ""
     @State private var isError: Bool = false
     
@@ -22,8 +22,14 @@ struct AddTagView: View {
                 HStack {
                     Text("label_emoji".localized)
                     Spacer()
-                    EmojiTextField(text: $emojiText, placeholder: "hint_necessarily".localized)
-                        .frame(width: UIScreen.main.bounds.width / 3)
+                    Picker(selection: $emojiText) {
+                        ForEach(["🍕","🌈","👚","🎭","💻","📦","🐶","⚽️","🎮","💊","📚"], id: \.self) { emoji in
+                            Text(emoji)
+                        }
+                    } label: {
+                        Text("Emoji")
+                    }
+                    .pickerStyle(.menu)
                 }
                 
                 HStack {
