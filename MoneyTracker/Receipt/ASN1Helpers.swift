@@ -26,7 +26,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+import Foundation
 import OpenSSL
 
 func readASN1Data(ptr: UnsafePointer<UInt8>, length: Int) -> Data {

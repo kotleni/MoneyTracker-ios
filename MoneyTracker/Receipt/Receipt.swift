@@ -26,8 +26,14 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import UIKit
+import Foundation
 import OpenSSL
+
+#if os(macOS)
+
+#else
+import UIKit
+#endif
 
 enum ReceiptStatus: String {
   case validationSuccess = "This receipt is valid."
@@ -125,14 +131,26 @@ class Receipt {
  
   }
   
-  private func getDeviceIdentifier() -> Data {
-    let device = UIDevice.current
-    var uuid = device.identifierForVendor!.uuid
-    let addr = withUnsafePointer(to: &uuid) { p -> UnsafeRawPointer in
-      UnsafeRawPointer(p)
-    }
-    let data = Data(bytes: addr, count: 16)
-    return data
+    private func getDeviceIdentifier() -> Data {
+#if os(macOS)
+        let matchingDict = IOServiceMatching("IOPlatformExpertDevice")
+        let platformExpert = IOServiceGetMatchingService(kIOMasterPortDefault, matchingDict)
+        defer{ IOObjectRelease(platformExpert) }
+        guard platformExpert != 0 else { return nil }
+        let deviceUUID = IORegistryEntryCreateCFProperty(platformExpert, kIOPlatformUUIDKey as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? String
+        
+        let data = Data(deviceUUID)
+        let subData = data.subdata(in: 0..<16)
+        return subData
+#else
+        let device = UIDevice.current
+        var uuid = device.identifierForVendor!.uuid
+        let addr = withUnsafePointer(to: &uuid) { p -> UnsafeRawPointer in
+          UnsafeRawPointer(p)
+        }
+        let data = Data(bytes: addr, count: 16)
+        return data
+#endif
   }
   
   private func readReceipt(_ receiptPKCS7: UnsafeMutablePointer<PKCS7>?) {

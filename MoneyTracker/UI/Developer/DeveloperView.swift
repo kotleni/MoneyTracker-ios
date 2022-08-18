@@ -5,7 +5,6 @@
 //  Created by Victor Varenik on 16.07.2022.
 //
 
-import UIKit
 import SwiftUI
 
 struct DeveloperView: View {
