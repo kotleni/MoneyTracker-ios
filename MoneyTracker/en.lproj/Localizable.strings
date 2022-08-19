@@ -114,3 +114,8 @@
 "notif_body" = "Time to update your payment list!";
 
 "search_empty" = "Nothing found";
+
+"btn_export" = "Export data";
+"btn_exportlocal" = "Save to files";
+
+"label_loading" = "Loading...";

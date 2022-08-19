@@ -13,6 +13,8 @@ struct SettingsView: View {
     
     @State private var isShowToast: Bool = false
     @State private var toastText: String = ""
+    @State private var isShowExport: Bool = false
+    @State private var isExportLocal: Bool = false
     
     var body: some View {
         Form {
@@ -53,6 +55,20 @@ struct SettingsView: View {
                     }, value: "")
                 }
                 
+                if viewModel.isExperimental {
+                    // reset payments
+                    SettingsItemView(title: "btn_export".localized, action: {
+                        isShowExport = true
+                    }, value: "")// reset payments
+                    .confirmationDialog("btn_export".localized, isPresented: $isShowExport, titleVisibility: .visible) {
+                        Button("btn_exportlocal".localized) {
+                            isExportLocal = true
+                            viewModel.setLoading(isEnabled: true)
+                            viewModel.exportData()
+                        }
+                    }
+                }
+                
                 // reset payments
                 SettingsItemView(title: "btn_resetpay".localized, action: {
                     if(viewModel.isPremium) {
@@ -70,10 +86,21 @@ struct SettingsView: View {
             } header: {
                 Text("settings_other".localized)
             }
+            
+            if viewModel.isLoading {
+                HStack {
+                    ProgressView()
+                        .padding(4)
+                    Text("label_loading".localized)
+                        .opacity(0.8)
+                }
+            }
         }
         .background(Color("MainBackground"))
         .toast(message: toastText, isShowing: $isShowToast, config: .init())
         .navigationTitle("title_settings".localized)
+        .fileExporter(isPresented: $viewModel.isExportJson, document: JsonDocument(text: viewModel.exportJson), contentType: .text, defaultFilename: "export\(DateFormatter().string(from: Date())).json", onCompletion: { result in
+        })
         .onAppear { viewModel.loadData() }
     }
 }
