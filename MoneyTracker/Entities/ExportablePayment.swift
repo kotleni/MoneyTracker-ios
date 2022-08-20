@@ -8,7 +8,7 @@
 import Foundation
 
 struct ExportablePayment: Codable {
-    var date: Date
+    var date: String
     var about: String
     var price: Float
     var tag: String

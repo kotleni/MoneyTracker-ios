@@ -15,4 +15,12 @@ extension Date {
         df.dateFormat = "dd.MM.yyyy"
         return df.string(from: date)
     }
+    
+    /// Get date+time string
+    func getDateTimeString() -> String {
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yyyy hh:mm:ss"
+        return df.string(from: date)
+    }
 }

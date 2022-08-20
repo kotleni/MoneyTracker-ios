@@ -26,7 +26,7 @@ extension Payment {
     
     /// Make exportable payment
     func exportPayment() -> ExportablePayment {
-        return ExportablePayment(date: self.date ?? Date(), about: self.about ?? "", price: self.price, tag: self.tag ?? "")
+        return ExportablePayment(date: (self.date ?? Date()).getDateTimeString(), about: self.about ?? "", price: self.price, tag: self.tag ?? "")
     }
 }
 

@@ -39,15 +39,18 @@ class SettingsViewModel: BaseViewModel {
     
     /// Export data
     func exportData() {
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "error"
+        let currency = storageManager.getPriceType()
         var exportablePayments: Array<ExportablePayment> = []
         
         paymentsManager.getPayments().forEach { payment in
             exportablePayments.append(payment.exportPayment())
         }
         
+        let exportData = ExportData(appVersion: appVersion, currency: currency, payments: exportablePayments)
         let jsonEncoder = JSONEncoder()
         do {
-            let jsonData = try jsonEncoder.encode(exportablePayments)
+            let jsonData = try jsonEncoder.encode(exportData)
             let jsonString = String(data: jsonData, encoding: .utf8)
             exportJson = jsonString ?? ""
             isExportJson = true
