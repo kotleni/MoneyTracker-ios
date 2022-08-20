@@ -49,6 +49,7 @@ class SettingsViewModel: BaseViewModel {
         
         let exportData = ExportData(appVersion: appVersion, currency: currency, payments: exportablePayments)
         let jsonEncoder = JSONEncoder()
+        jsonEncoder.outputFormatting = .prettyPrinted
         do {
             let jsonData = try jsonEncoder.encode(exportData)
             let jsonString = String(data: jsonData, encoding: .utf8)
