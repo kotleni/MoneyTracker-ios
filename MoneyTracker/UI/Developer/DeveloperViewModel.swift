@@ -13,10 +13,6 @@ class DeveloperViewModel: BaseViewModel {
         didSet { storageManager.setExperimental(isEnable: isExperimental) }
     }
     
-    @Published var isNotifEnable: Bool = false {
-        didSet { storageManager.setNotifEnable(isEnable: isNotifEnable) }
-    }
-    
     @Published var isDeveloper: Bool = false {
         didSet { storageManager.setDeveloper(isEnable: isDeveloper) }
     }
@@ -24,7 +20,6 @@ class DeveloperViewModel: BaseViewModel {
     /// Load all
     override func loadData() {
         isExperimental = storageManager.isExperimental()
-        isNotifEnable = storageManager.isNotifEnable()
         isDeveloper = storageManager.isDeveloper()
     }
     
