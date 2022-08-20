@@ -67,7 +67,7 @@ struct AddPaymentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        if PriceValidator.validate(str: priceText) && !aboutText.isEmpty {
+                        if PriceExpressionValidator.validate(str: priceText) && !aboutText.isEmpty {
                             viewModel.tryAddPayment(
                                 priceText: priceText,
                                 aboutText: aboutText,

@@ -34,7 +34,7 @@
 		5A3A6568288571600097B179 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A6567288571600097B179 /* HomeCoordinator.swift */; };
 		5A3A656A288572BD0097B179 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A6569288572BD0097B179 /* SettingsCoordinator.swift */; };
 		5A43529E2883E50100C89F44 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43529D2883E50100C89F44 /* Validator.swift */; };
-		5A4352A02883E5F800C89F44 /* PriceValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43529F2883E5F800C89F44 /* PriceValidator.swift */; };
+		5A4352A02883E5F800C89F44 /* PriceExpressionValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43529F2883E5F800C89F44 /* PriceExpressionValidator.swift */; };
 		5A4352A22883EB7500C89F44 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4352A12883EB7500C89F44 /* Character.swift */; };
 		5A4352A42883EB8900C89F44 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4352A32883EB8900C89F44 /* String.swift */; };
 		5A460423288FF02600E4A411 /* AboutAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A460422288FF02600E4A411 /* AboutAppViewModel.swift */; };
@@ -145,7 +145,7 @@
 		5A3A6567288571600097B179 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		5A3A6569288572BD0097B179 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		5A43529D2883E50100C89F44 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
-		5A43529F2883E5F800C89F44 /* PriceValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceValidator.swift; sourceTree = "<group>"; };
+		5A43529F2883E5F800C89F44 /* PriceExpressionValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceExpressionValidator.swift; sourceTree = "<group>"; };
 		5A4352A12883EB7500C89F44 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		5A4352A32883EB8900C89F44 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5A460422288FF02600E4A411 /* AboutAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewModel.swift; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 				5A19B98F2883458700C27056 /* EmojiValidator.swift */,
 				5A19B9912883460D00C27056 /* TagNameValidator.swift */,
 				5A43529D2883E50100C89F44 /* Validator.swift */,
-				5A43529F2883E5F800C89F44 /* PriceValidator.swift */,
+				5A43529F2883E5F800C89F44 /* PriceExpressionValidator.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -634,7 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A798FCB28859DC200A63300 /* PremiumBannerView.swift in Sources */,
-				5A4352A02883E5F800C89F44 /* PriceValidator.swift in Sources */,
+				5A4352A02883E5F800C89F44 /* PriceExpressionValidator.swift in Sources */,
 				5A798FC7288599AD00A63300 /* NotificationsView.swift in Sources */,
 				5A00F46C287F313700A4820A /* PaymentItemView.swift in Sources */,
 				5A46042C289071BB00E4A411 /* ResetPaymentsViewModel.swift in Sources */,

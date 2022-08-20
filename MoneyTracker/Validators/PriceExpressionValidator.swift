@@ -1,0 +1,27 @@
+//
+//  PriceValidator.swift
+//  MoneyTracker
+//
+//  Created by Victor Varenik on 17.07.2022.
+//
+
+import Foundation
+
+/// Price string validator
+class PriceExpressionValidator: Validator {
+    // MARK: todo normal validate
+    static func validate(str: String) -> Bool {
+        if str.isEmpty {
+            return false
+        }
+        
+        var isValid = true
+        let allowed = "01234567890.+-/* "
+        str.forEach { char in
+            if !allowed.contains(char) {
+                isValid = false
+            }
+        }
+        return isValid
+    }
+}

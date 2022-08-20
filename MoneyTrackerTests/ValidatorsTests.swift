@@ -26,10 +26,26 @@ class ValidatorsTests: XCTestCase {
         XCTAssertTrue(second)
     }
     
-    func testPriceValidator() throws {
-        //let first = PriceValidator.validate(str: "xx")
-        let second = PriceValidator.validate(str: "0.0")
-        //XCTAssertFalse(first)
-        XCTAssertTrue(second)
+    func testPriceExpressionValidator() throws {
+        let validExpressions = [
+            "20+30-7+100/3*321",
+            "20",
+            "700+10",
+            "3.1",
+            "3.01/7"
+        ]
+        let invalidExpressions = [
+            "20+30^",
+            "",
+            "333l",
+        ]
+        validExpressions.forEach { str in
+            let isValid = PriceExpressionValidator.validate(str: str)
+            XCTAssertTrue(isValid)
+        }
+        invalidExpressions.forEach { str in
+            let isValid = PriceExpressionValidator.validate(str: str)
+            XCTAssertFalse(isValid)
+        }
     }
 }

@@ -55,17 +55,15 @@ struct SettingsView: View {
                     }, value: "")
                 }
                 
-                if viewModel.isExperimental {
-                    // reset payments
-                    SettingsItemView(title: "btn_export".localized, action: {
-                        isShowExport = true
-                    }, value: "")// reset payments
-                    .confirmationDialog("btn_export".localized, isPresented: $isShowExport, titleVisibility: .visible) {
-                        Button("btn_exportlocal".localized) {
-                            isExportLocal = true
-                            viewModel.setLoading(isEnabled: true)
-                            viewModel.exportData()
-                        }
+                // reset payments
+                SettingsItemView(title: "btn_export".localized, action: {
+                    isShowExport = true
+                }, value: "")// reset payments
+                .confirmationDialog("btn_export".localized, isPresented: $isShowExport, titleVisibility: .visible) {
+                    Button("btn_exportlocal".localized) {
+                        isExportLocal = true
+                        viewModel.setLoading(isEnabled: true)
+                        viewModel.exportData()
                     }
                 }
                 
