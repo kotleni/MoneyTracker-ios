@@ -14,12 +14,16 @@ struct DeveloperView: View {
     var body: some View {
         Form {
             Section {
-                Button {
-                    viewModel.addSpecialPayments()
-                } label: {
-                    Text("Add payments for screenshot")
-                }
+                Button { viewModel.addSpecialPayments() }
+                    label: { Text("Add payments for screenshot") }
+                Button { viewModel.removeAllPayments() }
+                    label: { Text("Remove all payments") }
+                Button { viewModel.removeAllTags() }
+                    label: { Text("Remove all tags") }
+                
                 Toggle(isOn: $viewModel.isExperimental, label: { Text("Experimental features") })
+                Toggle(isOn: $viewModel.isNotifEnable, label: { Text("Notifications toggle") })
+                Toggle(isOn: $viewModel.isDeveloper, label: { Text("Developer unlocked") })
             } header: {
                 Text("Experimental")
             }
