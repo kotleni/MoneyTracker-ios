@@ -14,8 +14,10 @@ struct PaymentItemView: View {
     
     var body: some View {
         HStack {
-            Text((tag == nil) ? "❓" : tag!.emoji!)
-                .font(.system(size: 28))
+            if payment.price < 0 {
+                Text((tag == nil) ? "❓" : tag!.emoji!)
+                    .font(.system(size: 28))
+            }
             VStack {
                 HStack {
                     Text("\(String(format: "%.2f", payment.price)) \(priceType)")
