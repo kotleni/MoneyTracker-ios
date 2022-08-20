@@ -10,14 +10,14 @@ import SwiftUI
 import UIKit
 
 final class AdBanner: UIViewControllerRepresentable {
-    private let onError: () -> ()
+    private let onUpdate: (_ isSuccess: Bool) -> ()
     
-    init(onError: @escaping () -> ()) {
-       self.onError = onError
+    init(onUpdate: @escaping (_ isSuccess: Bool) -> ()) {
+       self.onUpdate = onUpdate
    }
     
     func makeUIViewController(context: Context) -> AdBannerViewController {
-        let viewContoller = AdBannerViewController(onError: onError)
+        let viewContoller = AdBannerViewController(onUpdate: onUpdate)
         return viewContoller
     }
     
@@ -29,10 +29,10 @@ final class AdBanner: UIViewControllerRepresentable {
 final class AdBannerViewController: UIViewController, GADBannerViewDelegate {
     private var adUnitID: String = "ca-app-pub-8334416213766495/4179109818" // test: "ca-app-pub-3940256099942544/2934735716"
     private var bannerView: GADBannerView!
-    private var onError: () -> ()
+    private var onUpdate: (_ isSuccess: Bool) -> ()
     
-    init(onError: @escaping () -> ()) {
-        self.onError = onError
+    init(onUpdate: @escaping (_ isSuccess: Bool) -> ()) {
+        self.onUpdate = onUpdate
         super.init(nibName: nil, bundle: nil)
    }
     
@@ -51,10 +51,14 @@ final class AdBannerViewController: UIViewController, GADBannerViewDelegate {
     }
     
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-        onError()
+        onUpdate(false)
+    }
+    
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        onUpdate(true)
     }
     
     func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-        
+        onUpdate(true)
     }
 }

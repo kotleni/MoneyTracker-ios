@@ -95,10 +95,22 @@ struct SettingsView: View {
             }
             
             if !viewModel.isPremium && !viewModel.isAdError {
-                AdBanner(onError: {
-                    viewModel.setAdError()
-                })
-                    .frame(height: 100)
+                ZStack {
+                    AdBanner(onUpdate: { isSuccess in
+                        if isSuccess {
+                            viewModel.setAdLoaded(isLoaded: true)
+                        } else {
+                            viewModel.setAdError(isError: true)
+                        }
+                    })
+                    .if(viewModel.isAdLoaded) { banner in
+                        banner.frame(height: 100)
+                    }
+                    
+                    if !viewModel.isAdLoaded {
+                        ProgressView()
+                    }
+                }
             }
         }
         .background(Color("MainBackground"))
