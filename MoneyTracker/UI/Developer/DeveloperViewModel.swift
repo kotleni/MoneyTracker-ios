@@ -43,13 +43,4 @@ class DeveloperViewModel: BaseViewModel {
             self.paymentsManager.removeAll()
         }
     }
-    
-    /// Remove all tags
-    func removeAllTags() {
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.tagsManager.getTags().forEach { tag in
-                self.tagsManager.removeTag(tag: tag)
-            }
-        }
-    }
 }

@@ -18,8 +18,6 @@ struct DeveloperView: View {
                     label: { Text("Add payments for screenshot") }
                 Button { viewModel.removeAllPayments() }
                     label: { Text("Remove all payments") }
-                Button { viewModel.removeAllTags() }
-                    label: { Text("Remove all tags") }
                 
                 Toggle(isOn: $viewModel.isExperimental, label: { Text("Experimental features") })
                 Toggle(isOn: $viewModel.isNotifEnable, label: { Text("Notifications toggle") })
