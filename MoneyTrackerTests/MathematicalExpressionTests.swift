@@ -14,6 +14,13 @@ class MathematicalExpressionTests: XCTestCase {
     override func setUpWithError() throws { }
     override func tearDownWithError() throws { }
     
+    func testSingleValueExpression() throws {
+        let exp = MathematicalExpression(line: "88")
+        let value = try exp.calculate()
+        
+        XCTAssertEqual(value, 88.0)
+    }
+    
     func testAddExpression() throws {
         let exp = MathematicalExpression(line: "20+10+5+4+1")
         let value = try exp.calculate()
