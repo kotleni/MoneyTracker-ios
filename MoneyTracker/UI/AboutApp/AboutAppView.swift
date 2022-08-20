@@ -11,8 +11,6 @@ struct AboutAppView: View {
     @EnvironmentObject var router: SettingsCoordinator.Router
     @ObservedObject var viewModel: AboutAppViewModel
     
-    @State private var isRocketAnimation: Bool = false
-    
     var body: some View {
         ZStack {
             Form {
@@ -34,7 +32,6 @@ struct AboutAppView: View {
                             viewModel.enableDeveloper()
                             let generator = UINotificationFeedbackGenerator()
                             generator.notificationOccurred(.success)
-                            withAnimation { isRocketAnimation = true }
                         }
                 } header: {
                     Text("label_info".localized)
@@ -76,21 +73,6 @@ struct AboutAppView: View {
                     Text("label_links".localized)
                 }
 
-            }
-            
-            if isRocketAnimation {
-                VStack {
-                    Spacer()
-                    Image("rocket")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 300)
-                        .transition(.slide)
-                        .onTapGesture {
-                            isRocketAnimation = false
-                        }
-                }
-                .transition(.slide)
             }
         }
         .navigationTitle("title_aboutapp".localized)
