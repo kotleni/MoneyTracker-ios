@@ -10,7 +10,7 @@ import StoreKitTest
 @testable import MoneyTracker
 
 class StoreKitTests: XCTestCase {
-    
+
     var products = [SKProduct]()
     var keychain = KeychainManager()
     

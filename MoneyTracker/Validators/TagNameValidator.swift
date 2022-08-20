@@ -14,7 +14,6 @@ class TagNameValidator: Validator {
         if !str.isEmpty {
             return true
         }
-        
         return false
     }
 }
