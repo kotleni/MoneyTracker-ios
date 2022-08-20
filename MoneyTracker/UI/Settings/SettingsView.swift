@@ -93,6 +93,13 @@ struct SettingsView: View {
                         .opacity(0.8)
                 }
             }
+            
+            if !viewModel.isPremium && !viewModel.isAdError {
+                AdBanner(onError: {
+                    viewModel.setAdError()
+                })
+                    .frame(height: 100)
+            }
         }
         .background(Color("MainBackground"))
         .toast(message: toastText, isShowing: $isShowToast, config: .init())

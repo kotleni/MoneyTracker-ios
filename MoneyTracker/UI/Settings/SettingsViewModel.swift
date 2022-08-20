@@ -15,6 +15,7 @@ class SettingsViewModel: BaseViewModel {
     @Published private(set) var isPremium: Bool = false
     @Published private(set) var currency: String = ""
     @Published private(set) var exportJson: String = ""
+    @Published private(set) var isAdError: Bool = false
     @Published var isExportJson: Bool = false
     
     /// Load data
@@ -60,5 +61,10 @@ class SettingsViewModel: BaseViewModel {
         }
         
         isLoading = false
+    }
+    
+    /// Set ad loaded
+    func setAdError() {
+        isAdError = true
     }
 }

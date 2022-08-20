@@ -7,6 +7,7 @@
 
 import Foundation
 import StoreKit
+import GoogleMobileAds
 
 class AppDelegate: NSObject {
     var store: StoreManager!
@@ -16,6 +17,8 @@ class AppDelegate: NSObject {
 extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         SKPaymentQueue.default().add(self)
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         return true
     }
 }

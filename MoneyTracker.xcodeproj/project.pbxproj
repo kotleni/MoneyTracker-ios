@@ -70,6 +70,8 @@
 		5ADD33F42891C9FF00C00F1C /* PremiumItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33F32891C9FF00C00F1C /* PremiumItemView.swift */; };
 		5ADD33F62891DBF500C00F1C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33F52891DBF500C00F1C /* View.swift */; };
 		5AF8B6D428B0C9ED00D76AEC /* ExportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8B6D328B0C9ED00D76AEC /* ExportData.swift */; };
+		5AF8B6D728B0E60E00D76AEC /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 5AF8B6D628B0E60E00D76AEC /* GoogleMobileAds */; };
+		5AF8B6D928B0E82800D76AEC /* AdBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8B6D828B0E82800D76AEC /* AdBanner.swift */; };
 		5AFA66D72882C07100088D53 /* MathematicalExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA66D62882C07100088D53 /* MathematicalExpression.swift */; };
 		5AFED6E128918D1A00E33D66 /* TagsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */; };
 		B4043A132898F840009DB652 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = B4043A122898F840009DB652 /* OpenSSL */; };
@@ -123,7 +125,7 @@
 		5A00F44F287EC72400A4820A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		5A00F457287EDA0100A4820A /* MoneyTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A00F459287EDA0100A4820A /* ValidatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorsTests.swift; sourceTree = "<group>"; };
-		5A00F462287EDE0800A4820A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5A00F462287EDE0800A4820A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A00F46B287F313700A4820A /* PaymentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentItemView.swift; sourceTree = "<group>"; };
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A0952B3287E959C006CCE2D /* CurrencyEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditorView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		5ADD33F32891C9FF00C00F1C /* PremiumItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumItemView.swift; sourceTree = "<group>"; };
 		5ADD33F52891DBF500C00F1C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5AF8B6D328B0C9ED00D76AEC /* ExportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportData.swift; sourceTree = "<group>"; };
+		5AF8B6D828B0E82800D76AEC /* AdBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBanner.swift; sourceTree = "<group>"; };
 		5AFA66D62882C07100088D53 /* MathematicalExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalExpression.swift; sourceTree = "<group>"; };
 		5AFED6E028918D1A00E33D66 /* TagsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPublisher.swift; sourceTree = "<group>"; };
 		B4043A152899148F009DB652 /* AppleIncRootCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate.cer; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AF8B6D728B0E60E00D76AEC /* GoogleMobileAds in Frameworks */,
 				B4043A132898F840009DB652 /* OpenSSL in Frameworks */,
 				5A3A6564288570DA0097B179 /* Stinsen in Frameworks */,
 				5A0EF6ED289562A5009470DB /* StoreKit.framework in Frameworks */,
@@ -386,6 +390,7 @@
 				5A00F44F287EC72400A4820A /* SearchBarView.swift */,
 				5A35061C2885DFD800AD5EC6 /* PizzaChart.swift */,
 				5AC14E6328AF74130058A4DC /* AdaptiveSheet.swift */,
+				5AF8B6D828B0E82800D76AEC /* AdBanner.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 			packageProductDependencies = (
 				5A3A6563288570DA0097B179 /* Stinsen */,
 				B4043A122898F840009DB652 /* OpenSSL */,
+				5AF8B6D628B0E60E00D76AEC /* GoogleMobileAds */,
 			);
 			productName = MoneyTracker;
 			productReference = B4D501202869A87A0065EB4D /* MoneyTracker.app */;
@@ -588,6 +594,7 @@
 			packageReferences = (
 				5A3A6562288570DA0097B179 /* XCRemoteSwiftPackageReference "stinsen" */,
 				B4043A112898F840009DB652 /* XCRemoteSwiftPackageReference "OpenSSL" */,
+				5AF8B6D528B0E60E00D76AEC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = B4D501212869A87A0065EB4D /* Products */;
 			projectDirPath = "";
@@ -658,6 +665,7 @@
 				5A19B98728833DAC00C27056 /* AddTagView.swift in Sources */,
 				5A4604332890747700E4A411 /* PremiumViewModel.swift in Sources */,
 				B425FB7228992A8600D32BB1 /* SKProduct.swift in Sources */,
+				5AF8B6D928B0E82800D76AEC /* AdBanner.swift in Sources */,
 				5A5DEB2528AD418800496571 /* DeviceSupportHelper.swift in Sources */,
 				5AD6E9CF2887D3F1005311C5 /* PremiumView.swift in Sources */,
 				5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */,
@@ -913,6 +921,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.9;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -952,6 +961,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.9;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1005,6 +1015,14 @@
 				kind = branch;
 			};
 		};
+		5AF8B6D528B0E60E00D76AEC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		B4043A112898F840009DB652 /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL";
@@ -1020,6 +1038,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A3A6562288570DA0097B179 /* XCRemoteSwiftPackageReference "stinsen" */;
 			productName = Stinsen;
+		};
+		5AF8B6D628B0E60E00D76AEC /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AF8B6D528B0E60E00D76AEC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 		B4043A122898F840009DB652 /* OpenSSL */ = {
 			isa = XCSwiftPackageProductDependency;
