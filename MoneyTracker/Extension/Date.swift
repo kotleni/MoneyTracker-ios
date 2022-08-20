@@ -10,7 +10,7 @@ import Foundation
 extension Date {
     /// Get date string
     func getDateString() -> String {
-        let date = Date()
+        let date = self
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy"
         return df.string(from: date)
@@ -18,7 +18,7 @@ extension Date {
     
     /// Get date+time string
     func getDateTimeString() -> String {
-        let date = Date()
+        let date = self
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy hh:mm:ss"
         return df.string(from: date)
