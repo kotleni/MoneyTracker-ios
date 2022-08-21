@@ -16,9 +16,10 @@ extension Payment {
         }
         
         // is selected tag
-        let paymentTag = (self.tag == nil) ? Tag.getDefault().name! : self.tag! // MARK: todo fix deprecation
-        if filter == paymentTag && self.price < 0 {
-            return true
+        if let tag = self.tag {
+            if filter == tag && self.price < 0 {
+                return true
+            }
         }
         
         return false

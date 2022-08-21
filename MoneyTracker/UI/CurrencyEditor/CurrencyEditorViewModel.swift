@@ -38,7 +38,7 @@ class CurrencyEditorViewModel: BaseViewModel {
     /// Set currency currency
     func setCurrency(id: UUID) {
         selectedCurrencyId = id
-        if let currency = Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId) { // MARK: todo fix deprecation
+        if let currency = Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId) {
             storageManager.setPriceType(type: currency.littleName)
         }
     }

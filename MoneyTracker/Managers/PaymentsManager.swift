@@ -15,12 +15,13 @@ struct PaymentsManager {
     private var viewContext = PersistenceController.shared.container.viewContext
     
     /// Add new payment
-    func addPayment(price: Float, about: String, tag: Tag = Tag.getDefault(), copies: Int = 0) -> Payment { // MARK: todo fix deprecation
+    func addPayment(price: Float, about: String, tag: Tag? = nil, copies: Int = 0) -> Payment {
+        let tagName = (tag == nil ? "" : tag?.name)
         let payment = Payment(context: viewContext)
         payment.price = Float(price)
         payment.about = about
         payment.date = Date()
-        payment.tag = tag.name
+        payment.tag = tagName
         
         if copies > 0 {
             for index in 0...copies-1 {
@@ -28,7 +29,7 @@ struct PaymentsManager {
                 payment.price = Float(price)
                 payment.about = "\(index) of \(about)"
                 payment.date = Date()
-                payment.tag = tag.name
+                payment.tag = tagName
             }
         }
     
