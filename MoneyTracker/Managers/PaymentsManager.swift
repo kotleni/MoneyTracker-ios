@@ -30,33 +30,36 @@ struct PaymentsManager {
             }
         }
     
-        try! viewContext.save()
+        try? viewContext.save()
         return payment
     }
     
     /// Remove payment by in index
     func removePayment(index: Int) {
         viewContext.delete(getPayments()[index])
-        try! viewContext.save()
+        try? viewContext.save()
     }
     
     /// Remove payment by in payment
     func removePayment(payment: Payment) {
         viewContext.delete(payment)
-        try! viewContext.save()
+        try? viewContext.save()
     }
     
     /// Get all payments
     func getPayments() -> [Payment] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Payment")
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Payment.date, ascending: true)]
-        let array =  try! viewContext.fetch(request) as! Array<Payment>
-        return array.reversed()
+        do {
+            let array = try viewContext.fetch(request) as [Payment]
+            return array.reversed()
+        } catch {}
+        return []
     }
     
     /// Remove all payments
     func removeAll() {
-        getPayments().forEach { payment in
+        getPayments().forEach { _ in
             removePayment(index: 0)
         }
     }

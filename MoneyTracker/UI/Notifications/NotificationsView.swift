@@ -24,7 +24,7 @@ struct NotificationsView: View {
                 Form {
                     Section {
                         Toggle("label_notifications".localized, isOn: $viewModel.isNotifOn)
-                            .onChange(of: viewModel.isNotifOn) { value in
+                            .onChange(of: viewModel.isNotifOn) { _ in
                                 viewModel.setNotifications(state: viewModel.isNotifOn)
                             }
                     } footer: {
@@ -43,6 +43,6 @@ struct NotificationsView: View {
 
 struct NotificationsPreview: PreviewProvider {
     static var previews: some View {
-        NotificationsView(viewModel: NotificationsViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+        NotificationsView(viewModel: NotificationsViewModel.init(managersContainer: .getForPreview()))
     }
 }

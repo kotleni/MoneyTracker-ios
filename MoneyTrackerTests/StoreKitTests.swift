@@ -37,13 +37,17 @@ class StoreKitTests: XCTestCase {
         keychain.delete(key: key)
         XCTAssertNil(keychain.read(key: key))
         
-        let data = try! JSONEncoder().encode(true)
-        keychain.save(data, key: key)
-        
-        let dataNew = keychain.read(key: key)
-        let boolValue = try? JSONDecoder().decode(Bool.self, from: dataNew ?? Data())
-        XCTAssertNotNil(boolValue)
-        XCTAssertTrue(boolValue!)
+        do {
+            let data = try JSONEncoder().encode(true)
+            keychain.save(data, key: key)
+            
+            let dataNew = keychain.read(key: key)
+            let boolValue = try JSONDecoder().decode(Bool.self, from: dataNew ?? Data())
+            XCTAssertNotNil(boolValue)
+            XCTAssertTrue(boolValue)
+        } catch let error {
+            print(error)
+        }
     }
     
     func testBuyProduct() {

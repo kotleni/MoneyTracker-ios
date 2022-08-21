@@ -26,7 +26,7 @@ struct SearchBarView: View {
                     .foregroundColor(.black)
                     .padding(.vertical, 8)
                     if !text.isEmpty {
-                        Button(action: {text.removeAll()}){
+                        Button(action: {text.removeAll()}) {
                             Image(systemName: "xmark.circle.fill")
                         }
                         .padding(.trailing, 8)
@@ -55,7 +55,6 @@ struct SearchBarView: View {
         isButtonShown = false
     }
 }
-
 
 struct SearchBarPreview: PreviewProvider {
     static var previews: some View {

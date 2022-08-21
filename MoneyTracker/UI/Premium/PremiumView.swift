@@ -53,6 +53,6 @@ struct PremiumView: View {
 
 struct PremiumPreview: PreviewProvider {
     static var previews: some View {
-        PremiumView(viewModel: PremiumViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+        PremiumView(viewModel: PremiumViewModel.init(managersContainer: .getForPreview()))
     }
 }

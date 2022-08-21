@@ -18,28 +18,31 @@ struct TagsManager {
         tag.emoji = emoji
         tag.date = Date()
         
-        try! viewContext.save()
+        try? viewContext.save()
         return tag
     }
     
     /// Remove tag by in index
     func removeTag(index: Int) {
         viewContext.delete(getTags()[index])
-        try! viewContext.save()
+        try? viewContext.save()
     }
     
     /// Remove tag by tag
     func removeTag(tag: Tag) {
         viewContext.delete(tag)
-        try! viewContext.save()
+        try? viewContext.save()
     }
     
     /// Get all tags
     func getTags() -> [Tag] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Tag.date, ascending: true)]
-        let array =  try! viewContext.fetch(request) as! Array<Tag>
-        return array
+        do {
+            let array =  try viewContext.fetch(request) as! [Tag]
+            return array
+        } catch {}
+        return []
     }
     
     /// Get default tag

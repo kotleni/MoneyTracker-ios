@@ -11,7 +11,7 @@ import Combine
 class AddPaymentViewModel: BaseViewModel {
     @Published var isError: Bool = false
     @Published var tags: [Tag] = []
-    @Published var selectedTag: Tag? = nil
+    @Published var selectedTag: Tag?
     @Published var priceText: String = ""
     @Published var aboutText: String = ""
     @Published var spendingBool: Bool = true
@@ -28,11 +28,11 @@ class AddPaymentViewModel: BaseViewModel {
     
     /// Add new payment
     func addPayment(price: Float, about: String, tag: Tag) {
-        let _ = paymentsManager.addPayment(price: price, about: about, tag: tag)
+        _ = paymentsManager.addPayment(price: price, about: about, tag: tag)
     }
     
     /// Try add new payment
-    func tryAddPayment(onFinish: (_ isSuccess: Bool) -> ()) {
+    func tryAddPayment(onFinish: (_ isSuccess: Bool) -> Void) {
         guard let selectedTag = selectedTag else { return }
         let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
         let mathExp = MathematicalExpression(line: priceStr)

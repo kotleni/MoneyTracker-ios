@@ -16,9 +16,9 @@ final class Static {
     static let termsUrl = "http://kotleni.github.io/money%20tracker/terms.html"
     
     // developers list
-    static let developers: Array<Developer> = [
+    static let developers: [Developer] = [
         Developer(name: "Victor Varenik", about: "label_developermain".localized, url: "https://github.com/kotleni"),
-        Developer(name: "Mark Hmelnitsky", about: "label_developercontr".localized, url: "https://github.com/openmetrue"),
+        Developer(name: "Mark Hmelnitsky", about: "label_developercontr".localized, url: "https://github.com/openmetrue")
     ]
     
     // subs

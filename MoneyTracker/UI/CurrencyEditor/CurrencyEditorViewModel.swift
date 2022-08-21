@@ -12,7 +12,7 @@ class CurrencyEditorViewModel: BaseViewModel {
     @Published private(set) var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id
     @Published private(set) var isLoading: Bool = true
     
-    @Published private(set) var currenciesFiltered: Array<Currency> = []
+    @Published private(set) var currenciesFiltered: [Currency] = []
     
     /// Load data
     override func loadData() {

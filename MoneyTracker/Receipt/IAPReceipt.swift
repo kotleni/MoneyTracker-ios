@@ -46,7 +46,6 @@ struct IAPReceipt: CustomStringConvertible {
     var subscriptionCancellationDate: Date?
     var webOrderLineId: Int?
     
-    
     init?(with pointer: inout UnsafePointer<UInt8>?, payloadLength: Int) {
         
         let endPointer = pointer!.advanced(by: payloadLength)

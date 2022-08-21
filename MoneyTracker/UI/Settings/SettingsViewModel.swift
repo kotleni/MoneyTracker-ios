@@ -43,7 +43,7 @@ class SettingsViewModel: BaseViewModel {
     func exportData() {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "error"
         let currency = storageManager.getPriceType()
-        var exportablePayments: Array<ExportablePayment> = []
+        var exportablePayments: [ExportablePayment] = []
         
         paymentsManager.getPayments().forEach { payment in
             exportablePayments.append(payment.exportPayment())

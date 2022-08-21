@@ -14,9 +14,9 @@ struct BalancePublisher: Publisher {
     
     let payments: [Payment]
     
-    func receive<S>(subscriber: S) where S : Subscriber, Never == S.Failure, Balance == S.Input {
+    func receive<S>(subscriber: S) where S: Subscriber, Never == S.Failure, Balance == S.Input {
         let balance = calculateBalance(payments: payments)
-        let _ = subscriber.receive(balance)
+        _ = subscriber.receive(balance)
     }
     
     /// Calculate balance by payments array

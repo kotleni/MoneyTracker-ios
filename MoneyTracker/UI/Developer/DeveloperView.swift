@@ -33,6 +33,6 @@ struct DeveloperView: View {
 
 struct DeveloperPreview: PreviewProvider {
     static var previews: some View {
-        DeveloperView(viewModel: DeveloperViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+        DeveloperView(viewModel: DeveloperViewModel.init(managersContainer: .getForPreview()))
     }
 }

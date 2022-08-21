@@ -15,7 +15,7 @@ struct Currency: Identifiable, Hashable {
     let id = UUID()
     
     /// Find currency by code
-    static func findByCode(array: Array<Currency>, code: String) -> Currency? {
+    static func findByCode(array: [Currency], code: String) -> Currency? {
         for curr in array {
             if curr.littleName == code {
                 return curr
@@ -26,7 +26,7 @@ struct Currency: Identifiable, Hashable {
     }
     
     /// Find currency by id
-    static func findById(array: Array<Currency>, id: UUID) -> Currency? {
+    static func findById(array: [Currency], id: UUID) -> Currency? {
         for curr in array {
             if curr.id == id {
                 return curr

@@ -27,7 +27,7 @@ final class KeychainManager {
             let query = [
                 kSecAttrSynchronizable: true,
                 kSecAttrService: key,
-                kSecClass: kSecClassGenericPassword,
+                kSecClass: kSecClassGenericPassword
             ] as CFDictionary
 
             let attributesToUpdate = [kSecValueData: data] as CFDictionary
@@ -56,7 +56,7 @@ final class KeychainManager {
         let query = [
             kSecAttrSynchronizable: true,
             kSecAttrService: key,
-            kSecClass: kSecClassGenericPassword,
+            kSecClass: kSecClassGenericPassword
             ] as CFDictionary
         
         SecItemDelete(query)

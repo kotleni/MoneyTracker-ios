@@ -9,13 +9,7 @@ import SwiftUI
 import Stinsen
 
 final class SettingsCoordinator: NavigationCoordinatable {
-    // managers
-    private let paymentsManager: PaymentsManager
-    private let storageManager: StorageManager
-    private let notificationsManager: NotificationsManager
-    private let tagsManager: TagsManager
-    private let storeManager: StoreManager
-    private let keychainManager: KeychainManager
+    private let managersContainer: ManagersContainer
     
     private let settingsViewModel: SettingsViewModel
     private let currencyEditorViewModel: CurrencyEditorViewModel
@@ -28,24 +22,18 @@ final class SettingsCoordinator: NavigationCoordinatable {
     
     var stack = NavigationStack(initial: \SettingsCoordinator.main)
     
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager, keychainManager: KeychainManager) {
-        self.paymentsManager = paymentsManager
-        self.storageManager = storageManager
-        self.notificationsManager = notificationsManager
-        self.tagsManager = tagsManager
-        self.storeManager = storeManager
-        self.keychainManager = keychainManager
+    init(managersContainer: ManagersContainer) {
+        self.managersContainer = managersContainer
         
-        // MARK: fixme, stupid many initializaions
         // viewModels
-        settingsViewModel = SettingsViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
-        currencyEditorViewModel = CurrencyEditorViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
-        tagsEditorViewModel = TagsEditorViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
-        aboutAppViewModel = AboutAppViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
-        developerViewModel = DeveloperViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
-        resetPaymentsViewModel = ResetPaymentsViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
-        notificationsViewModel = NotificationsViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
-        premiumViewModel = PremiumViewModel.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        settingsViewModel = SettingsViewModel.init(managersContainer: managersContainer)
+        currencyEditorViewModel = CurrencyEditorViewModel.init(managersContainer: managersContainer)
+        tagsEditorViewModel = TagsEditorViewModel.init(managersContainer: managersContainer)
+        aboutAppViewModel = AboutAppViewModel.init(managersContainer: managersContainer)
+        developerViewModel = DeveloperViewModel.init(managersContainer: managersContainer)
+        resetPaymentsViewModel = ResetPaymentsViewModel.init(managersContainer: managersContainer)
+        notificationsViewModel = NotificationsViewModel.init(managersContainer: managersContainer)
+        premiumViewModel = PremiumViewModel.init(managersContainer: managersContainer)
     }
     
     @Root var main = makeMain

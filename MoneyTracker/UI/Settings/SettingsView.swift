@@ -21,7 +21,7 @@ struct SettingsView: View {
             Section {
                 // notif
                 SettingsItemView(title: "btn_notifchange".localized, action: {
-                    if(viewModel.isPremium) {
+                    if viewModel.isPremium {
                         router.route(to: \.notifications)
                     } else {
                         self.toastText = "btn_premiumwarn".localized
@@ -69,7 +69,7 @@ struct SettingsView: View {
                 
                 // reset payments
                 SettingsItemView(title: "btn_resetpay".localized, action: {
-                    if(viewModel.isPremium) {
+                    if viewModel.isPremium {
                         router.route(to: \.resetPayments)
                     } else {
                         self.toastText = "btn_premiumwarn".localized
@@ -120,14 +120,18 @@ struct SettingsView: View {
         .background(Color("MainBackground"))
         .toast(message: toastText, isShowing: $isShowToast, config: .init())
         .navigationTitle("title_settings".localized)
-        .fileExporter(isPresented: $viewModel.isExportJson, document: JsonDocument(text: viewModel.exportJson), contentType: .text, defaultFilename: "export\(DateFormatter().string(from: Date())).json", onCompletion: { result in
-        })
+        .fileExporter(
+            isPresented: $viewModel.isExportJson,
+            document: JsonDocument(text: viewModel.exportJson),
+            contentType: .text,
+            defaultFilename: "export\(DateFormatter().string(from: Date())).json", onCompletion: { _ in }
+        )
         .onAppear { viewModel.loadData() }
     }
 }
 
 struct SettingsPreview: PreviewProvider {
     static var previews: some View {
-        SettingsView(viewModel: SettingsViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+        SettingsView(viewModel: SettingsViewModel.init(managersContainer: .getForPreview()))
     }
 }

@@ -38,7 +38,7 @@ struct CurrencyEditorView: View {
                                             Text(curr.littleName)
                                                 .foregroundColor(.gray)
                                             Spacer()
-                                            if (viewModel.selectedCurrencyId == curr.id) {
+                                            if viewModel.selectedCurrencyId == curr.id {
                                                 Image(systemName: "checkmark")
                                                     .foregroundColor(.blue)
                                                     .transition(.opacity)
@@ -67,7 +67,7 @@ struct CurrencyEditorView: View {
                                         Text(curr.littleName)
                                             .foregroundColor(.gray)
                                         Spacer()
-                                        if (viewModel.selectedCurrencyId == curr.id) {
+                                        if viewModel.selectedCurrencyId == curr.id {
                                             Image(systemName: "checkmark")
                                                 .foregroundColor(.blue)
                                                 .transition(.opacity)
@@ -95,6 +95,6 @@ struct CurrencyEditorView: View {
 
 struct CurrencyEditorPreview: PreviewProvider {
     static var previews: some View {
-        CurrencyEditorView(viewModel: CurrencyEditorViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+        CurrencyEditorView(viewModel: CurrencyEditorViewModel.init(managersContainer: .getForPreview()))
     }
 }

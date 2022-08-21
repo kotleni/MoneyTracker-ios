@@ -38,16 +38,6 @@
                ReferencedContainer = "container:MoneyTracker.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5A798FD32885B8EF00A63300"
-               BuildableName = "MoneyTrackerUITests.xctest"
-               BlueprintName = "MoneyTrackerUITests"
-               ReferencedContainer = "container:MoneyTracker.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

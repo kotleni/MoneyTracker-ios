@@ -287,7 +287,7 @@ final class Currencies {
 		Currency(fullName: "Zimbabwe Dollar", littleName: "ZWL"),
 		Currency(fullName: "Zimbabwe Dollar (new)", littleName: "ZWN"),
 		Currency(fullName: "Zimbabwe Dollar (old)", littleName: "ZWD"),
-		Currency(fullName: "Zloty", littleName: "PLN"),
+		Currency(fullName: "Zloty", littleName: "PLN")
 	]
 
     /// Popular currecies list
@@ -295,7 +295,7 @@ final class Currencies {
 		currenciesAll[72],
 		currenciesAll[92],
 		currenciesAll[208],
-		currenciesAll[250],
+		currenciesAll[250]
 	]
     
     /// Get default

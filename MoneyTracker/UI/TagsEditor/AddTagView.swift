@@ -22,7 +22,7 @@ struct AddTagView: View {
                     Text("label_emoji".localized)
                     Spacer()
                     Picker(selection: $emojiText) {
-                        ForEach(["🍕","🌈","👚","🎭","💻","📦","🐶","⚽️","🎮","💊","📚"], id: \.self) { emoji in
+                        ForEach(["🍕", "🌈", "👚", "🎭", "💻", "📦", "🐶", "⚽️", "🎮", "💊", "📚"], id: \.self) { emoji in
                             Text(emoji)
                         }
                     } label: {
@@ -64,6 +64,6 @@ struct AddTagView: View {
 
 struct AddTagPreview: PreviewProvider {
     static var previews: some View {
-        AddTagView(viewModel: TagsEditorViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()), isSheetShow: .constant(false))
+        AddTagView(viewModel: TagsEditorViewModel.init(managersContainer: .getForPreview()), isSheetShow: .constant(false))
     }
 }

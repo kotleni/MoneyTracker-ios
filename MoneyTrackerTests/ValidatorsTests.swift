@@ -37,7 +37,7 @@ class ValidatorsTests: XCTestCase {
         let invalidExpressions = [
             "20+30^",
             "",
-            "333l",
+            "333l"
         ]
         validExpressions.forEach { str in
             let isValid = PriceExpressionValidator.validate(str: str)

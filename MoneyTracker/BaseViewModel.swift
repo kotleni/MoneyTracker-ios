@@ -18,13 +18,15 @@ class BaseViewModel: ObservableObject {
     internal let storeManager: StoreManager
     internal let keychainManager: KeychainManager
     
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager, keychainManager: KeychainManager) {
-        self.paymentsManager = paymentsManager
-        self.storageManager = storageManager
-        self.notificationsManager = notificationsManager
-        self.tagsManager = tagsManager
-        self.storeManager = storeManager
-        self.keychainManager = keychainManager
+    init(
+        managersContainer: ManagersContainer
+    ) {
+        self.paymentsManager = managersContainer.getPaymentsManager()
+        self.storageManager = managersContainer.getStorageManager()
+        self.notificationsManager = managersContainer.getNotificationsManager()
+        self.tagsManager = managersContainer.getTagsManager()
+        self.storeManager = managersContainer.getStoreManager()
+        self.keychainManager = managersContainer.getKeychainManager()
     }
     
     /// All viewmodel publishers

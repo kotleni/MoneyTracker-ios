@@ -66,6 +66,6 @@ struct TagsEditorView: View {
 
 struct TagsEditorPreview: PreviewProvider {
     static var previews: some View {
-        TagsEditorView(viewModel: TagsEditorViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+        TagsEditorView(viewModel: TagsEditorViewModel.init(managersContainer: .getForPreview()))
     }
 }

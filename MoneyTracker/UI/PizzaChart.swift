@@ -71,10 +71,10 @@ struct PizzaChart: View {
         let per = 360 / sum
         var last = 0.0
         items.forEach { item in
-            let a = last + (per * item.value)
-            angles.append(a)
+            let value = last + (per * item.value)
+            angles.append(value)
             
-            last = a
+            last = value
         }
     }
     
@@ -96,7 +96,7 @@ struct PizzaChartPreview: PreviewProvider {
     static var previews: some View {
         PizzaChart(radius: 60, items: [
             ChartItem(name: "first", value: 1, color: .red),
-            ChartItem(name: "second", value: 3, color: .blue),
+            ChartItem(name: "second", value: 3, color: .blue)
         ])
     }
 }

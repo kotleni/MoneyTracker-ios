@@ -24,7 +24,6 @@ struct AboutAppView: View {
                     } label: {
                         Text("label_developers".localized)
                     }
-
                     
                     // version text
                     Text("label_version".localized + "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "error")")
@@ -82,6 +81,6 @@ struct AboutAppView: View {
 
 struct AboutAppPreview: PreviewProvider {
     static var previews: some View {
-        AboutAppView(viewModel: AboutAppViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+        AboutAppView(viewModel: AboutAppViewModel.init(managersContainer: .getForPreview()))
     }
 }

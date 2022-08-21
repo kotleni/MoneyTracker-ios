@@ -125,7 +125,7 @@ class Receipt {
         let bundleBytes: [UInt8] = .init(bundleIdData!)
         SHA1_Update(&ctx, bundleBytes, bundleIdData!.count)
         
-        var hash: [UInt8] = .init(repeating:0, count: 20)
+        var hash: [UInt8] = .init(repeating: 0, count: 20)
         SHA1_Final(&hash, &ctx)
         return Data(bytes: hash, count: 20)
         
@@ -208,15 +208,12 @@ class Receipt {
                 var dateStartPtr = ptr
                 expirationDate = readASN1Date(ptr: &dateStartPtr, maxLength: length)
             default:
-                //print("not processing attribute type: \(attributeType)")
+                // print("not processing attribute type: \(attributeType)")
                 break
             }
             ptr = ptr!.advanced(by: length)
             
-            
         }
-        
-        
         
     }
     
@@ -235,7 +232,7 @@ class Receipt {
         let store = X509_STORE_new()
         X509_STORE_add_cert(store, rootCertX509)
         OPENSSL_init_crypto(UInt64(OPENSSL_INIT_ADD_ALL_DIGESTS), nil)
-        let verificationResult = PKCS7_verify(receipt, nil, store, nil, nil,0)
+        let verificationResult = PKCS7_verify(receipt, nil, store, nil, nil, 0)
         guard verificationResult == 1 else {
             receiptStatus = .failedAppleSignature
             return false

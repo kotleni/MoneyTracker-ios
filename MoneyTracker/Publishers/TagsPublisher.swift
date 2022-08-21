@@ -14,8 +14,8 @@ struct TagsPublisher: Publisher {
     
     let tagsManager: TagsManager
     
-    func receive<S>(subscriber: S) where S : Subscriber, Never == S.Failure, [Tag] == S.Input {
+    func receive<S>(subscriber: S) where S: Subscriber, Never == S.Failure, [Tag] == S.Input {
         let tags = tagsManager.getTags()
-        let _ = subscriber.receive(tags)
+        _ = subscriber.receive(tags)
     }
 }

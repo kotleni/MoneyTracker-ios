@@ -12,7 +12,7 @@ import StoreKit
 final class StoreManager: NSObject, ObservableObject {
     var keychain: KeychainManager
     private let productsIdentifiers: Set<String>
-    private var productsRequest: SKProductsRequest? = nil
+    private var productsRequest: SKProductsRequest?
     @Published private(set) var products = [SKProduct]()
     
     private(set) var subscriptionDate: Date?
@@ -78,7 +78,7 @@ extension StoreManager: SKProductsRequestDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.products = response.products
             self?.objectWillChange.send()
-            //Вот тут
+            // Вот тут
             print(response.products)
         }
     }

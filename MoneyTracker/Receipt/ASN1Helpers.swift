@@ -49,7 +49,6 @@ func readASN1Integer(ptr: inout UnsafePointer<UInt8>?, maxLength: Int) -> Int? {
     let intValue = ASN1_INTEGER_get(integerObject)
     ASN1_INTEGER_free(integerObject)
     
-    
     return intValue
 }
 

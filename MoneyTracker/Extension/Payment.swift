@@ -30,4 +30,3 @@ extension Payment {
         return ExportablePayment(date: (self.date ?? Date()).getDateTimeString(), about: self.about ?? "", price: self.price, tag: self.tag ?? "")
     }
 }
-

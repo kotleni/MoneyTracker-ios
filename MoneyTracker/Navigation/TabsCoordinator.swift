@@ -9,37 +9,26 @@ import SwiftUI
 import Stinsen
 
 final class TabsCoordinator: TabCoordinatable {
-    // managers
-    private let paymentsManager: PaymentsManager
-    private let storageManager: StorageManager
-    private let notificationsManager: NotificationsManager
-    private let tagsManager: TagsManager
-    private let storeManager: StoreManager
-    private let keychainManager: KeychainManager
+    private let managersContainer: ManagersContainer
     
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager, keychainManager: KeychainManager) {
-        self.paymentsManager = paymentsManager
-        self.storageManager = storageManager
-        self.notificationsManager = notificationsManager
-        self.tagsManager = tagsManager
-        self.storeManager = storeManager
-        self.keychainManager = keychainManager
+    init(managersContainer: ManagersContainer) {
+        self.managersContainer = managersContainer
     }
     
     lazy var child = TabChild(startingItems: [
         \TabsCoordinator.home,      // home
-        \TabsCoordinator.settings,  // settings
+        \TabsCoordinator.settings  // settings
     ], activeTab: 0)
     
     @Route(tabItem: makeHomeTab) var home = makeHome
     @Route(tabItem: makeSettingsTab) var settings = makeSettings
     
     func makeHome() -> NavigationViewCoordinator<HomeCoordinator> {
-        return NavigationViewCoordinator(HomeCoordinator(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager))
+        return NavigationViewCoordinator(HomeCoordinator(managersContainer: managersContainer))
     }
     
     func makeSettings() -> NavigationViewCoordinator<SettingsCoordinator> {
-        return NavigationViewCoordinator(SettingsCoordinator(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager))
+        return NavigationViewCoordinator(SettingsCoordinator(managersContainer: managersContainer))
     }
     
     @ViewBuilder func makeHomeTab(isActive: Bool) -> some View {

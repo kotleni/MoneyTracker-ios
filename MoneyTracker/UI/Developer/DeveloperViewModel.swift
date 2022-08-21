@@ -27,9 +27,9 @@ class DeveloperViewModel: BaseViewModel {
     func addSpecialPayments() {
         let tags = tagsManager.getTags()
         
-        let _ = paymentsManager.addPayment(price: 4000, about: "Зарплата")
-        let _ = paymentsManager.addPayment(price: 160, about: "Отдали долг")
-        let _ = paymentsManager.addPayment(price: -307, about: "Купил пицу", tag: tags.first!)
+        _ = paymentsManager.addPayment(price: 4000, about: "Зарплата")
+        _ = paymentsManager.addPayment(price: 160, about: "Отдали долг")
+        _ = paymentsManager.addPayment(price: -307, about: "Купил пицу", tag: tags.first!)
     }
     
     /// Remove all payments

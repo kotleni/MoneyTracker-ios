@@ -11,5 +11,5 @@ import Foundation
 struct ExportData: Codable {
     let appVersion: String
     let currency: String
-    let payments: Array<ExportablePayment>
+    let payments: [ExportablePayment]
 }

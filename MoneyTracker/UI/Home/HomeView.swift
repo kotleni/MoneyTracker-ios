@@ -37,7 +37,7 @@ struct HomeView: View {
                         if (viewModel.balance.income + viewModel.balance.outcome) != 0 {
                             PizzaChart(radius: 36, items: [
                                 ChartItem(name: "label_expenses".localized, value: abs(Double(viewModel.balance.outcome)), color: Color(red: 0/255, green: 109/255, blue: 255/255)),
-                                ChartItem(name: "label_income".localized, value: Double(viewModel.balance.income), color: Color(red: 45/255, green: 192/255, blue: 79/255)),
+                                ChartItem(name: "label_income".localized, value: Double(viewModel.balance.income), color: Color(red: 45/255, green: 192/255, blue: 79/255))
                             ])
                             .frame(height: 110)
                         }
@@ -59,7 +59,6 @@ struct HomeView: View {
                             Text("label_nopayments".localized)
                         }
                         
-                        
                     } header: {
                         Text("label_payments".localized)
                     }
@@ -74,6 +73,6 @@ struct HomeView: View {
 
 struct HomePreview: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+        HomeView(viewModel: HomeViewModel.init(managersContainer: .getForPreview()))
     }
 }

@@ -14,8 +14,8 @@ struct PaymentsPublisher: Publisher {
     
     let paymentsManager: PaymentsManager
     
-    func receive<S>(subscriber: S) where S : Subscriber, Never == S.Failure, [Payment] == S.Input {
+    func receive<S>(subscriber: S) where S: Subscriber, Never == S.Failure, [Payment] == S.Input {
         let payments = paymentsManager.getPayments()
-        let _ = subscriber.receive(payments)
+        _ = subscriber.receive(payments)
     }
 }

@@ -60,7 +60,7 @@ struct AddPaymentView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         if PriceExpressionValidator.validate(str: viewModel.priceText) && !viewModel.aboutText.isEmpty {
-                            viewModel.tryAddPayment() { isSuccess in
+                            viewModel.tryAddPayment { isSuccess in
                                     if isSuccess {
                                         router.popToRoot()
                                         
@@ -88,6 +88,6 @@ struct AddPaymentView: View {
 
 struct AddPaymentPreview: PreviewProvider {
     static var previews: some View {
-        AddPaymentView(viewModel: AddPaymentViewModel.init(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: .init()), keychainManager: KeychainManager()))
+        AddPaymentView(viewModel: AddPaymentViewModel.init(managersContainer: .getForPreview()))
     }
 }

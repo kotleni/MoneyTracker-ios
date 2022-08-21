@@ -48,7 +48,7 @@ final class NotificationsManager {
     /// Request notifications permission
     func requestPermission(callback: @escaping (_ isSuccess: Bool) -> Void) {
         let center  = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .badge]) { (granted, error) in
+        center.requestAuthorization(options: [.alert, .badge]) { (_, error) in
             let isSucess = (error == nil)
             callback(isSucess)
         }

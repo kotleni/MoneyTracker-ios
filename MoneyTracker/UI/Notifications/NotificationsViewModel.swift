@@ -21,9 +21,9 @@ class NotificationsViewModel: BaseViewModel {
         isNotifOn = state
         storageManager.setNotifEnable(isEnable: state)
         
-        if(isNotifOn) {
+        if isNotifOn {
             notificationsManager.requestPermission { isSuccess in
-                if(isSuccess) {
+                if isSuccess {
                     self.notificationsManager.stop()
                     self.notificationsManager.start(
                         title: "notif_title".localized,

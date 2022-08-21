@@ -17,9 +17,9 @@ class HomeViewModel: BaseViewModel {
     @Published private(set) var isLoading: Bool = true
     @Published var isExperimental: Bool = false
     
-    override init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager, keychainManager: KeychainManager) {
+    override init(managersContainer: ManagersContainer) {
         self.balance = Balance(current: 0, income: 0, outcome: 0)
-        super.init(paymentsManager: paymentsManager, storageManager: storageManager, notificationsManager: notificationsManager, tagsManager: tagsManager, storeManager: storeManager, keychainManager: keychainManager)
+        super.init(managersContainer: managersContainer)
     }
     /// Load data
     override func loadData() {
@@ -86,7 +86,7 @@ class HomeViewModel: BaseViewModel {
     
     /// Find tag by name
     func findTagByName(name: String) -> Tag? {
-        var result: Tag? = nil
+        var result: Tag?
         tags.forEach { tag in
             if tag.name == name {
                 result = tag
