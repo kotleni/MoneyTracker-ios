@@ -54,29 +54,29 @@ class MathematicalExpression {
         var operators: [OperatorItem] = []
         
         var buff = ""
-        line.forEach { ch in
-            if ch == "+" {
+        line.forEach { char in
+            if char == "+" {
                 if let value = Float(buff.trim()) {
                     operators.append(NumberOperatorItem(value: value))
                     operators.append(LogicOperatorItem(type: .ADD))
                 }
                 
                 buff = ""
-            } else if ch == "-" {
+            } else if char == "-" {
                 if let value = Float(buff.trim()) {
                     operators.append(NumberOperatorItem(value: value))
                     operators.append(LogicOperatorItem(type: .SUB))
                 }
                 
                 buff = ""
-            } else if ch == "*" {
+            } else if char == "*" {
                 if let value = Float(buff.trim()) {
                     operators.append(NumberOperatorItem(value: value))
                     operators.append(LogicOperatorItem(type: .MUL))
                 }
                 
                 buff = ""
-            } else if ch == "/" {
+            } else if char == "/" {
                 if let value = Float(buff.trim()) {
                     operators.append(NumberOperatorItem(value: value))
                     operators.append(LogicOperatorItem(type: .DIV))
@@ -84,7 +84,7 @@ class MathematicalExpression {
                 
                 buff = ""
             } else {
-                buff.append(ch)
+                buff.append(char)
             }
         }
         
@@ -108,16 +108,17 @@ class MathematicalExpression {
             throw ExpressionError.invalidExpression
         }
         
-        var sum: Float = (operators[0] as! NumberOperatorItem).value
+        guard let item = (operators[0] as? NumberOperatorItem) else { throw ExpressionError.invalidExpression }
+        var sum: Float = item.value
         
         while index < operators.count - 1 {
-            let op = operators[index]
+            let opera = operators[index]
             
-            if op.type != .NUM {
-                let op = op as! LogicOperatorItem
-                let opNext = operators[index + 1] as! NumberOperatorItem
+            if opera.type != .NUM {
+                guard let opera = opera as? LogicOperatorItem else { throw ExpressionError.invalidExpression }
+                guard let opNext = operators[index + 1] as? NumberOperatorItem else { throw ExpressionError.invalidExpression }
                 
-                switch op.type {
+                switch opera.type {
                 case .ADD:
                     sum += opNext.value
                     break

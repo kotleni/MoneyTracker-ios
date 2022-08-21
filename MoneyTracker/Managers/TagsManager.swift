@@ -39,8 +39,10 @@ struct TagsManager {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tag")
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Tag.date, ascending: true)]
         do {
-            let array =  try viewContext.fetch(request) as! [Tag]
-            return array
+            let array =  try viewContext.fetch(request) as? [Tag]
+            if let array = array {
+                return array
+            }
         } catch {}
         return []
     }

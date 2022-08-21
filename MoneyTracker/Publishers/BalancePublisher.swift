@@ -21,18 +21,18 @@ struct BalancePublisher: Publisher {
     
     /// Calculate balance by payments array
     private func calculateBalance(payments: [Payment]) -> Balance {
-        var _income: Float = 0
-        var _outcome: Float = 0
+        var income: Float = 0
+        var outcome: Float = 0
         
         // summary all payments price
         payments.forEach { payment in
             if payment.price > 0 { // is income
-                _income += payment.price
+                income += payment.price
             } else if payment.price < 0 { // is outcome
-                _outcome += payment.price
+                outcome += payment.price
             }
         }
         
-        return Balance(current: _income + _outcome, income: _income, outcome: _outcome)
+        return Balance(current: income + outcome, income: income, outcome: outcome)
     }
 }

@@ -64,6 +64,11 @@ struct AddTagView: View {
 
 struct AddTagPreview: PreviewProvider {
     static var previews: some View {
-        AddTagView(viewModel: TagsEditorViewModel.init(managersContainer: .getForPreview()), isSheetShow: .constant(false))
+        AddTagView(
+            viewModel: TagsEditorViewModel.init(
+                managersContainer: .getForPreview()
+            ),
+            isSheetShow: .constant(false)
+        )
     }
 }

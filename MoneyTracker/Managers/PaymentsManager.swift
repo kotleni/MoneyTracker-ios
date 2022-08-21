@@ -51,8 +51,10 @@ struct PaymentsManager {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Payment")
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Payment.date, ascending: true)]
         do {
-            let array = try viewContext.fetch(request) as [Payment]
-            return array.reversed()
+            let array = try viewContext.fetch(request) as? [Payment]
+            if let array = array {
+                return array.reversed()
+            }
         } catch {}
         return []
     }

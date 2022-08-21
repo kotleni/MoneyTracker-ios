@@ -37,14 +37,14 @@ func readASN1Integer(ptr: inout UnsafePointer<UInt8>?, maxLength: Int) -> Int? {
     var type: Int32 = 0
     var xclass: Int32 = 0
     var length: Int = 0
-    let save_ptr = ptr
+    let savePtr = ptr
     ASN1_get_object(&ptr, &length, &type, &xclass, maxLength)
     
     guard type == V_ASN1_INTEGER else {
         return nil
     }
     
-    ptr = save_ptr
+    ptr = savePtr
     let integerObject = d2i_ASN1_UINTEGER(nil, &ptr, maxLength)
     let intValue = ASN1_INTEGER_get(integerObject)
     ASN1_INTEGER_free(integerObject)
@@ -60,14 +60,14 @@ func readASN1String(ptr: inout UnsafePointer<UInt8>?, maxLength: Int) -> String?
     var strPointer = ptr
     ASN1_get_object(&strPointer, &strLength, &strType, &strClass, maxLength)
     if strType == V_ASN1_UTF8STRING {
-        let p = UnsafeMutableRawPointer(mutating: strPointer!)
-        let utfString = String(bytesNoCopy: p, length: strLength, encoding: .utf8, freeWhenDone: false)
+        let pointer = UnsafeMutableRawPointer(mutating: strPointer!)
+        let utfString = String(bytesNoCopy: pointer, length: strLength, encoding: .utf8, freeWhenDone: false)
         return utfString
     }
     
     if strType == V_ASN1_IA5STRING {
-        let p = UnsafeMutablePointer(mutating: strPointer!)
-        let ia5String = String(bytesNoCopy: p, length: strLength, encoding: .ascii, freeWhenDone: false)
+        let pointer = UnsafeMutablePointer(mutating: strPointer!)
+        let ia5String = String(bytesNoCopy: pointer, length: strLength, encoding: .ascii, freeWhenDone: false)
         return ia5String
     }
     
@@ -75,9 +75,9 @@ func readASN1String(ptr: inout UnsafePointer<UInt8>?, maxLength: Int) -> String?
 }
 
 func readASN1Date(ptr: inout UnsafePointer<UInt8>?, maxLength: Int) -> Date? {
-    var str_xclass: Int32 = 0
-    var str_length = 0
-    var str_type: Int32 = 0
+    var strXclass: Int32 = 0
+    var strLength = 0
+    var strType: Int32 = 0
     
     // A date formatter to handle RFC 3339 dates in the GMT time zone
     let formatter = DateFormatter()
@@ -86,13 +86,13 @@ func readASN1Date(ptr: inout UnsafePointer<UInt8>?, maxLength: Int) -> Date? {
     formatter.timeZone = TimeZone(abbreviation: "GMT")
     
     var strPointer = ptr
-    ASN1_get_object(&strPointer, &str_length, &str_type, &str_xclass, maxLength)
-    guard str_type == V_ASN1_IA5STRING else {
+    ASN1_get_object(&strPointer, &strLength, &strType, &strXclass, maxLength)
+    guard strType == V_ASN1_IA5STRING else {
         return nil
     }
     
-    let p = UnsafeMutableRawPointer(mutating: strPointer!)
-    if let dateString = String(bytesNoCopy: p, length: str_length, encoding: .ascii, freeWhenDone: false) {
+    let pointer = UnsafeMutableRawPointer(mutating: strPointer!)
+    if let dateString = String(bytesNoCopy: pointer, length: strLength, encoding: .ascii, freeWhenDone: false) {
         return formatter.date(from: dateString)
     }
     

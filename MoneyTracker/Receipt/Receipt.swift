@@ -78,10 +78,12 @@ class Receipt {
     private func validateReceipt() {
         guard let idString = bundleIdString,
               let version = bundleVersionString,
-              let _ = opaqueData,
               let hash = hashData else {
             receiptStatus = .missingComponent
             return
+        }
+        if opaqueData == nil {
+            receiptStatus = .missingComponent
         }
         guard let appBundleId = Bundle.main.bundleIdentifier else {
             receiptStatus = .unknownFailure
@@ -134,8 +136,8 @@ class Receipt {
     private func getDeviceIdentifier() -> Data {
         let device = UIDevice.current
         var uuid = device.identifierForVendor!.uuid
-        let addr = withUnsafePointer(to: &uuid) { p -> UnsafeRawPointer in
-            UnsafeRawPointer(p)
+        let addr = withUnsafePointer(to: &uuid) { pointer -> UnsafeRawPointer in
+            UnsafeRawPointer(pointer)
         }
         let data = Data(bytes: addr, count: 16)
         return data
@@ -168,7 +170,7 @@ class Receipt {
                 receiptStatus = .unexpectedASN1Type
                 return
             }
-            guard let _ = readASN1Integer(ptr: &ptr, maxLength: ptr!.distance(to: end)) else {
+            if readASN1Integer(ptr: &ptr, maxLength: ptr!.distance(to: end)) == nil {
                 receiptStatus = .unexpectedASN1Type
                 return
             }

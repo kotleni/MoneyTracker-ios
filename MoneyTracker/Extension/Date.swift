@@ -11,16 +11,16 @@ extension Date {
     /// Get date string
     func getDateString() -> String {
         let date = self
-        let df = DateFormatter()
-        df.dateFormat = "dd.MM.yyyy"
-        return df.string(from: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        return dateFormatter.string(from: date)
     }
     
     /// Get date+time string
     func getDateTimeString() -> String {
         let date = self
-        let df = DateFormatter()
-        df.dateFormat = "dd.MM.yyyy hh:mm:ss"
-        return df.string(from: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy hh:mm:ss"
+        return dateFormatter.string(from: date)
     }
 }

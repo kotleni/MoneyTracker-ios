@@ -16,23 +16,11 @@ struct Currency: Identifiable, Hashable {
     
     /// Find currency by code
     static func findByCode(array: [Currency], code: String) -> Currency? {
-        for curr in array {
-            if curr.littleName == code {
-                return curr
-            }
-        }
-        
-        return nil
+        return array.first { currency in return currency.littleName == code }
     }
     
     /// Find currency by id
     static func findById(array: [Currency], id: UUID) -> Currency? {
-        for curr in array {
-            if curr.id == id {
-                return curr
-            }
-        }
-        
-        return nil
+        return array.first { currency in return currency.id == id }
     }
 }

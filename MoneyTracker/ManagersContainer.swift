@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Managers container
 final class ManagersContainer {
     private let paymentsManager: PaymentsManager
     private let storageManager: StorageManager
@@ -15,7 +16,14 @@ final class ManagersContainer {
     private let storeManager: StoreManager
     private let keychainManager: KeychainManager
     
-    init(paymentsManager: PaymentsManager, storageManager: StorageManager, notificationsManager: NotificationsManager, tagsManager: TagsManager, storeManager: StoreManager, keychainManager: KeychainManager) {
+    init(
+        paymentsManager: PaymentsManager,
+        storageManager: StorageManager,
+        notificationsManager: NotificationsManager,
+        tagsManager: TagsManager,
+        storeManager: StoreManager,
+        keychainManager: KeychainManager
+    ) {
         self.paymentsManager = paymentsManager
         self.storageManager = storageManager
         self.notificationsManager = notificationsManager
@@ -49,6 +57,13 @@ final class ManagersContainer {
     }
     
     static func getForPreview() -> ManagersContainer {
-        return ManagersContainer(paymentsManager: PaymentsManager(), storageManager: StorageManager(), notificationsManager: NotificationsManager(), tagsManager: TagsManager(), storeManager: StoreManager(keychain: KeychainManager(), productsIDs: Set<String>.init()), keychainManager: KeychainManager())
+        return ManagersContainer(
+            paymentsManager: PaymentsManager(),
+            storageManager: StorageManager(),
+            notificationsManager: NotificationsManager(),
+            tagsManager: TagsManager(),
+            storeManager: StoreManager(keychain: KeychainManager(), productsIDs: Set<String>.init()),
+            keychainManager: KeychainManager()
+        )
     }
 }

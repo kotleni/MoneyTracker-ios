@@ -52,7 +52,10 @@ struct TagsEditorView: View {
         .toast(message: "toast_tagremove".localized, isShowing: $isTagError, config: .init())
         .toast(message: "toast_tagreset".localized, isShowing: $isShowResetToast, config: .init())
         .alert(isPresented: $isShowResetAlert) {
-            Alert(title: Text("label_resettags".localized), primaryButton: .destructive(Text("btn_yes".localized), action: {
+            Alert(
+                title: Text("label_resettags".localized),
+                primaryButton: .destructive(Text("btn_yes".localized),
+                action: {
                 isShowResetToast = true
                 isShowResetAlert = false
                 viewModel.resetTags()

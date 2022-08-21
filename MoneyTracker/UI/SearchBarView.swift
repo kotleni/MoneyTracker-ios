@@ -26,7 +26,10 @@ struct SearchBarView: View {
                     .foregroundColor(.black)
                     .padding(.vertical, 8)
                     if !text.isEmpty {
-                        Button(action: {text.removeAll()}) {
+                        
+                        Button {
+                            text.removeAll()
+                        } label: {
                             Image(systemName: "xmark.circle.fill")
                         }
                         .padding(.trailing, 8)
@@ -36,7 +39,9 @@ struct SearchBarView: View {
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color(.secondarySystemBackground)))
                 
                 if isButtonShown {
-                    Button(action: {buttonClicked()}) {
+                    Button {
+                        buttonClicked()
+                    } label: {
                         Text("btn_cancel".localized)
                     }
                     .padding(.leading, 8)

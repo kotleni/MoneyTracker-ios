@@ -38,11 +38,11 @@ class AddPaymentViewModel: BaseViewModel {
         let mathExp = MathematicalExpression(line: priceStr)
         do {
             let sum = try mathExp.calculate()
-            guard let fl = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
+            guard let value = Float(spendingBool ? "-\(sum)" : "\(sum)") else { return }
             let about = aboutText
             let tag = selectedTag
             
-            addPayment(price: fl, about: about, tag: tag)
+            addPayment(price: value, about: about, tag: tag)
             
             priceText = ""
             aboutText = ""

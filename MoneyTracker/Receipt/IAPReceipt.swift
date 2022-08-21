@@ -30,9 +30,16 @@ import Foundation
 import OpenSSL
 
 struct IAPReceipt: CustomStringConvertible {
-    
     var description: String {
-        return "product identifier: \(productIdentifier ?? "")\nquanity: \(quantity ?? 0)\ntransaction identifier: \(transactionIdentifer ?? "")\noriginal transaction identifier: \(originalTransactionIdentifier ?? "")\npurchase date: \(String(describing: purchaseDate?.description ?? ""))\noriginal purchase date \(String(describing: originalPurchaseDate?.description ?? ""))\nsubscription expiration date: \(subscriptionExpirationDate?.description ?? "")\nsubscription introductory price period \(subscriptionIntroductoryPricePeriod?.description ?? "")\nsubscription cancellation date: \(String(describing: subscriptionCancellationDate?.description))"
+        return "product identifier: \(productIdentifier ?? "")\n" +
+        "quanity: \(quantity ?? 0)\n" +
+        "transaction identifier: \(transactionIdentifer ?? "")\n" +
+        "original transaction identifier: \(originalTransactionIdentifier ?? "")\n" +
+        "purchase date: \(String(describing: purchaseDate?.description ?? ""))\n" +
+        "original purchase date \(String(describing: originalPurchaseDate?.description ?? ""))\n" +
+        "subscription expiration date: \(subscriptionExpirationDate?.description ?? "")\n" +
+        "subscription introductory price period \(subscriptionIntroductoryPricePeriod?.description ?? "")\n" +
+        "subscription cancellation date: \(String(describing: subscriptionCancellationDate?.description))"
     }
     
     var quantity: Int?
@@ -66,7 +73,7 @@ struct IAPReceipt: CustomStringConvertible {
             guard let attributeType = readASN1Integer(ptr: &pointer, maxLength: pointer!.distance(to: endPointer)) else {
                 return nil
             }
-            guard let _ = readASN1Integer(ptr: &pointer, maxLength: pointer!.distance(to: endPointer)) else {
+            if readASN1Integer(ptr: &pointer, maxLength: pointer!.distance(to: endPointer)) == nil {
                 return nil
             }
             ASN1_get_object(&pointer, &length, &type, &xclass, pointer!.distance(to: endPointer))
@@ -76,29 +83,29 @@ struct IAPReceipt: CustomStringConvertible {
             
             switch attributeType {
             case 1701: // quantity
-                var p = pointer
-                quantity = readASN1Integer(ptr: &p, maxLength: length)
+                var lpointer = pointer
+                quantity = readASN1Integer(ptr: &lpointer, maxLength: length)
             case 1702: // product identifier
-                var p = pointer
-                productIdentifier = readASN1String(ptr: &p, maxLength: length)
+                var lpointer = pointer
+                productIdentifier = readASN1String(ptr: &lpointer, maxLength: length)
             case 1703: // transaction identifier
-                var p = pointer
-                transactionIdentifer = readASN1String(ptr: &p, maxLength: length)
+                var lpointer = pointer
+                transactionIdentifer = readASN1String(ptr: &lpointer, maxLength: length)
             case 1705: // orginal transaction identifier
-                var p = pointer
-                originalTransactionIdentifier = readASN1String(ptr: &p, maxLength: length)
+                var lpointer = pointer
+                originalTransactionIdentifier = readASN1String(ptr: &lpointer, maxLength: length)
             case 1706: // orginal purchase date
-                var p = pointer
-                originalPurchaseDate = readASN1Date(ptr: &p, maxLength: length)
+                var lpointer = pointer
+                originalPurchaseDate = readASN1Date(ptr: &lpointer, maxLength: length)
             case 1708: // subscription expiration date
-                var p = pointer
-                subscriptionExpirationDate = readASN1Date(ptr: &p, maxLength: length)
+                var lpointer = pointer
+                subscriptionExpirationDate = readASN1Date(ptr: &lpointer, maxLength: length)
             case 1711: // web order id
-                var p = pointer
-                webOrderLineId = readASN1Integer(ptr: &p, maxLength: length)
+                var lpointer = pointer
+                webOrderLineId = readASN1Integer(ptr: &lpointer, maxLength: length)
             case 1712: // subscription cancellation date
-                var p = pointer
-                subscriptionCancellationDate = readASN1Date(ptr: &p, maxLength: length)
+                var lpointer = pointer
+                subscriptionCancellationDate = readASN1Date(ptr: &lpointer, maxLength: length)
             default:
                 break
             }
