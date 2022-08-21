@@ -10,13 +10,18 @@ import Combine
 
 class AddPaymentViewModel: BaseViewModel {
     @Published var isError: Bool = false
-    @Published private(set) var tags: [Tag] = []
+    @Published var tags: [Tag] = []
+    @Published var selectedTag: Tag? = nil
+    @Published var priceText: String = ""
+    @Published var aboutText: String = ""
+    @Published var spendingBool: Bool = true
     
     /// Load all
     override func loadData() {
         TagsPublisher(tagsManager: tagsManager)
             .sink { tags in
                 self.tags = tags
+                self.resetTags()
             }
             .store(in: &publishers)
     }
@@ -27,7 +32,8 @@ class AddPaymentViewModel: BaseViewModel {
     }
     
     /// Try add new payment
-    func tryAddPayment(priceText: String, aboutText: String, spendingBool: Bool, selectedTag: Tag, onFinish: (_ isSuccess: Bool) -> ()) {
+    func tryAddPayment(onFinish: (_ isSuccess: Bool) -> ()) {
+        guard let selectedTag = selectedTag else { return }
         let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
         let mathExp = MathematicalExpression(line: priceStr)
         do {
@@ -38,6 +44,10 @@ class AddPaymentViewModel: BaseViewModel {
             
             addPayment(price: fl, about: about, tag: tag)
             
+            priceText = ""
+            aboutText = ""
+            spendingBool = true
+            resetTags()
             onFinish(true)
         } catch let error {
             print(error)
@@ -46,8 +56,12 @@ class AddPaymentViewModel: BaseViewModel {
         }
     }
     
-    /// Show error
-    func showError() {
-        isError = true
+    func resetTags() {
+        if let tag = tags.first {
+            self.selectedTag = tag
+        }
     }
+    
+    /// Show error
+    func showError() { isError = true }
 }

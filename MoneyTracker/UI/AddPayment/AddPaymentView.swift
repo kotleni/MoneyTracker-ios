@@ -9,19 +9,11 @@ import SwiftUI
 
 struct AddPaymentView: View {
     @EnvironmentObject var router: HomeCoordinator.Router
-    
-    @State private var priceText: String = ""
-    @State private var aboutText: String = ""
-    @State private var spendingBool: Bool = true
-    
-    // MARK: todo fix deprecation
-    @State private var selectedTag: Tag = Tag.getDefault()
-    
     @ObservedObject var viewModel: AddPaymentViewModel
     
     var body: some View {
         VStack {
-            Picker("", selection: $spendingBool) {
+            Picker("", selection: $viewModel.spendingBool) {
                 Text("segment_expenses".localized)
                     .tag(true)
                 Text("segment_income".localized)
@@ -35,7 +27,7 @@ struct AddPaymentView: View {
                     HStack {
                         Text("field_price".localized)
                         Spacer()
-                        TextField("hint_necessarily".localized, text: $priceText)
+                        TextField("hint_necessarily".localized, text: $viewModel.priceText)
                             .keyboardType(.numbersAndPunctuation)
                             .multilineTextAlignment(.trailing)
                             .frame(width: UIScreen.main.bounds.width / 3)
@@ -43,15 +35,15 @@ struct AddPaymentView: View {
                     HStack {
                         Text("field_desc".localized)
                         Spacer()
-                        TextField("hint_necessarily".localized, text: $aboutText)
+                        TextField("hint_necessarily".localized, text: $viewModel.aboutText)
                             .multilineTextAlignment(.trailing)
                             .frame(width: UIScreen.main.bounds.width / 3)
                     }
-                    if spendingBool {
+                    if viewModel.spendingBool {
                         HStack {
                             Text("label_tag".localized)
                             Spacer()
-                            Picker("", selection: $selectedTag) {
+                            Picker("", selection: $viewModel.selectedTag) {
                                 ForEach(viewModel.tags, id: \.self) { tag in
                                     Text(tag.emoji! + " " + tag.name!)
                                 }
@@ -67,22 +59,13 @@ struct AddPaymentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        if PriceExpressionValidator.validate(str: priceText) && !aboutText.isEmpty {
-                            viewModel.tryAddPayment(
-                                priceText: priceText,
-                                aboutText: aboutText,
-                                spendingBool: spendingBool,
-                                selectedTag: selectedTag) { isSuccess in
+                        if PriceExpressionValidator.validate(str: viewModel.priceText) && !viewModel.aboutText.isEmpty {
+                            viewModel.tryAddPayment() { isSuccess in
                                     if isSuccess {
                                         router.popToRoot()
                                         
                                         let generator = UINotificationFeedbackGenerator()
                                         generator.notificationOccurred(.success)
-                                        
-                                        priceText = ""
-                                        aboutText = ""
-                                        selectedTag = Tag.getDefault() // MARK: todo fix deprecation
-                                        spendingBool = false
                                     } else {
                                         viewModel.showError()
                                     }
