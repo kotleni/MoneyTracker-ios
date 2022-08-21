@@ -9,9 +9,6 @@ import SwiftUI
 
 /// Notifications manager
 final class NotificationsManager {
-    @available(*, deprecated)
-    static let shared = NotificationsManager()
-    
     /// Start new notifications task
     func start(title: String, body: String, hour: Int, minute: Int) {
         let content = UNMutableNotificationContent()

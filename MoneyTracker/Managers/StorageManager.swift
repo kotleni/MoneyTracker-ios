@@ -9,15 +9,12 @@ import Foundation
 
 /// Data storage manager
 final class StorageManager {
-    class Keys {
+    final class Keys {
         static let priceType = "price_type"
         static let notifEnable = "notif_enable"
         static let isDeveloper = "is_developer"
         static let isExperimental = "is_experimental"
     }
-    
-    @available(*, deprecated)
-    static let shared = StorageManager()
     
     /// Set price type
     func setPriceType(type: String) {
@@ -26,7 +23,7 @@ final class StorageManager {
     
     /// Get price type
     func getPriceType() -> String {
-        guard let priceType = UserDefaults.standard.string(forKey: Keys.priceType) else { return "USD" }
+        guard let priceType = UserDefaults.standard.string(forKey: Keys.priceType) else { return Currencies.getDefault() }
         return priceType
     }
     

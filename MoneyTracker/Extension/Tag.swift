@@ -12,16 +12,4 @@ extension Tag {
     func getString() -> String {
         return "\(emoji!) \(name!)"
     }
-    
-    /// Get default tag (deprecated)
-    @available(*, deprecated)
-    static func getDefault() -> Tag {
-        return TagsManager.shared.getDefaultTag()
-    }
-    
-    /// Get all tags (deprecated)
-    @available(*, deprecated)
-    static func getAll() -> [Tag] {
-        return TagsManager.shared.getTags()
-    }
 }

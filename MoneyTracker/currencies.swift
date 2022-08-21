@@ -10,6 +10,7 @@ import Foundation
 
 /// Static currencies data class
 final class Currencies {
+    /// All currencies list
 	static let currenciesAll = [
 		Currency(fullName: "ADB Unit of Account", littleName: "XUA"),
 		Currency(fullName: "Afghani", littleName: "AFN"),
@@ -289,11 +290,19 @@ final class Currencies {
 		Currency(fullName: "Zloty", littleName: "PLN"),
 	]
 
-    // popular currecies list
+    /// Popular currecies list
 	static let currenciesPopular = [
 		currenciesAll[72],
 		currenciesAll[92],
 		currenciesAll[208],
 		currenciesAll[250],
 	]
+    
+    /// Get default
+    static func getDefault() -> String {
+        if let currency = currenciesPopular.first {
+            return currency.littleName
+        }
+        return "USD" // stock
+    }
 }
