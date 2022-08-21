@@ -10,7 +10,8 @@ import StoreKitTest
 @testable import MoneyTracker
 
 class StoreKitTests: XCTestCase {
-
+    override func tearDownWithError() throws { }
+    
     var products = [SKProduct]()
     var keychain = KeychainManager()
     
@@ -30,10 +31,6 @@ class StoreKitTests: XCTestCase {
         }
     }
     
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     func testKeychain() {
         let key = "TestingKey"
         
@@ -50,7 +47,7 @@ class StoreKitTests: XCTestCase {
     }
     
     func testBuyProduct() {
-        let product = products.first!
+        guard let product = products.first else { return }
         
         keychain.delete(key: product.productIdentifier)
         XCTAssertNil(keychain.read(key: product.productIdentifier))
