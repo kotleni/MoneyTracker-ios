@@ -46,7 +46,7 @@ final class SettingsCoordinator: NavigationCoordinatable {
     @Route(.push) var currencyEditor = makeCurrencyEditor
     @Route(.push) var tagsEditor = makeTagsEditor
     @Route(.push) var aboutApp = makeAboutApp
-    @Route(.push) var developer = makeDeveloper
+    @Route(.modal) var developer = makeDeveloper
     @Route(.push) var resetPayments = makeResetPayments
     @Route(.push) var notifications = makeNotifications
     @Route(.modal) var premium = makePremium
