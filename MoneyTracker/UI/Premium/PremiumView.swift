@@ -13,40 +13,95 @@ struct PremiumView: View {
     @ObservedObject var viewModel: PremiumViewModel
     
     var body: some View {
-        List {
-            Section {
-                PremiumItemView(name: "label_tip1".localized, about: "label_tip1detail".localized)
-                PremiumItemView(name: "label_tip2".localized, about: "label_tip2detail".localized)
-            } header: {
-                Text("label_tips".localized)
+        VStack {
+            Text("label_premiumsubscribe".localized)
+                .font(.system(size: 24).bold())
+                .padding(16)
+            
+            VStack {
+                PremiumItemView(iconName: "dot.circle.and.cursorarrow", name: "label_tip1".localized, about: "label_tip1detail".localized)
+                PremiumItemView(iconName: "trash", name: "label_tip2".localized, about: "label_tip2detail".localized)
+                PremiumItemView(iconName: "square.and.arrow.up", name: "label_tip3".localized, about: "label_tip3detail".localized)
+                PremiumItemView(iconName: "figure.walk.diamond", name: "label_tip4".localized, about: "label_tip4detail".localized)
             }
-
-            Section {
-                Text("label_premiumabout".localized)
-                    .font(.system(size: 16))
-            } header: {
-                Text("label_aboutpremium".localized)
-            }
-
-            Section {
-                if viewModel.isShopAvailable {
-                    PremiumBannerView(isPremium: viewModel.isPremium, premiumPrice: viewModel.premiumPrice) {
-                        viewModel.purshacePremium()
-                    }
-                } else {
-                    Text("label_shopnotavailable".localized)
-                        .foregroundColor(.gray)
+            .padding(8)
+            
+//            Spacer()
+//                .frame(height: 100)
+//
+//            Text("label_premiumabout".localized)
+//                .font(.system(size: 16))
+            Spacer()
+            
+            Button {
+                viewModel.purshacePremium()
+            } label: {
+                VStack {
+                    Text("Продолжить".localized)
+                        .font(.system(size: 17))
+                    Text("label_premiumaboutleft".localized + viewModel.premiumPrice + "label_premiumaboutright".localized)
+                        .opacity(0.9)
+                        .font(.system(size: 16))
                 }
-            } footer: {
-                if viewModel.isShopAvailable {
-                    Text("label_subscribe".localized)
-                } else {
-                    Text("")
-                }
+                .padding(8)
+                .frame(width: UIScreen.main.bounds.width - (24*2))
+                .foregroundColor(.white)
+                .background(RoundedRectangle(cornerRadius: 12).fill(.blue))
             }
+            
+            Button {
+                router.pop()
+            } label: {
+                VStack {
+                    Text("Не сейчас".localized)
+                        .font(.system(size: 17))
+                }
+                .padding(8)
+                .foregroundColor(.blue)
+                //.background(RoundedRectangle(cornerRadius: 12).fill(.blue))
+            }
+            
+            Text("label_subscribe".localized)
+                .font(.system(size: 14))
+                .opacity(0.6)
+
+//            List {
+//                Section {
+//                    PremiumItemView(name: "label_tip1".localized, about: "label_tip1detail".localized)
+//                    PremiumItemView(name: "label_tip2".localized, about: "label_tip2detail".localized)
+//                } header: {
+//                    Text("label_tips".localized)
+//                }
+//
+//                Section {
+//                    Text("label_premiumabout".localized)
+//                        .font(.system(size: 16))
+//                } header: {
+//                    Text("label_aboutpremium".localized)
+//                }
+//
+//                Section {
+//                    if viewModel.isShopAvailable {
+//                        PremiumBannerView(isPremium: viewModel.isPremium, premiumPrice: viewModel.premiumPrice) {
+//                            viewModel.purshacePremium()
+//                        }
+//                    } else {
+//                        Text("label_shopnotavailable".localized)
+//                            .foregroundColor(.gray)
+//                    }
+//                } footer: {
+//                    if viewModel.isShopAvailable {
+//                        Text("label_subscribe".localized)
+//                    } else {
+//                        Text("")
+//                    }
+//                }
+//            }
         }
+        .padding()
         .navigationTitle("title_premium".localized)
         .navigationBarTitleDisplayMode(.inline)
+        //.background(Color("MainBackground"))
         .onAppear { viewModel.loadData() }
     }
 }

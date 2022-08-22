@@ -8,29 +8,39 @@
 import SwiftUI
 
 struct PremiumItemView: View {
+    let iconName: String
     let name: String
     let about: String
     
     var body: some View {
-        VStack {
-            HStack {
-                Text(name)
-                    .bold()
-                    .font(.system(size: 16))
-                Spacer()
+        HStack {
+            Image(systemName: iconName)
+                .resizable()
+                .frame(width: 36, height: 36)
+                .foregroundColor(.blue)
+            
+            VStack {
+                HStack {
+                    Text(name)
+                        .bold()
+                        .font(.system(size: 17))
+                    Spacer()
+                }
+                HStack {
+                    Text(about)
+                        .foregroundColor(.gray)
+                        .font(.system(size: 15))
+                    Spacer()
+                }
             }
-            HStack {
-                Text(about)
-                    .foregroundColor(.gray)
-                    .font(.system(size: 14))
-                Spacer()
-            }
+            .padding(.leading, 8)
         }
+        .padding(8)
     }
 }
 
 struct PremiumItemPreview: PreviewProvider {
     static var previews: some View {
-        PremiumItemView(name: "Name", about: "About")
+        PremiumItemView(iconName: "trash", name: "Name", about: "About")
     }
 }

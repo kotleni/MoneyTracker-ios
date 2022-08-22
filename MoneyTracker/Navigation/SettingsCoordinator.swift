@@ -43,7 +43,7 @@ final class SettingsCoordinator: NavigationCoordinatable {
     @Route(.push) var developer = makeDeveloper
     @Route(.push) var resetPayments = makeResetPayments
     @Route(.push) var notifications = makeNotifications
-    @Route(.push) var premium = makePremium
+    @Route(.modal) var premium = makePremium
     
     @ViewBuilder func makeMain() -> some View {
         SettingsView(viewModel: settingsViewModel)

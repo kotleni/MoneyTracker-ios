@@ -55,9 +55,14 @@ struct SettingsView: View {
                     }, value: "")
                 }
                 
-                // reset payments
+                // export data
                 SettingsItemView(title: "btn_export".localized, action: {
-                    isShowExport = true
+                    if viewModel.isPremium {
+                        isShowExport = true
+                    } else {
+                        self.toastText = "btn_premiumwarn".localized
+                        self.isShowToast = true
+                    }
                 }, value: "")// reset payments
                 .confirmationDialog("btn_export".localized, isPresented: $isShowExport, titleVisibility: .visible) {
                     Button("btn_exportlocal".localized) {
