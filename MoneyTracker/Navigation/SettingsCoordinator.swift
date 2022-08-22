@@ -11,29 +11,35 @@ import Stinsen
 final class SettingsCoordinator: NavigationCoordinatable {
     private let managersContainer: ManagersContainer
     
-    private let settingsViewModel: SettingsViewModel
-    private let currencyEditorViewModel: CurrencyEditorViewModel
-    private let tagsEditorViewModel: TagsEditorViewModel
-    private let aboutAppViewModel: AboutAppViewModel
-    private let developerViewModel: DeveloperViewModel
-    private let resetPaymentsViewModel: ResetPaymentsViewModel
-    private let notificationsViewModel: NotificationsViewModel
-    private let premiumViewModel: PremiumViewModel
+    private var settingsViewModel: SettingsViewModel {
+        return SettingsViewModel.init(managersContainer: managersContainer)
+    }
+    private var currencyEditorViewModel: CurrencyEditorViewModel {
+        return CurrencyEditorViewModel.init(managersContainer: managersContainer)
+    }
+    private var tagsEditorViewModel: TagsEditorViewModel {
+        return TagsEditorViewModel.init(managersContainer: managersContainer)
+    }
+    private var aboutAppViewModel: AboutAppViewModel {
+        return AboutAppViewModel.init(managersContainer: managersContainer)
+    }
+    private var developerViewModel: DeveloperViewModel {
+        return DeveloperViewModel.init(managersContainer: managersContainer)
+    }
+    private var resetPaymentsViewModel: ResetPaymentsViewModel {
+        return ResetPaymentsViewModel.init(managersContainer: managersContainer)
+    }
+    private var notificationsViewModel: NotificationsViewModel {
+        return NotificationsViewModel.init(managersContainer: managersContainer)
+    }
+    private var premiumViewModel: PremiumViewModel {
+        return PremiumViewModel.init(managersContainer: managersContainer)
+    }
     
     var stack = NavigationStack(initial: \SettingsCoordinator.main)
     
     init(managersContainer: ManagersContainer) {
         self.managersContainer = managersContainer
-        
-        // viewModels
-        settingsViewModel = SettingsViewModel.init(managersContainer: managersContainer)
-        currencyEditorViewModel = CurrencyEditorViewModel.init(managersContainer: managersContainer)
-        tagsEditorViewModel = TagsEditorViewModel.init(managersContainer: managersContainer)
-        aboutAppViewModel = AboutAppViewModel.init(managersContainer: managersContainer)
-        developerViewModel = DeveloperViewModel.init(managersContainer: managersContainer)
-        resetPaymentsViewModel = ResetPaymentsViewModel.init(managersContainer: managersContainer)
-        notificationsViewModel = NotificationsViewModel.init(managersContainer: managersContainer)
-        premiumViewModel = PremiumViewModel.init(managersContainer: managersContainer)
     }
     
     @Root var main = makeMain
