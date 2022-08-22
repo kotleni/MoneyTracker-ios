@@ -1,0 +1,6 @@
+/.bundle
+DerivedData/
+build/
+Package.resolved
+.build/
+.DS_Store
