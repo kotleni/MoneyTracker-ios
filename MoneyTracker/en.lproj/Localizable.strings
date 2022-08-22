@@ -95,6 +95,10 @@
 "label_tip1detail" = "Automatic report refresh reminders.";
 "label_tip2" = "Quick Reset";
 "label_tip2detail" = "Completely delete all payments with just one button.";
+"label_tip3" = "Data export";
+"label_tip3detail" = "The possibility of exporting data on payments.";
+"label_tip4" = "Without advertising";
+"label_tip4detail" = "You will not see any more advertisement in the application.";
 "label_premiumabout" = "The free version of MoneyTracker offers users almost all the functionality that is different from many other apps.";
 "label_aboutpremium" = "Subscription";
 

@@ -25,12 +25,6 @@ struct PremiumView: View {
                 PremiumItemView(iconName: "figure.walk.diamond", name: "label_tip4".localized, about: "label_tip4detail".localized)
             }
             .padding(8)
-            
-//            Spacer()
-//                .frame(height: 100)
-//
-//            Text("label_premiumabout".localized)
-//                .font(.system(size: 16))
             Spacer()
             
             Button {

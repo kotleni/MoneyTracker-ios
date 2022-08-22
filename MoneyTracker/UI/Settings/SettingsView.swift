@@ -24,8 +24,7 @@ struct SettingsView: View {
                     if viewModel.isPremium {
                         router.route(to: \.notifications)
                     } else {
-                        self.toastText = "btn_premiumwarn".localized
-                        self.isShowToast = true
+                        showPremium()
                     }
                 }, value: "")
                 
@@ -45,7 +44,7 @@ struct SettingsView: View {
             Section {
                 // premium
                 SettingsItemView(title: "btn_premium".localized, action: {
-                    router.route(to: \.premium)
+                    showPremium()
                 }, value: "")
                 
                 // developer
@@ -60,8 +59,7 @@ struct SettingsView: View {
                     if viewModel.isPremium {
                         isShowExport = true
                     } else {
-                        self.toastText = "btn_premiumwarn".localized
-                        self.isShowToast = true
+                        showPremium()
                     }
                 }, value: "")// reset payments
                 .confirmationDialog("btn_export".localized, isPresented: $isShowExport, titleVisibility: .visible) {
@@ -77,8 +75,7 @@ struct SettingsView: View {
                     if viewModel.isPremium {
                         router.route(to: \.resetPayments)
                     } else {
-                        self.toastText = "btn_premiumwarn".localized
-                        self.isShowToast = true
+                        showPremium()
                     }
                 }, value: "")
                 
@@ -132,6 +129,10 @@ struct SettingsView: View {
             defaultFilename: "export\(DateFormatter().string(from: Date())).json", onCompletion: { _ in }
         )
         .onAppear { viewModel.loadData() }
+    }
+    
+    private func showPremium() {
+        router.route(to: \.premium)
     }
 }
 
