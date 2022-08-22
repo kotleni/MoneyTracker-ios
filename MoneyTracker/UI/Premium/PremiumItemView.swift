@@ -16,6 +16,7 @@ struct PremiumItemView: View {
         HStack {
             Image(systemName: iconName)
                 .resizable()
+                .scaledToFit()
                 .frame(width: 36, height: 36)
                 .foregroundColor(.blue)
             
