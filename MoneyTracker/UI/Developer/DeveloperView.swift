@@ -20,7 +20,6 @@ struct DeveloperView: View {
                     label: { Text("Remove all payments") }
                 
                 Toggle(isOn: $viewModel.isExperimental, label: { Text("Experimental features") })
-                Toggle(isOn: $viewModel.isDeveloper, label: { Text("Developer unlocked") })
             } header: {
                 Text("Experimental")
             }

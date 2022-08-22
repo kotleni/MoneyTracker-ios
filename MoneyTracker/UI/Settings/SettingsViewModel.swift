@@ -10,7 +10,6 @@ import Combine
 
 class SettingsViewModel: BaseViewModel {
     @Published private(set) var isLoading: Bool = false
-    @Published private(set) var isDeveloper: Bool = false
     @Published private(set) var isExperimental: Bool = false
     @Published private(set) var isPremium: Bool = false
     @Published private(set) var currency: String = ""
@@ -22,7 +21,6 @@ class SettingsViewModel: BaseViewModel {
     /// Load data
     override func loadData() {
         currency = storageManager.getPriceType()
-        isDeveloper = storageManager.isDeveloper()
         isExperimental = storageManager.isExperimental()
         
         // Check if product saved in keychain

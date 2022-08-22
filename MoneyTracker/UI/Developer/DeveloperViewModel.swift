@@ -13,14 +13,9 @@ class DeveloperViewModel: BaseViewModel {
         didSet { storageManager.setExperimental(isEnable: isExperimental) }
     }
     
-    @Published var isDeveloper: Bool = false {
-        didSet { storageManager.setDeveloper(isEnable: isDeveloper) }
-    }
-    
     /// Load all
     override func loadData() {
         isExperimental = storageManager.isExperimental()
-        isDeveloper = storageManager.isDeveloper()
     }
     
     /// Add special payments

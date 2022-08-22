@@ -50,8 +50,8 @@
 "label_warnresepay" = "You don't can return it";
 "label_developer" = "Developer: ";
 "label_version" = "Version: ";
-"btn_appinappstore" = "App in AppStore";
-"btn_appingithub" = "App in GitHub";
+"btn_appinappstore" = "Application page";
+"btn_appingithub" = "Source code";
 "title_aboutapp" = "About app";
 "label_notifications" = "Notifications";
 "label_notiffooter" = "In the evening you will have reminders";

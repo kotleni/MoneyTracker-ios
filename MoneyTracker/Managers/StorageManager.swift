@@ -13,7 +13,6 @@ final class StorageManager {
     final class Keys {
         static let priceType = "price_type"
         static let notifEnable = "notif_enable"
-        static let isDeveloper = "is_developer"
         static let isExperimental = "is_experimental"
     }
     
@@ -25,11 +24,6 @@ final class StorageManager {
     /// Set notifications enable
     func setNotifEnable(isEnable: Bool) {
         UserDefaults.standard.set(isEnable, forKey: Keys.notifEnable)
-    }
-    
-    /// Set is developer
-    func setDeveloper(isEnable: Bool) {
-        UserDefaults.standard.set(isEnable, forKey: Keys.isDeveloper)
     }
     
     /// Set is experimental
@@ -46,12 +40,6 @@ final class StorageManager {
     /// Check is notifications enable
     func isNotifEnable() -> Bool {
         let isEnable = UserDefaults.standard.bool(forKey: Keys.notifEnable)
-        return isEnable
-    }
-    
-    /// Check is developer
-    func isDeveloper() -> Bool {
-        let isEnable = UserDefaults.standard.bool(forKey: Keys.isDeveloper)
         return isEnable
     }
     

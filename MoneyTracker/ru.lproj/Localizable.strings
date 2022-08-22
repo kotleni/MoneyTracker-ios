@@ -50,8 +50,8 @@
 "label_warnresepay" = "Вы не можете вернуть его";
 "label_developer" = "Разработчик: ";
 "label_version" = "Версия: ";
-"btn_appinappstore" = "Приложение в AppStore";
-"btn_appingithub" = "Приложение на GitHub";
+"btn_appinappstore" = "Страница приложения";
+"btn_appingithub" = "Исходный код";
 "title_aboutapp" = "О приложении";
 "label_notifications" = "Уведомления";
 "label_notiffooter" = "Вечером будут напоминания";

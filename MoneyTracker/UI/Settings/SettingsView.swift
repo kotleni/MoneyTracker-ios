@@ -19,6 +19,19 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section {
+                HStack {
+                    Image(systemName: "star")
+                        .foregroundColor(.blue)
+                    // premium
+                    SettingsItemView(title: "btn_premium".localized, action: {
+                        showPremium()
+                    }, value: "")
+                }
+            } header: {
+                Text("Полная версия")
+            }
+
+            Section {
                 // notif
                 SettingsItemView(title: "btn_notifchange".localized, action: {
                     if viewModel.isPremium {
@@ -42,18 +55,6 @@ struct SettingsView: View {
             }
 
             Section {
-                // premium
-                SettingsItemView(title: "btn_premium".localized, action: {
-                    showPremium()
-                }, value: "")
-                
-                // developer
-                if viewModel.isDeveloper {
-                    SettingsItemView(title: "btn_devmenu".localized, action: {
-                        router.route(to: \.developer)
-                    }, value: "")
-                }
-                
                 // export data
                 SettingsItemView(title: "btn_export".localized, action: {
                     if viewModel.isPremium {

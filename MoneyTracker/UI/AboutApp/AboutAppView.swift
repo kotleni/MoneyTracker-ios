@@ -28,7 +28,7 @@ struct AboutAppView: View {
                     // version text
                     Text("label_version".localized + "\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "error")")
                         .onLongPressGesture {
-                            viewModel.enableDeveloper()
+                            router.route(to: \.developer)
                             let generator = UINotificationFeedbackGenerator()
                             generator.notificationOccurred(.success)
                         }
