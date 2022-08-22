@@ -52,50 +52,15 @@ struct PremiumView: View {
                 }
                 .padding(8)
                 .foregroundColor(.blue)
-                //.background(RoundedRectangle(cornerRadius: 12).fill(.blue))
             }
             
             Text("label_subscribe".localized)
                 .font(.system(size: 14))
                 .opacity(0.6)
-
-//            List {
-//                Section {
-//                    PremiumItemView(name: "label_tip1".localized, about: "label_tip1detail".localized)
-//                    PremiumItemView(name: "label_tip2".localized, about: "label_tip2detail".localized)
-//                } header: {
-//                    Text("label_tips".localized)
-//                }
-//
-//                Section {
-//                    Text("label_premiumabout".localized)
-//                        .font(.system(size: 16))
-//                } header: {
-//                    Text("label_aboutpremium".localized)
-//                }
-//
-//                Section {
-//                    if viewModel.isShopAvailable {
-//                        PremiumBannerView(isPremium: viewModel.isPremium, premiumPrice: viewModel.premiumPrice) {
-//                            viewModel.purshacePremium()
-//                        }
-//                    } else {
-//                        Text("label_shopnotavailable".localized)
-//                            .foregroundColor(.gray)
-//                    }
-//                } footer: {
-//                    if viewModel.isShopAvailable {
-//                        Text("label_subscribe".localized)
-//                    } else {
-//                        Text("")
-//                    }
-//                }
-//            }
         }
         .padding()
         .navigationTitle("title_premium".localized)
         .navigationBarTitleDisplayMode(.inline)
-        //.background(Color("MainBackground"))
         .onAppear { viewModel.loadData() }
     }
 }
