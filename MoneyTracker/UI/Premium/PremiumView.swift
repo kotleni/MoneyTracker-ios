@@ -28,7 +28,7 @@ struct PremiumView: View {
             Spacer()
             
             Button {
-                viewModel.purshacePremium() { isSuccess in
+                viewModel.purshacePremium { isSuccess in
                     if isSuccess {
                         router.pop()
                     }
