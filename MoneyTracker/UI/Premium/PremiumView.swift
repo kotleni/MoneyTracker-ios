@@ -35,7 +35,7 @@ struct PremiumView: View {
                 }
             } label: {
                 VStack {
-                    Text("Продолжить".localized) 
+                    Text("btn_continue".localized) 
                         .font(.system(size: 17))
                     Text("label_premiumaboutleft".localized + viewModel.premiumPrice + "label_premiumaboutright".localized)
                         .opacity(0.9)
@@ -51,7 +51,7 @@ struct PremiumView: View {
                 router.pop()
             } label: {
                 VStack {
-                    Text("Не сейчас".localized)
+                    Text("btn_cancel".localized)
                         .font(.system(size: 17))
                 }
                 .padding(8)
