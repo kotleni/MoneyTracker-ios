@@ -18,34 +18,43 @@ struct PremiumView: View {
                 .font(.system(size: 24).bold())
                 .padding(16)
             
-            VStack {
-                PremiumItemView(iconName: "dot.circle.and.cursorarrow", name: "label_tip1".localized, about: "label_tip1detail".localized)
-                PremiumItemView(iconName: "trash", name: "label_tip2".localized, about: "label_tip2detail".localized)
-                PremiumItemView(iconName: "square.and.arrow.up", name: "label_tip3".localized, about: "label_tip3detail".localized)
-                PremiumItemView(iconName: "figure.walk.diamond", name: "label_tip4".localized, about: "label_tip4detail".localized)
-            }
-            .padding(8)
-            Spacer()
-            
-            Button {
-                viewModel.purshacePremium { isSuccess in
-                    if isSuccess {
-                        router.pop()
-                    }
-                }
-            } label: {
+            ScrollView {
                 VStack {
-                    Text("btn_continue".localized) 
-                        .font(.system(size: 17))
-                    Text("label_premiumaboutleft".localized + viewModel.premiumPrice + "label_premiumaboutright".localized)
-                        .opacity(0.9)
-                        .font(.system(size: 16))
+                    PremiumItemView(iconName: "dot.circle.and.cursorarrow", name: "label_tip1".localized, about: "label_tip1detail".localized)
+                    PremiumItemView(iconName: "trash", name: "label_tip2".localized, about: "label_tip2detail".localized)
+                    PremiumItemView(iconName: "square.and.arrow.up", name: "label_tip3".localized, about: "label_tip3detail".localized)
+                    PremiumItemView(iconName: "figure.walk.diamond", name: "label_tip4".localized, about: "label_tip4detail".localized)
                 }
                 .padding(8)
-                .frame(width: UIScreen.main.bounds.width - (24*2))
-                .foregroundColor(.white)
-                .background(RoundedRectangle(cornerRadius: 12).fill(.blue))
             }
+            Spacer()
+            
+            VStack(spacing: 0) {
+                Button {
+                    viewModel.purshacePremium { isSuccess in
+                        if isSuccess {
+                            router.pop()
+                        }
+                    }
+                } label: {
+                    HStack {
+                        Spacer()
+                        VStack {
+                            Text("btn_continue".localized)
+                                .font(.system(size: 17))
+                            Text("label_premiumaboutleft".localized + viewModel.premiumPrice + "label_premiumaboutright".localized)
+                                .opacity(0.9)
+                                .font(.system(size: 16))
+                        }
+                        Spacer()
+                    }
+                    .padding(8)
+                    .foregroundColor(.white)
+                    .background(RoundedRectangle(cornerRadius: 12).fill(.blue))
+                }
+            }
+            .padding(.leading, 8)
+            .padding(.trailing, 8)
             
             Button {
                 router.pop()
