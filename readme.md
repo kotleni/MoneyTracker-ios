@@ -4,7 +4,7 @@ Very simple iOS application for tracking your money. Support EN and RU languages
 
 ### 🔥 Features
 - Open source
-- Works on iPhone and iPad + (macOS with iPad
+- Works on iPhone and iPad + (macOS with iPad)
 - Light and dark theme support
 - Some localisations
 - Exporting payments
