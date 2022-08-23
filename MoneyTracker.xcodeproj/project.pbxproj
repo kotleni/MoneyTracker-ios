@@ -15,6 +15,7 @@
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A0952B4287E959C006CCE2D /* CurrencyEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* CurrencyEditorView.swift */; };
 		5A0EF6ED289562A5009470DB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0EF6EC289562A5009470DB /* StoreKit.framework */; };
+		5A14B3B628B51C1800F2116F /* PieChart in Frameworks */ = {isa = PBXBuildFile; productRef = 5A14B3B528B51C1800F2116F /* PieChart */; };
 		5A19B981288331A200C27056 /* TagsEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B980288331A200C27056 /* TagsEditorView.swift */; };
 		5A19B983288333F000C27056 /* TagsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B982288333F000C27056 /* TagsManager.swift */; };
 		5A19B985288335FB00C27056 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B984288335FB00C27056 /* Tag.swift */; };
@@ -27,7 +28,6 @@
 		5A2383F1288DE05100DD60DE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2383F0288DE05100DD60DE /* SettingsViewModel.swift */; };
 		5A2383F3288EAEB400DD60DE /* CurrencyEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2383F2288EAEB400DD60DE /* CurrencyEditorViewModel.swift */; };
 		5A2383F7288EB12700DD60DE /* TagsEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2383F6288EB12700DD60DE /* TagsEditorViewModel.swift */; };
-		5A35061D2885DFD800AD5EC6 /* PizzaChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35061C2885DFD800AD5EC6 /* PizzaChart.swift */; };
 		5A3868672895A601006D24CC /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3868662895A601006D24CC /* Developer.swift */; };
 		5A3A6564288570DA0097B179 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = 5A3A6563288570DA0097B179 /* Stinsen */; };
 		5A3A6566288571120097B179 /* TabsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A6565288571120097B179 /* TabsCoordinator.swift */; };
@@ -131,6 +131,7 @@
 		5A0952AF287E0423006CCE2D /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		5A0952B3287E959C006CCE2D /* CurrencyEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditorView.swift; sourceTree = "<group>"; };
 		5A0EF6EC289562A5009470DB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5A14B3B428B519FA00F2116F /* PieChart */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PieChart; path = ../PieChart; sourceTree = "<group>"; };
 		5A19B980288331A200C27056 /* TagsEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsEditorView.swift; sourceTree = "<group>"; };
 		5A19B982288333F000C27056 /* TagsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsManager.swift; sourceTree = "<group>"; };
 		5A19B984288335FB00C27056 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		5A2383F0288DE05100DD60DE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		5A2383F2288EAEB400DD60DE /* CurrencyEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditorViewModel.swift; sourceTree = "<group>"; };
 		5A2383F6288EB12700DD60DE /* TagsEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsEditorViewModel.swift; sourceTree = "<group>"; };
-		5A35061C2885DFD800AD5EC6 /* PizzaChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaChart.swift; sourceTree = "<group>"; };
 		5A3868662895A601006D24CC /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		5A3A6565288571120097B179 /* TabsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCoordinator.swift; sourceTree = "<group>"; };
 		5A3A6567288571600097B179 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -228,6 +228,7 @@
 			files = (
 				5AF8B6D728B0E60E00D76AEC /* GoogleMobileAds in Frameworks */,
 				B4043A132898F840009DB652 /* OpenSSL in Frameworks */,
+				5A14B3B628B51C1800F2116F /* PieChart in Frameworks */,
 				5A3A6564288570DA0097B179 /* Stinsen in Frameworks */,
 				5A0EF6ED289562A5009470DB /* StoreKit.framework in Frameworks */,
 			);
@@ -391,7 +392,6 @@
 				5AFA66D92883067200088D53 /* Home */,
 				5AFA66D82883065C00088D53 /* Settings */,
 				5A00F44F287EC72400A4820A /* SearchBarView.swift */,
-				5A35061C2885DFD800AD5EC6 /* PizzaChart.swift */,
 				5AF8B6D828B0E82800D76AEC /* AdBanner.swift */,
 			);
 			path = UI;
@@ -437,6 +437,7 @@
 				B4043A152899148F009DB652 /* AppleIncRootCertificate.cer */,
 				B4D501222869A87A0065EB4D /* MoneyTracker */,
 				5A00F458287EDA0100A4820A /* MoneyTrackerTests */,
+				5A14B3B428B519FA00F2116F /* PieChart */,
 				B4D501212869A87A0065EB4D /* Products */,
 				5A0EF6EB289562A5009470DB /* Frameworks */,
 			);
@@ -564,6 +565,7 @@
 				5A3A6563288570DA0097B179 /* Stinsen */,
 				B4043A122898F840009DB652 /* OpenSSL */,
 				5AF8B6D628B0E60E00D76AEC /* GoogleMobileAds */,
+				5A14B3B528B51C1800F2116F /* PieChart */,
 			);
 			productName = MoneyTracker;
 			productReference = B4D501202869A87A0065EB4D /* MoneyTracker.app */;
@@ -712,7 +714,6 @@
 				5A2383EF288DD68500DD60DE /* Payment.swift in Sources */,
 				5A19B9902883458800C27056 /* EmojiValidator.swift in Sources */,
 				5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */,
-				5A35061D2885DFD800AD5EC6 /* PizzaChart.swift in Sources */,
 				5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */,
 				5A2383F1288DE05100DD60DE /* SettingsViewModel.swift in Sources */,
 				5A2383F7288EB12700DD60DE /* TagsEditorViewModel.swift in Sources */,
@@ -1061,6 +1062,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5A14B3B528B51C1800F2116F /* PieChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PieChart;
+		};
 		5A3A6563288570DA0097B179 /* Stinsen */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5A3A6562288570DA0097B179 /* XCRemoteSwiftPackageReference "stinsen" */;
