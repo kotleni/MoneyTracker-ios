@@ -19,7 +19,11 @@ Very simple iOS application for tracking your money. Support EN and RU languages
 4. Buld it
 
 ### 📦 Used in project
+<b>SwiftUI</b> - for building ui.<br>
+<b>Combine</b> - for processing values over time.<br>
+<b>CoreData</b> - for storing data.<br>
+<b>StoreKit</b> - for making purchases.<br>
 <b>Stinsen</b> - for SwiftUI navigation.<br>
-<b>OpenSSL</b> - for signing purhaces.<br>
+<b>OpenSSL</b> - for signing purchases.<br>
 <b>GoogleMobileAds</b> - for admob banner.<br>
 <b>PieChart</b> - for payments statistic. (my own)<br>
