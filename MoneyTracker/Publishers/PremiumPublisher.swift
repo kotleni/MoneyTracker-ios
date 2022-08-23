@@ -29,6 +29,8 @@ struct PremiumPublisher: Publisher {
             let subscriptionDate = Date(timeIntervalSince1970: expirationTimeInteval)
             let isPremium = (Date() <= subscriptionDate)
             _ = subscriber.receive(isPremium)
+        } else {
+            _ = subscriber.receive(false)
         }
     }
 }

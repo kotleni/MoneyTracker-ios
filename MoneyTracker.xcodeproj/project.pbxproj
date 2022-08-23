@@ -175,6 +175,7 @@
 		5A7E84E328AF78DB00715093 /* ExportablePayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportablePayment.swift; sourceTree = "<group>"; };
 		5A7E84E528AF7AEF00715093 /* JsonDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDocument.swift; sourceTree = "<group>"; };
 		5A8D862828A2558800336EAD /* MathematicalExpressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalExpressionTests.swift; sourceTree = "<group>"; };
+		5A94655E28B4DA6A00E01BC8 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		5AA1298528B3DB69004BAF12 /* PremiumPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumPublisher.swift; sourceTree = "<group>"; };
 		5AAFDE892884418B0076ECE7 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5AD41C25287D4A0500A464B2 /* Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
@@ -432,6 +433,7 @@
 		B4D501172869A87A0065EB4D = {
 			isa = PBXGroup;
 			children = (
+				5A94655E28B4DA6A00E01BC8 /* Configuration.storekit */,
 				B4043A152899148F009DB652 /* AppleIncRootCertificate.cer */,
 				B4D501222869A87A0065EB4D /* MoneyTracker */,
 				5A00F458287EDA0100A4820A /* MoneyTrackerTests */,
@@ -928,7 +930,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoneyTracker/MoneyTracker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = 534C989ZLQ;
 				ENABLE_PREVIEWS = YES;
@@ -945,7 +947,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.12.1;
+				MARKETING_VERSION = 3.12.2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -968,7 +970,7 @@
 				CODE_SIGN_ENTITLEMENTS = MoneyTracker/MoneyTracker.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_ASSET_PATHS = "\"MoneyTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = 534C989ZLQ;
 				ENABLE_PREVIEWS = YES;
@@ -985,7 +987,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.12.1;
+				MARKETING_VERSION = 3.12.2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = kotleni.MoneyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";

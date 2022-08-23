@@ -17,120 +17,117 @@ struct SettingsView: View {
     @State private var isExportLocal: Bool = false
     
     var body: some View {
-        Form {
-            if !viewModel.isPremium {
-                Section {
-                    HStack {
-                        Image(systemName: "star")
-                            .foregroundColor(.blue)
-                        // premium
-                        SettingsItemView(title: "btn_premium".localized, action: {
-                            showPremium()
-                        }, value: "")
-                    }
-                } header: {
-                    Text("Полная версия")
-                }
-            }
-
-            Section {
-                // notif
-                SettingsItemView(title: "btn_notifchange".localized, action: {
-                    if viewModel.isPremium {
-                        router.route(to: \.notifications)
-                    } else {
-                        showPremium()
-                    }
-                }, value: "")
-                
-                // currency
-                SettingsItemView(title: "btn_currencychange".localized, action: {
-                    router.route(to: \.currencyEditor)
-                }, value: viewModel.currency)
-                
-                // tags
-                SettingsItemView(title: "btn_edittags".localized, action: {
-                    router.route(to: \.tagsEditor)
-                }, value: "")
-            } header: {
-                Text("settings_main".localized)
-            }
-
-            Section {
-                // export data
-                SettingsItemView(title: "btn_export".localized, action: {
-                    if viewModel.isPremium {
-                        isShowExport = true
-                    } else {
-                        showPremium()
-                    }
-                }, value: "")// reset payments
-                .confirmationDialog("btn_export".localized, isPresented: $isShowExport, titleVisibility: .visible) {
-                    Button("btn_exportlocal".localized) {
-                        isExportLocal = true
-                        viewModel.setLoading(isEnabled: true)
-                        viewModel.exportData()
-                    }
-                }
-                
-                // reset payments
-                SettingsItemView(title: "btn_resetpay".localized, action: {
-                    if viewModel.isPremium {
-                        router.route(to: \.resetPayments)
-                    } else {
-                        showPremium()
-                    }
-                }, value: "")
-                
-                // about
-                SettingsItemView(title: "btn_aboutapp".localized, action: {
-                    router.route(to: \.aboutApp)
-                }, value: "")
-            } header: {
-                Text("settings_other".localized)
-            }
-            
+        VStack {
             if viewModel.isLoading {
-                HStack {
-                    ProgressView()
-                        .padding(4)
-                    Text("label_loading".localized)
-                        .opacity(0.8)
-                }
-            }
-            
-            if !viewModel.isPremium && !viewModel.isAdError {
-                Section {
-                    ZStack {
-                        AdBanner(onUpdate: { isSuccess in
-                            if isSuccess {
-                                viewModel.setAdLoaded(isLoaded: true)
-                            } else {
-                                viewModel.setAdError(isError: true)
+                ProgressView()
+            } else {
+                Form {
+                    if !viewModel.isPremium {
+                        Section {
+                            HStack {
+                                Image(systemName: "star")
+                                    .foregroundColor(.blue)
+                                // premium
+                                SettingsItemView(title: "btn_premium".localized, action: {
+                                    showPremium()
+                                }, value: "")
                             }
-                        })
-                        .if(viewModel.isAdLoaded) { banner in
-                            banner.frame(height: 100)
+                        } header: {
+                            Text("Полная версия")
+                        }
+                    }
+
+                    Section {
+                        // notif
+                        SettingsItemView(title: "btn_notifchange".localized, action: {
+                            if viewModel.isPremium {
+                                router.route(to: \.notifications)
+                            } else {
+                                showPremium()
+                            }
+                        }, value: "")
+                        
+                        // currency
+                        SettingsItemView(title: "btn_currencychange".localized, action: {
+                            router.route(to: \.currencyEditor)
+                        }, value: viewModel.currency)
+                        
+                        // tags
+                        SettingsItemView(title: "btn_edittags".localized, action: {
+                            router.route(to: \.tagsEditor)
+                        }, value: "")
+                    } header: {
+                        Text("settings_main".localized)
+                    }
+
+                    Section {
+                        // export data
+                        SettingsItemView(title: "btn_export".localized, action: {
+                            if viewModel.isPremium {
+                                isShowExport = true
+                            } else {
+                                showPremium()
+                            }
+                        }, value: "")// reset payments
+                        .confirmationDialog("btn_export".localized, isPresented: $isShowExport, titleVisibility: .visible) {
+                            Button("btn_exportlocal".localized) {
+                                isExportLocal = true
+                                viewModel.setLoading(isEnabled: true)
+                                viewModel.exportData()
+                            }
                         }
                         
-                        if !viewModel.isAdLoaded {
-                            ProgressView()
+                        // reset payments
+                        SettingsItemView(title: "btn_resetpay".localized, action: {
+                            if viewModel.isPremium {
+                                router.route(to: \.resetPayments)
+                            } else {
+                                showPremium()
+                            }
+                        }, value: "")
+                        
+                        // about
+                        SettingsItemView(title: "btn_aboutapp".localized, action: {
+                            router.route(to: \.aboutApp)
+                        }, value: "")
+                    } header: {
+                        Text("settings_other".localized)
+                    }
+                    
+                    if !viewModel.isPremium && !viewModel.isAdError {
+                        Section {
+                            ZStack {
+                                AdBanner(onUpdate: { isSuccess in
+                                    if isSuccess {
+                                        viewModel.setAdLoaded(isLoaded: true)
+                                    } else {
+                                        viewModel.setAdError(isError: true)
+                                    }
+                                })
+                                .if(viewModel.isAdLoaded) { banner in
+                                    banner.frame(height: 100)
+                                }
+                                
+                                if !viewModel.isAdLoaded {
+                                    ProgressView()
+                                }
+                            }
+                        } header: {
+                            Text("label_adbanner".localized)
                         }
                     }
-                } header: {
-                    Text("label_adbanner".localized)
                 }
+                .background(Color("MainBackground"))
+                .toast(message: toastText, isShowing: $isShowToast, config: .init())
+                .navigationTitle("title_settings".localized)
+                .fileExporter(
+                    isPresented: $viewModel.isExportJson,
+                    document: JsonDocument(text: viewModel.exportJson),
+                    contentType: .text,
+                    defaultFilename: "export\(DateFormatter().string(from: Date())).json", onCompletion: { _ in }
+                )
             }
         }
-        .background(Color("MainBackground"))
-        .toast(message: toastText, isShowing: $isShowToast, config: .init())
-        .navigationTitle("title_settings".localized)
-        .fileExporter(
-            isPresented: $viewModel.isExportJson,
-            document: JsonDocument(text: viewModel.exportJson),
-            contentType: .text,
-            defaultFilename: "export\(DateFormatter().string(from: Date())).json", onCompletion: { _ in }
-        )
         .onAppear { viewModel.loadData() }
     }
     

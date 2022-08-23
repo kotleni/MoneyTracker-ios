@@ -20,12 +20,14 @@ class SettingsViewModel: BaseViewModel {
     
     /// Load data
     override func loadData() {
+        isLoading = true
         currency = storageManager.getPriceType()
         isExperimental = storageManager.isExperimental()
         
         PremiumPublisher(keychainManager: keychainManager)
             .sink { isPremium in
                 self.isPremium = isPremium
+                self.isLoading = false
                 print("Settings load premium: \(isPremium)")
             }
             .store(in: &publishers)
