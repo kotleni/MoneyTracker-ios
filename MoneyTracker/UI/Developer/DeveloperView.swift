@@ -12,23 +12,21 @@ struct DeveloperView: View {
     @ObservedObject var viewModel: DeveloperViewModel
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    Button { viewModel.addSpecialPayments() }
-                        label: { Text("Add payments for screenshot") }
-                    Button { viewModel.removeAllPayments() }
-                        label: { Text("Remove all payments") }
-                    
-                    Toggle(isOn: $viewModel.isExperimental, label: { Text("Experimental features") })
-                } header: {
-                    Text("Experimental")
-                }
+        Form {
+            Section {
+                Button { viewModel.addSpecialPayments() }
+                    label: { Text("Add payments for screenshot") }
+                Button { viewModel.removeAllPayments() }
+                    label: { Text("Remove all payments") }
+                
+                Toggle(isOn: $viewModel.isExperimental, label: { Text("Experimental features") })
+            } header: {
+                Text("Experimental")
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("title_devmenu".localized)
-            .onAppear { viewModel.loadData() }
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("title_devmenu".localized)
+        .onAppear { viewModel.loadData() }
     }
 }
 
