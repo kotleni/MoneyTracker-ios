@@ -28,10 +28,14 @@ struct PremiumView: View {
             Spacer()
             
             Button {
-                viewModel.purshacePremium()
+                viewModel.purshacePremium() { isSuccess in
+                    if isSuccess {
+                        router.pop()
+                    }
+                }
             } label: {
                 VStack {
-                    Text("Продолжить".localized)
+                    Text("Продолжить".localized) 
                         .font(.system(size: 17))
                     Text("label_premiumaboutleft".localized + viewModel.premiumPrice + "label_premiumaboutright".localized)
                         .opacity(0.9)

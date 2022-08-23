@@ -31,7 +31,7 @@ class PremiumViewModel: BaseViewModel {
     }
     
     /// Try purshace premium
-    func purshacePremium() {
+    func purshacePremium(onEnd: @escaping (_ isSuccess: Bool) -> ()) {
         // Потом нужно будет переписать, если будет больше одной покупки,
         // сейчас покупается самая дешевая покупка))
         let sortedProduct = storeManager.products.sorted { storeManager.priceFormatter($0) < storeManager.priceFormatter($1) }
@@ -41,6 +41,7 @@ class PremiumViewModel: BaseViewModel {
         storeManager.buyProduct(product: product) { isSuccess in
             self.isPremium = isSuccess
             print(isSuccess)
+            onEnd(isSuccess)
         }
     }
 }

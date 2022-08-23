@@ -18,17 +18,19 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
-            Section {
-                HStack {
-                    Image(systemName: "star")
-                        .foregroundColor(.blue)
-                    // premium
-                    SettingsItemView(title: "btn_premium".localized, action: {
-                        showPremium()
-                    }, value: "")
+            if !viewModel.isPremium {
+                Section {
+                    HStack {
+                        Image(systemName: "star")
+                            .foregroundColor(.blue)
+                        // premium
+                        SettingsItemView(title: "btn_premium".localized, action: {
+                            showPremium()
+                        }, value: "")
+                    }
+                } header: {
+                    Text("Полная версия")
                 }
-            } header: {
-                Text("Полная версия")
             }
 
             Section {

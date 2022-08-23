@@ -23,13 +23,12 @@ class SettingsViewModel: BaseViewModel {
         currency = storageManager.getPriceType()
         isExperimental = storageManager.isExperimental()
         
-        // Check if product saved in keychain
-        if let data = keychainManager.read(key: Static.subsExpirationKeychain),
-           let expirationTimeInteval = try? JSONDecoder().decode(TimeInterval.self, from: data) {
-            let subscriptionDate = Date(timeIntervalSince1970: expirationTimeInteval)
-            isPremium = (Date() <= subscriptionDate)
-            print("Settings load premium: \(isPremium)")
-        }
+        PremiumPublisher(keychainManager: keychainManager)
+            .sink { isPremium in
+                self.isPremium = isPremium
+                print("Settings load premium: \(isPremium)")
+            }
+            .store(in: &publishers)
     }
     
     /// Set is loading
