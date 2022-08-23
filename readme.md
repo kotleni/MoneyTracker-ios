@@ -1,30 +1,25 @@
-<a href="https://apps.apple.com/ua/app/moneytracker/id1631794003"><img src="https://github.com/kotleni/moneytracker-ios/blob/master/Assets/btn_appstore.png?raw=true" width=200></a>
+## MoneyTracker
+Very simple iOS application for tracking your money. Support EN and RU languages.<br>
+<a href="https://apps.apple.com/ua/app/moneytracker/id1631794003">Get from AppStore</a> (see screenshots on appstore page)
 
-<!-- Banner -->
-<p align="center">
-<img src="https://github.com/kotleni/moneytracker-ios/blob/master/Assets/banner.png?raw=true">
-</p>
+### 🔥 Features
+- Open source
+- Works on iPhone and iPad + (macOS with iPad
+- Light and dark theme support
+- Some localisations
+- Exporting payments
+- Reminders via notifications
+- Big count currencies
+- Custom tags system
 
-<!-- Text 
-<p align="center">
-<b>MoneyTracker</b><br>
-Just a iOS application for tracking your money. Support EN and RU languages.
-</p>
--->
-<!--<p align="center">
-<img src="https://github.com/kotleni/moneytracker-ios/blob/master/MoneyTracker/Assets.xcassets/AppIcon.appiconset/iTunesArtwork-1024.png?raw=true" width=80></img>
-<br>
-<b>MoneyTracker for iOS</b>
-</p>
-<p align="center">
-Application for tracking your money. Support EN and RU languages.
-<br>
-<a href="https://apps.apple.com/ua/app/moneytracker/id1631794003">Download from AppStore</a>
-</p>-->
+### 🔨 How to build
+1. Clone from this repository
+2. Open project in XCode
+3. Select your team for signing
+4. Buld it
 
-<!--p align="center">
-<b>Screenshots</b><br>
-<img src="https://github.com/kotleni/MoneyTracker-ios/blob/master/Assets/screen1.jpeg?raw=true" width=200></img>
-<img src="https://github.com/kotleni/MoneyTracker-ios/blob/master/Assets/screen2.jpeg?raw=true" width=200></img>
-<img src="https://github.com/kotleni/MoneyTracker-ios/blob/master/Assets/screen3.jpeg?raw=true" width=200></img>
-</p-->
+### 📦 Used in project
+<b>Stinsen</b> - for SwiftUI navigation.<br>
+<b>OpenSSL</b> - for signing purhaces.<br>
+<b>GoogleMobileAds</b> - for admob banner.<br>
+<b>PieChart</b> - for payments statistic. (my own)<br>
