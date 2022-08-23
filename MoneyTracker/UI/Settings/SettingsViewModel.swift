@@ -28,7 +28,6 @@ class SettingsViewModel: BaseViewModel {
             .sink { isPremium in
                 self.isPremium = isPremium
                 self.isLoading = false
-                print("Settings load premium: \(isPremium)")
             }
             .store(in: &publishers)
     }
