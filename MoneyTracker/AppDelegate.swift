@@ -11,7 +11,7 @@ import GoogleMobileAds
 
 class AppDelegate: NSObject {
     var store: StoreManager!
-    var keychain: KeychainManager!
+    var keychainManager: KeychainManager!
 }
 
 extension AppDelegate: UIApplicationDelegate {
@@ -57,7 +57,7 @@ extension AppDelegate: SKPaymentTransactionObserver {
             // Encode to data type
             guard let data = try? JSONEncoder().encode(savedDate.timeIntervalSince1970) else { return }
             // Save to keychain
-            keychain.save(data, key: Static.subsExpirationKeychain)
+            keychainManager.save(data, key: Static.subsExpirationKeychain)
             store.callbackPurchase?(true)
         } else {
             store.callbackPurchase?(false)

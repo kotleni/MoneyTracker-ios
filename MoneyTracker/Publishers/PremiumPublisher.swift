@@ -13,7 +13,7 @@ struct PremiumPublisher: Publisher {
     typealias Output = Bool
     typealias Failure = Never
         
-    let keychainManager: KeychainManager
+    let storeManager: StoreManager
     
     func receive<S>(subscriber: S) where S: Subscriber, Never == S.Failure, Bool == S.Input {
         checkPremium(subscriber: subscriber)
@@ -24,13 +24,6 @@ struct PremiumPublisher: Publisher {
     
     /// Check if product saved in keychain
     private func checkPremium<S>(subscriber: S) where S: Subscriber, Never == S.Failure, Bool == S.Input {
-        if let data = keychainManager.read(key: Static.subsExpirationKeychain),
-           let expirationTimeInteval = try? JSONDecoder().decode(TimeInterval.self, from: data) {
-            let subscriptionDate = Date(timeIntervalSince1970: expirationTimeInteval)
-            let isPremium = (Date() <= subscriptionDate)
-            _ = subscriber.receive(isPremium)
-        } else {
-            _ = subscriber.receive(false)
-        }
+        _ = subscriber.receive(storeManager.isSubscribed())
     }
 }

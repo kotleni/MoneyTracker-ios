@@ -7,10 +7,12 @@
 
 import Foundation
 import StoreKit
+import Combine
+import SwiftUI
 
 /// Store purchases manager
 final class StoreManager: NSObject, ObservableObject {
-    var keychain: KeychainManager
+    var keychainManager: KeychainManager
     private let productsIdentifiers: Set<String>
     private var productsRequest: SKProductsRequest?
     @Published private(set) var products = [SKProduct]()
@@ -20,7 +22,7 @@ final class StoreManager: NSObject, ObservableObject {
     public var callbackPurchase: ((Bool) -> Void)?
     
     init(keychain: KeychainManager, productsIDs: Set<String>) {
-        self.keychain = keychain
+        self.keychainManager = keychain
         productsIdentifiers = productsIDs
         
         // check if product saved in keychain
@@ -69,6 +71,18 @@ final class StoreManager: NSObject, ObservableObject {
             return ""
         case .some(let period):
             return period.localizedPeriod() ?? ""
+        }
+    }
+    
+    func isSubscribed() -> Bool {
+        // check is subscription date >= currenct date
+        if let data = keychainManager.read(key: Static.subsExpirationKeychain),
+           let expirationTimeInteval = try? JSONDecoder().decode(TimeInterval.self, from: data) {
+            let subscriptionDate = Date(timeIntervalSince1970: expirationTimeInteval)
+            let isPremium = (Date() <= subscriptionDate)
+            return isPremium
+        } else { // if don't has stored data in keychain
+           return false
         }
     }
 }

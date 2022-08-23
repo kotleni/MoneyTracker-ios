@@ -42,7 +42,7 @@ struct MoneyTrackerApp: App {
         // injects
         storeManager.requestProducts()
         appDelegate.store = storeManager
-        appDelegate.keychain = keychainManager
+        appDelegate.keychainManager = keychainManager
     }
     
     var body: some Scene {

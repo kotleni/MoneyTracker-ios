@@ -24,7 +24,7 @@ class SettingsViewModel: BaseViewModel {
         currency = storageManager.getPriceType()
         isExperimental = storageManager.isExperimental()
         
-        PremiumPublisher(keychainManager: keychainManager)
+        PremiumPublisher(storeManager: storeManager)
             .sink { isPremium in
                 self.isPremium = isPremium
                 self.isLoading = false
@@ -62,7 +62,7 @@ class SettingsViewModel: BaseViewModel {
         isLoading = false
     }
     
-    /// Set ad loaded
+    /// Set ad error
     func setAdError(isError: Bool) {
         self.isAdError = isError
     }
