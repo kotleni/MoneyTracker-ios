@@ -30,7 +30,7 @@ struct SettingsView: View {
                                 // premium
                                 SettingsItemView(title: "btn_premium".localized, action: {
                                     showPremium()
-                                }, value: "")
+                                }, value: nil, isLocked: false)
                             }
                         } header: {
                             Text("Полная версия")
@@ -45,17 +45,17 @@ struct SettingsView: View {
                             } else {
                                 showPremium()
                             }
-                        }, value: "")
+                        }, value: nil, isLocked: !viewModel.isPremium)
                         
                         // currency
                         SettingsItemView(title: "btn_currencychange".localized, action: {
                             router.route(to: \.currencyEditor)
-                        }, value: viewModel.currency)
+                        }, value: nil, isLocked: false)
                         
                         // tags
                         SettingsItemView(title: "btn_edittags".localized, action: {
                             router.route(to: \.tagsEditor)
-                        }, value: "")
+                        }, value: nil, isLocked: false)
                     } header: {
                         Text("settings_main".localized)
                     }
@@ -68,7 +68,7 @@ struct SettingsView: View {
                             } else {
                                 showPremium()
                             }
-                        }, value: "")// reset payments
+                        }, value: nil, isLocked: !viewModel.isPremium)
                         .confirmationDialog("btn_export".localized, isPresented: $isShowExport, titleVisibility: .visible) {
                             Button("btn_exportlocal".localized) {
                                 isExportLocal = true
@@ -84,12 +84,12 @@ struct SettingsView: View {
                             } else {
                                 showPremium()
                             }
-                        }, value: "")
+                        }, value: nil, isLocked: !viewModel.isPremium)
                         
                         // about
                         SettingsItemView(title: "btn_aboutapp".localized, action: {
                             router.route(to: \.aboutApp)
-                        }, value: "")
+                        }, value: nil, isLocked: false)
                     } header: {
                         Text("settings_other".localized)
                     }

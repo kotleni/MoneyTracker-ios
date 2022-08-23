@@ -19,7 +19,7 @@ struct AboutAppView: View {
                         ForEach(Static.developers, id: \.self) { developer in
                             SettingsItemView(title: developer.name, action: {
                                 developer.url.openAsLink()
-                            }, value: developer.about)
+                            }, value: developer.about, isLocked: false)
                         }
                     } label: {
                         Text("label_developers".localized)

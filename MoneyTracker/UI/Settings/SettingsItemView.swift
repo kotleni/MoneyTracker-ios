@@ -11,6 +11,7 @@ struct SettingsItemView: View {
     let title: String
     let action: () -> Void
     let value: String?
+    let isLocked: Bool?
     
     var body: some View {
         HStack {
@@ -23,6 +24,12 @@ struct SettingsItemView: View {
                     if value != nil {
                         Text(value!)
                             .opacity(0.5)
+                    }
+                    if let isLocked = isLocked {
+                        if isLocked {
+                            Image(systemName: "lock")
+                                .opacity(0.5)
+                        }
                     }
                     Image(systemName: "chevron.right")
                         .resizable()
@@ -39,7 +46,8 @@ struct SettingsItemView: View {
 
 struct SettingsItemPreview: PreviewProvider {
     static var previews: some View {
-        SettingsItemView(title: "title", action: {}, value: nil)
-        SettingsItemView(title: "title2", action: {}, value: "value")
+        SettingsItemView(title: "title", action: {}, value: nil, isLocked: false)
+        SettingsItemView(title: "title2", action: {}, value: nil, isLocked: true)
+        SettingsItemView(title: "title3", action: {}, value: "value", isLocked: false)
     }
 }
