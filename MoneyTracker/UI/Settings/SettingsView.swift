@@ -50,7 +50,7 @@ struct SettingsView: View {
                         // currency
                         SettingsItemView(title: "btn_currencychange".localized, action: {
                             router.route(to: \.currencyEditor)
-                        }, value: nil, isLocked: false)
+                        }, value: viewModel.currency, isLocked: false)
                         
                         // tags
                         SettingsItemView(title: "btn_edittags".localized, action: {

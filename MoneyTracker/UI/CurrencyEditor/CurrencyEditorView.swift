@@ -88,6 +88,7 @@ struct CurrencyEditorView: View {
                 Spacer()
             }
         }
+        .background(Color("MainBackground"))
         .navigationBarTitle("title_selcurrency".localized, displayMode: .inline)
         .onAppear { viewModel.loadData() }
     }

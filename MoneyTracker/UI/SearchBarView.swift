@@ -23,10 +23,10 @@ struct SearchBarView: View {
                     TextField(hint, text: $text) { (editingChanged) in
                         isButtonShown = editingChanged
                     }
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("DefaultText"))
                     .padding(.vertical, 8)
+                    
                     if !text.isEmpty {
-                        
                         Button {
                             text.removeAll()
                         } label: {
@@ -36,7 +36,7 @@ struct SearchBarView: View {
                         .foregroundColor(.gray)
                     }
                 }
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color(.secondarySystemBackground)))
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color("SearchBarBackground")))
                 
                 if isButtonShown {
                     Button {
