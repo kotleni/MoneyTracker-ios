@@ -6,7 +6,7 @@ This project was created to validate my skills (and gain new ones) in developmen
 
 ### 🔥 Features
 - Open source
-- Works on iPhone and iPad + (macOS with iPad)
+- Works on iPhone and iPad + (macOS with iPad UI)
 - Light and dark theme support
 - Some localisations
 - Exporting payments
