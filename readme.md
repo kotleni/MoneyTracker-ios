@@ -28,4 +28,5 @@ This project was created to validate my skills (and gain new ones) in developmen
 <b>Stinsen</b> - for SwiftUI navigation.<br>
 <b>OpenSSL</b> - for signing purchases.<br>
 <b>GoogleMobileAds</b> - for admob banner.<br>
+<b>SwiftyJson</b> - for manual parsing json.<br>
 <b>PieChart</b> - for payments statistic. (my own)<br>
