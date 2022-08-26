@@ -46,6 +46,11 @@
 		5A4604332890747700E4A411 /* PremiumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4604322890747700E4A411 /* PremiumViewModel.swift */; };
 		5A4604352890756E00E4A411 /* AddPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4604342890756E00E4A411 /* AddPaymentViewModel.swift */; };
 		5A46043728911CA700E4A411 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46043628911CA600E4A411 /* Balance.swift */; };
+		5A4CEC4128B8F5DB004D387A /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CEC4028B8F5DB004D387A /* HttpResponse.swift */; };
+		5A4CEC4328B8F5F0004D387A /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CEC4228B8F5F0004D387A /* HttpMethod.swift */; };
+		5A4CEC4528B8F643004D387A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CEC4428B8F643004D387A /* HttpRequest.swift */; };
+		5A4CEC4828B8F678004D387A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4CEC4728B8F678004D387A /* SwiftyJSON */; };
+		5A4CEC4A28B8F6BC004D387A /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CEC4928B8F6BC004D387A /* URLSession.swift */; };
 		5A557F09287D87BD00F7B68F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F08287D87BD00F7B68F /* SettingsView.swift */; };
 		5A557F0C287D9B2800F7B68F /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A557F0B287D9B2800F7B68F /* Filter.swift */; };
 		5A5DEB2528AD418800496571 /* DeviceSupportHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5DEB2428AD418800496571 /* DeviceSupportHelper.swift */; };
@@ -161,6 +166,10 @@
 		5A4604322890747700E4A411 /* PremiumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumViewModel.swift; sourceTree = "<group>"; };
 		5A4604342890756E00E4A411 /* AddPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentViewModel.swift; sourceTree = "<group>"; };
 		5A46043628911CA600E4A411 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		5A4CEC4028B8F5DB004D387A /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		5A4CEC4228B8F5F0004D387A /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		5A4CEC4428B8F643004D387A /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		5A4CEC4928B8F6BC004D387A /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		5A557F08287D87BD00F7B68F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5A557F0B287D9B2800F7B68F /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		5A5DEB2428AD418800496571 /* DeviceSupportHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSupportHelper.swift; sourceTree = "<group>"; };
@@ -226,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4CEC4828B8F678004D387A /* SwiftyJSON in Frameworks */,
 				5AF8B6D728B0E60E00D76AEC /* GoogleMobileAds in Frameworks */,
 				B4043A132898F840009DB652 /* OpenSSL in Frameworks */,
 				5A14B3B928B51F2900F2116F /* PieChart in Frameworks */,
@@ -354,6 +364,16 @@
 			path = AddPayment;
 			sourceTree = "<group>";
 		};
+		5A4CEC3F28B8F5B4004D387A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5A4CEC4028B8F5DB004D387A /* HttpResponse.swift */,
+				5A4CEC4228B8F5F0004D387A /* HttpMethod.swift */,
+				5A4CEC4428B8F643004D387A /* HttpRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		5A557F0A287D9B1800F7B68F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				B4F15B0928979D2800DC8CA2 /* MoneyTracker.entitlements */,
+				5A4CEC3F28B8F5B4004D387A /* Network */,
 				5AFED6DF28918D0D00E33D66 /* Publishers */,
 				5AAFDE8B28846D7E0076ECE7 /* Navigation */,
 				5AD41C27287D4EA100A464B2 /* UI */,
@@ -501,6 +522,7 @@
 				B425FB7128992A8600D32BB1 /* SKProduct.swift */,
 				5A2383EE288DD68500DD60DE /* Payment.swift */,
 				5ADD33F52891DBF500C00F1C /* View.swift */,
+				5A4CEC4928B8F6BC004D387A /* URLSession.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -565,6 +587,7 @@
 				B4043A122898F840009DB652 /* OpenSSL */,
 				5AF8B6D628B0E60E00D76AEC /* GoogleMobileAds */,
 				5A14B3B828B51F2900F2116F /* PieChart */,
+				5A4CEC4728B8F678004D387A /* SwiftyJSON */,
 			);
 			productName = MoneyTracker;
 			productReference = B4D501202869A87A0065EB4D /* MoneyTracker.app */;
@@ -604,6 +627,7 @@
 				B4043A112898F840009DB652 /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				5AF8B6D528B0E60E00D76AEC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				5A14B3B728B51F2900F2116F /* XCRemoteSwiftPackageReference "PieChart-SwiftUI" */,
+				5A4CEC4628B8F678004D387A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = B4D501212869A87A0065EB4D /* Products */;
 			projectDirPath = "";
@@ -677,6 +701,7 @@
 				5A798FC7288599AD00A63300 /* NotificationsView.swift in Sources */,
 				5A00F46C287F313700A4820A /* PaymentItemView.swift in Sources */,
 				5A46042C289071BB00E4A411 /* ResetPaymentsViewModel.swift in Sources */,
+				5A4CEC4528B8F643004D387A /* HttpRequest.swift in Sources */,
 				5ADD33F62891DBF500C00F1C /* View.swift in Sources */,
 				5ADD33D5289193F700C00F1C /* PaymentsPublisher.swift in Sources */,
 				5A4352A22883EB7500C89F44 /* Character.swift in Sources */,
@@ -706,6 +731,7 @@
 				B4D501242869A87A0065EB4D /* MoneyTrackerApp.swift in Sources */,
 				5A7E84E428AF78DB00715093 /* ExportablePayment.swift in Sources */,
 				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
+				5A4CEC4A28B8F6BC004D387A /* URLSession.swift in Sources */,
 				5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */,
 				5A46042F289073BD00E4A411 /* NotificationsViewModel.swift in Sources */,
 				5A7E84E628AF7AEF00715093 /* JsonDocument.swift in Sources */,
@@ -724,12 +750,14 @@
 				5A19B9922883460D00C27056 /* TagNameValidator.swift in Sources */,
 				B4D501392869AA860065EB4D /* PersistenceController.swift in Sources */,
 				5A3A6566288571120097B179 /* TabsCoordinator.swift in Sources */,
+				5A4CEC4128B8F5DB004D387A /* HttpResponse.swift in Sources */,
 				5A2383F3288EAEB400DD60DE /* CurrencyEditorViewModel.swift in Sources */,
 				5AA1298628B3DB69004BAF12 /* PremiumPublisher.swift in Sources */,
 				5A2383ED288DD20F00DD60DE /* HomeViewModel.swift in Sources */,
 				B4BD4E9B2892678B004646E2 /* StoreManager.swift in Sources */,
 				5ADD33F42891C9FF00C00F1C /* PremiumItemView.swift in Sources */,
 				5A7C998A288306EB00F95214 /* DeveloperView.swift in Sources */,
+				5A4CEC4328B8F5F0004D387A /* HttpMethod.swift in Sources */,
 				B4D501372869AA6C0065EB4D /* PaymentsManager.swift in Sources */,
 				5A3A656A288572BD0097B179 /* SettingsCoordinator.swift in Sources */,
 				B4D501352869AA510065EB4D /* StorageManager.swift in Sources */,
@@ -1053,6 +1081,14 @@
 				kind = branch;
 			};
 		};
+		5A4CEC4628B8F678004D387A /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		5AF8B6D528B0E60E00D76AEC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
@@ -1081,6 +1117,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A3A6562288570DA0097B179 /* XCRemoteSwiftPackageReference "stinsen" */;
 			productName = Stinsen;
+		};
+		5A4CEC4728B8F678004D387A /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A4CEC4628B8F678004D387A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 		5AF8B6D628B0E60E00D76AEC /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
