@@ -16,16 +16,6 @@ class TagsEditorViewModel: BaseViewModel {
         TagsPublisher(tagsManager: tagsManager)
             .sink { tags in
                 self.tags = tags
-                
-                // first setup for tags
-                // is tags not exist
-                if self.tags.isEmpty {
-                    self.addTag(name: "tag_food".localized, emoji: "🍗")
-                    self.addTag(name: "tag_clothes".localized, emoji: "👚")
-                    self.addTag(name: "tag_entertainment".localized, emoji: "🎭")
-                    self.addTag(name: "tag_technique".localized, emoji: "💻")
-                    self.addTag(name: "tag_any".localized, emoji: "📦")
-                }
             }
             .store(in: &publishers)
     }

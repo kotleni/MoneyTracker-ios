@@ -51,4 +51,13 @@ struct TagsManager {
     func getDefaultTag() -> Tag {
         return getTags()[0]
     }
+    
+    /// Reset default tags
+    func resetDefault() {
+        _ = addTag(name: "tag_food".localized, emoji: "🍗")
+        _ = addTag(name: "tag_clothes".localized, emoji: "👚")
+        _ = addTag(name: "tag_entertainment".localized, emoji: "🎭")
+        _ = addTag(name: "tag_technique".localized, emoji: "💻")
+        _ = addTag(name: "tag_any".localized, emoji: "📦")
+    }
 }
