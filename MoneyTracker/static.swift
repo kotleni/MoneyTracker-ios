@@ -24,4 +24,7 @@ final class Static {
     // subs
     static let subscriptionsID: Set<String> = ["moneytracker.premiumEveryMonth"]
     static let subsExpirationKeychain = "SubscriptionExpirationDate"
+    
+    // ads
+    static let adUnitID = "ca-app-pub-8334416213766495/4179109818" // test: "ca-app-pub-3940256099942544/2934735716"
 }

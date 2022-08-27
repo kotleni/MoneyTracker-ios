@@ -9,8 +9,9 @@ import GoogleMobileAds
 import SwiftUI
 import UIKit
 
+/// Admob banner bridge from UIKit to SwiftUI
 final class AdBanner: UIViewControllerRepresentable {
-    private let onUpdate: (_ isSuccess: Bool) -> Void
+    private let onUpdate: (_ isSuccess: Bool) -> Void // update handler
     
     init(onUpdate: @escaping (_ isSuccess: Bool) -> Void) {
         self.onUpdate = onUpdate
@@ -21,15 +22,13 @@ final class AdBanner: UIViewControllerRepresentable {
         return viewContoller
     }
     
-    func updateUIViewController(_ uiViewController: AdBannerViewController, context: Context) {
-        
-    }
+    func updateUIViewController(_ uiViewController: AdBannerViewController, context: Context) { }
 }
 
 final class AdBannerViewController: UIViewController, GADBannerViewDelegate {
-    private var adUnitID: String = "ca-app-pub-8334416213766495/4179109818" // test: "ca-app-pub-3940256099942544/2934735716"
-    private var bannerView: GADBannerView!
-    private var onUpdate: (_ isSuccess: Bool) -> Void
+    private var adUnitID: String = Static.adUnitID    // banner id
+    private var bannerView: GADBannerView!            // banner view
+    private var onUpdate: (_ isSuccess: Bool) -> Void // update handler
     
     init(onUpdate: @escaping (_ isSuccess: Bool) -> Void) {
         self.onUpdate = onUpdate
