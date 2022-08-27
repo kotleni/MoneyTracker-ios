@@ -17,9 +17,10 @@ final class TabsCoordinator: TabCoordinatable {
     
     lazy var child = TabChild(startingItems: [
         \TabsCoordinator.home,      // home
-        \TabsCoordinator.settings  // settings
+        \TabsCoordinator.settings   // settings
     ], activeTab: 0)
     
+    // routes
     @Route(tabItem: makeHomeTab) var home = makeHome
     @Route(tabItem: makeSettingsTab) var settings = makeSettings
     

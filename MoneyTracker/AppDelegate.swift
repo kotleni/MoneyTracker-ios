@@ -54,7 +54,7 @@ extension AppDelegate: SKPaymentTransactionObserver {
         guard Receipt.isReceiptPresent() else { return }
         let receipt = Receipt()
         if receipt.receiptStatus == .validationSuccess {
-            // Work with subscribtion date
+            // work with subscribtion date
             var savedDate: Date!
             for receipt in receipt.inAppReceipts {
                 guard let expirationDate = receipt.subscriptionExpirationDate else { return }
