@@ -28,6 +28,7 @@
 		5A2383F1288DE05100DD60DE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2383F0288DE05100DD60DE /* SettingsViewModel.swift */; };
 		5A2383F3288EAEB400DD60DE /* CurrencyEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2383F2288EAEB400DD60DE /* CurrencyEditorViewModel.swift */; };
 		5A2383F7288EB12700DD60DE /* TagsEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2383F6288EB12700DD60DE /* TagsEditorViewModel.swift */; };
+		5A29738528BAA22800A08112 /* CurrenciesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A29738428BAA22800A08112 /* CurrenciesError.swift */; };
 		5A3868672895A601006D24CC /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3868662895A601006D24CC /* Developer.swift */; };
 		5A3A6564288570DA0097B179 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = 5A3A6563288570DA0097B179 /* Stinsen */; };
 		5A3A6566288571120097B179 /* TabsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A6565288571120097B179 /* TabsCoordinator.swift */; };
@@ -150,6 +151,7 @@
 		5A2383F0288DE05100DD60DE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		5A2383F2288EAEB400DD60DE /* CurrencyEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEditorViewModel.swift; sourceTree = "<group>"; };
 		5A2383F6288EB12700DD60DE /* TagsEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsEditorViewModel.swift; sourceTree = "<group>"; };
+		5A29738428BAA22800A08112 /* CurrenciesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesError.swift; sourceTree = "<group>"; };
 		5A3868662895A601006D24CC /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		5A3A6565288571120097B179 /* TabsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCoordinator.swift; sourceTree = "<group>"; };
 		5A3A6567288571600097B179 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				5A3A7F7928BA52D600F1E708 /* NetworkingError.swift */,
+				5A29738428BAA22800A08112 /* CurrenciesError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				B425FB7228992A8600D32BB1 /* SKProduct.swift in Sources */,
 				5AF8B6D928B0E82800D76AEC /* AdBanner.swift in Sources */,
 				5A5DEB2528AD418800496571 /* DeviceSupportHelper.swift in Sources */,
+				5A29738528BAA22800A08112 /* CurrenciesError.swift in Sources */,
 				5AD6E9CF2887D3F1005311C5 /* PremiumView.swift in Sources */,
 				5AD41C29287D4EAE00A464B2 /* AddPaymentView.swift in Sources */,
 				B4F01818288AD316009CCA62 /* AppDelegate.swift in Sources */,

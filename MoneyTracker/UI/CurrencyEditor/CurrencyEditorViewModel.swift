@@ -19,11 +19,10 @@ class CurrencyEditorViewModel: BaseViewModel {
     override func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
             let priceType = self.storageManager.getPriceType()
-            if let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType) {
-                DispatchQueue.main.async {
-                    self.selectedCurrencyId = currency.id
-                }
-            } else { // is currency not found
+            do {
+                let currency = try Currency.findByCode(array: Currencies.currenciesAll, code: priceType)
+                DispatchQueue.main.async { self.selectedCurrencyId = currency.id }
+            } catch { // is error
                 // reset it to default
                 DispatchQueue.main.async {
                     // force unwrap allowed, because it constant
@@ -40,9 +39,10 @@ class CurrencyEditorViewModel: BaseViewModel {
     /// Set currency currency
     func setCurrency(id: UUID) {
         selectedCurrencyId = id
-        if let currency = Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId) {
+        do {
+            let currency = try Currency.findById(array: Currencies.currenciesAll, id: selectedCurrencyId)
             storageManager.setPriceType(type: currency.littleName)
-        }
+        } catch { }
     }
     
     /// Update filtered currencies list

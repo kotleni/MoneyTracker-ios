@@ -31,11 +31,7 @@ final class NotificationsManager {
         
         // schedule the request with the system.
         let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.add(request) { (error) in
-            if error != nil {
-                // handle any errors.
-            }
-        }
+        notificationCenter.add(request)
     }
     
     /// Stop all notifications task
