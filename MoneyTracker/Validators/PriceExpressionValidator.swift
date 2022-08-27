@@ -9,7 +9,6 @@ import Foundation
 
 /// Price string validator
 class PriceExpressionValidator: Validator {
-    // MARK: todo normal validate
     static func validate(str: String) -> Bool {
         if str.isEmpty {
             return false

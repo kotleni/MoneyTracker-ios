@@ -8,7 +8,7 @@
 import Foundation
 import StoreKit
 
-// MARK: Используется для локализации продолжительности подписки
+// MARK: uses for localisation subscription duration
 extension SKProduct.PeriodUnit {
     func toCalendarUnit() -> NSCalendar.Unit {
         switch self {

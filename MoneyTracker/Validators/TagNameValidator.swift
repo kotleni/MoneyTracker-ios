@@ -11,7 +11,7 @@ import Foundation
 class TagNameValidator: Validator {
     // MARK: todo normal validate
     static func validate(str: String) -> Bool {
-        if !str.isEmpty {
+        if str.count > 2 {
             return true
         }
         return false
