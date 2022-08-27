@@ -8,6 +8,7 @@
 import Foundation
 
 extension URLSession {
+    /// Do sync request by URL
     func syncRequest(with url: URL) -> (Data?, URLResponse?, Error?) {
         var data: Data?
         var response: URLResponse?
@@ -27,6 +28,7 @@ extension URLSession {
         return (data, response, error)
     }
     
+    /// Do sync request by URLComponents
     func syncRequest(with urlComponents: URLComponents) -> (Data?, URLResponse?, Error?) {
         guard let url = urlComponents.url else { return (nil, nil, nil) }
         
@@ -48,6 +50,7 @@ extension URLSession {
         return (data, response, error)
     }
     
+    /// Do sync request by URLRequest
     func syncRequest(with request: URLRequest) -> (Data?, URLResponse?, Error?) {
         var data: Data?
         var response: URLResponse?
