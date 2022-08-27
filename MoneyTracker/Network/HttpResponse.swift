@@ -9,20 +9,11 @@ import Foundation
 
 /// Http response
 class HttpResponse {
-    let isSuccess: Bool             // is response success
-    var errorString: String? = nil  // error string (if fail)
     var statusCode: Int? = nil      // http result code
     var data: Data? = nil           // result data
     
-    /// Execute errror
-    init(isSuccess: Bool, errorString: String) {
-        self.isSuccess = isSuccess
-        self.errorString = errorString
-    }
-    
     /// Normal execute
-    init(isSuccess: Bool, statusCode: Int, data: Data) {
-        self.isSuccess = isSuccess
+    init(statusCode: Int, data: Data) {
         self.statusCode = statusCode
         self.data = data
     }

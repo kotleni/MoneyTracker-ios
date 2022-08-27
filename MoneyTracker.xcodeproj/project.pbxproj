@@ -33,6 +33,7 @@
 		5A3A6566288571120097B179 /* TabsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A6565288571120097B179 /* TabsCoordinator.swift */; };
 		5A3A6568288571600097B179 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A6567288571600097B179 /* HomeCoordinator.swift */; };
 		5A3A656A288572BD0097B179 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A6569288572BD0097B179 /* SettingsCoordinator.swift */; };
+		5A3A7F7A28BA52D600F1E708 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7F7928BA52D600F1E708 /* NetworkingError.swift */; };
 		5A43529E2883E50100C89F44 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43529D2883E50100C89F44 /* Validator.swift */; };
 		5A4352A02883E5F800C89F44 /* PriceExpressionValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A43529F2883E5F800C89F44 /* PriceExpressionValidator.swift */; };
 		5A4352A22883EB7500C89F44 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4352A12883EB7500C89F44 /* Character.swift */; };
@@ -153,6 +154,7 @@
 		5A3A6565288571120097B179 /* TabsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCoordinator.swift; sourceTree = "<group>"; };
 		5A3A6567288571600097B179 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		5A3A6569288572BD0097B179 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		5A3A7F7928BA52D600F1E708 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		5A43529D2883E50100C89F44 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		5A43529F2883E5F800C89F44 /* PriceExpressionValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceExpressionValidator.swift; sourceTree = "<group>"; };
 		5A4352A12883EB7500C89F44 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -306,6 +308,14 @@
 				5A2383F6288EB12700DD60DE /* TagsEditorViewModel.swift */,
 			);
 			path = TagsEditor;
+			sourceTree = "<group>";
+		};
+		5A3A7F7828BA529500F1E708 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A7F7928BA52D600F1E708 /* NetworkingError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		5A460424288FF08500E4A411 /* AboutApp */ = {
@@ -475,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				B4F15B0928979D2800DC8CA2 /* MoneyTracker.entitlements */,
+				5A3A7F7828BA529500F1E708 /* Errors */,
 				5A4CEC3F28B8F5B4004D387A /* Network */,
 				5AFED6DF28918D0D00E33D66 /* Publishers */,
 				5AAFDE8B28846D7E0076ECE7 /* Navigation */,
@@ -733,6 +744,7 @@
 				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
 				5A4CEC4A28B8F6BC004D387A /* URLSession.swift in Sources */,
 				5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */,
+				5A3A7F7A28BA52D600F1E708 /* NetworkingError.swift in Sources */,
 				5A46042F289073BD00E4A411 /* NotificationsViewModel.swift in Sources */,
 				5A7E84E628AF7AEF00715093 /* JsonDocument.swift in Sources */,
 				5A798FCF2885A1B000A63300 /* HomeBalance2View.swift in Sources */,

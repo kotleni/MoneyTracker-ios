@@ -42,11 +42,12 @@ class HttpRequest {
     }
     
     /// Execute reponse
-    private func _execute() -> HttpResponse {
-        guard var urlComponents = URLComponents(string: url)
-        else { return HttpResponse(isSuccess: false, errorString: "[⛔️] Wrong url") }
+    private func _execute() throws -> HttpResponse {
+        guard var urlComponents = URLComponents(string: url) else { throw NetworkingError.invalidUrl(url) }
         urlComponents.queryItems = self.queryItems
-        guard let url = urlComponents.url else { return HttpResponse(isSuccess: false, errorString: "[⛔️] Wrong url") }
+        
+        guard let url = urlComponents.url else { throw NetworkingError.invalidUrl(url) }
+        
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         
@@ -59,30 +60,25 @@ class HttpRequest {
         
         // if result data exist
         if let data = result.0 {
-            guard let resp = (result.1 as? HTTPURLResponse) else { return HttpResponse(isSuccess: false, errorString: "[⛔️] Unknown error") }
+            guard let resp = (result.1 as? HTTPURLResponse) else {  throw NetworkingError.unknown }
             let status = resp.statusCode
-            return HttpResponse(isSuccess: true, statusCode: status, data: data)
+            return HttpResponse(statusCode: status, data: data)
         }
         
-        // unknown bahavior
-        return HttpResponse(isSuccess: false, errorString: "[⛔️] Unknown error")
+        throw NetworkingError.unknown
     }
     
     /// Execute response and print debug
-    func execute() -> HttpResponse {
+    func execute() throws -> HttpResponse {
 #if DEBUG
         print("[HttpRequest] \(method.rawValue) \(url) query: \(queryItems), body: '\(body)'")
 #endif
         
         // execute
-        let response = _execute()
+        let response = try _execute()
         
 #if DEBUG
-        if response.isSuccess {
-            print("[HttpRequest] Response success: \(String(describing: response.getString()))")
-        } else {
-            print("[HttpRequest] Reponse fail: \(String(describing: response.errorString))")
-        }
+        print("[HttpRequest] Response: \(String(describing: response.getString()))")
 #endif
         
         return response
