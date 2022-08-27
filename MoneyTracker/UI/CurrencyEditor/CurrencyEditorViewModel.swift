@@ -18,7 +18,7 @@ class CurrencyEditorViewModel: BaseViewModel {
     override func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
             let priceType = self.storageManager.getPriceType()
-            if let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType) { // MARK: todo fix deprecation
+            if let currency = Currency.findByCode(array: Currencies.currenciesAll, code: priceType) {
                 DispatchQueue.main.async {
                     self.selectedCurrencyId = currency.id
                 }

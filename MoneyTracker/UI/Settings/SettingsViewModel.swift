@@ -43,6 +43,7 @@ class SettingsViewModel: BaseViewModel {
         let currency = storageManager.getPriceType()
         var exportablePayments: [ExportablePayment] = []
         
+        // for each payments, export and add it to array
         paymentsManager.getPayments().forEach { payment in
             exportablePayments.append(payment.exportPayment())
         }
@@ -50,6 +51,8 @@ class SettingsViewModel: BaseViewModel {
         let exportData = ExportData(appVersion: appVersion, currency: currency, payments: exportablePayments)
         let jsonEncoder = JSONEncoder()
         jsonEncoder.outputFormatting = .prettyPrinted
+        
+        // try encode json and export
         do {
             let jsonData = try jsonEncoder.encode(exportData)
             let jsonString = String(data: jsonData, encoding: .utf8)

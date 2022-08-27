@@ -23,13 +23,14 @@ struct TagsEditorView: View {
                     Text(tag.emoji! + " " + tag.name!)
                 }
                 .onDelete { indexSet in
-                    // MARK: fixme
-                    if viewModel.tags[indexSet.first!].name! != "tag_any".localized {
-                        viewModel.removeTag(index: indexSet.first!)
-                    } else {
-                        let generator = UINotificationFeedbackGenerator()
-                        generator.notificationOccurred(.error)
-                        isTagError = true
+                    if let index = indexSet.first {
+                        if viewModel.tags[index].name ?? "" != "tag_any".localized {
+                            viewModel.removeTag(index: indexSet.first!)
+                        } else {
+                            let generator = UINotificationFeedbackGenerator()
+                            generator.notificationOccurred(.error)
+                            isTagError = true
+                        }
                     }
                 }
             }
