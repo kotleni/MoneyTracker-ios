@@ -48,7 +48,7 @@ struct MoneyTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             TabsCoordinator(managersContainer: managersContainer)
-            .view()
+                .view()
         }
     }
 }

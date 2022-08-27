@@ -15,7 +15,9 @@ class AppDelegate: NSObject {
 }
 
 extension AppDelegate: UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         SKPaymentQueue.default().add(self)
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
@@ -60,9 +62,9 @@ extension AppDelegate: SKPaymentTransactionObserver {
                     savedDate = expirationDate
                 }
             }
-            // Encode to data type
+            // encode to data type
             guard let data = try? JSONEncoder().encode(savedDate.timeIntervalSince1970) else { return }
-            // Save to keychain
+            // save to keychain
             keychainManager.save(data, key: Static.subsExpirationKeychain)
             store.callbackPurchase?(true)
         } else {
@@ -74,9 +76,9 @@ extension AppDelegate: SKPaymentTransactionObserver {
         if let transactionError = transaction.error as NSError?,
            let errorDescription = transaction.error?.localizedDescription,
            transactionError.code != SKError.paymentCancelled.rawValue {
-            #if DEBUG
+#if DEBUG
             print("transaction error: \(errorDescription)")
-            #endif
+#endif
         }
         store.callbackPurchase?(false)
         SKPaymentQueue.default().finishTransaction(transaction)
