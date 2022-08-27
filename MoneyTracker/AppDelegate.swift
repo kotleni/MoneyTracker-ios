@@ -32,11 +32,17 @@ extension AppDelegate: SKPaymentTransactionObserver {
             case .failed:
                 failedTransaction(transaction)
             case .purchasing:
+#if DEBUG
                 print("(purchasing) being processed")
+#endif
             case .deferred:
+#if DEBUG
                 print("pending external action")
+#endif
             default:
+#if DEBUG
                 print("unhandled transaction state")
+#endif
             }
         }
     }
@@ -68,7 +74,9 @@ extension AppDelegate: SKPaymentTransactionObserver {
         if let transactionError = transaction.error as NSError?,
            let errorDescription = transaction.error?.localizedDescription,
            transactionError.code != SKError.paymentCancelled.rawValue {
+            #if DEBUG
             print("transaction error: \(errorDescription)")
+            #endif
         }
         store.callbackPurchase?(false)
         SKPaymentQueue.default().finishTransaction(transaction)

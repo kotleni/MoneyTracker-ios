@@ -13,8 +13,8 @@ final class AdBanner: UIViewControllerRepresentable {
     private let onUpdate: (_ isSuccess: Bool) -> Void
     
     init(onUpdate: @escaping (_ isSuccess: Bool) -> Void) {
-       self.onUpdate = onUpdate
-   }
+        self.onUpdate = onUpdate
+    }
     
     func makeUIViewController(context: Context) -> AdBannerViewController {
         let viewContoller = AdBannerViewController(onUpdate: onUpdate)
@@ -34,7 +34,7 @@ final class AdBannerViewController: UIViewController, GADBannerViewDelegate {
     init(onUpdate: @escaping (_ isSuccess: Bool) -> Void) {
         self.onUpdate = onUpdate
         super.init(nibName: nil, bundle: nil)
-   }
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -17,24 +17,24 @@ final class NotificationsManager {
         
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
-
+        
         dateComponents.hour = hour
         dateComponents.minute = minute
-           
+        
         // create the trigger as a repeating event.
         let trigger = UNCalendarNotificationTrigger(
-                 dateMatching: dateComponents, repeats: true)
+            dateMatching: dateComponents, repeats: true)
         
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString,
-                    content: content, trigger: trigger)
-
+                                            content: content, trigger: trigger)
+        
         // schedule the request with the system.
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.add(request) { (error) in
-           if error != nil {
-              // handle any errors.
-           }
+            if error != nil {
+                // handle any errors.
+            }
         }
     }
     

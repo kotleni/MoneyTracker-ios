@@ -19,7 +19,7 @@ class StoreKitTests: XCTestCase {
         if products.count > 0 {
             return
         }
-    
+        
         let store = StoreManager(keychain: keychain, productsIDs: Static.subscriptionsID)
         
         store.requestProducts()

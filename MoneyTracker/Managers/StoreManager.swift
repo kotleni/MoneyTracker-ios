@@ -29,10 +29,12 @@ final class StoreManager: NSObject, ObservableObject {
         if let data = keychain.read(key: Static.subsExpirationKeychain),
            let expirationTimeInteval = try? JSONDecoder().decode(TimeInterval.self, from: data) {
             subscriptionDate = Date(timeIntervalSince1970: expirationTimeInteval)
-            print("Подписка истекает: \(String(describing: subscriptionDate))")
-            print("Текущая дата: \(String(describing: Date()))")
+#if DEBUG
+            print("Subscription expires: \(String(describing: subscriptionDate))")
+            print("Current date: \(String(describing: Date()))")
+#endif
         }
-       
+        
         super.init()
     }
     
@@ -61,7 +63,7 @@ final class StoreManager: NSObject, ObservableObject {
         return formatter.string(from: product.price) ?? ""
     }
     
-    // MARK: Currently not used, but in the future if there are several
+    // MARK: currently not used, but in the future if there are several
     // MARK: subscriptions or you need to display the duration of the subscription - see here.
     /// Get subscribe period string
     func subscribtionPeriod(_ product: SKProduct) -> String {
@@ -82,7 +84,7 @@ final class StoreManager: NSObject, ObservableObject {
             let isPremium = (Date() <= subscriptionDate)
             return isPremium
         } else { // if don't has stored data in keychain
-           return false
+            return false
         }
     }
 }
@@ -92,12 +94,16 @@ extension StoreManager: SKProductsRequestDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.products = response.products
             self?.objectWillChange.send()
-            // Вот тут
+            
+#if DEBUG
             print(response.products)
+#endif
         }
     }
     
     func request(_ request: SKRequest, didFailWithError error: Error) {
+#if DEBUG
         print(error.localizedDescription)
+#endif
     }
 }

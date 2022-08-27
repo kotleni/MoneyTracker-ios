@@ -21,7 +21,9 @@ extension SKProduct.PeriodUnit {
         case .year:
             return .year
         @unknown default:
-            debugPrint("Unknown period unit")
+#if DEBUG
+            print("Unknown period unit")
+#endif
         }
         return .day
     }
@@ -33,7 +35,9 @@ extension SKProduct.PeriodUnit {
         case .month: return 1
         case .year: return 12
         @unknown default:
-            debugPrint("Unknown period unit")
+#if DEBUG
+            print("Unknown period unit")
+#endif
             return 0
         }
     }

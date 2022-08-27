@@ -29,7 +29,7 @@ struct PaymentsManager {
                 payment.tag = tagName
             }
         }
-    
+        
         try? viewContext.save()
         return payment
     }

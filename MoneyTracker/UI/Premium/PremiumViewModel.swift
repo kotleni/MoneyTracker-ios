@@ -21,10 +21,14 @@ class PremiumViewModel: BaseViewModel {
         }
         if let subscriptionExpireDate = storeManager.subscriptionDate {
             if Date() >= subscriptionExpireDate {
-                print("Подписка истекла")
+#if DEBUG
+                print("Subscription expired")
+#endif
                 isPremium = false
             } else {
-                print("Подписка активна")
+#if DEBUG
+                print("Subscription active")
+#endif
                 isPremium = true
             }
         }
@@ -37,10 +41,14 @@ class PremiumViewModel: BaseViewModel {
         let sortedProduct = storeManager.products.sorted { storeManager.priceFormatter($0) < storeManager.priceFormatter($1) }
         guard let product = sortedProduct.first else { return }
         
-        print("buyproduct")
+#if DEBUG
+        print("storeManager.buyProduct")
+#endif
         storeManager.buyProduct(product: product) { isSuccess in
             self.isPremium = isSuccess
+#if DEBUG
             print(isSuccess)
+#endif
             onEnd(isSuccess)
         }
     }

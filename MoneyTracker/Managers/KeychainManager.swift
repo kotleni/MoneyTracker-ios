@@ -18,21 +18,21 @@ final class KeychainManager {
             kSecAttrService: key,
             kSecClass: kSecClassGenericPassword
         ] as CFDictionary
-
-        // Add data in query to keychain
+        
+        // add data in query to keychain
         let status = SecItemAdd(query, nil)
-
+        
         if status == errSecDuplicateItem {
-            // Item already exist, thus update it.
+            // item already exist, thus update it.
             let query = [
                 kSecAttrSynchronizable: true,
                 kSecAttrService: key,
                 kSecClass: kSecClassGenericPassword
             ] as CFDictionary
-
+            
             let attributesToUpdate = [kSecValueData: data] as CFDictionary
-
-            // Update existing item
+            
+            // update existing item
             SecItemUpdate(query, attributesToUpdate)
         }
     }
@@ -57,7 +57,7 @@ final class KeychainManager {
             kSecAttrSynchronizable: true,
             kSecAttrService: key,
             kSecClass: kSecClassGenericPassword
-            ] as CFDictionary
+        ] as CFDictionary
         
         SecItemDelete(query)
     }

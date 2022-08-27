@@ -56,7 +56,9 @@ class SettingsViewModel: BaseViewModel {
             exportJson = jsonString ?? ""
             isExportJson = true
         } catch let error {
+#if DEBUG
             print(error)
+#endif
         }
         
         isLoading = false

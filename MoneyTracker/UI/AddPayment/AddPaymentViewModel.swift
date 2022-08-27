@@ -50,7 +50,9 @@ class AddPaymentViewModel: BaseViewModel {
             resetTags()
             onFinish(true)
         } catch let error {
+#if DEBUG
             print(error)
+#endif
             
             onFinish(false)
         }
