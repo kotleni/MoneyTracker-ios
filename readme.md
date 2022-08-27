@@ -1,7 +1,7 @@
 ## MoneyTracker
 Very simple iOS application for tracking your money. Support EN and RU languages.<br>
 
-This project was created to validate my skills (and gain new ones) in development. You can support me by purchasing an in-app subscription. I am ready for any criticism and support. Thanks to <a href="https://github.com/openmetrue">Mark Hmelnitsky</a> for contributing.<br>
+This project was created to validate my skills (and gain new ones) in development. You can support me by purchasing an in-app subscription. I am ready for any criticism and support. Thanks to <a href="https://github.com/openmetrue">Mark Hmelnitsky</a> for contributing and code-review.<br>
 <a href="https://apps.apple.com/ua/app/moneytracker/id1631794003">Get from AppStore</a> (see screenshots on appstore page)
 
 ### 🔥 Features
