@@ -70,7 +70,6 @@
 "hint_necessarily" = "Required";
 "label_tag" = "Tag";
 "hint_payment" = "After creating payment, it will be added to the history and the funds counter will be updated";
-"toast_invalidpaydata" = "Invalidate payment data";
 
 /* UNIVERSAL */
 "btn_cancel" = "Cancel";
@@ -125,3 +124,11 @@
 
 "label_loading" = "Loading...";
 "label_adbanner" = "Ad";
+
+/* ERRORS */
+
+"networkingerror_invalidurl" = "Invalid url %@";
+"networkingerror_unknown" = "Unknown error";
+"currencieserror_notfounded" = "Currency not founded";
+"mathexpressionerror_invalid" = "Invalid expression";
+"mathexpressionerror_invalidoperator" = "Invalid operator %@";"

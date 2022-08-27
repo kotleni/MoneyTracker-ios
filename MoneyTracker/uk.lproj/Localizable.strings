@@ -70,7 +70,6 @@
 "hint_necessarily" = "Обов'язково";
 "label_tag" = "Тег";
 "hint_payment" = "Після створення платежу він буде доданий до історії та лічильник коштів буде оновлений";
-"toast_invalidpaydata" = "Недійсні платіжні дані";
 
 /* UNIVERSAL */
 "btn_cancel" = "Скасування";
@@ -126,3 +125,10 @@
 "label_loading" = "Завантаження...";
 "label_adbanner" = "Реклама";
     
+/* ERRORS */
+
+"networkingerror_invalidurl" = "Неправильне посилання %@";
+"networkingerror_unknown" = "Невідома помилка";
+"currencieserror_notfounded" = "Валюта не знайдена";
+"mathexpressionerror_invalid" = "Невірний вираз";
+"mathexpressionerror_invalidoperator" = "Невірний оператор %@";"

@@ -13,7 +13,7 @@ enum CurrenciesError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .notFounded:
-            return "Currency not founded"
+            return "currencieserror_notfounded".localized
         }
     }
 }

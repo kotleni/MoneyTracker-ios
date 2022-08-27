@@ -10,6 +10,7 @@ import Combine
 
 class AddPaymentViewModel: BaseViewModel {
     @Published var isError: Bool = false
+    @Published var errorText: String = ""
     @Published var tags: [Tag] = []
     @Published var selectedTag: Tag?
     @Published var priceText: String = ""
@@ -32,7 +33,13 @@ class AddPaymentViewModel: BaseViewModel {
     }
     
     /// Try add new payment
-    func tryAddPayment(onFinish: (_ isSuccess: Bool) -> Void) {
+    func tryAddPayment(onSuccess: () -> Void) {
+        // check validation
+        if !PriceExpressionValidator.validate(str: priceText) {
+            errorText = MathExpressionError.invalidExpression.localizedDescription
+            isError = true
+        }
+        
         guard let selectedTag = selectedTag else { return }
         let priceStr = priceText.replacingOccurrences(of: ",", with: ".")
         let mathExp = MathematicalExpression(line: priceStr)
@@ -48,13 +55,15 @@ class AddPaymentViewModel: BaseViewModel {
             aboutText = ""
             spendingBool = true
             resetTags()
-            onFinish(true)
+            
+            onSuccess()
         } catch let error {
 #if DEBUG
             print(error)
 #endif
             
-            onFinish(false)
+            errorText = error.localizedDescription
+            isError = true
         }
     }
     

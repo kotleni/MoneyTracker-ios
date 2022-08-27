@@ -7,17 +7,13 @@
 
 import Foundation
 
-enum ExpressionError: Error {
-    case invalidExpression
-}
-
-enum OperatorType {
-    case NUM // number
+enum OperatorType: String {
+    case NUM  = "NUM" // number
     
-    case ADD // addition
-    case SUB // subtraction
-    case MUL // multiplication
-    case DIV // division
+    case ADD = "ADD" // addition
+    case SUB = "SUB" // subtraction
+    case MUL = "MUL" // multiplication
+    case DIV = "DIV" // division
 }
 
 protocol OperatorItem {
@@ -105,18 +101,18 @@ class MathematicalExpression {
         var index = 1
         
         if operators.isEmpty {
-            throw ExpressionError.invalidExpression
+            throw MathExpressionError.invalidExpression
         }
         
-        guard let item = (operators[0] as? NumberOperatorItem) else { throw ExpressionError.invalidExpression }
+        guard let item = (operators[0] as? NumberOperatorItem) else { throw MathExpressionError.invalidExpression }
         var sum: Float = item.value
         
         while index < operators.count - 1 {
             let opera = operators[index]
             
             if opera.type != .NUM {
-                guard let opera = opera as? LogicOperatorItem else { throw ExpressionError.invalidExpression }
-                guard let opNext = operators[index + 1] as? NumberOperatorItem else { throw ExpressionError.invalidExpression }
+                guard let opera = opera as? LogicOperatorItem else { throw MathExpressionError.invalidExpression }
+                guard let opNext = operators[index + 1] as? NumberOperatorItem else { throw MathExpressionError.invalidExpression }
                 
                 switch opera.type {
                 case .ADD:
@@ -132,7 +128,7 @@ class MathematicalExpression {
                     sum /= opNext.value
                     break
                 default:
-                    throw ExpressionError.invalidExpression
+                    throw MathExpressionError.invalidOperator(opera.type.rawValue)
                 }
             }
             

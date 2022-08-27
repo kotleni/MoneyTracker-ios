@@ -70,7 +70,6 @@
 "hint_necessarily" = "Обязательно";
 "label_tag" = "Тег";
 "hint_payment" = "После создания платежа он будет добавлен в историю и счетчик средств будет обновлен";
-"toast_invalidpaydata" = "Недействительные платежные данные";
 
 /* УНИВЕРСАЛЬНЫЙ */
 "btn_cancel" = "Отмена";
@@ -125,3 +124,11 @@
 
 "label_loading" = "Загрузка...";
 "label_adbanner" = "Реклама";
+
+/* ERRORS */
+
+"networkingerror_invalidurl" = "Неверная ссылка %@";
+"networkingerror_unknown" = "Неизвестная ошибка";
+"currencieserror_notfounded" = "Валюта не найдена";
+"mathexpressionerror_invalid" = "Неверное выражение";
+"mathexpressionerror_invalidoperator" = "Неверный оператор %@";"

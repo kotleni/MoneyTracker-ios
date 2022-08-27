@@ -10,7 +10,11 @@ import Foundation
 extension String {
     /// Get localized string
     public var localized: String {
-        NSLocalizedString(self, bundle: Bundle(for: BundleClass.self), comment: "")
+        return NSLocalizedString(self, bundle: Bundle(for: BundleClass.self), comment: "")
+    }
+    
+    public func localizedWithPlaceholder(arguments: CVarArg...) -> String {
+        return String(format: self, arguments)
     }
 }
 

@@ -14,9 +14,9 @@ enum NetworkingError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidUrl(let url):
-            return "Invalid url \(url)"
+            return "networkingerror_invalidurl".localizedWithPlaceholder(arguments: url)
         case .unknown:
-            return "Unknown error"
+            return "networkingerror_unknown".localized
         }
     }
 }

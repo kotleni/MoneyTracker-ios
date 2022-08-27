@@ -59,21 +59,10 @@ struct AddPaymentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        if PriceExpressionValidator.validate(str: viewModel.priceText) && !viewModel.aboutText.isEmpty {
-                            viewModel.tryAddPayment { isSuccess in
-                                    if isSuccess {
-                                        router.popToRoot()
-                                        
-                                        let generator = UINotificationFeedbackGenerator()
-                                        generator.notificationOccurred(.success)
-                                    } else {
-                                        viewModel.showError()
-                                    }
-                                }
-                        } else {
-                            viewModel.showError()
+                        viewModel.tryAddPayment {
+                            router.popToRoot()
                             let generator = UINotificationFeedbackGenerator()
-                            generator.notificationOccurred(.error)
+                            generator.notificationOccurred(.success)
                         }
                     } label: {
                         Text("btn_next".localized)
@@ -81,7 +70,7 @@ struct AddPaymentView: View {
                 }
             }
         }
-        .toast(message: "toast_invalidpaydata".localized, isShowing: $viewModel.isError, config: .init())
+        .toast(message: viewModel.errorText, isShowing: $viewModel.isError, config: .init(isError: true))
         .onAppear { viewModel.loadData() }
     }
 }
