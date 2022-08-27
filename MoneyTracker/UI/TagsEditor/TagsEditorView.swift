@@ -20,12 +20,12 @@ struct TagsEditorView: View {
         List {
             Section {
                 ForEach(viewModel.tags, id: \.self) { tag in
-                    Text(tag.emoji! + " " + tag.name!)
+                    Text((tag.emoji ?? "") + " " + (tag.name ?? ""))
                 }
                 .onDelete { indexSet in
                     if let index = indexSet.first {
                         if viewModel.tags[index].name ?? "" != "tag_any".localized {
-                            viewModel.removeTag(index: indexSet.first!)
+                            viewModel.removeTag(index: index)
                         } else {
                             let generator = UINotificationFeedbackGenerator()
                             generator.notificationOccurred(.error)

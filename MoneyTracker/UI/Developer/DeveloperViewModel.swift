@@ -20,11 +20,9 @@ class DeveloperViewModel: BaseViewModel {
     
     /// Add special payments
     func addSpecialPayments() {
-        let tags = tagsManager.getTags()
-        
         _ = paymentsManager.addPayment(price: 4000, about: "Зарплата")
         _ = paymentsManager.addPayment(price: 160, about: "Отдали долг")
-        _ = paymentsManager.addPayment(price: -307, about: "Купил пицу", tag: tags.first!)
+        _ = paymentsManager.addPayment(price: -307, about: "Купил пицу", tag: tagsManager.getDefaultTag())
     }
     
     /// Remove all payments

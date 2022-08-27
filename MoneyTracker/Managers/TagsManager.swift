@@ -49,6 +49,10 @@ struct TagsManager {
     
     /// Get default tag
     func getDefaultTag() -> Tag {
+        if getTags().isEmpty {
+            resetDefault()
+        }
+        
         return getTags()[0]
     }
     

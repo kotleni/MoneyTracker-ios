@@ -21,10 +21,8 @@ struct SettingsItemView: View {
                 HStack {
                     Text(title)
                     Spacer()
-                    if value != nil {
-                        Text(value!)
-                            .opacity(0.5)
-                    }
+                    Text(value ?? "")
+                        .opacity(0.5)
                     if let isLocked = isLocked {
                         if isLocked {
                             Image(systemName: "lock")

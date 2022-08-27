@@ -45,7 +45,7 @@ struct AddPaymentView: View {
                             Spacer()
                             Picker("", selection: $viewModel.selectedTag) {
                                 ForEach(viewModel.tags, id: \.self) { tag in
-                                    Text(tag.emoji! + " " + tag.name!)
+                                    Text((tag.emoji ?? "") + " " + (tag.name ?? ""))
                                 }
                             }
                             .pickerStyle(.menu)

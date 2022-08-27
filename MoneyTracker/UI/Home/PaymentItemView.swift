@@ -15,7 +15,7 @@ struct PaymentItemView: View {
     var body: some View {
         HStack {
             if payment.price < 0 {
-                Text((tag == nil) ? "❓" : tag!.emoji!)
+                Text((tag == nil) ? "❓" : tag?.emoji ?? "")
                     .font(.system(size: 28))
             }
             VStack {
@@ -26,7 +26,7 @@ struct PaymentItemView: View {
                     Spacer()
                 }
                 HStack {
-                    Text((payment.about == nil) ? /* fixme */"..." : payment.about!)
+                    Text((payment.about == nil) ? "..." : payment.about ?? "")
                         .font(.system(size: 14))
                         .opacity(0.5)
                     Spacer()
@@ -35,7 +35,7 @@ struct PaymentItemView: View {
             .padding(.leading, 8)
             Spacer()
             VStack {
-                Text("\(payment.date!.getDateString())")
+                Text("\((payment.date ?? Date()).getDateString())")
                     .font(.system(size: 14))
                     .opacity(0.5)
                 Spacer()

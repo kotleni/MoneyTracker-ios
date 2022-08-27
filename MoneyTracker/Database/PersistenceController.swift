@@ -34,7 +34,7 @@ struct PersistenceController {
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Model")
-        if inMemory {
+        if inMemory && container.persistentStoreDescriptions.first != nil {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
         container.loadPersistentStores(completionHandler: { (_, error) in

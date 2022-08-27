@@ -54,7 +54,9 @@ struct HomeView: View {
                                 }
                             }
                             .onDelete { indexSet in
-                                viewModel.deletePayment(index: indexSet.first!)
+                                if let index = indexSet.first {
+                                    viewModel.deletePayment(index: index)
+                                }
                             }
                         } else { // is empty
                             Text("label_nopayments".localized)

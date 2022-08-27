@@ -10,6 +10,6 @@ import Foundation
 extension Tag {
     /// Get tag string
     func getString() -> String {
-        return "\(emoji!) \(name!)"
+        return "\(emoji ?? "") \(name ?? "")"
     }
 }

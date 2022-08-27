@@ -9,7 +9,8 @@ import SwiftUI
 import Combine
 
 class CurrencyEditorViewModel: BaseViewModel {
-    @Published private(set) var selectedCurrencyId: UUID = Currencies.currenciesPopular.first!.id
+    @Published private(set) var selectedCurrencyId: UUID
+        = Currencies.currenciesPopular.first!.id // force unwrap allowed, because it constant
     @Published private(set) var isLoading: Bool = true
     
     @Published private(set) var currenciesFiltered: [Currency] = []
@@ -25,7 +26,8 @@ class CurrencyEditorViewModel: BaseViewModel {
             } else { // is currency not found
                 // reset it to default
                 DispatchQueue.main.async {
-                self.selectedCurrencyId = Currencies.currenciesPopular.first!.id
+                    // force unwrap allowed, because it constant
+                    self.selectedCurrencyId = Currencies.currenciesPopular.first!.id
                 }
             }
             DispatchQueue.main.async {
