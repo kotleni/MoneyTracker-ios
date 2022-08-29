@@ -18,7 +18,7 @@ This project was created to validate my skills (and gain new ones) in developmen
 1. Clone from this repository
 2. Open project in XCode
 3. Select your team for signing
-4. Buld it
+4. Build it
 
 ### 📦 Used in project
 <b>SwiftUI</b> - for building ui.<br>
