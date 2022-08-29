@@ -11,12 +11,12 @@ import Combine
 /// Universal view model base
 class BaseViewModel: ObservableObject {
     // managers
-    internal let paymentsManager: PaymentsManager
-    internal let storageManager: StorageManager
-    internal let notificationsManager: NotificationsManager
-    internal let tagsManager: TagsManager
-    internal let storeManager: StoreManager
-    internal let keychainManager: KeychainManager
+    let paymentsManager: PaymentsManager
+    let storageManager: StorageManager
+    let notificationsManager: NotificationsManager
+    let tagsManager: TagsManager
+    let storeManager: StoreManager
+    let keychainManager: KeychainManager
     
     init(
         managersContainer: ManagersContainer
@@ -30,8 +30,8 @@ class BaseViewModel: ObservableObject {
     }
     
     /// All viewmodel publishers
-    internal var publishers: Set<AnyCancellable> = []
+    var publishers: Set<AnyCancellable> = []
     
     /// Loading data
-    func loadData() { /* nothing */ }
+    func loadData() { }
 }

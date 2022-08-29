@@ -506,12 +506,12 @@
 				5AD41C25287D4A0500A464B2 /* Static.swift */,
 				5A00F44D287EBF2700A4820A /* Currencies.swift */,
 				5AFA66D62882C07100088D53 /* MathematicalExpression.swift */,
+				5A460425288FF18200E4A411 /* BaseViewModel.swift */,
+				5A4580EB28B2C7A1006088FA /* ManagersContainer.swift */,
 				B4D501482869ABCE0065EB4D /* Localizable.strings */,
 				B42D29A3287EE10900F324CE /* Launch Screen.storyboard */,
 				B4D501272869A87C0065EB4D /* Assets.xcassets */,
 				5A00F462287EDE0800A4820A /* Info.plist */,
-				5A460425288FF18200E4A411 /* BaseViewModel.swift */,
-				5A4580EB28B2C7A1006088FA /* ManagersContainer.swift */,
 			);
 			path = MoneyTracker;
 			sourceTree = "<group>";
