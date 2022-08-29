@@ -18,7 +18,7 @@ struct PremiumItemView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 36, height: 36)
-                .foregroundColor(.blue)
+                .foregroundColor(Color("AccentColor"))
             
             VStack {
                 HStack {

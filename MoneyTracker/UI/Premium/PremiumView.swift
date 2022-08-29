@@ -50,7 +50,7 @@ struct PremiumView: View {
                     }
                     .padding(8)
                     .foregroundColor(.white)
-                    .background(RoundedRectangle(cornerRadius: 12).fill(.blue))
+                    .background(RoundedRectangle(cornerRadius: 12).fill(Color("AccentColor")))
                 }
             }
             .padding(.leading, 8)
@@ -64,7 +64,7 @@ struct PremiumView: View {
                         .font(.system(size: 17))
                 }
                 .padding(8)
-                .foregroundColor(.blue)
+                .foregroundColor(Color("AccentColor"))
             }
             
             Text("label_subscribe".localized)

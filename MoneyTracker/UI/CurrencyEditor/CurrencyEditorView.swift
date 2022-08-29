@@ -69,7 +69,7 @@ struct CurrencyEditorView: View {
                                         Spacer()
                                         if viewModel.selectedCurrencyId == curr.id {
                                             Image(systemName: "checkmark")
-                                                .foregroundColor(.blue)
+                                                .foregroundColor(Color("AccentColor"))
                                                 .transition(.opacity)
                                         }
                                     }

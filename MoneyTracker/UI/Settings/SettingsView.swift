@@ -26,7 +26,7 @@ struct SettingsView: View {
                         Section {
                             HStack {
                                 Image(systemName: "star")
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(Color("AccentColor"))
                                 // premium
                                 SettingsItemView(title: "btn_premium".localized, action: {
                                     showPremium()

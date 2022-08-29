@@ -37,7 +37,7 @@ struct HomeView: View {
                         
                         if (viewModel.balance.income + viewModel.balance.outcome) != 0 {
                             PieChart(radius: 36, items: [
-                                ChartItem(name: "label_expenses".localized, value: abs(Double(viewModel.balance.outcome)), color: Color(red: 0/255, green: 109/255, blue: 255/255)),
+                                ChartItem(name: "label_expenses".localized, value: abs(Double(viewModel.balance.outcome)), color: Color("AccentColor")),
                                 ChartItem(name: "label_income".localized, value: Double(viewModel.balance.income), color: Color(red: 45/255, green: 192/255, blue: 79/255))
                             ])
                             .frame(height: 110)
