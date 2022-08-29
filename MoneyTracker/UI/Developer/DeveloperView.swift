@@ -18,8 +18,6 @@ struct DeveloperView: View {
                     label: { Text("Add payments for screenshot") }
                 Button { viewModel.removeAllPayments() }
                     label: { Text("Remove all payments") }
-                
-                Toggle(isOn: $viewModel.isExperimental, label: { Text("Experimental features") })
             } header: {
                 Text("Experimental")
             }

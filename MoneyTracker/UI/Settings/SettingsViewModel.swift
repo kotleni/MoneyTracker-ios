@@ -10,7 +10,6 @@ import Combine
 
 class SettingsViewModel: BaseViewModel {
     @Published private(set) var isLoading: Bool = false
-    @Published private(set) var isExperimental: Bool = false
     @Published private(set) var isPremium: Bool = false
     @Published private(set) var currency: String = ""
     @Published private(set) var exportJson: String = ""
@@ -22,7 +21,6 @@ class SettingsViewModel: BaseViewModel {
     override func loadData() {
         isLoading = true
         currency = storageManager.getPriceType()
-        isExperimental = storageManager.isExperimental()
         
         PremiumPublisher(storeManager: storeManager)
             .sink { isPremium in

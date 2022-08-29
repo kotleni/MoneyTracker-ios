@@ -10,42 +10,31 @@ import Foundation
 /// Data storage manager
 final class StorageManager {
     /// Data sotrage keys
-    final class Keys {
-        static let priceType = "price_type"
-        static let notifEnable = "notif_enable"
-        static let isExperimental = "is_experimental"
+    enum Keys: String {
+        case priceName = "price_type"
+        case notifEnable = "notif_enable"
     }
     
     /// Set price type
     func setPriceType(type: String) {
-        UserDefaults.standard.set(type, forKey: Keys.priceType)
+        UserDefaults.standard.set(type, forKey: Keys.priceName.rawValue)
     }
     
     /// Set notifications enable
     func setNotifEnable(isEnable: Bool) {
-        UserDefaults.standard.set(isEnable, forKey: Keys.notifEnable)
-    }
-    
-    /// Set is experimental
-    func setExperimental(isEnable: Bool) {
-        UserDefaults.standard.set(isEnable, forKey: Keys.isExperimental)
+        UserDefaults.standard.set(isEnable, forKey: Keys.notifEnable.rawValue)
     }
     
     /// Get price type
     func getPriceType() -> String {
-        guard let priceType = UserDefaults.standard.string(forKey: Keys.priceType) else { return Currencies.getDefault() }
+        guard let priceType = UserDefaults.standard.string(forKey: Keys.priceName.rawValue)
+            else { return Currencies.getDefault() }
         return priceType
     }
     
     /// Check is notifications enable
     func isNotifEnable() -> Bool {
-        let isEnable = UserDefaults.standard.bool(forKey: Keys.notifEnable)
+        let isEnable = UserDefaults.standard.bool(forKey: Keys.notifEnable.rawValue)
         return isEnable
-    }
-    
-    /// Check is experimental
-    func isExperimental() -> Bool {
-        let isEnabled = UserDefaults.standard.bool(forKey: Keys.isExperimental)
-        return isEnabled
     }
 }

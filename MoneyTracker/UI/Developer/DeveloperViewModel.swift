@@ -9,13 +9,8 @@ import SwiftUI
 import Combine
 
 class DeveloperViewModel: BaseViewModel {
-    @Published var isExperimental: Bool = false {
-        didSet { storageManager.setExperimental(isEnable: isExperimental) }
-    }
-    
     /// Load all
     override func loadData() {
-        isExperimental = storageManager.isExperimental()
     }
     
     /// Add special payments

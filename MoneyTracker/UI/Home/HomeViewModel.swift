@@ -42,7 +42,6 @@ class HomeViewModel: BaseViewModel {
             .store(in: &publishers)
         
         self.priceType = self.storageManager.getPriceType()
-        self.isExperimental = self.storageManager.isExperimental()
     }
     
     /// Add new tag
