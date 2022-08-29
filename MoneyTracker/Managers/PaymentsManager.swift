@@ -14,6 +14,8 @@ struct PaymentsManager {
     /// Add new payment
     func addPayment(price: Float, about: String, tag: Tag? = nil) -> Payment {
         let tagName = (tag == nil ? "" : tag?.name)
+        
+        // make new payment
         let payment = Payment(context: viewContext)
         payment.price = Float(price)
         payment.about = about

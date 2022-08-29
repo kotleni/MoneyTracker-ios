@@ -51,35 +51,35 @@ class MathematicalExpression {
         
         var buff = ""
         line.forEach { char in
-            if char == "+" {
+            if char == "+" { // ADD
                 if let value = Float(buff.trim()) {
                     operators.append(NumberOperatorItem(value: value))
                     operators.append(LogicOperatorItem(type: .ADD))
                 }
                 
                 buff = ""
-            } else if char == "-" {
+            } else if char == "-" { // SUB
                 if let value = Float(buff.trim()) {
                     operators.append(NumberOperatorItem(value: value))
                     operators.append(LogicOperatorItem(type: .SUB))
                 }
                 
                 buff = ""
-            } else if char == "*" {
+            } else if char == "*" { // MUL
                 if let value = Float(buff.trim()) {
                     operators.append(NumberOperatorItem(value: value))
                     operators.append(LogicOperatorItem(type: .MUL))
                 }
                 
                 buff = ""
-            } else if char == "/" {
+            } else if char == "/" { // DIV
                 if let value = Float(buff.trim()) {
                     operators.append(NumberOperatorItem(value: value))
                     operators.append(LogicOperatorItem(type: .DIV))
                 }
                 
                 buff = ""
-            } else {
+            } else { // other
                 buff.append(char)
             }
         }
@@ -107,6 +107,7 @@ class MathematicalExpression {
         guard let item = (operators[0] as? NumberOperatorItem) else { throw MathExpressionError.invalidExpression }
         var sum: Float = item.value
         
+        // foreach all operators
         while index < operators.count - 1 {
             let opera = operators[index]
             
@@ -127,7 +128,7 @@ class MathematicalExpression {
                 case .DIV:
                     sum /= opNext.value
                     break
-                default:
+                case .NUM: // number not allowed here
                     throw MathExpressionError.invalidOperator(opera.type.rawValue)
                 }
             }
