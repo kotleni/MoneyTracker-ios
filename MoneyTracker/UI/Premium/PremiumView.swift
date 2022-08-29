@@ -67,9 +67,29 @@ struct PremiumView: View {
                 .foregroundColor(Color("AccentColor"))
             }
             
-            Text("label_subscribe".localized)
-                .font(.system(size: 14))
-                .opacity(0.6)
+            HStack {
+                Button {
+                    guard let url = URL(string: Static.policyUrl) else { return }
+                    UIApplication.shared.open(url)
+                } label: {
+                    Text("btn_policy".localized)
+                        .font(.system(size: 14))
+                        .foregroundColor(.blue)
+                        .opacity(0.9)
+                }
+                Text("&")
+                    .font(.system(size: 14))
+                    .foregroundColor(.blue)
+                Button {
+                    guard let url = URL(string: Static.termsUrl) else { return }
+                    UIApplication.shared.open(url)
+                } label: {
+                    Text("btn_terms".localized)
+                        .font(.system(size: 14))
+                        .foregroundColor(.blue)
+                        .opacity(0.9)
+                }
+            }
         }
         .padding()
         .navigationTitle("title_premium".localized)

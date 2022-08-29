@@ -33,7 +33,7 @@ struct SettingsView: View {
                                 }, value: nil, isLocked: false)
                             }
                         } header: {
-                            Text("Полная версия")
+                            Text("label_fullversion".localized)
                         }
                     }
 

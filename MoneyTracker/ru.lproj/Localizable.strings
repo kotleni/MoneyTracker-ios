@@ -17,7 +17,6 @@
 
 /* НАСТРОЙКИ */
 "title_settings" = "Настройки";
-"label_subscribe" = "Вы сможете отменить подписку в любой момент";
 "label_shopnotavailable" = "Продукт не доступен";
 "btn_premium" = "Премиум подписка";
 "title_premium" = "Премиум подписка";
@@ -124,6 +123,7 @@
 
 "label_loading" = "Загрузка...";
 "label_adbanner" = "Реклама";
+"label_fullversion" = "Полная версия";
 
 /* ERRORS */
 
