@@ -67,6 +67,9 @@ struct PremiumView: View {
                 .foregroundColor(Color("AccentColor"))
             }
             
+            Divider()
+                .background(Color("AccentColor"))
+            
             HStack {
                 Button {
                     guard let url = URL(string: Static.policyUrl) else { return }
@@ -74,22 +77,23 @@ struct PremiumView: View {
                 } label: {
                     Text("btn_policy".localized)
                         .font(.system(size: 14))
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color("AccentColor"))
                         .opacity(0.9)
                 }
                 Text("&")
                     .font(.system(size: 14))
-                    .foregroundColor(.blue)
+                    .foregroundColor(.orange)
                 Button {
                     guard let url = URL(string: Static.termsUrl) else { return }
                     UIApplication.shared.open(url)
                 } label: {
                     Text("btn_terms".localized)
                         .font(.system(size: 14))
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color("AccentColor"))
                         .opacity(0.9)
                 }
             }
+            .padding(8)
         }
         .padding()
         .navigationTitle("title_premium".localized)
