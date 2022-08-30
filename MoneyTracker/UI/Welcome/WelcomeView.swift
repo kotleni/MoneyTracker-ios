@@ -14,10 +14,9 @@ struct WelcomeView: View {
     var body: some View {
         VStack {
             Spacer()
-            Image(uiImage: UIImage(named: "AppIconRaw") ?? UIImage())
+            Image("AppIconRaw")
                 .resizable()
                 .frame(width: 110, height: 110)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
                 .padding(.top, 8)
                 .padding(.bottom, 8)
             Text("label_hello".localized)
