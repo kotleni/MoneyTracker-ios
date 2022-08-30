@@ -131,4 +131,8 @@
 "networkingerror_unknown" = "Unknown error";
 "currencieserror_notfounded" = "Currency not founded";
 "mathexpressionerror_invalid" = "Invalid expression";
-"mathexpressionerror_invalidoperator" = "Invalid operator %@";"
+"mathexpressionerror_invalidoperator" = "Invalid operator %@";
+
+"btn_startusign" = "Start using";
+"label_hello" = "Hello!";
+"label_hello2" = "Welcome to MoneyTracker, the best way for tracking your money.";

@@ -14,19 +14,22 @@ final class HomeCoordinator: NavigationCoordinatable {
     // viewModels
     private let homeViewModel: HomeViewModel
     private let addPaymentViewModel: AddPaymentViewModel
+    private let welcomeViewModel: WelcomeViewModel
     
     var stack = NavigationStack(initial: \HomeCoordinator.main)
     
     init(managersContainer: ManagersContainer) {
         self.managersContainer = managersContainer
         
-        // viewModels
-        homeViewModel = HomeViewModel.init(managersContainer: managersContainer)
-        addPaymentViewModel = AddPaymentViewModel.init(managersContainer: managersContainer)
+        // view models
+        homeViewModel = .init(managersContainer: managersContainer)
+        addPaymentViewModel = .init(managersContainer: managersContainer)
+        welcomeViewModel = .init(managersContainer: managersContainer)
     }
     
     @Root var main = makeMain
     @Route(.push) var addPayments = makeAddPayments
+    @Route(.modal) var welcome = makeWelcome
     
     @ViewBuilder func makeMain() -> some View {
         HomeView(viewModel: homeViewModel)
@@ -34,5 +37,9 @@ final class HomeCoordinator: NavigationCoordinatable {
     
     @ViewBuilder func makeAddPayments() -> some View {
         AddPaymentView(viewModel: addPaymentViewModel)
+    }
+    
+    @ViewBuilder func makeWelcome() -> some View {
+        WelcomeView(viewModel: welcomeViewModel)
     }
 }

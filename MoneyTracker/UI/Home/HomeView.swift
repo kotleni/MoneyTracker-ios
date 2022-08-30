@@ -65,12 +65,19 @@ struct HomeView: View {
                     } header: {
                         Text("label_payments".localized)
                     }
+                    .onAppear {
+                        if viewModel.storageManager.getRunsCount() == 0 {
+                            router.route(to: \.welcome)
+                        }
+                    }
                 }
             }
             
         }
         .navigationTitle("title_home".localized)
-        .onAppear { viewModel.loadData() }
+        .onAppear {
+            viewModel.loadData()
+        }
     }
 }
 

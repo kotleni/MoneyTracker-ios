@@ -131,4 +131,8 @@
 "networkingerror_unknown" = "Неизвестная ошибка";
 "currencieserror_notfounded" = "Валюта не найдена";
 "mathexpressionerror_invalid" = "Неверное выражение";
-"mathexpressionerror_invalidoperator" = "Неверный оператор %@";"
+"mathexpressionerror_invalidoperator" = "Неверный оператор %@";
+
+"btn_startusign" = "Начать использовать";
+"label_hello" = "Привет!";
+"label_hello2" = "Добро пожаловать в MoneyTracker, лучший способ отслеживания ваших денег.";
