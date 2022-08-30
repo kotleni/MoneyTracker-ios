@@ -20,15 +20,14 @@ struct WelcomeView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .padding(.top, 8)
                 .padding(.bottom, 8)
-                .animation(.spring(response: 1, dampingFraction: 2, blendDuration: 3).repeatForever())
             Text("label_hello".localized)
                 .font(.system(size: 22).bold())
-                .padding(.top, 8).animation(.spring(response: 1, dampingFraction: 2, blendDuration: 3).repeatForever())
+                .padding(.top, 8)
             Text("label_hello2".localized)
                 .multilineTextAlignment(.center)
                 .font(.system(size: 17))
                 .padding(.top, 1)
-                .padding(.bottom, 16).animation(.spring(response: 1, dampingFraction: 2, blendDuration: 3).repeatForever())
+                .padding(.bottom, 16)
             
             Spacer()
             

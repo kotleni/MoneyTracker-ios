@@ -66,7 +66,7 @@ struct HomeView: View {
                         Text("label_payments".localized)
                     }
                     .onAppear {
-                        if viewModel.storageManager.getRunsCount() == 0 {
+                        if viewModel.storageManager.getRunsCount() == 1 {
                             router.route(to: \.welcome)
                         }
                     }

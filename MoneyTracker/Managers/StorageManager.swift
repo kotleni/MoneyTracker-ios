@@ -29,7 +29,7 @@ final class StorageManager {
     /// Increase app runs count
     func increaseRunsCount() {
         let runsCount = getRunsCount()
-        UserDefaults.standard.set(runsCount + 1, forKey: Keys.notifEnable.rawValue)
+        UserDefaults.standard.set(runsCount + 1, forKey: Keys.runsCount.rawValue)
     }
     
     /// Get price type
