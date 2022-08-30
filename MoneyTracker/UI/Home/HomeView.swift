@@ -8,6 +8,9 @@
 import SwiftUI
 import PieChart
 
+// MARK: fixme
+var isFirstHomeOpen = true
+
 struct HomeView: View {
     // objects
     @EnvironmentObject var router: HomeCoordinator.Router
@@ -66,8 +69,9 @@ struct HomeView: View {
                         Text("label_payments".localized)
                     }
                     .onAppear {
-                        if viewModel.storageManager.getRunsCount() == 1 {
+                        if viewModel.storageManager.getRunsCount() == 1 && isFirstHomeOpen {
                             router.route(to: \.welcome)
+                            isFirstHomeOpen = false
                         }
                     }
                 }
