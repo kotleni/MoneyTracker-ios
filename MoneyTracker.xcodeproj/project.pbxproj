@@ -15,7 +15,6 @@
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
 		5A0952B4287E959C006CCE2D /* CurrencyEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952B3287E959C006CCE2D /* CurrencyEditorView.swift */; };
 		5A0EF6ED289562A5009470DB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0EF6EC289562A5009470DB /* StoreKit.framework */; };
-		5A14B3B928B51F2900F2116F /* PieChart in Frameworks */ = {isa = PBXBuildFile; productRef = 5A14B3B828B51F2900F2116F /* PieChart */; };
 		5A19B981288331A200C27056 /* TagsEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B980288331A200C27056 /* TagsEditorView.swift */; };
 		5A19B983288333F000C27056 /* TagsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B982288333F000C27056 /* TagsManager.swift */; };
 		5A19B985288335FB00C27056 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A19B984288335FB00C27056 /* Tag.swift */; };
@@ -250,7 +249,6 @@
 				5A4CEC4828B8F678004D387A /* SwiftyJSON in Frameworks */,
 				5AF8B6D728B0E60E00D76AEC /* GoogleMobileAds in Frameworks */,
 				B4043A132898F840009DB652 /* OpenSSL in Frameworks */,
-				5A14B3B928B51F2900F2116F /* PieChart in Frameworks */,
 				5A3A6564288570DA0097B179 /* Stinsen in Frameworks */,
 				5A0EF6ED289562A5009470DB /* StoreKit.framework in Frameworks */,
 			);
@@ -619,7 +617,6 @@
 				5A3A6563288570DA0097B179 /* Stinsen */,
 				B4043A122898F840009DB652 /* OpenSSL */,
 				5AF8B6D628B0E60E00D76AEC /* GoogleMobileAds */,
-				5A14B3B828B51F2900F2116F /* PieChart */,
 				5A4CEC4728B8F678004D387A /* SwiftyJSON */,
 			);
 			productName = MoneyTracker;
@@ -659,7 +656,6 @@
 				5A3A6562288570DA0097B179 /* XCRemoteSwiftPackageReference "stinsen" */,
 				B4043A112898F840009DB652 /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				5AF8B6D528B0E60E00D76AEC /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
-				5A14B3B728B51F2900F2116F /* XCRemoteSwiftPackageReference "PieChart-SwiftUI" */,
 				5A4CEC4628B8F678004D387A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = B4D501212869A87A0065EB4D /* Products */;
@@ -1084,14 +1080,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5A14B3B728B51F2900F2116F /* XCRemoteSwiftPackageReference "PieChart-SwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kotleni/PieChart-SwiftUI";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		5A3A6562288570DA0097B179 /* XCRemoteSwiftPackageReference "stinsen" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rundfunk47/stinsen";
@@ -1127,11 +1115,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5A14B3B828B51F2900F2116F /* PieChart */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5A14B3B728B51F2900F2116F /* XCRemoteSwiftPackageReference "PieChart-SwiftUI" */;
-			productName = PieChart;
-		};
 		5A3A6563288570DA0097B179 /* Stinsen */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5A3A6562288570DA0097B179 /* XCRemoteSwiftPackageReference "stinsen" */;
