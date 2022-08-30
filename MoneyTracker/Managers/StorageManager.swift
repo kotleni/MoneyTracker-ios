@@ -13,6 +13,7 @@ final class StorageManager {
     enum Keys: String {
         case priceName = "price_type"
         case notifEnable = "notif_enable"
+        case runsCount = "runs_count"
     }
     
     /// Set price type
@@ -23,6 +24,12 @@ final class StorageManager {
     /// Set notifications enable
     func setNotifEnable(isEnable: Bool) {
         UserDefaults.standard.set(isEnable, forKey: Keys.notifEnable.rawValue)
+    }
+    
+    /// Increase app runs count
+    func increaseRunsCount() {
+        let runsCount = getRunsCount()
+        UserDefaults.standard.set(runsCount + 1, forKey: Keys.runsCount.rawValue)
     }
     
     /// Get price type
@@ -36,5 +43,11 @@ final class StorageManager {
     func isNotifEnable() -> Bool {
         let isEnable = UserDefaults.standard.bool(forKey: Keys.notifEnable.rawValue)
         return isEnable
+    }
+    
+    /// Get app runs count
+    func getRunsCount() -> Int {
+        let runsCount = UserDefaults.standard.integer(forKey: Keys.runsCount.rawValue)
+        return runsCount
     }
 }

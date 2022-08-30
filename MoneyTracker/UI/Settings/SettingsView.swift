@@ -26,14 +26,14 @@ struct SettingsView: View {
                         Section {
                             HStack {
                                 Image(systemName: "star")
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(Color("AccentColor"))
                                 // premium
                                 SettingsItemView(title: "btn_premium".localized, action: {
                                     showPremium()
                                 }, value: nil, isLocked: false)
                             }
                         } header: {
-                            Text("Полная версия")
+                            Text("label_fullversion".localized)
                         }
                     }
 

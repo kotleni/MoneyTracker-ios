@@ -17,7 +17,6 @@
 
 /* НАСТРОЙКИ */
 "title_settings" = "Настройки";
-"label_subscribe" = "Вы сможете отменить подписку в любой момент";
 "label_shopnotavailable" = "Продукт не доступен";
 "btn_premium" = "Премиум подписка";
 "title_premium" = "Премиум подписка";
@@ -124,6 +123,7 @@
 
 "label_loading" = "Загрузка...";
 "label_adbanner" = "Реклама";
+"label_fullversion" = "Полная версия";
 
 /* ERRORS */
 
@@ -131,4 +131,8 @@
 "networkingerror_unknown" = "Неизвестная ошибка";
 "currencieserror_notfounded" = "Валюта не найдена";
 "mathexpressionerror_invalid" = "Неверное выражение";
-"mathexpressionerror_invalidoperator" = "Неверный оператор %@";"
+"mathexpressionerror_invalidoperator" = "Неверный оператор %@";
+
+"btn_startusign" = "Начать использовать";
+"label_hello" = "Привет!";
+"label_hello2" = "Добро пожаловать в MoneyTracker, лучший способ отслеживания ваших денег.";

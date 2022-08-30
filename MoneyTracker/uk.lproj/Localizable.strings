@@ -17,7 +17,6 @@
 
 /* SETTINGS */
 "title_settings" = "Налаштування";
-"label_subscribe" = "Ви зможете скасувати підписку будь-якої миті";
 "label_shopnotavailable" = "Продукт недоступний";
 "btn_premium" = "Преміум передплата";
 "title_premium" = "Преміум передплата";
@@ -124,6 +123,7 @@
 
 "label_loading" = "Завантаження...";
 "label_adbanner" = "Реклама";
+"label_fullversion" = "Повна версія";
     
 /* ERRORS */
 
@@ -131,4 +131,8 @@
 "networkingerror_unknown" = "Невідома помилка";
 "currencieserror_notfounded" = "Валюта не знайдена";
 "mathexpressionerror_invalid" = "Невірний вираз";
-"mathexpressionerror_invalidoperator" = "Невірний оператор %@";"
+"mathexpressionerror_invalidoperator" = "Невірний оператор %@";
+
+"btn_startusign" = "Почати використання";
+"label_hello" = "Привіт!";
+"label_hello2" = "Ласкаво просимо до MoneyTracker, найкращого способу відстеження ваших грошей.";

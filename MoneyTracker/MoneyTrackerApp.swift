@@ -43,6 +43,12 @@ struct MoneyTrackerApp: App {
         storeManager.requestProducts()
         appDelegate.store = storeManager
         appDelegate.keychainManager = keychainManager
+        
+        storageManager.increaseRunsCount()
+        
+#if DEBUG
+        print("App runs count: \(storageManager.getRunsCount())")
+#endif
     }
     
     var body: some Scene {

@@ -52,22 +52,6 @@ struct AboutAppView: View {
                     } label: {
                         Text("btn_appingithub".localized)
                     }
-                    
-                    // policy
-                    Button {
-                        guard let url = URL(string: Static.policyUrl) else { return }
-                        UIApplication.shared.open(url)
-                    } label: {
-                        Text("btn_policy".localized)
-                    }
-                    
-                    // terms
-                    Button {
-                        guard let url = URL(string: Static.termsUrl) else { return }
-                        UIApplication.shared.open(url)
-                    } label: {
-                        Text("btn_terms".localized)
-                    }
                 } header: {
                     Text("label_links".localized)
                 }

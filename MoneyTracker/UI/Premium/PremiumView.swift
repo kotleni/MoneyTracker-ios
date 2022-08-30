@@ -50,7 +50,7 @@ struct PremiumView: View {
                     }
                     .padding(8)
                     .foregroundColor(.white)
-                    .background(RoundedRectangle(cornerRadius: 12).fill(.blue))
+                    .background(RoundedRectangle(cornerRadius: 12).fill(Color("AccentColor")))
                 }
             }
             .padding(.leading, 8)
@@ -64,12 +64,36 @@ struct PremiumView: View {
                         .font(.system(size: 17))
                 }
                 .padding(8)
-                .foregroundColor(.blue)
+                .foregroundColor(Color("AccentColor"))
             }
             
-            Text("label_subscribe".localized)
-                .font(.system(size: 14))
-                .opacity(0.6)
+            Divider()
+                .background(Color("AccentColor"))
+            
+            HStack {
+                Button {
+                    guard let url = URL(string: Static.policyUrl) else { return }
+                    UIApplication.shared.open(url)
+                } label: {
+                    Text("btn_policy".localized)
+                        .font(.system(size: 14))
+                        .foregroundColor(Color("AccentColor"))
+                        .opacity(0.9)
+                }
+                Text("&")
+                    .font(.system(size: 14))
+                    .foregroundColor(.orange)
+                Button {
+                    guard let url = URL(string: Static.termsUrl) else { return }
+                    UIApplication.shared.open(url)
+                } label: {
+                    Text("btn_terms".localized)
+                        .font(.system(size: 14))
+                        .foregroundColor(Color("AccentColor"))
+                        .opacity(0.9)
+                }
+            }
+            .padding(8)
         }
         .padding()
         .navigationTitle("title_premium".localized)

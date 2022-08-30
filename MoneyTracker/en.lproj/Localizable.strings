@@ -17,7 +17,6 @@
 
 /* SETTINGS */
 "title_settings" = "Settings";
-"label_subscribe" = "You can cancel your subscription at any time";
 "label_shopnotavailable" = "Product is not available";
 "btn_premium" = "Premium subscribe";
 "title_premium" = "Premium subscribe";
@@ -124,6 +123,7 @@
 
 "label_loading" = "Loading...";
 "label_adbanner" = "Ad";
+"label_fullversion" = "Full version";
 
 /* ERRORS */
 
@@ -131,4 +131,8 @@
 "networkingerror_unknown" = "Unknown error";
 "currencieserror_notfounded" = "Currency not founded";
 "mathexpressionerror_invalid" = "Invalid expression";
-"mathexpressionerror_invalidoperator" = "Invalid operator %@";"
+"mathexpressionerror_invalidoperator" = "Invalid operator %@";
+
+"btn_startusign" = "Start using";
+"label_hello" = "Hello!";
+"label_hello2" = "Welcome to MoneyTracker, the best way for tracking your money.";

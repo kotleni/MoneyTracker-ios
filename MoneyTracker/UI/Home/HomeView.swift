@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
-import PieChart
+
+// MARK: fixme
+var isFirstHomeOpen = true
 
 struct HomeView: View {
     // objects
@@ -34,14 +36,6 @@ struct HomeView: View {
                             totalIncome: viewModel.balance.income,
                             totalOutcome: viewModel.balance.outcome,
                             priceType: viewModel.priceType)
-                        
-                        if (viewModel.balance.income + viewModel.balance.outcome) != 0 {
-                            PieChart(radius: 36, items: [
-                                ChartItem(name: "label_expenses".localized, value: abs(Double(viewModel.balance.outcome)), color: Color(red: 0/255, green: 109/255, blue: 255/255)),
-                                ChartItem(name: "label_income".localized, value: Double(viewModel.balance.income), color: Color(red: 45/255, green: 192/255, blue: 79/255))
-                            ])
-                            .frame(height: 110)
-                        }
                     } header: {
                         Text("label_statistic".localized)
                     }
@@ -65,12 +59,20 @@ struct HomeView: View {
                     } header: {
                         Text("label_payments".localized)
                     }
+                    .onAppear {
+                        if viewModel.storageManager.getRunsCount() == 1 && isFirstHomeOpen {
+                            router.route(to: \.welcome)
+                            isFirstHomeOpen = false
+                        }
+                    }
                 }
             }
             
         }
         .navigationTitle("title_home".localized)
-        .onAppear { viewModel.loadData() }
+        .onAppear {
+            viewModel.loadData()
+        }
     }
 }
 
