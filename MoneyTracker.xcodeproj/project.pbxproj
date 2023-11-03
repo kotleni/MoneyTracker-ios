@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5A00F44C287EBE4E00A4820A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44B287EBE4E00A4820A /* Currency.swift */; };
 		5A00F44E287EBF2700A4820A /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44D287EBF2700A4820A /* Currencies.swift */; };
-		5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F44F287EC72400A4820A /* SearchBarView.swift */; };
 		5A00F45A287EDA0100A4820A /* ValidatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F459287EDA0100A4820A /* ValidatorsTests.swift */; };
 		5A00F46C287F313700A4820A /* PaymentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00F46B287F313700A4820A /* PaymentItemView.swift */; };
 		5A0952B0287E0423006CCE2D /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0952AF287E0423006CCE2D /* NotificationsManager.swift */; };
@@ -132,7 +131,6 @@
 /* Begin PBXFileReference section */
 		5A00F44B287EBE4E00A4820A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		5A00F44D287EBF2700A4820A /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
-		5A00F44F287EC72400A4820A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		5A00F457287EDA0100A4820A /* MoneyTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A00F459287EDA0100A4820A /* ValidatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorsTests.swift; sourceTree = "<group>"; };
 		5A00F462287EDE0800A4820A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -437,7 +435,6 @@
 				5A2383F4288EAF7900DD60DE /* CurrencyEditor */,
 				5AFA66D92883067200088D53 /* Home */,
 				5AFA66D82883065C00088D53 /* Settings */,
-				5A00F44F287EC72400A4820A /* SearchBarView.swift */,
 				5AF8B6D828B0E82800D76AEC /* AdBanner.swift */,
 				5A8A058E28BDE56600647E7D /* AppIcon.swift */,
 			);
@@ -739,7 +736,6 @@
 				5A7E84E428AF78DB00715093 /* ExportablePayment.swift in Sources */,
 				B4D5013D2869AAB10065EB4D /* Model.xcdatamodeld in Sources */,
 				5A4CEC4A28B8F6BC004D387A /* URLSession.swift in Sources */,
-				5A00F450287EC72400A4820A /* SearchBarView.swift in Sources */,
 				5A3A7F7A28BA52D600F1E708 /* NetworkingError.swift in Sources */,
 				5A46042F289073BD00E4A411 /* NotificationsViewModel.swift in Sources */,
 				5A7E84E628AF7AEF00715093 /* JsonDocument.swift in Sources */,
