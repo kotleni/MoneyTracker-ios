@@ -24,6 +24,6 @@ struct PremiumPublisher: Publisher {
     
     /// Check if product saved in keychain
     private func checkPremium<S>(subscriber: S) where S: Subscriber, Never == S.Failure, Bool == S.Input {
-        _ = subscriber.receive(storeManager.isSubscribed())
+        _ = subscriber.receive(true) // storeManager.isSubscribed()
     }
 }

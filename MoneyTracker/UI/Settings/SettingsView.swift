@@ -94,28 +94,28 @@ struct SettingsView: View {
                         Text("settings_other".localized)
                     }
                     
-                    if !viewModel.isPremium && !viewModel.isAdError {
-                        Section {
-                            ZStack {
-                                AdBanner(onUpdate: { isSuccess in
-                                    if isSuccess {
-                                        viewModel.setAdLoaded(isLoaded: true)
-                                    } else {
-                                        viewModel.setAdError(isError: true)
-                                    }
-                                })
-                                .if(viewModel.isAdLoaded) { banner in
-                                    banner.frame(height: 100)
-                                }
-                                
-                                if !viewModel.isAdLoaded {
-                                    ProgressView()
-                                }
-                            }
-                        } header: {
-                            Text("label_adbanner".localized)
-                        }
-                    }
+//                    if !viewModel.isPremium && !viewModel.isAdError {
+//                        Section {
+//                            ZStack {
+//                                AdBanner(onUpdate: { isSuccess in
+//                                    if isSuccess {
+//                                        viewModel.setAdLoaded(isLoaded: true)
+//                                    } else {
+//                                        viewModel.setAdError(isError: true)
+//                                    }
+//                                })
+//                                .if(viewModel.isAdLoaded) { banner in
+//                                    banner.frame(height: 100)
+//                                }
+//                                
+//                                if !viewModel.isAdLoaded {
+//                                    ProgressView()
+//                                }
+//                            }
+//                        } header: {
+//                            Text("label_adbanner".localized)
+//                        }
+//                    }
                 }
                 .background(Color("MainBackground"))
                 .toast(message: toastText, isShowing: $isShowToast, config: .init())
