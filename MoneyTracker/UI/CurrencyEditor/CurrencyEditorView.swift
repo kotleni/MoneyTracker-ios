@@ -15,10 +15,10 @@ struct CurrencyEditorView: View {
     
     var body: some View {
         VStack {
-            SearchBarView(text: $filterText, hint: "hint_search".localized)
-                .onChange(of: filterText) { _ in
-                    viewModel.updateFilter(filterString: filterText)
-                }
+//            SearchBarView(text: $filterText, hint: "hint_search".localized)
+//                .onChange(of: filterText) { _ in
+//                    viewModel.updateFilter(filterString: filterText)
+//                }
             
             if viewModel.isLoading {
                 ProgressView()
@@ -88,6 +88,7 @@ struct CurrencyEditorView: View {
                 Spacer()
             }
         }
+        .searchable(text: $filterText, placement: .navigationBarDrawer(displayMode: .always), prompt: "hint_search".localized)
         .background(Color("MainBackground"))
         .navigationBarTitle("title_selcurrency".localized, displayMode: .inline)
         .onAppear { viewModel.loadData() }
