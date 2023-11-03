@@ -38,12 +38,12 @@ struct AboutAppView: View {
                 
                 Section {
                     // appstore btn
-                    Button {
-                        guard let url = URL(string: Static.appstoreUrl) else { return }
-                        UIApplication.shared.open(url)
-                    } label: {
-                        Text("btn_appinappstore".localized)
-                    }
+//                    Button {
+//                        guard let url = URL(string: Static.appstoreUrl) else { return }
+//                        UIApplication.shared.open(url)
+//                    } label: {
+//                        Text("btn_appinappstore".localized)
+//                    }
                     
                     // github btn
                     Button {
