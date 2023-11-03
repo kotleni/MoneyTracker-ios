@@ -15,11 +15,6 @@ struct CurrencyEditorView: View {
     
     var body: some View {
         VStack {
-//            SearchBarView(text: $filterText, hint: "hint_search".localized)
-//                .onChange(of: filterText) { _ in
-//                    viewModel.updateFilter(filterString: filterText)
-//                }
-            
             if viewModel.isLoading {
                 ProgressView()
             } else {
