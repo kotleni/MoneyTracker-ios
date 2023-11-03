@@ -2,7 +2,7 @@
 //  static.swift
 //  MoneyTracker
 //
-//  Created by Victor Varenik on 12.07.2022.
+//  Created by Viktor Varenik on 12.07.2022.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ final class Static {
     
     // developers list
     static let developers: [Developer] = [
-        Developer(name: "Victor Varenik", about: "label_developermain".localized, url: "https://github.com/kotleni"),
+        Developer(name: "Viktor Varenik", about: "label_developermain".localized, url: "https://github.com/kotleni"),
         Developer(name: "Mark Hmelnitsky", about: "label_developercontr".localized, url: "https://github.com/openmetrue")
     ]
     

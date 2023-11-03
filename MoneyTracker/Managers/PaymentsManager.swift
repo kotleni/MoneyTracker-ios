@@ -2,7 +2,7 @@
 //  CoreDataManager.swift
 //  MoneyTracker
 //
-//  Created by Victor Varenik on 23.06.2022.
+//  Created by Viktor Varenik on 23.06.2022.
 //
 
 import CoreData

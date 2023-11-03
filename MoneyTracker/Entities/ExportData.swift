@@ -2,7 +2,7 @@
 //  ExportData.swift
 //  MoneyTracker
 //
-//  Created by Victor Varenik on 20.08.2022.
+//  Created by Viktor Varenik on 20.08.2022.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  WelcomeViewModel.swift
 //  MoneyTracker
 //
-//  Created by Victor Varenik on 30.08.2022.
+//  Created by Viktor Varenik on 30.08.2022.
 //
 
 import SwiftUI

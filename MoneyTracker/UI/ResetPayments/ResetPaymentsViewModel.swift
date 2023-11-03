@@ -2,7 +2,7 @@
 //  ResetPaymentsViewModel.swift
 //  MoneyTracker
 //
-//  Created by Victor Varenik on 26.07.2022.
+//  Created by Viktor Varenik on 26.07.2022.
 //
 
 import SwiftUI

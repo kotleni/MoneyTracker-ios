@@ -2,7 +2,7 @@
 //  View.swift
 //  MoneyTracker
 //
-//  Created by Victor Varenik on 27.07.2022.
+//  Created by Viktor Varenik on 27.07.2022.
 //
 
 import SwiftUI

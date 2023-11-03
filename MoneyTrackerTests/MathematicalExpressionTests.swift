@@ -2,7 +2,7 @@
 //  MathematicalExpressionTests.swift
 //  MoneyTrackerTests
 //
-//  Created by Victor Varenik on 09.08.2022.
+//  Created by Viktor Varenik on 09.08.2022.
 //
 
 import Foundation

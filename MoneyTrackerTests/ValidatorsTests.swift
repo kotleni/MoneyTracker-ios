@@ -2,7 +2,7 @@
 //  ValidatorsTests.swift
 //  MoneyTrackerTests
 //
-//  Created by Victor Varenik on 13.07.2022.
+//  Created by Viktor Varenik on 13.07.2022.
 //
 
 import XCTest

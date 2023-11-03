@@ -2,7 +2,7 @@
 //  PremiumView.swift
 //  MoneyTracker
 //
-//  Created by Victor Varenik on 20.07.2022.
+//  Created by Viktor Varenik on 20.07.2022.
 //
 
 import SwiftUI
